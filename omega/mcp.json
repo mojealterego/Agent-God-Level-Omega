@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "omega-control-plane": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${PLUGIN_ROOT}/mcp/omega-control-plane/src/server.mjs"],
+      "cwd": "${PLUGIN_ROOT}/mcp/omega-control-plane"
+    }
+  }
+}

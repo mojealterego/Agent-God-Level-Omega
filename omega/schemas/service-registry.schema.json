@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Service Registration",
+  "type": "object",
+  "required": [
+    "id",
+    "endpoint",
+    "capabilities"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ttlMs": {
+      "type": "number",
+      "minimum": 1
+    },
+    "priority": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": true
+}

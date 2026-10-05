@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "payload",
+    "digest",
+    "signature",
+    "algorithm",
+    "zeroKnowledge"
+  ],
+  "properties": {
+    "payload": {},
+    "digest": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "algorithm": {
+      "const": "Ed25519"
+    },
+    "zeroKnowledge": {
+      "const": false
+    }
+  },
+  "additionalProperties": false
+}

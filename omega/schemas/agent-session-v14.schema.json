@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["id","agent","status","revision"],"properties":{"id":{"type":"string"},"agent":{"type":"string"},"status":{"enum":["RUNNING","PAUSED"]},"revision":{"type":"integer","minimum":0},"state":{"type":"object"},"checkpoints":{"type":"array"},"handoffs":{"type":"array"}}}

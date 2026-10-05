@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Pareto Candidate",
+  "type": "object",
+  "required": [
+    "id",
+    "m"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "m": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    }
+  }
+}

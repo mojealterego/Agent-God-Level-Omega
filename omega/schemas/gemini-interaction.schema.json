@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mojealterego.local/schemas/gemini-interaction.schema.json",
+  "title": "OMEGA Gemini interaction record",
+  "type": "object",
+  "required": ["provider", "mode", "status"],
+  "properties": {
+    "provider": {"const": "Gemini Interactions API"},
+    "mode": {"enum": ["model", "deep-research"]},
+    "interactionId": {"type": ["string", "null"]},
+    "status": {"type": "string"},
+    "projectId": {"type": ["string", "null"]},
+    "model": {"type": ["string", "null"]},
+    "agent": {"type": ["string", "null"]},
+    "vpnClaimed": {"const": false},
+    "libraryAccessClaimed": {"const": false}
+  },
+  "additionalProperties": true
+}

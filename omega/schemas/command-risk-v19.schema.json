@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"OMEGA Command Risk v19",
+  "type":"object",
+  "required":["risk","allowedAutonomous","reasons","argv"],
+  "properties":{
+    "risk":{"enum":["READ_ONLY","NETWORK_QUERY","NETWORK_OBSERVATION","LOCAL_MUTATION","NETWORK_ACTIVE","CREDENTIAL_OR_EXPLOIT","DESTRUCTIVE","UNKNOWN"]},
+    "allowedAutonomous":{"type":"boolean"},
+    "reasons":{"type":"array","items":{"type":"string"}},
+    "argv":{"type":"array","items":{"type":"string"}},
+    "decision":{"enum":["ALLOW","REVIEW","BLOCK"]},
+    "reason":{"type":"string"}
+  },
+  "additionalProperties":false
+}

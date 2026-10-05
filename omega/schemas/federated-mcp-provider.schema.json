@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Federated MCP Provider",
+  "type": "object",
+  "required": [
+    "id",
+    "endpoint"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "headers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "headerEnv": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "auth": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "env"
+          ],
+          "properties": {
+            "type": {
+              "const": "bearer-env"
+            },
+            "env": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "clientIdEnv",
+            "clientSecretEnv"
+          ],
+          "properties": {
+            "type": {
+              "const": "client-credentials-env"
+            },
+            "clientIdEnv": {
+              "type": "string",
+              "minLength": 1
+            },
+            "clientSecretEnv": {
+              "type": "string",
+              "minLength": 1
+            },
+            "expectedIssuer": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

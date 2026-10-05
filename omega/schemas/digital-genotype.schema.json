@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Digital Genotype",
+  "type": "object",
+  "required": [
+    "id",
+    "genes",
+    "generation"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "genes": {
+      "type": "object"
+    },
+    "parentId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "mutation": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

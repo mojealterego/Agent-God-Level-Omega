@@ -1,0 +1,2 @@
+torch>=2.8
+titans-pytorch==0.5.5

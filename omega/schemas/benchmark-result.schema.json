@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Benchmark Result",
+  "type": "object",
+  "required": ["candidateId", "admitted", "failedGates", "metrics", "samples"],
+  "properties": {
+    "candidateId": {"type": "string"},
+    "admitted": {"type": "boolean"},
+    "failedGates": {"type": "array", "items": {"type": "string"}},
+    "metrics": {"type": "object"},
+    "samples": {"type": "array"}
+  },
+  "additionalProperties": true
+}

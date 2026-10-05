@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "format",
+    "output"
+  ],
+  "properties": {
+    "format": {
+      "enum": [
+        "docx",
+        "pdf",
+        "xlsx",
+        "pptx"
+      ]
+    },
+    "output": {
+      "type": "string"
+    },
+    "spec": {
+      "type": "object"
+    }
+  }
+}

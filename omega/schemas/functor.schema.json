@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "source",
+    "target",
+    "objectMap",
+    "morphismMap"
+  ],
+  "properties": {
+    "source": {
+      "type": "object"
+    },
+    "target": {
+      "type": "object"
+    },
+    "objectMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "morphismMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

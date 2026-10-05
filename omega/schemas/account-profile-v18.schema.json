@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA ASGARD Account Profile v18",
+  "type": "object",
+  "required": ["id", "provider", "transport"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "provider": {"enum": ["GEMINI", "CHATGPT", "GITHUB", "GITLAB", "GOOGLE", "MICROSOFT", "OTHER"]},
+    "transport": {"enum": ["ENV_API_KEY", "HOST_PROFILE", "GH_CONFIG_DIR", "ENV_TOKEN", "HOST_CONNECTOR", "MCP_FEDERATION"]},
+    "accountLabel": {"type": "string"},
+    "authorized": {"type": "boolean"},
+    "active": {"type": "boolean"},
+    "capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "scopes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "secretEnvRef": {"type": ["string", "null"]},
+    "profileRef": {"type": ["string", "null"]},
+    "connectorRef": {"type": ["string", "null"]},
+    "priority": {"type": "number"},
+    "maxConcurrency": {"type": "integer", "minimum": 1, "maximum": 32},
+    "rateLimitPerMinute": {"type": "number", "exclusiveMinimum": 0},
+    "health": {"enum": ["UNKNOWN", "HEALTHY", "DEGRADED", "DOWN"]}
+  },
+  "additionalProperties": true
+}

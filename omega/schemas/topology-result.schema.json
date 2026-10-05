@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "vertices",
+    "edges",
+    "betti0",
+    "betti1Graph",
+    "fullPersistentHomologyClaimed"
+  ],
+  "properties": {
+    "vertices": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "edges": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "betti0": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "betti1Graph": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "fullPersistentHomologyClaimed": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

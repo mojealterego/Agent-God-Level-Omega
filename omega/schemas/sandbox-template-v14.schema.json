@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["id"],"properties":{"id":{"type":"string"},"image":{"type":["string","null"]},"runtimeClass":{"type":"string"},"network":{"type":"string"},"cpu":{"type":"number"},"memoryMb":{"type":"number"},"ttlMs":{"type":"number"},"readOnlyRoot":{"type":"boolean"}}}

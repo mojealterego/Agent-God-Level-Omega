@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Adaptive Model Route",
+  "type": "object",
+  "required": ["capability", "complexity"],
+  "properties": {
+    "capability": {"type": "string"},
+    "complexity": {"type": "number", "minimum": 0, "maximum": 1},
+    "minQuality": {"type": "number", "minimum": 0, "maximum": 1},
+    "budget": {"type": "number", "minimum": 0}
+  },
+  "additionalProperties": true
+}

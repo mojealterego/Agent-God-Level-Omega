@@ -1,0 +1,9 @@
+{
+  "version": 4,
+  "original_artifact": "omega-omni-cognitive-engineering-v4.zip",
+  "bytes": 111550,
+  "sha256": "1a69061b64b7292a7398ad07d108a7e1558d4610eb47cb03b04580667e36dad5",
+  "exact_binary_committed": false,
+  "reason": "Archive identity/checksum preserved; canonical cumulative source is committed under omega/.",
+  "plugin_creator_releases": []
+}

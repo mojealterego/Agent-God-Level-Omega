@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Technology Radar Entry",
+  "type": "object",
+  "required": [
+    "id",
+    "ring"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "ring": {
+      "enum": [
+        "ADOPT",
+        "TRIAL",
+        "ASSESS",
+        "HOLD"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

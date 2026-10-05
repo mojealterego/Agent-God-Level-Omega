@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Adversarial Gate Result",
+  "type": "object",
+  "required": [
+    "candidateId",
+    "decision",
+    "reasons"
+  ],
+  "properties": {
+    "candidateId": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "ACCEPT",
+        "CORRECT",
+        "RETRY",
+        "RETRIEVE_EVIDENCE",
+        "ESCALATE"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Checkpoint",
+  "type": "object",
+  "required": [
+    "mission_id",
+    "repository",
+    "branch",
+    "revision",
+    "completed_predicates",
+    "open_predicates"
+  ],
+  "properties": {
+    "mission_id": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "completed_predicates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_predicates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "current_failure": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "artifact_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ci_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

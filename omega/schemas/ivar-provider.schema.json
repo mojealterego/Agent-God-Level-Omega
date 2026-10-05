@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "kind",
+    "transport"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "transport": {
+      "enum": [
+        "HOST_ORCHESTRATION",
+        "MCP_FEDERATION"
+      ]
+    },
+    "providerId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "toolName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authorized": {
+      "type": "boolean"
+    }
+  }
+}

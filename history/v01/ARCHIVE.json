@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "original_artifact": "omega-omni-cognitive-engineering.zip",
+  "bytes": 34454,
+  "sha256": "e192a2759845fa184056333fbb32815a3d749adf64d322f86d24ebd80a81e74c",
+  "exact_binary_committed": false,
+  "reason": "Earliest surviving lineage artifact; no fabricated semantic-version binary.",
+  "plugin_creator_releases": []
+}

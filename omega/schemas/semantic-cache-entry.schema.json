@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Semantic Cache Entry",
+  "type": "object",
+  "required": [
+    "key",
+    "value"
+  ],
+  "properties": {
+    "key": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "value": {},
+    "ttlMs": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "provenance": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["id","title","scores","score","status"],"properties":{"id":{"type":"string"},"title":{"type":"string"},"category":{"type":"string"},"evidence":{"type":"array"},"scores":{"type":"object"},"score":{"type":"number","minimum":0,"maximum":1},"status":{"type":"string"}}}

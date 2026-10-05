@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Temporal Memory Query",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string"
+    },
+    "validAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "transactionAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    }
+  },
+  "additionalProperties": false
+}

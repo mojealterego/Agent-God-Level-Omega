@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mojealterego.example/schemas/reality-evidence-v20.json",
+  "type": "object",
+  "required": ["id", "state", "observedAt", "sha256"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "state": {"enum": ["OBSERVED", "VERIFIED", "INFERRED", "SPECULATIVE", "UNVERIFIED", "DISPROVEN", "UNKNOWN"]},
+    "kind": {"type": "string"},
+    "source": {"type": ["string", "null"]},
+    "sourceUri": {"type": ["string", "null"]},
+    "authorityClass": {"type": "string"},
+    "reliability": {"type": "number", "minimum": 0, "maximum": 1},
+    "deterministic": {"type": "boolean"},
+    "supports": {"type": "boolean"},
+    "observedAt": {"type": "string"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": true
+}

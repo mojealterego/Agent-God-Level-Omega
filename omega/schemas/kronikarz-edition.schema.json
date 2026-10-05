@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "brand",
+    "title",
+    "from",
+    "to",
+    "sections"
+  ],
+  "properties": {
+    "brand": {
+      "const": "Mojealterego News"
+    },
+    "title": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array"
+    }
+  }
+}

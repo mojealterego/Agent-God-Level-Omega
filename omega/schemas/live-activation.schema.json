@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Live Activation Checkpoint",
+  "type": "object",
+  "required": [
+    "version",
+    "activatedAt",
+    "state",
+    "completed",
+    "providers",
+    "imandra"
+  ],
+  "properties": {
+    "version": {
+      "const": 8
+    },
+    "activatedAt": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "ACTIVE",
+        "PARTIAL",
+        "BLOCKED"
+      ]
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "providers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "imandra": {
+      "type": "object"
+    },
+    "assurance": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

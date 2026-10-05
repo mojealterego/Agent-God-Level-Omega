@@ -1,0 +1,16 @@
+{
+  "version": 13,
+  "original_artifact": "omega-omni-cognitive-engineering-v13.zip",
+  "bytes": 381052,
+  "sha256": "9145e8b54c47e2e89025e58072f82f265e151230aba7a53add94e50218d83b81",
+  "exact_binary_committed": false,
+  "reason": "Archive identity/checksum preserved; canonical cumulative source is committed under omega/.",
+  "plugin_creator_releases": [
+    {
+      "release_id": "pluginrel_6ac3b1e5f3c88191951fc4c51b633bbf",
+      "version": "13.0.0",
+      "created_at": "2026-10-05T14:19:17.952377Z",
+      "is_current": false
+    }
+  ]
+}

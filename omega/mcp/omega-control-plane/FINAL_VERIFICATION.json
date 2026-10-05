@@ -1,0 +1,27 @@
+{
+  "version": "20.0.0",
+  "status": "DONE",
+  "test_suite": {
+    "passed": 338,
+    "failed": 0,
+    "total": 338
+  },
+  "reality_filter_v20": {
+    "claim_state_engine": true,
+    "persistent_evidence_ledger": true,
+    "source_of_truth_verifier": true,
+    "assertiveness_audit": true,
+    "prompt_injection_isolation": true,
+    "metacognitive_audit": true,
+    "code_completeness_audit": true,
+    "decision_trace_connected": true,
+    "kratos_connected": true,
+    "thor_final_release_gate": true,
+    "correction_ledger": true
+  },
+  "not_claimed": [
+    "hidden chain-of-thought access",
+    "host/system policy override",
+    "universal truth proof"
+  ]
+}

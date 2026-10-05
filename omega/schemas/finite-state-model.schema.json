@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "initial",
+    "transitions"
+  ],
+  "properties": {
+    "initial": {
+      "type": "string"
+    },
+    "transitions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "forbiddenStates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "maxStates": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

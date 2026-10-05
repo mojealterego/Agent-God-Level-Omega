@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Runtime Health",
+  "type": "object",
+  "required": [
+    "ready"
+  ],
+  "properties": {
+    "ready": {
+      "type": "boolean"
+    },
+    "providerId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "providerType": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "backend": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dependencies": {
+      "type": "object"
+    },
+    "error": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

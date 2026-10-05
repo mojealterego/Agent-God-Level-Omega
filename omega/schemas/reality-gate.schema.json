@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mojealterego.example/schemas/reality-gate-v20.json",
+  "type": "object",
+  "required": ["allowedDone", "status", "blockers", "reality"],
+  "properties": {
+    "allowedDone": {"type": "boolean"},
+    "status": {"enum": ["DONE_ELIGIBLE", "BLOCKED"]},
+    "blockers": {"type": "array", "items": {"type": "object", "required": ["code"]}},
+    "reality": {"type": "object", "required": ["score", "components"]},
+    "finalGate": {"type": "string"}
+  },
+  "additionalProperties": true
+}

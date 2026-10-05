@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "personRef",
+    "adultVerified"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "personRef": {
+      "type": "string"
+    },
+    "adultVerified": {
+      "type": "boolean"
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notarized": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Shadow Observation",
+  "type": "object",
+  "required": [
+    "baseline",
+    "candidate"
+  ],
+  "properties": {
+    "baseline": {
+      "type": "object"
+    },
+    "candidate": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "service",
+    "transport"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "accountLabel": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "transport": {
+      "enum": [
+        "HOST_CONNECTOR",
+        "MCP_FEDERATION"
+      ]
+    },
+    "providerId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "toolName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorized": {
+      "type": "boolean"
+    }
+  }
+}

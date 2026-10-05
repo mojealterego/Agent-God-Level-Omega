@@ -1,0 +1,9 @@
+{
+  "version": 0,
+  "original_artifact": "omega-level-synthesis-engine.zip",
+  "bytes": 6101,
+  "sha256": "e05a7bd6af3d6224f39c652f05125543ba52fe5824b95d933be2758bdd9eb45d",
+  "exact_binary_committed": false,
+  "reason": "Earliest surviving lineage artifact; no fabricated semantic-version binary.",
+  "plugin_creator_releases": []
+}

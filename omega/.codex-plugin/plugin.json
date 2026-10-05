@@ -1,0 +1,26 @@
+{
+  "interface": {
+    "displayName": "OMEGA Omni-Cognitive Engineering v20",
+    "shortDescription": "Reality Filter Kernel",
+    "longDescription": "Production-oriented OMEGA release adding a formal Reality Filter Kernel connected to the Evidence Ledger, source-of-truth verification, Decision Trace Audit, Kratos security checks and Thor finalization. It separates observed/verified facts from inference/speculation/unknowns, isolates external prompt injection, audits unsupported absolute language and metacognitive claims, checks production-code completeness, records corrections and blocks DONE when required evidence or release gates are missing.",
+    "developerName": "Moje Alterego",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive"
+    ],
+    "defaultPrompt": [
+      "Use OMEGA v9 to execute this engineering task end to end with observed evidence and maximum justified autonomy.",
+      "Use omega_meta_architect for negotiation/TCO, decision matrices, failure memory, drift, service discovery, DAG execution, latency budgets, confidence gates, shadow comparisons and knowledge graph operations.",
+      "Never claim online DPO, federated weight synchronization, hidden chain-of-thought auditing, or research-equivalent training unless a real external trainer or verifier actually performed it."
+    ]
+  },
+  "name": "omega-omni-cognitive-engineering-v2",
+  "version": "20.0.0",
+  "description": "High-autonomy engineering OS with OMEGA v20 Reality Filter Kernel: evidence-backed claim states, source-of-truth ranking, prompt-injection isolation, assertiveness/metacognitive/code audits and Thor final release gating.",
+  "author": {
+    "name": "Moje Alterego"
+  },
+  "keywords": [],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
+}

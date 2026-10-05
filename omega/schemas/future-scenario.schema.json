@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "signature",
+    "plan"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "plan": {},
+    "probability": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "additionalProperties": true
+}

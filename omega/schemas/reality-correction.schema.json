@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mojealterego.example/schemas/reality-correction-v20.json",
+  "type": "object",
+  "required": ["id", "statement", "reason", "createdAt", "template"],
+  "properties": {
+    "id": {"type": "string"},
+    "statement": {"type": "string", "minLength": 1},
+    "reason": {"type": "string", "minLength": 1},
+    "previousClaimId": {"type": ["string", "null"]},
+    "replacement": {},
+    "createdAt": {"type": "string"},
+    "template": {"type": "string"}
+  },
+  "additionalProperties": false
+}

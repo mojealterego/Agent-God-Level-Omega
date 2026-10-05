@@ -1,0 +1,13 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"OMEGA Diagnostic Playbook v19",
+  "type":"object",
+  "required":["playbook","steps"],
+  "properties":{
+    "playbook":{"type":"string"},
+    "target":{"type":["string","null"]},
+    "authorizedTarget":{"type":"boolean"},
+    "steps":{"type":"array","items":{"type":"object","required":["id","argv","classification"],"properties":{"id":{"type":"string"},"argv":{"type":"array","items":{"type":"string"}},"classification":{"$ref":"command-risk-v19.schema.json"}}}}
+  },
+  "additionalProperties":false
+}

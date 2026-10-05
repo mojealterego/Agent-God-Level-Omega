@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["id","goal","status","subtasks"],"properties":{"id":{"type":"string"},"goal":{"type":"string"},"status":{"type":"string"},"capabilities":{"type":"array","items":{"type":"string"}},"subtasks":{"type":"array","items":{"type":"object","required":["id","agent","capability","status"]}}}}

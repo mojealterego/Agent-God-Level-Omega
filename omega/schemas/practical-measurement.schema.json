@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "value"
+  ],
+  "properties": {
+    "value": {
+      "type": "number"
+    },
+    "unit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "calibration": {
+      "type": "object"
+    },
+    "reference": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "uncertainty": {}
+  }
+}

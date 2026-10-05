@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "items"
+  ],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "optimistic",
+          "mostLikely",
+          "pessimistic"
+        ],
+        "properties": {
+          "optimistic": {
+            "type": "number"
+          },
+          "mostLikely": {
+            "type": "number"
+          },
+          "pessimistic": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "contingencyRate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}

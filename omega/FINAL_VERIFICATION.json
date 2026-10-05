@@ -1,0 +1,26 @@
+{
+  "version": "20.0.0",
+  "status": "DONE",
+  "test_suite": {"passed": 338, "failed": 0, "total": 338},
+  "reality_filter_v20": {
+    "formal_runtime": true,
+    "claim_states": ["OBSERVED", "VERIFIED", "INFERRED", "SPECULATIVE", "UNVERIFIED", "DISPROVEN", "UNKNOWN"],
+    "persistent_evidence_ledger": true,
+    "source_of_truth_authority_and_freshness": true,
+    "assertiveness_audit": true,
+    "external_prompt_injection_isolation": true,
+    "metacognitive_claim_audit": true,
+    "production_code_completeness_audit": true,
+    "decision_trace_auditor_connected": true,
+    "kratos_raw_secret_gate_connected": true,
+    "thor_finalization_reality_gated": true,
+    "correction_ledger": true,
+    "strict_and_precise_tag_modes": true
+  },
+  "not_claimed": [
+    "access to hidden chain-of-thought",
+    "plugin policy overriding host/system policy",
+    "mathematical proof that every verified statement is universally true",
+    "Reality Score as a calibrated probability of truth"
+  ]
+}

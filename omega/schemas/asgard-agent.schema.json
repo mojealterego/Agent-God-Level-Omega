@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["id","name","kind","category","capabilities"],"properties":{"id":{"type":"string"},"name":{"type":"string"},"kind":{"enum":["PRIMARY","DOMAIN"]},"category":{"type":"string"},"parent":{"type":["string","null"]},"capabilities":{"type":"array","items":{"type":"string"}},"status":{"type":"string"}}}

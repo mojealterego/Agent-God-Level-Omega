@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mojealterego.example/schemas/reality-claim-v20.json",
+  "type": "object",
+  "required": ["id", "text"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "text": {"type": "string", "minLength": 1},
+    "state": {"enum": ["OBSERVED", "VERIFIED", "INFERRED", "SPECULATIVE", "UNVERIFIED", "DISPROVEN", "UNKNOWN"]},
+    "evidenceIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "source": {"type": "string"},
+    "required": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

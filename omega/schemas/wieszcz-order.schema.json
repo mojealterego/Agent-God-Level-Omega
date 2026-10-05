@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "category",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "consentRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "implementationDate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
