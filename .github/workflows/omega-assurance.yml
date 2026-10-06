@@ -124,6 +124,6 @@ jobs:
           printf 'Shard %s/%s running %s files\n' "$SHARD" "$SHARDS" "${#files[@]}"
           printf '%s\n' "${files[@]}"
           start=$(date +%s)
-          node --test "${files[@]}"
+          timeout 12m node --test --test-concurrency=1 "${files[@]}"
           end=$(date +%s)
           echo "OMEGA shard $SHARD duration: $((end-start))s"
