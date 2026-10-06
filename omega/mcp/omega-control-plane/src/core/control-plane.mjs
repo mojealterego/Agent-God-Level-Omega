@@ -27,7 +27,7 @@ import { SecretKnowledgeRuntime } from '../knowledge/secret-knowledge-runtime.mj
 import { RealityFilterRuntime } from '../reality/reality-filter-runtime.mjs';
 import { OmniCompetencyRuntime } from '../omni/omni-runtime.mjs';
 import { AssuranceRuntime } from '../assurance/assurance-runtime.mjs';
-import { ElevenLabsMediaRuntime } from '../media/elevenlabs-runtime.mjs';
+import { ElevenLabsMediaRuntimeV25 as ElevenLabsMediaRuntime } from '../media/elevenlabs-v25-runtime.mjs';
 
 function parseRoots(value) {
   if (!value) return [process.cwd()];
