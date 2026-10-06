@@ -11,7 +11,7 @@ permissions:
 jobs:
   assurance:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 10
     steps:
       - name: Checkout immutable action
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -32,7 +32,7 @@ jobs:
           sha_ref=re.compile(r"^[0-9a-f]{40}$")
           for path in Path(".github/workflows").glob("*.y*ml"):
               text=path.read_text(encoding="utf-8")
-              if re.search(r"(?m)^\\s{0,2}pull_request_target:\\s*$",text):
+              if re.search(r"(?m)^\s{0,2}pull_request_target:\s*$",text):
                   findings.append(f"{path}: pull_request_target is forbidden")
               if re.search(r"(?m)^\s*permissions:\s*write-all\s*$",text):
                   findings.append(f"{path}: permissions write-all is forbidden")
@@ -67,15 +67,44 @@ jobs:
           assert f["counts"]=={"skills":163,"references":78,"schemas":104}
           PY
 
-      - name: Run complete MCP regression
-        working-directory: omega/mcp/omega-control-plane
-        shell: bash
-        run: |
-          set -euo pipefail
-          start=$(date +%s)
-          npm test
-          end=$(date +%s)
-          echo "OMEGA regression duration: $((end-start))s"
-
       - name: Validate OMEGA package
         run: python3 omega/scripts/validate_package.py
+
+  regression:
+    needs: assurance
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - name: Checkout immutable action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Setup Node immutable action
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+
+      - name: Run regression shard
+        working-directory: omega/mcp/omega-control-plane
+        shell: bash
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARDS: 4
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(find test -maxdepth 1 -type f -name '*.test.mjs' | sort | awk -v s="$SHARD" -v n="$SHARDS" '((NR-1)%n)==s')
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No tests assigned to shard $SHARD"
+            exit 1
+          fi
+          printf 'Shard %s/%s running %s files\n' "$SHARD" "$SHARDS" "${#files[@]}"
+          printf '%s\n' "${files[@]}"
+          start=$(date +%s)
+          node --test "${files[@]}"
+          end=$(date +%s)
+          echo "OMEGA shard $SHARD duration: $((end-start))s"
