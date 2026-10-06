@@ -81,6 +81,21 @@ jobs:
           cp -a omega/. "$pkg/"
           python3 "$pkg/scripts/validate_package.py"
 
+
+      - name: Research-derived deterministic assurance gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest tools/omega-assurance/test_assurance_gate.py
+          python3 tools/omega-assurance/assurance_gate.py workflow-audit .github/workflows
+          python3 tools/omega-assurance/assurance_gate.py model-profile-check .omega/model-providers.json
+          python3 tools/omega-assurance/assurance_gate.py python-arch omega-mobile > /tmp/omega-python-arch.json
+          python3 tools/omega-assurance/assurance_gate.py knowledge-manifest omega-mobile/references > /tmp/omega-knowledge-manifest.json
+          python3 tools/omega-assurance/reproducible_zip.py omega-mobile --output /tmp/omega-a.zip --manifest /tmp/omega-a.json
+          python3 tools/omega-assurance/reproducible_zip.py omega-mobile --output /tmp/omega-b.zip --manifest /tmp/omega-b.json
+          cmp /tmp/omega-a.zip /tmp/omega-b.zip
+          echo "deterministic package reproducibility: PASS"
+
   regression:
     needs: assurance
     runs-on: ubuntu-latest
