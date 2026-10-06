@@ -1,0 +1,48 @@
+{
+  "schema": "omega.assurance-policy.v1",
+  "fail_at": "high",
+  "evidence_required_for_blocking_finding": true,
+  "human_ack_required": [
+    ".github/workflows/",
+    ".omega/",
+    "omega/mcp/",
+    "omega-mobile/mcp/",
+    "omega/skills/",
+    "omega-mobile/skills/"
+  ],
+  "sensitive_change_types": [
+    "tool-permission-expansion",
+    "mcp-write-expansion",
+    "model-provider-change",
+    "oauth-or-iam-change",
+    "agent-memory-trust-change",
+    "release-policy-change"
+  ],
+  "third_party_actions": {
+    "require_full_commit_sha": true,
+    "forbid_pull_request_target": true,
+    "forbid_write_all": true,
+    "forbid_remote_pipe_to_shell": true
+  },
+  "external_agents": {
+    "default": "disabled",
+    "require_explicit_trigger": true,
+    "require_budget": true,
+    "require_timeout": true,
+    "write_access_requires_human_review": true
+  },
+  "memory": {
+    "scope_key": [
+      "repository",
+      "workflow",
+      "work_item"
+    ],
+    "untrusted_pr_memory_restore": false,
+    "provenance_required": true
+  },
+  "mcp": {
+    "external_server_default": "read-only",
+    "behavioral_grade_required_for_write_capability": true,
+    "minimum_grade": "C"
+  }
+}

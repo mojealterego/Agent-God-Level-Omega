@@ -1,0 +1,30 @@
+{
+  "schema": "omega.model-providers.v1",
+  "providers": [
+    {
+      "id": "audnai-penclaw-glm-5.3-abliterated",
+      "display_name": "Audn Warlock / penclaw GLM-5.3 abliterated",
+      "source": "https://huggingface.co/audnai/penclaw-GLM-5.3-abliterated",
+      "classification": "red_team_only",
+      "api_style": "openai",
+      "base_url_env": "OMEGA_GLM53_BASE_URL",
+      "api_key_env": "OMEGA_GLM53_API_KEY",
+      "model_env": "OMEGA_GLM53_MODEL",
+      "default_model": "audnai/penclaw-GLM-5.3-abliterated",
+      "default": false,
+      "local_allowed": false,
+      "bundle_weights": false,
+      "require_explicit_authorization": true,
+      "allowed_purposes": [
+        "authorized-red-team",
+        "safety-evaluation",
+        "model-comparison"
+      ],
+      "notes": [
+        "Do not download or serve the 753B BF16 weights on Android, Termux, standard GitHub-hosted runners, or OMEGA Cloud Run control-plane instances.",
+        "Use only an explicitly configured remote OpenAI-compatible endpoint and keep credentials in environment/secret stores.",
+        "Abliterated/non-refusal behavior is not a security boundary; all OMEGA policy and release gates remain authoritative."
+      ]
+    }
+  ]
+}
