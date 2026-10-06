@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA v23 AI Artifact Manifest",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "type",
+      "id"
+    ],
+    "properties": {
+      "type": {
+        "enum": [
+          "prompt",
+          "skill",
+          "tool",
+          "mcp",
+          "model",
+          "judge",
+          "eval",
+          "other"
+        ]
+      },
+      "id": {
+        "type": "string"
+      },
+      "permissions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "model": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": true
+  }
+}

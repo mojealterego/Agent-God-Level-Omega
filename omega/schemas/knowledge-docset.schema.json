@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA v23 Governed Knowledge Docset",
+  "type": "object",
+  "required": [
+    "id",
+    "prefix"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "inbox": {
+      "type": "string"
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "read",
+            "rw",
+            "publish",
+            "approve"
+          ]
+        }
+      }
+    },
+    "requiresApproval": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": false
+}

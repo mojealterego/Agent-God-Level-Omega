@@ -13,7 +13,7 @@ function norm(s){return String(s??'').trim().toLowerCase();}
 export const ASGARD_CATEGORIES = Object.freeze([
   'CORE','RESEARCH','SECURITY','AUTOMATION','KNOWLEDGE','DEVICE','AI','MCP','SKILLS','TOOLS','PLUGINS',
   'WEB','MOBILE','ANDROID','GAMES','MONETIZATION','QA','RELEASE','CLOUD','DATA','MEDIA','DESIGN','CODE','NO_CODE',
-  'ACCOUNTS','RESEARCH_BROKER','REPORTING','COMMERCE','SALES','FULFILLMENT'
+  'ACCOUNTS','RESEARCH_BROKER','REPORTING','COMMERCE','SALES','FULFILLMENT','CLOUD_FUNDING'
 ]);
 
 const MAIN_AGENTS = [
@@ -26,7 +26,8 @@ const MAIN_AGENTS = [
   {id:'harald',name:'Harald',kind:'PRIMARY',category:'ACCOUNTS',parent:'thor',capabilities:['account-connector-fabric','mail-intelligence','drive-intelligence','repo-intelligence','account-ai-signal-mining','project-proposal-handoff']},
   {id:'ivar',name:'Ivar',kind:'PRIMARY',category:'RESEARCH_BROKER',parent:'thor',capabilities:['research-provider-broker','deep-research-fanout','research-result-merge','chatgpt-research-handoff','gemini-research-handoff','gemini-interactions-api','cross-model-collaboration','background-research']},
   {id:'kronikarz',name:'Kronikarz',kind:'PRIMARY',category:'REPORTING',parent:'thor',capabilities:['weekly-newsroom','professional-pdf-report','completed-work-summary','next-week-plan']},
-  {id:'wieszcz',name:'Wieszcz',kind:'PRIMARY',category:'COMMERCE',parent:'thor',capabilities:['market-pricing','catalog-publishing','order-intake','digital-fulfillment','implementation-scheduling','payment-broker','tender-analysis','adult-consent-gating']}
+  {id:'wieszcz',name:'Wieszcz',kind:'PRIMARY',category:'COMMERCE',parent:'thor',capabilities:['market-pricing','catalog-publishing','order-intake','digital-fulfillment','implementation-scheduling','payment-broker','tender-analysis','adult-consent-gating']},
+  {id:'freyr',name:'Freyr',kind:'PRIMARY',category:'CLOUD_FUNDING',parent:'thor',capabilities:['cloud-credit-discovery','startup-program-qualification','cloud-account-onboarding','provider-signup-orchestration','email-account-binding','cloud-automation-bootstrap','credit-expiry-tracking','funding-handoff']}
 ];
 
 const DOMAIN_AGENTS = [
@@ -60,7 +61,9 @@ const DOMAIN_AGENTS = [
   ['order-manager','Order Manager','SALES','wieszcz',['order-intake','implementation-scheduling']],
   ['payment-broker','Payment Broker','COMMERCE','wieszcz',['payment-broker']],
   ['fulfillment-coordinator','Fulfillment Coordinator','FULFILLMENT','wieszcz',['digital-fulfillment','implementation-scheduling']],
-  ['adult-consent-compliance','Adult Consent Compliance','COMMERCE','wieszcz',['adult-consent-gating']]
+  ['adult-consent-compliance','Adult Consent Compliance','COMMERCE','wieszcz',['adult-consent-gating']],
+  ['cloud-funding-analyst','Cloud Funding Analyst','CLOUD_FUNDING','freyr',['cloud-credit-discovery','startup-program-qualification']],
+  ['cloud-onboarding-engineer','Cloud Onboarding Engineer','CLOUD_FUNDING','freyr',['cloud-account-onboarding','provider-signup-orchestration','cloud-automation-bootstrap']]
 ].map(([id,name,category,parent,capabilities])=>({id,name,kind:'DOMAIN',category,parent,capabilities}));
 
 export class AgentDirectory {
@@ -87,6 +90,7 @@ const ROUTES = [
   {pattern:/\b(reklam|ads|admob|monetyzac|iap|subscription)/i,caps:['ads-plan','iap-plan','pricing-plan']},
   {pattern:/\b(test|qa|verify|weryfik|release|wydan)/i,caps:['test-plan','quality-gate','artifact-verify']},
   {pattern:/\b(chmura|cloud|deploy|hosting)/i,caps:['cloud-deploy','runtime-hosting']},
+  {pattern:/\b(grant|granty|startup credit|cloud credit|fundusz|fundusze|free tier|bonus na start|credits?)/i,caps:['cloud-credit-discovery','startup-program-qualification','cloud-account-onboarding']},
   {pattern:/\b(bezpiecz|security|secret|api key|klucz)/i,caps:['secret-governance','security-review']},
   {pattern:/\b(foto|image|video|audio|media)/i,caps:['image-pipeline','video-pipeline']},
   {pattern:/\b(ui|ux|design|grafik)/i,caps:['ui-ux','design-system']}
@@ -173,6 +177,42 @@ export class RagnarAutomationScout {
   ingestDiscovery(record={}){if(!record.title)throw new Error('discovery title required');const kind=String(record.kind??'AUTOMATION_OPPORTUNITY').toUpperCase();const scores={value:clamp01(record.scores?.value),relevance:clamp01(record.scores?.relevance),credibility:clamp01(record.scores?.credibility),urgency:clamp01(record.scores?.urgency),automationPotential:clamp01(record.scores?.automationPotential)};const score=.28*scores.value+.25*scores.relevance+.20*scores.credibility+.12*scores.urgency+.15*scores.automationPotential;const id=record.id??sha256(`${kind}:${record.title}:${record.url??''}`).slice(0,16);const rec={id,kind,title:String(record.title),url:record.url??null,provider:record.provider??null,expiresAt:record.expiresAt??null,evidence:[...(record.evidence??[])],scores,score,status:record.status??'DISCOVERED',at:record.at??new Date().toISOString()};this.discoveries.set(id,rec);return structuredClone(rec);}
   rankedDiscoveries({kind=null,minScore=0}={}){return [...this.discoveries.values()].filter(x=>(!kind||x.kind===kind)&&x.score>=minScore).sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id)).map(x=>structuredClone(x));}
   restore({snapshots=[],coverage=[],discoveries=[]}={}){this.snapshots=snapshots.map(x=>structuredClone(x));for(const x of coverage)this.coverage.set(x.id,structuredClone(x));for(const x of discoveries)this.discoveries.set(x.id,structuredClone(x));}
+}
+
+
+const FREYR_SIGNUP_TRANSPORTS=new Set(['HOST_BROWSER','HOST_CONNECTOR','MCP_FEDERATION']);
+const FREYR_PROGRAM_KINDS=new Set(['CLOUD_CREDIT','STARTUP_PROGRAM','GRANT','GPU_CREDIT','API_CREDIT','MODEL_CREDIT','FREE_TIER','ACCELERATOR']);
+export class FreyrCloudOnboarding {
+  constructor(){this.accountBinding=null;this.programs=new Map();this.adapters=new Map();this.applications=new Map();this.credits=new Map();}
+  bindAccount({accountAlias='mojealterego-cloud',emailRef='FREYR_GOOGLE_EMAIL',expectedEmail=null,observedEmail=null,connectorRef='gmail-host',driveConnectorRef='gdrive-host',loginHandle='mojealterego',authorized=false}={}){
+    const exp=expectedEmail?String(expectedEmail).trim().toLowerCase():null;const obs=observedEmail?String(observedEmail).trim().toLowerCase():null;const match=exp&&obs?exp===obs:null;
+    const state=match===false?'CONNECTOR_ACCOUNT_MISMATCH':(match===true&&authorized?'BOUND':'BINDING_PENDING');
+    this.accountBinding={accountAlias,emailRef,connectorRef,driveConnectorRef,loginHandle,authorized:Boolean(authorized),expectedEmailHash:exp?sha256(exp):null,observedEmailHash:obs?sha256(obs):null,emailMatch:match,state,rawEmailStored:false,updatedAt:new Date().toISOString()};
+    return structuredClone(this.accountBinding);
+  }
+  binding(){return this.accountBinding?structuredClone(this.accountBinding):null;}
+  ingestProgram(input={}){
+    if(!input.provider||!input.program||!input.url)throw new Error('provider, program and url required');const kind=String(input.kind??'CLOUD_CREDIT').toUpperCase();if(!FREYR_PROGRAM_KINDS.has(kind))throw new Error(`unsupported program kind ${kind}`);
+    const id=input.id??sha256(`${input.provider}:${input.program}:${input.url}`).slice(0,20);const evidence=[...(input.evidence??[])];const verified=Boolean(input.verifiedAt&&evidence.length);
+    const rec={id,provider:String(input.provider),program:String(input.program),kind,url:String(input.url),regions:[...(input.regions??[])],currency:input.currency??null,creditValue:input.creditValue==null?null:finite(input.creditValue),grantValue:input.grantValue==null?null:finite(input.grantValue),expiresAt:input.expiresAt??null,verifiedAt:input.verifiedAt??null,evidence,eligibility:[...(input.eligibility??[])],requiredProfileFields:[...(input.requiredProfileFields??[])],requiresTermsAcceptance:input.requiresTermsAcceptance!==false,requiresCaptcha:Boolean(input.requiresCaptcha),requiresKyc:Boolean(input.requiresKyc),requiresPhoneVerification:Boolean(input.requiresPhoneVerification),requiresPaymentMethod:Boolean(input.requiresPaymentMethod),requiresLegalAttestation:Boolean(input.requiresLegalAttestation),automationSurface:input.automationSurface??'UNKNOWN',status:input.status??'DISCOVERED',verificationState:verified?'VERIFIED_CURRENT':'UNVERIFIED',discoveredAt:input.discoveredAt??new Date().toISOString(),metadata:{...(input.metadata??{})}};this.programs.set(id,rec);return structuredClone(rec);
+  }
+  program(id){const x=this.programs.get(id);if(!x)throw new Error('unknown Freyr program');return structuredClone(x);}
+  programsList({kind=null,provider=null,verifiedOnly=false}={}){return [...this.programs.values()].filter(x=>(!kind||x.kind===String(kind).toUpperCase())&&(!provider||norm(x.provider)===norm(provider))&&(!verifiedOnly||x.verificationState==='VERIFIED_CURRENT')).sort((a,b)=>(b.verifiedAt??'').localeCompare(a.verifiedAt??'')||a.provider.localeCompare(b.provider)).map(x=>structuredClone(x));}
+  registerAdapter({id,provider,transport='HOST_BROWSER',authorized=false,autoSignup=false,providerId=null,toolName=null,connectorRef=null,capabilities=[]}={}){if(!id||!provider)throw new Error('adapter id and provider required');const t=String(transport).toUpperCase();if(!FREYR_SIGNUP_TRANSPORTS.has(t))throw new Error('unsupported signup transport');const rec={id,provider:String(provider),transport:t,authorized:Boolean(authorized),autoSignup:Boolean(autoSignup),providerId,toolName,connectorRef,capabilities:[...new Set(capabilities.map(String))],secretStored:false,registeredAt:new Date().toISOString()};this.adapters.set(id,rec);return structuredClone(rec);}
+  adaptersList(){return [...this.adapters.values()].map(x=>structuredClone(x));}
+  qualify(id,{region='PL',profile={}}={}){const p=this.programs.get(id);if(!p)throw new Error('unknown Freyr program');const issues=[];if(p.verificationState!=='VERIFIED_CURRENT')issues.push('PROGRAM_NOT_VERIFIED');if(p.expiresAt&&Date.parse(p.expiresAt)<=Date.now())issues.push('PROGRAM_EXPIRED');if(p.regions.length&&!p.regions.includes(region)&&!p.regions.includes('*'))issues.push('REGION_NOT_ELIGIBLE');for(const f of p.requiredProfileFields)if(profile[f]==null||profile[f]==='')issues.push(`PROFILE_FIELD_REQUIRED:${f}`);const result={programId:id,eligible:issues.length===0,issues,region,checkedAt:new Date().toISOString(),evidenceCount:p.evidence.length};p.lastQualification=result;return structuredClone(result);}
+  createApplication({id=randomUUID(),programId,accountAlias='mojealterego-cloud',profileRef=null}={}){const p=this.programs.get(programId);if(!p)throw new Error('unknown Freyr program');const rec={id,programId,provider:p.provider,program:p.program,accountAlias,profileRef,status:'PLANNED',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),steps:[],externalAccountRef:null,automationConfigured:false};this.applications.set(id,rec);return structuredClone(rec);}
+  application(id){const x=this.applications.get(id);if(!x)throw new Error('unknown Freyr application');return structuredClone(x);}
+  applicationsList(){return [...this.applications.values()].map(x=>structuredClone(x));}
+  planSignup({applicationId,termsApproved=false,captchaCompleted=false,kycCompleted=false,phoneVerified=false,paymentApproved=false,legalAttestationApproved=false}={}){
+    const a=this.applications.get(applicationId);if(!a)throw new Error('unknown Freyr application');const p=this.programs.get(a.programId);const blockers=[];const binding=this.accountBinding;if(!binding||binding.state!=='BOUND')blockers.push(binding?.state??'ACCOUNT_BINDING_REQUIRED');if(p.verificationState!=='VERIFIED_CURRENT')blockers.push('PROGRAM_NOT_VERIFIED');if(p.expiresAt&&Date.parse(p.expiresAt)<=Date.now())blockers.push('PROGRAM_EXPIRED');if(p.requiresTermsAcceptance&&!termsApproved)blockers.push('TERMS_APPROVAL_REQUIRED');if(p.requiresCaptcha&&!captchaCompleted)blockers.push('CAPTCHA_REQUIRED');if(p.requiresKyc&&!kycCompleted)blockers.push('KYC_REQUIRED');if(p.requiresPhoneVerification&&!phoneVerified)blockers.push('PHONE_VERIFICATION_REQUIRED');if(p.requiresPaymentMethod&&!paymentApproved)blockers.push('PAYMENT_METHOD_APPROVAL_REQUIRED');if(p.requiresLegalAttestation&&!legalAttestationApproved)blockers.push('LEGAL_ATTESTATION_REQUIRED');const adapters=[...this.adapters.values()].filter(x=>norm(x.provider)===norm(p.provider)&&x.authorized);const adapter=adapters.find(x=>x.autoSignup)??adapters[0]??null;if(!adapter)blockers.push('AUTHORIZED_SIGNUP_ADAPTER_REQUIRED');const autoExecutable=Boolean(adapter?.autoSignup&&blockers.length===0);return {applicationId,programId:p.id,provider:p.provider,adapter:adapter?structuredClone(adapter):null,blockers,ready:blockers.length===0,autoExecutable,legalAcceptanceAutomated:false,captchaBypassClaimed:false,kycBypassClaimed:false};
+  }
+  updateApplication(id,{status,step=null,externalAccountRef=null,automationConfigured=null}={}){const a=this.applications.get(id);if(!a)throw new Error('unknown Freyr application');if(status)a.status=status;if(step)a.steps.push({...step,at:new Date().toISOString()});if(externalAccountRef)a.externalAccountRef=externalAccountRef;if(automationConfigured!=null)a.automationConfigured=Boolean(automationConfigured);a.updatedAt=new Date().toISOString();return structuredClone(a);}
+  recordCredit({id=randomUUID(),applicationId,provider,amount,currency='USD',expiresAt=null,kind='CREDIT',evidence=[]}={}){if(!applicationId||!provider)throw new Error('applicationId and provider required');const rec={id,applicationId,provider,amount:finite(amount),currency,expiresAt,kind:String(kind).toUpperCase(),evidence:[...evidence],recordedAt:new Date().toISOString()};this.credits.set(id,rec);return structuredClone(rec);}
+  creditLedger({activeOnly=false}={}){const now=Date.now();return [...this.credits.values()].filter(x=>!activeOnly||!x.expiresAt||Date.parse(x.expiresAt)>now).sort((a,b)=>(a.expiresAt??'9999').localeCompare(b.expiresAt??'9999')).map(x=>structuredClone(x));}
+  integrationPlan(applicationId){const a=this.applications.get(applicationId);if(!a)throw new Error('unknown Freyr application');const p=this.programs.get(a.programId);return {applicationId,provider:p.provider,ready:a.status==='ACTIVE'||a.status==='ACCOUNT_CREATED',steps:[{type:'SECRET_REFERENCE',owner:'kratos',instruction:'Store provider credentials only as env/file secret references.'},{type:'ACCOUNT_TUNNEL_PROFILE',owner:'freyr',instruction:'Register the new provider/account in the ASGARD account tunnel broker.'},{type:'CLI_SDK_MCP_DISCOVERY',owner:'ragnar',instruction:'Discover supported CLI, SDK, API and MCP surfaces.'},{type:'AUTOMATION_BOOTSTRAP',owner:'thor',instruction:'Generate provider-specific automation only from observed capabilities.'},{type:'HEALTH_CHECK',owner:'kratos',instruction:'Verify scopes, billing state and secret handling before production use.'}]};}
+  restore({accountBinding=null,programs=[],adapters=[],applications=[],credits=[]}={}){this.accountBinding=accountBinding?structuredClone(accountBinding):null;for(const x of programs)this.programs.set(x.id,structuredClone(x));for(const x of adapters)this.adapters.set(x.id,structuredClone(x));for(const x of applications)this.applications.set(x.id,structuredClone(x));for(const x of credits)this.credits.set(x.id,structuredClone(x));}
+  snapshot(){return {accountBinding:this.binding(),programs:this.programsList(),adapters:this.adaptersList(),applications:this.applicationsList(),credits:this.creditLedger()};}
 }
 
 export class FlokiCatalog {

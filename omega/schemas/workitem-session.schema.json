@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA v23 Work-item Session",
+  "type": "object",
+  "required": [
+    "provider",
+    "workItem",
+    "workflow",
+    "sessionId"
+  ],
+  "properties": {
+    "provider": {
+      "type": "string"
+    },
+    "workItem": {
+      "type": "string"
+    },
+    "workflow": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "transcriptHash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "unresolvedTasks": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

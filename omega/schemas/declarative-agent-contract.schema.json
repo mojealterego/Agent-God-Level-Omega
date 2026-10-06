@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA v23 Declarative Agent Contract",
+  "type": "object",
+  "required": [
+    "id",
+    "trigger",
+    "permissions",
+    "budget",
+    "maxSteps",
+    "timeoutMs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "trigger": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "hosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "executables": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "secrets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "scope": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "budget": {
+      "type": "object"
+    },
+    "maxSteps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "timeoutMs": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

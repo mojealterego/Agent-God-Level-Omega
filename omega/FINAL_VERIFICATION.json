@@ -1,26 +1,75 @@
 {
-  "version": "20.0.0",
+  "version": "23.0.0",
   "status": "DONE",
-  "test_suite": {"passed": 338, "failed": 0, "total": 338},
-  "reality_filter_v20": {
-    "formal_runtime": true,
-    "claim_states": ["OBSERVED", "VERIFIED", "INFERRED", "SPECULATIVE", "UNVERIFIED", "DISPROVEN", "UNKNOWN"],
-    "persistent_evidence_ledger": true,
-    "source_of_truth_authority_and_freshness": true,
-    "assertiveness_audit": true,
-    "external_prompt_injection_isolation": true,
-    "metacognitive_claim_audit": true,
-    "production_code_completeness_audit": true,
-    "decision_trace_auditor_connected": true,
-    "kratos_raw_secret_gate_connected": true,
-    "thor_finalization_reality_gated": true,
-    "correction_ledger": true,
-    "strict_and_precise_tag_modes": true
+  "test_suite": {
+    "passed": 393,
+    "failed": 0,
+    "total": 393
   },
+  "assurance_v23": {
+    "action_supply_chain_audit": true,
+    "verified_parallel_landing": true,
+    "policy_non_loosening": true,
+    "agent_reliability_readiness": true,
+    "ai_artifact_release_gate": true,
+    "mcp_behavior_grade_gate": true,
+    "governed_knowledge_cas_approvals": true,
+    "work_item_session_continuity": true,
+    "canonical_agent_sync": true,
+    "react_native_specialist_routing": true,
+    "demos_as_code_contracts": true,
+    "declarative_agent_contracts": true,
+    "log_byte_evidence_without_authenticity_claim": true,
+    "reality_filter_preserved": true,
+    "kratos_preserved": true,
+    "thor_final_gate_preserved": true
+  },
+  "reviewed_sources": [
+    "aakarim/OpenLore",
+    "ChatGPT & Codex Plugin Autopilot",
+    "trustabl/trustabl-action",
+    "Sigbound",
+    "invAIriant Audit Gate",
+    "SecureAI Scan",
+    "React Native Audit",
+    "OpenCode GitHub Action",
+    "setup-ollama",
+    "Claude Code Memory",
+    "Issue Validator & AI Log Review",
+    "PyVisualizer",
+    "Looped AF Agent",
+    "Polygraph MCP Gate",
+    "Airlock AI Release Gate",
+    "Claude Code Session",
+    "GSC Security Audit",
+    "Agent Sync Action",
+    "AutoDemo demos-as-code"
+  ],
+  "external_or_conditional": [
+    "Third-party GitHub Actions are not auto-installed; direct use requires explicit review and immutable pinning where available.",
+    "Trustabl, SecureAI Scan, PyVisualizer, Ollama and AutoDemo integrations are optional adapters and require the actual local toolchain.",
+    "Marketplace metadata alone is not accepted as evidence of security, correctness or maintainership."
+  ],
   "not_claimed": [
-    "access to hidden chain-of-thought",
-    "plugin policy overriding host/system policy",
-    "mathematical proof that every verified statement is universally true",
-    "Reality Score as a calibrated probability of truth"
-  ]
+    "universal agent reliability",
+    "semantic authenticity of logs from hashes alone",
+    "security of third-party Actions merely because they are listed in Marketplace",
+    "automatic safe merge without required repository checks"
+  ],
+  "embedded_mcp": {
+    "passed": 393,
+    "failed": 0,
+    "total": 393
+  },
+  "standalone_mcp": {
+    "passed": 393,
+    "failed": 0,
+    "total": 393
+  },
+  "package_validator": "PASS",
+  "counts": {
+    "skills": 163,
+    "references": 78,
+    "schemas": 104
+  }
 }

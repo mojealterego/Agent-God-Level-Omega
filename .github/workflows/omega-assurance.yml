@@ -1,0 +1,75 @@
+name: OMEGA Agent CI Assurance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  assurance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout immutable action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Setup Node immutable action
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '20'
+
+      - name: Supply-chain workflow audit
+        shell: python
+        run: |
+          from pathlib import Path
+          import re, sys
+          findings=[]
+          sha_ref=re.compile(r"^[0-9a-f]{40}$")
+          for path in Path(".github/workflows").glob("*.y*ml"):
+              text=path.read_text(encoding="utf-8")
+              if "pull_request_target:" in text:
+                  findings.append(f"{path}: pull_request_target is forbidden")
+              if re.search(r"(?m)^\s*permissions:\s*write-all\s*$",text):
+                  findings.append(f"{path}: permissions write-all is forbidden")
+              if re.search(r"(?i)(curl|wget)[^\n|]*\|\s*(sh|bash)",text):
+                  findings.append(f"{path}: remote pipe-to-shell installer")
+              for m in re.finditer(r"(?m)^\s*-?\s*uses:\s*([^\s#]+)",text):
+                  spec=m.group(1).strip("'\"")
+                  if spec.startswith("./"): continue
+                  if "@" not in spec:
+                      findings.append(f"{path}: unversioned action {spec}")
+                      continue
+                  ref=spec.rsplit("@",1)[1]
+                  if not sha_ref.fullmatch(ref):
+                      findings.append(f"{path}: mutable action ref {spec}")
+          if findings:
+              print("\n".join(findings))
+              sys.exit(1)
+          print("workflow supply-chain audit: PASS")
+
+      - name: Verify release metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(cat VERSION)" = "23.0.0"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          f=json.loads(Path("omega/FINAL_VERIFICATION.json").read_text())
+          assert f["version"]=="23.0.0"
+          assert f["test_suite"]=={"passed":393,"failed":0,"total":393}
+          assert f["package_validator"]=="PASS"
+          assert f["counts"]=={"skills":163,"references":78,"schemas":104}
+          PY
+
+      - name: Run complete MCP regression
+        working-directory: omega/mcp/omega-control-plane
+        run: npm test
+
+      - name: Validate OMEGA package
+        run: python3 omega/scripts/validate_package.py

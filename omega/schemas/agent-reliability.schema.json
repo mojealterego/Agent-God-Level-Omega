@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA v23 Agent Reliability Contract",
+  "type": "object",
+  "required": [
+    "description",
+    "tools",
+    "timeoutMs",
+    "retries",
+    "maxIterations",
+    "observability"
+  ],
+  "properties": {
+    "description": {
+      "type": "string",
+      "minLength": 24
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "timeoutMs": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "retries": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "maxIterations": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "observability": {
+      "type": [
+        "boolean",
+        "object"
+      ]
+    },
+    "networkAllowlist": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "budget": {}
+  },
+  "additionalProperties": true
+}

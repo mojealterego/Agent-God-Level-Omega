@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "freyr-provider-adapter.schema.json",
+  "title": "Freyr Provider Adapter",
+  "type": "object",
+  "required": ["id", "provider", "transport", "authorized", "autoSignup"],
+  "properties": {
+    "id": {"type": "string"},
+    "provider": {"type": "string"},
+    "transport": {"enum": ["HOST_BROWSER", "HOST_CONNECTOR", "MCP_FEDERATION"]},
+    "authorized": {"type": "boolean"},
+    "autoSignup": {"type": "boolean"},
+    "providerId": {"type": ["string", "null"]},
+    "toolName": {"type": ["string", "null"]},
+    "connectorRef": {"type": ["string", "null"]},
+    "capabilities": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

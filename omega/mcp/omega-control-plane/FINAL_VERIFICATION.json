@@ -1,27 +1,21 @@
 {
-  "version": "20.0.0",
+  "version": "23.0.0",
   "status": "DONE",
   "test_suite": {
-    "passed": 338,
+    "passed": 393,
     "failed": 0,
-    "total": 338
+    "total": 393
   },
-  "reality_filter_v20": {
-    "claim_state_engine": true,
-    "persistent_evidence_ledger": true,
-    "source_of_truth_verifier": true,
-    "assertiveness_audit": true,
-    "prompt_injection_isolation": true,
-    "metacognitive_audit": true,
-    "code_completeness_audit": true,
-    "decision_trace_connected": true,
-    "kratos_connected": true,
-    "thor_final_release_gate": true,
-    "correction_ledger": true
+  "assurance_runtime": true,
+  "external_adapters_optional": true,
+  "embedded_mcp": {
+    "passed": 393,
+    "failed": 0,
+    "total": 393
   },
-  "not_claimed": [
-    "hidden chain-of-thought access",
-    "host/system policy override",
-    "universal truth proof"
-  ]
+  "standalone_copy": {
+    "passed": 393,
+    "failed": 0,
+    "total": 393
+  }
 }

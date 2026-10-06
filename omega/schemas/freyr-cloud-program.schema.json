@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "freyr-cloud-program.schema.json",
+  "title": "Freyr Cloud Program",
+  "type": "object",
+  "required": ["provider", "program", "kind", "url"],
+  "properties": {
+    "id": {"type": "string"},
+    "provider": {"type": "string", "minLength": 1},
+    "program": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["CLOUD_CREDIT", "STARTUP_PROGRAM", "GRANT", "GPU_CREDIT", "API_CREDIT", "MODEL_CREDIT", "FREE_TIER", "ACCELERATOR"]},
+    "url": {"type": "string", "minLength": 1},
+    "regions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "creditValue": {"type": ["number", "null"]},
+    "grantValue": {"type": ["number", "null"]},
+    "currency": {"type": ["string", "null"]},
+    "verifiedAt": {"type": ["string", "null"]},
+    "expiresAt": {"type": ["string", "null"]},
+    "evidence": {"type": "array"},
+    "requiresTermsAcceptance": {"type": "boolean"},
+    "requiresCaptcha": {"type": "boolean"},
+    "requiresKyc": {"type": "boolean"},
+    "requiresPhoneVerification": {"type": "boolean"},
+    "requiresPaymentMethod": {"type": "boolean"},
+    "requiresLegalAttestation": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

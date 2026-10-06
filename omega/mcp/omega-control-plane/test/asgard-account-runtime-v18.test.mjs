@@ -32,5 +32,5 @@ test('GitHub doctor injects profile-specific GH_CONFIG_DIR',async()=>{
 test('persisted ASGARD v18 state contains refs but not secret values',async()=>{
  const dir=await root(); const r=new AsgardRuntime({root:dir,env:{G1:'VERY_SECRET_GEMINI_KEY'}});
  await r.action({action:'account-register',payload:{id:'gem-1',provider:'GEMINI',transport:'ENV_API_KEY',authorized:true,secretEnvRef:'G1',health:'HEALTHY'}});
- const save=await r.action({action:'state-save',payload:{}}); const raw=await readFile(save.path,'utf8'); assert.match(raw,/"version": 20/); assert.match(raw,/"secretEnvRef": "G1"/); assert.equal(raw.includes('VERY_SECRET_GEMINI_KEY'),false);
+ const save=await r.action({action:'state-save',payload:{}}); const raw=await readFile(save.path,'utf8'); assert.match(raw,/"version": 21/); assert.match(raw,/"secretEnvRef": "G1"/); assert.equal(raw.includes('VERY_SECRET_GEMINI_KEY'),false);
 });

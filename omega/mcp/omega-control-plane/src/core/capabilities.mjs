@@ -29,7 +29,7 @@ function cap(id, category, provider, path, operations, sideEffectClass = 'R') {
 }
 
 export async function discoverCapabilities({ resolver = defaultResolver } = {}) {
-  const binaries = ['git', 'gh', 'glab', 'docker', 'podman', 'adb', 'emulator', 'gradle', 'java', 'npm', 'pnpm', 'yarn', 'pytest', 'cargo', 'go', 'iverilog', 'verilator', 'yosys', 'ghdl', 'snarkjs', 'ffmpeg', 'magick', 'darktable-cli', 'rawtherapee-cli', 'dcraw', 'exiftool', 'zfs', 'btrfs', 'mosquitto_sub', 'coap-client', 'makensis', 'wixl', 'agent-device', 'skills-ref', 'android', 'curl', 'openssl', 'dig', 'ss', 'lsof', 'tcpdump', 'tshark', 'strace', 'iostat', 'vmstat', 'journalctl', 'lynis'];
+  const binaries = ['git', 'gh', 'glab', 'docker', 'podman', 'adb', 'emulator', 'gradle', 'java', 'npm', 'pnpm', 'yarn', 'pytest', 'cargo', 'go', 'iverilog', 'verilator', 'yosys', 'ghdl', 'snarkjs', 'ffmpeg', 'magick', 'darktable-cli', 'rawtherapee-cli', 'dcraw', 'exiftool', 'zfs', 'btrfs', 'mosquitto_sub', 'coap-client', 'makensis', 'wixl', 'agent-device', 'skills-ref', 'android', 'curl', 'openssl', 'dig', 'ss', 'lsof', 'tcpdump', 'tshark', 'strace', 'iostat', 'vmstat', 'journalctl', 'lynis', 'trustabl', 'secureai-scan', 'py-code-visualizer', 'ollama', 'autodemo', 'sig', 'airlock'];
   const entries = Object.fromEntries(await Promise.all(binaries.map(async (name) => [name, await resolver(name)])));
   const containerPath = entries.docker ?? entries.podman;
   const ciPath = entries.gh ?? entries.glab;
@@ -131,6 +131,7 @@ export async function discoverCapabilities({ resolver = defaultResolver } = {}) 
     cap('asgard.account-tunnel', 'account-multiplexer', 'omega-internal', process.execPath, ['multi-account-routing','session-affinity','secret-env-refs','github-profile-isolation','host-profile-routing'], 'E'),
     cap('asgard.kronikarz', 'reporting', 'omega-internal', process.execPath, ['weekly-newsroom','pdf-report'], 'L'),
     cap('asgard.wieszcz', 'commerce', 'omega-internal', process.execPath, ['market-pricing','tender-analysis','order-intake','payment-plan','catalog-export'], 'L'),
+    cap('asgard.freyr', 'cloud-funding', 'omega-internal', process.execPath, ['cloud-credit-discovery','startup-program-qualification','cloud-account-onboarding','provider-signup-orchestration','credit-expiry-tracking','cloud-automation-bootstrap'], 'E'),
     cap('knowledge.secret-knowledge', 'knowledge', 'omega-internal', process.execPath, ['catalog','source-observe','risk-classify','playbook-plan'], 'R'),
     cap('security.command-risk-gate', 'security', 'omega-internal', process.execPath, ['classify','gate','block-high-risk'], 'R'),
     cap('operations.safe-diagnostics', 'operations', 'omega-internal', process.execPath, ['system-overview','network-local','logs-recent','container-local','authorized-dns-http-tls'], 'R'),
@@ -140,6 +141,33 @@ export async function discoverCapabilities({ resolver = defaultResolver } = {}) 
     cap('system.trace.strace', 'diagnostics-toolchain', 'strace', entries.strace, ['trace-local-process'], 'R'),
     cap('reality.filter', 'verification', 'omega-internal', process.execPath, ['claim-classify','claim-verify','response-audit','reality-gate'], 'R'),
     cap('reality.source-of-truth', 'verification', 'omega-internal', process.execPath, ['authority-rank','freshness-check','conflict-detect'], 'R'),
-    cap('reality.prompt-injection', 'security', 'omega-internal', process.execPath, ['external-instruction-isolation','metacognitive-audit','assertiveness-audit'], 'R')
+    cap('reality.prompt-injection', 'security', 'omega-internal', process.execPath, ['external-instruction-isolation','metacognitive-audit','assertiveness-audit'], 'R'),
+    cap('omni.github-engineering-v2', 'repository', 'omega-internal', process.execPath, ['baseline-lock','atomic-change-plan','readback-required'], 'L'),
+    cap('omni.repo-auditor-v2', 'repository', 'omega-internal', process.execPath, ['inventory','evidence-findings','risk-score'], 'R'),
+    cap('omni.ci-cd-v2', 'verification', 'omega-internal', process.execPath, ['tested','built','deployed','verified-in-runtime'], 'R'),
+    cap('omni.google-intelligence-v2', 'accounts', 'omega-internal', process.execPath, ['gmail-records','drive-records','calendar-records','provenance','injection-screen'], 'R'),
+    cap('omni.source-of-truth-v2', 'verification', 'omega-internal', process.execPath, ['authority','scope','version','conflict'], 'L'),
+    cap('omni.decision-evidence-ledger-v2', 'knowledge', 'omega-internal', process.execPath, ['evidence','decision','verification-links'], 'L'),
+    cap('omni.mcp-orchestration-v2', 'gateway', 'omega-internal', process.execPath, ['register','authorize','route','live-call'], 'E'),
+    cap('omni.android-engineering-v2', 'android', 'omega-internal', process.execPath, ['config-gate','test-gate','build-gate','signature-gate'], 'R'),
+    cap('omni.agent-engineering-v2', 'orchestration', 'omega-internal', process.execPath, ['authority','stop-conditions','evals','quality-gate'], 'L'),
+    cap('omni.cloud-infrastructure-v2', 'cloud', 'omega-internal', process.execPath, ['plan','apply','health','rollback','iam','network'], 'R'),
+    cap('omni.system-architecture-v2', 'architecture', 'omega-internal', process.execPath, ['adr','tradeoffs','verification'], 'L'),
+    cap('assurance.action-supply-chain', 'security', 'omega-internal', process.execPath, ['workflow-audit','immutable-ref-gate','pull-request-target-gate'], 'R'),
+    cap('assurance.landing-policy', 'repository', 'omega-internal', process.execPath, ['lane-check','sensitive-path-park','policy-tightening'], 'L'),
+    cap('assurance.agent-reliability', 'verification', 'omega-internal', process.execPath, ['timeout','retry','budget','observability','tool-scope'], 'R'),
+    cap('assurance.ai-artifact-diff', 'release', 'omega-internal', process.execPath, ['manifest-diff','blast-radius','eval-regression','hold-gate'], 'R'),
+    cap('assurance.mcp-behavior-gate', 'verification', 'omega-internal', process.execPath, ['behavior-grade','evidence-bundle','target-pin'], 'R'),
+    cap('assurance.knowledge-substrate', 'knowledge', 'omega-internal', process.execPath, ['docsets','identity-scope','compare-and-swap','approval-queue'], 'L'),
+    cap('assurance.work-item-session', 'memory', 'omega-internal', process.execPath, ['save','resume','workflow-scope','unresolved-task-gate'], 'L'),
+    cap('assurance.agent-sync', 'orchestration', 'omega-internal', process.execPath, ['canonical-agents','provider-projections'], 'L'),
+    cap('assurance.react-native-routing', 'mobile', 'omega-internal', process.execPath, ['changed-file-routing','specialist-budget'], 'R'),
+    cap('assurance.demo-as-code', 'verification', 'omega-internal', process.execPath, ['scenario-validate','deterministic-user-flow'], 'R'),
+    cap('assurance.declarative-agent-contract', 'orchestration', 'omega-internal', process.execPath, ['trigger','permission-allowlist','secret-reference','budget-bound'], 'R'),
+    cap('assurance.external.trustabl', 'optional-toolchain', 'trustabl', entries.trustabl, ['scan'], 'R'),
+    cap('assurance.external.secureai-scan', 'optional-toolchain', 'secureai-scan', entries['secureai-scan'], ['scan'], 'R'),
+    cap('assurance.external.pyvisualizer', 'optional-toolchain', 'py-code-visualizer', entries['py-code-visualizer'], ['check','context'], 'R'),
+    cap('assurance.external.ollama', 'optional-toolchain', 'ollama', entries.ollama, ['list'], 'R'),
+    cap('assurance.external.autodemo', 'optional-toolchain', 'autodemo', entries.autodemo, ['help'], 'R')
   ];
 }

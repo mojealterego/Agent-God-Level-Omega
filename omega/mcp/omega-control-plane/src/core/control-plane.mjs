@@ -25,6 +25,8 @@ import { EcosystemRuntime } from '../ecosystem/ecosystem-runtime.mjs';
 import { AsgardRuntime } from '../asgard/asgard-runtime.mjs';
 import { SecretKnowledgeRuntime } from '../knowledge/secret-knowledge-runtime.mjs';
 import { RealityFilterRuntime } from '../reality/reality-filter-runtime.mjs';
+import { OmniCompetencyRuntime } from '../omni/omni-runtime.mjs';
+import { AssuranceRuntime } from '../assurance/assurance-runtime.mjs';
 
 function parseRoots(value) {
   if (!value) return [process.cwd()];
@@ -49,6 +51,8 @@ export class OmegaControlPlane {
     this.asgardRuntimes = new Map();
     this.secretKnowledgeRuntimes = new Map();
     this.realityFilterRuntimes = new Map();
+    this.omniRuntimes = new Map();
+    this.assuranceRuntimes = new Map();
     this.mcpClientFactory = mcpClientFactory;
     this.cognitiveProviderTransport = cognitiveProviderTransport;
     this.env = env;
@@ -312,6 +316,46 @@ export class OmegaControlPlane {
   }
 
   async realityFilter({ cwd, ...input }) { return await this.#realityFilterRuntime(cwd).action(input); }
+
+  #omniRuntime(cwd) {
+    const root = this.#rootFor(cwd);
+    if (!this.omniRuntimes.has(root)) {
+      this.omniRuntimes.set(root, new OmniCompetencyRuntime({
+        root,
+        repositoryInspect: async ({ cwd: target = root } = {}) => await this.repositoryInspect(target),
+        ciRunner: async (input) => await this.ci({ cwd: input.cwd ?? root, provider: input.provider, action: input.action, limit: input.limit, runId: input.runId, workflow: input.workflow, ref: input.ref }),
+        deviceRunner: async (input) => await this.device({ cwd: input.cwd ?? root, ...input }),
+        mcpInvoker: async (input) => await this.#federation(cwd).callTool({ providerId: input.providerId, name: input.name, arguments: input.arguments ?? {} }),
+        realityGate: async (payload) => await this.#realityFilterRuntime(cwd).action({ action: 'reality-gate', payload })
+      }));
+    }
+    return this.omniRuntimes.get(root);
+  }
+
+  async omniArchitect({ cwd, ...input }) { return await this.#omniRuntime(cwd).action(input); }
+
+  #assuranceRuntime(cwd) {
+    const root = this.#rootFor(cwd);
+    if (!this.assuranceRuntimes.has(root)) {
+      this.assuranceRuntimes.set(root, new AssuranceRuntime({
+        root,
+        env: this.env,
+        commandRunner: async (command) => await runProcess({
+          argv: command.argv,
+          cwd: command.cwd ?? root,
+          env: command.env ?? {},
+          sideEffect: command.sideEffect ?? 'R',
+          source: command.sideEffect === 'R' ? 'internal' : 'project',
+          policy: this.policy,
+          timeoutMs: command.timeoutMs ?? 120_000,
+          maxOutputBytes: command.maxOutputBytes ?? 1_048_576
+        })
+      }));
+    }
+    return this.assuranceRuntimes.get(root);
+  }
+
+  async assuranceArchitecture({ cwd, ...input }) { return await this.#assuranceRuntime(cwd).action(input); }
 
   async memory({ cwd, ...input }) { return await this.#runtime(cwd).memory(input); }
   async reasoning({ cwd, ...input }) { return await this.#runtime(cwd).reasoning(input); }

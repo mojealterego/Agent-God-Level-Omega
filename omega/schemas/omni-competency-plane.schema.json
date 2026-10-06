@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mojealterego.example/schemas/omni-competency-plane.schema.json",
+  "title": "OMEGA v22 Omni Competency Record",
+  "type": "object",
+  "required": ["competency", "canonicalCapabilities", "status"],
+  "properties": {
+    "competency": {"type": "string", "minLength": 1},
+    "canonicalCapabilities": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "status": {"enum": ["AVAILABLE", "AVAILABLE_WITH_APPROVAL", "UNAVAILABLE", "UNKNOWN"]},
+    "evidenceIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "provider": {"type": ["string", "null"]},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

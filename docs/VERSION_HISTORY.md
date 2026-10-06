@@ -1,10 +1,10 @@
-# OMEGA Version History — v0 → v20
+# OMEGA Version History — v0 → v23
 
-The repository preserves the complete cumulative OMEGA v20 source and an explicit integrity record for every lineage stage from v0 through v20.
+The repository preserves the complete cumulative OMEGA v23 source and an explicit integrity record for every lineage stage from v0 through v20.
 
 ## Integrity rule
 
-No missing historical binary is fabricated. v0/v1 are lineage records for the earliest surviving artifacts. For v2–v20 the original package filenames, byte sizes and SHA-256 hashes are recorded.
+No missing historical binary is fabricated. v0/v1 are lineage records for the earliest surviving artifacts. For v2–v23 the original package filenames, byte sizes and SHA-256 hashes are recorded.
 
 | Version | Milestone | SHA-256 |
 |---:|---|---|
@@ -30,8 +30,12 @@ No missing historical binary is fabricated. v0/v1 are lineage records for the ea
 | v19 | Defensive Secret Knowledge runtime and shell command-risk gate. | `b0f4bd1ccf8b3b62647289185f26d05a21b53c19a0119bb32432276c63ac8e96` |
 | v20 | Reality Filter Kernel connected to Evidence Ledger, Source-of-Truth, Decision Trace, Kratos and Thor finalization. | `c2d1f335615ad852cf04ff7cfdee600333a92c4adf7ba024f9267f062eb31c74` |
 
+| v21 | ASGARD Freyr: evidence-backed cloud/startup funding discovery, eligibility qualification, controlled provider onboarding, credit ledger and secure automation handoff. | `5695bde00d8d3ba19c2707b60136c48fb907d8bca5d3a2730a4621f071ee2fe8` |
+| v22 | Omni-Architect competency plane absorbed into OMEGA: GitHub engineering, repository audit, CI/CD verification, Google intelligence, source-of-truth/ledger v2, MCP fabric and platform engineering. | `1806225e2e319842592cd6a14c7d5cf635f336e18207db1b49afcb9b05a2dec7` |
+| v23 | Agent CI Assurance Plane: supply-chain Action audit, verified landing policy, bounded reliability, AI artifact diffs, MCP behavior gates, governed knowledge/session continuity, canonical agent sync, React Native routing and demos-as-code. | `fb79e38693390fe591209e83a733446b5e4edfff2b8de63b8215eceb51a0f7e3` |
+
 ## Canonical cumulative source
 
-- `omega/` — complete OMEGA v20 package and embedded MCP control plane.
+- `omega/` — complete OMEGA v23 package and embedded MCP control plane.
 - `history/release-index.json` — archive identity, hashes and Plugin Creator release records.
 - `history/v00` … `history/v20` — per-version lineage records.

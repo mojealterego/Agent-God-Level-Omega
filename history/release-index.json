@@ -2,7 +2,7 @@
   "project": "Agent-God-Level-Omega",
   "repository": "mojealterego/Agent-God-Level-Omega",
   "canonical_source": "omega/",
-  "current_version": "20.0.0",
+  "current_version": "23.0.0",
   "plugin_id": "plugins_6ac3729e2b1c8191aaa1cb728f43183f",
   "archive_records": [
     {
@@ -132,14 +132,40 @@
       "file": "omega-omni-cognitive-engineering-v20.zip",
       "bytes": 530919,
       "sha256": "c2d1f335615ad852cf04ff7cfdee600333a92c4adf7ba024f9267f062eb31c74"
+    },
+    {
+      "version": 21,
+      "file": "omega-omni-cognitive-engineering-v21.zip",
+      "bytes": 543450,
+      "sha256": "5695bde00d8d3ba19c2707b60136c48fb907d8bca5d3a2730a4621f071ee2fe8",
+      "status": "Freyr cloud/startup funding and controlled onboarding"
+    },
+    {
+      "version": 22,
+      "file": "omega-omni-cognitive-engineering-v22.zip",
+      "bytes": 561451,
+      "sha256": "1806225e2e319842592cd6a14c7d5cf635f336e18207db1b49afcb9b05a2dec7",
+      "status": "Omni-Architect competency plane absorbed into OMEGA; no separate Plugin Creator release"
+    },
+    {
+      "version": 23,
+      "file": "omega-omni-cognitive-engineering-v23.zip",
+      "bytes": 599782,
+      "sha256": "fb79e38693390fe591209e83a733446b5e4edfff2b8de63b8215eceb51a0f7e3",
+      "status": "Agent CI Assurance Plane"
     }
   ],
   "plugin_creator_releases": [
     {
+      "release_id": "pluginrel_6ac46ef3b4ac8191b1e2a79400a594a3",
+      "version": "23.0.0",
+      "is_current": true
+    },
+    {
       "release_id": "pluginrel_6ac417823fa08191a279479db08707a2",
       "version": "20.0.0",
       "created_at": "2026-10-05T21:32:50.248668Z",
-      "is_current": true
+      "is_current": false
     },
     {
       "release_id": "pluginrel_6ac40bc4d5e88191ac3adb98718f62bd",
@@ -218,7 +244,13 @@
       "version": "2.0.0",
       "created_at": "2026-10-05T09:49:20.861301Z",
       "is_current": false
+    },
+    {
+      "release_id": "pluginrel_6ac426b373f481918aa6199fce9bdbb9",
+      "version": "21.0.0",
+      "created_at": "2026-10-05T22:37:39.453093Z",
+      "is_current": false
     }
   ],
-  "note": "OMEGA v20 source is cumulative. Original archive checksums are preserved for v0–v20; v0/v1 are explicitly treated as lineage artifacts, not fabricated semantic-version packages."
+  "note": "OMEGA v23 source is cumulative. Historical archive identities/checksums are preserved; v22 was a package/repository competency stage and was not published as a separate Plugin Creator release."
 }

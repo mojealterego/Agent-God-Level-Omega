@@ -1,8 +1,14 @@
 # Repository Status
 
-- Canonical cumulative source: `omega/` (OMEGA v20)
-- Historical lineage: `history/` (v0→v20)
+- Canonical cumulative source: `omega/` (OMEGA v23)
+- Historical lineage: `history/` (v0→v23)
 - Default branch: `main`
-- Source imported from the verified OMEGA v20 plugin package.
-- Original release archive checksums recorded for v0→v20.
-- v0/v1 standalone semantic-version binaries are not fabricated.
+- Current feature layer: Agent CI Assurance Plane
+- Embedded MCP: 393/393 PASS
+- Standalone MCP: 393/393 PASS
+- Plugin validator: PASS
+- Skills: 163
+- References: 78
+- Schemas: 104
+- Plugin release: `pluginrel_6ac46ef3b4ac8191b1e2a79400a594a3`
+- Third-party Actions remain optional dependencies; OMEGA implements core invariants natively.

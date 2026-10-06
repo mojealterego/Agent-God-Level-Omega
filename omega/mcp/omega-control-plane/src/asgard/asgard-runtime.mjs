@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import {
   AgentDirectory, ThorOrchestrator, LokiMarketIntel, KratosSecurity, RagnarAutomationScout,
   FlokiCatalog, AtreusDeviceSupervisor, ArtifactFactory, HaraldAccountIntel, IvarResearchBroker,
-  KronikarzNewsroom, WieszczMarketplace
+  KronikarzNewsroom, WieszczMarketplace, FreyrCloudOnboarding
 } from './asgard-architecture.mjs';
 import { GeminiInteractionsClient, extractGeminiText, GEMINI_DEFAULTS } from './gemini-interactions.mjs';
 import { AccountTunnelBroker } from './account-tunnel-broker.mjs';
@@ -17,11 +17,11 @@ function sha256Buffer(buf){return createHash('sha256').update(buf).digest('hex')
 export class AsgardRuntime {
   constructor({root,commandRunner=null,mcpInvoker=null,artifactScript=null,python=null,env=process.env,fetchImpl=globalThis.fetch,realityGate=null}={}){
     if(!root)throw new Error('root is required');this.root=resolve(root);this.commandRunner=commandRunner;this.mcpInvoker=mcpInvoker;this.artifactScript=artifactScript;this.python=python??env.OMEGA_PYTHON??'python3';this.env=env;this.realityGate=realityGate;
-    this.directory=new AgentDirectory();this.thor=new ThorOrchestrator({directory:this.directory});this.loki=new LokiMarketIntel();this.kratos=new KratosSecurity();this.ragnar=new RagnarAutomationScout();this.floki=new FlokiCatalog();this.atreus=new AtreusDeviceSupervisor();this.harald=new HaraldAccountIntel();this.ivar=new IvarResearchBroker();this.kronikarz=new KronikarzNewsroom();this.wieszcz=new WieszczMarketplace();this.factory=new ArtifactFactory();
+    this.directory=new AgentDirectory();this.thor=new ThorOrchestrator({directory:this.directory});this.loki=new LokiMarketIntel();this.kratos=new KratosSecurity();this.ragnar=new RagnarAutomationScout();this.floki=new FlokiCatalog();this.atreus=new AtreusDeviceSupervisor();this.harald=new HaraldAccountIntel();this.ivar=new IvarResearchBroker();this.kronikarz=new KronikarzNewsroom();this.wieszcz=new WieszczMarketplace();this.freyr=new FreyrCloudOnboarding();this.factory=new ArtifactFactory();
     this.fetchImpl=fetchImpl;this.gemini=new GeminiInteractionsClient({env:this.env,fetchImpl});this.tunnels=new AccountTunnelBroker({env:this.env});
     this.ivar.registerProvider({id:'chatgpt-host',kind:'CHATGPT',transport:'HOST_ORCHESTRATION',authorized:true,metadata:{host:'ChatGPT'}});
     this.ivar.registerProvider({id:'gemini-interactions',kind:'GEMINI',transport:'GEMINI_INTERACTIONS_API',authorized:this.gemini.configuration().apiKeyPresent,metadata:{endpoint:GEMINI_DEFAULTS.endpoint,model:GEMINI_DEFAULTS.model,deepResearchAgent:GEMINI_DEFAULTS.deepResearchAgent,apiKeyEnv:this.gemini.apiKeyEnv}});
-    this.statePath=join(this.root,'.omega','asgard-v20.json');this.legacyStatePath=join(this.root,'.omega','asgard-v18.json');this.activeAgent='thor';
+    this.statePath=join(this.root,'.omega','asgard-v21.json');this.legacyStatePath=join(this.root,'.omega','asgard-v20.json');this.legacyStatePath2=join(this.root,'.omega','asgard-v18.json');this.activeAgent='thor';
   }
 
   async action({action,payload={}}={}){
@@ -67,6 +67,25 @@ export class AsgardRuntime {
       case 'ragnar-discovery-ingest': return this.ragnar.ingestDiscovery(payload);
       case 'ragnar-discoveries': return this.ragnar.rankedDiscoveries(payload);
       case 'ragnar-to-thor': return this.#ragnarToThor(payload);
+      case 'freyr-account-bind': return this.freyr.bindAccount(payload);
+      case 'freyr-account-binding': return this.freyr.binding();
+      case 'freyr-program-ingest': return this.freyr.ingestProgram(payload);
+      case 'freyr-programs': return this.freyr.programsList(payload);
+      case 'freyr-program-get': return this.freyr.program(payload.id);
+      case 'freyr-qualify': return this.freyr.qualify(payload.id,payload);
+      case 'freyr-adapter-register': return this.freyr.registerAdapter(payload);
+      case 'freyr-adapters': return this.freyr.adaptersList();
+      case 'freyr-application-create': return this.freyr.createApplication(payload);
+      case 'freyr-application-get': return this.freyr.application(payload.id);
+      case 'freyr-applications': return this.freyr.applicationsList();
+      case 'freyr-signup-plan': return this.freyr.planSignup(payload);
+      case 'freyr-signup-execute': return await this.#freyrSignupExecute(payload);
+      case 'freyr-application-update': return this.freyr.updateApplication(payload.id,payload);
+      case 'freyr-credit-record': return this.freyr.recordCredit(payload);
+      case 'freyr-credit-ledger': return this.freyr.creditLedger(payload);
+      case 'freyr-integration-plan': return this.freyr.integrationPlan(payload.applicationId);
+      case 'freyr-import-ragnar': return this.#freyrImportRagnar(payload);
+      case 'freyr-to-thor': return this.#freyrToThor(payload);
       case 'floki-record': return this.floki.record(payload);
       case 'floki-catalog': return this.floki.catalog(payload);
       case 'floki-summary': return this.floki.summary();
@@ -144,8 +163,8 @@ export class AsgardRuntime {
 
   #command(text){
     const normalized=String(text).trim().toLocaleUpperCase('pl-PL');
-    if(normalized==='LISTA AGENTÓW'||normalized==='LISTA AGENTOW')return {command:'LISTA AGENTÓW',primary:this.directory.list({includeDomain:false}),categories:this.directory.categories(),usage:'Wywołaj agenta po nazwie: THOR, LOKI, KRATOS, RAGNAR, FLOKI, ATREUS, HARALD, IVAR, KRONIKARZ lub WIESZCZ.'};
-    const direct=['THOR','LOKI','KRATOS','RAGNAR','FLOKI','ATREUS','HARALD','IVAR','KRONIKARZ','WIESZCZ'].find(x=>x===normalized);
+    if(normalized==='LISTA AGENTÓW'||normalized==='LISTA AGENTOW')return {command:'LISTA AGENTÓW',primary:this.directory.list({includeDomain:false}),categories:this.directory.categories(),usage:'Wywołaj agenta po nazwie: THOR, LOKI, KRATOS, RAGNAR, FLOKI, ATREUS, HARALD, IVAR, KRONIKARZ, WIESZCZ lub FREYR.'};
+    const direct=['THOR','LOKI','KRATOS','RAGNAR','FLOKI','ATREUS','HARALD','IVAR','KRONIKARZ','WIESZCZ','FREYR'].find(x=>x===normalized);
     if(direct){const card=this.directory.card(direct);this.activeAgent=card.id;return {command:'INVOKE_AGENT',activeAgent:card.id,card,directConversation:true};}
     return {command:'UNRECOGNIZED',text};
   }
@@ -156,6 +175,37 @@ export class AsgardRuntime {
 
 
   #ragnarToThor({id,goalPrefix='Zrealizuj okazję wykrytą przez Ragnar'}={}){const rec=this.ragnar.discoveries.get(id);if(!rec)throw new Error('unknown Ragnar discovery');rec.status='HANDED_TO_THOR';const task=this.thor.submit({goal:`${goalPrefix}: ${rec.title}. ${rec.url??''}`,priority:'HIGH'});return {discovery:structuredClone(rec),thorTask:task};}
+
+
+  #freyrImportRagnar({id,verifiedAt=null,regions=['PL'],currency=null,creditValue=null,grantValue=null,eligibility=[],requiredProfileFields=[],requiresTermsAcceptance=true,requiresCaptcha=false,requiresKyc=false,requiresPhoneVerification=false,requiresPaymentMethod=false,requiresLegalAttestation=false,automationSurface='UNKNOWN'}={}){
+    const rec=this.ragnar.discoveries.get(id);if(!rec)throw new Error('unknown Ragnar discovery');
+    const supported=new Set(['CLOUD_CREDIT','STARTUP','GRANT','GPU_CREDIT','API_CREDIT','MODEL_PROMO','CLOUD_WORKSPACE']);
+    if(!supported.has(rec.kind))return {imported:false,reason:'DISCOVERY_KIND_NOT_FREYR_COMPATIBLE',discovery:structuredClone(rec)};
+    const kindMap={STARTUP:'STARTUP_PROGRAM',MODEL_PROMO:'MODEL_CREDIT',CLOUD_WORKSPACE:'FREE_TIER'};
+    const program=this.freyr.ingestProgram({provider:rec.provider??'UNKNOWN',program:rec.title,kind:kindMap[rec.kind]??rec.kind,url:rec.url??`urn:ragnar:${rec.id}`,regions,currency,creditValue,grantValue,eligibility,requiredProfileFields,requiresTermsAcceptance,requiresCaptcha,requiresKyc,requiresPhoneVerification,requiresPaymentMethod,requiresLegalAttestation,automationSurface,verifiedAt:verifiedAt??(rec.evidence?.length?rec.at:null),evidence:[...(rec.evidence??[]),{type:'ragnar-discovery',id:rec.id,score:rec.score}]});
+    rec.status='IMPORTED_BY_FREYR';return {imported:true,program,discovery:structuredClone(rec)};
+  }
+
+  #freyrToThor({programId,applicationId=null,goalPrefix='Uruchom i zintegruj kwalifikowany program chmurowy'}={}){
+    const program=this.freyr.program(programId);const app=applicationId?this.freyr.application(applicationId):null;
+    const task=this.thor.submit({goal:`${goalPrefix}: ${program.provider} / ${program.program}`,priority:'HIGH',requiredCapabilities:['cloud-deploy','service-integration','quality-gate'],deliverables:[`provider:${program.provider}`,applicationId?`application:${applicationId}`:`program:${programId}`]});
+    return {program,application:app,thorTask:task};
+  }
+
+  async #freyrSignupExecute(payload={}){
+    const plan=this.freyr.planSignup(payload);if(!plan.ready)return {executed:false,reason:'APPROVAL_OR_PROVIDER_BLOCKERS',plan};if(!plan.autoExecutable)return {executed:false,reason:'ADAPTER_NOT_AUTOMATED',plan};
+    const app=this.freyr.application(plan.applicationId);const binding=this.freyr.binding();const adapter=plan.adapter;
+    if(adapter.transport==='HOST_BROWSER'||adapter.transport==='HOST_CONNECTOR')return {executed:false,reason:'HOST_ORCHESTRATION_REQUIRED',plan,application:app,binding};
+    if(adapter.transport==='MCP_FEDERATION'){
+      if(!this.mcpInvoker||!adapter.providerId||!adapter.toolName)return {executed:false,reason:'MCP_PROVIDER_UNAVAILABLE',plan};
+      try{
+        const result=await this.mcpInvoker({providerId:adapter.providerId,name:adapter.toolName,arguments:{program:this.freyr.program(app.programId),application:app,account:{alias:binding?.accountAlias??null,emailRef:binding?.emailRef??null,loginHandle:binding?.loginHandle??null}}});
+        const updated=this.freyr.updateApplication(app.id,{status:'ACCOUNT_CREATED',externalAccountRef:result?.accountRef??result?.id??null,step:{type:'SIGNUP_EXECUTED',provider:adapter.provider,transport:adapter.transport}});
+        return {executed:true,plan,application:updated,result};
+      }catch(e){this.freyr.updateApplication(app.id,{status:'FAILED',step:{type:'SIGNUP_FAILED',error:String(e.message??e)}});return {executed:false,reason:String(e.message??e),plan};}
+    }
+    return {executed:false,reason:'UNSUPPORTED_SIGNUP_TRANSPORT',plan};
+  }
 
   #haraldToThor({id,goalPrefix='Zrealizuj projekt opracowany przez Harald'}={}){const p=this.harald.handoff(id);const task=this.thor.submit({goal:`${goalPrefix}: ${p.title}. ${p.brief}`,priority:'HIGH'});return {project:p,thorTask:task};}
 
@@ -337,12 +387,12 @@ ${project.brief}`;
   async #setDeveloperOption(payload){const plan=this.atreus.devOptionPlan(payload);if(!plan.allowed)return plan;const run=await this.#run(plan.argv,{sideEffect:'L'});return {...plan,executed:run.available&&run.result?.exitCode===0,run};}
 
   async #save(){
-    const state={version:20,activeAgent:this.activeAgent,thor:{automationMode:this.thor.automation().mode,tasks:this.thor.list()},loki:this.loki.ranked(),kratos:{secretRefs:this.kratos.listSecretRefs(),signingProfiles:[...this.kratos.signingProfiles.values()]},ragnar:{snapshots:this.ragnar.snapshots,coverage:[...this.ragnar.coverage.values()],discoveries:[...this.ragnar.discoveries.values()]},floki:{entries:this.floki.catalog(),changes:this.floki.changes},harald:{connectors:this.harald.connectorsList(),signals:[...this.harald.signals.values()],proposals:this.harald.projects()},ivar:{providers:this.ivar.providersList(),projects:[...this.ivar.projects.values()]},accounts:this.tunnels.snapshot(),wieszcz:{benchmarks:[...this.wieszcz.benchmarks.values()],offers:this.wieszcz.offersList(),orders:[...this.wieszcz.orders.values()],tenders:this.wieszcz.rankedTenders(),publishers:this.wieszcz.publishersList(),consents:this.wieszcz.consentsList()},savedAt:new Date().toISOString()};
-    await writeJsonAtomic(this.statePath,state);return {path:this.statePath,version:20,counts:{thorTasks:state.thor.tasks.length,loki:state.loki.length,secrets:state.kratos.secretRefs.length,floki:state.floki.entries.length,haraldProjects:state.harald.proposals.length,ivarProjects:state.ivar.projects.length,offers:state.wieszcz.offers.length}};
+    const state={version:21,activeAgent:this.activeAgent,thor:{automationMode:this.thor.automation().mode,tasks:this.thor.list()},loki:this.loki.ranked(),kratos:{secretRefs:this.kratos.listSecretRefs(),signingProfiles:[...this.kratos.signingProfiles.values()]},ragnar:{snapshots:this.ragnar.snapshots,coverage:[...this.ragnar.coverage.values()],discoveries:[...this.ragnar.discoveries.values()]},freyr:this.freyr.snapshot(),floki:{entries:this.floki.catalog(),changes:this.floki.changes},harald:{connectors:this.harald.connectorsList(),signals:[...this.harald.signals.values()],proposals:this.harald.projects()},ivar:{providers:this.ivar.providersList(),projects:[...this.ivar.projects.values()]},accounts:this.tunnels.snapshot(),wieszcz:{benchmarks:[...this.wieszcz.benchmarks.values()],offers:this.wieszcz.offersList(),orders:[...this.wieszcz.orders.values()],tenders:this.wieszcz.rankedTenders(),publishers:this.wieszcz.publishersList(),consents:this.wieszcz.consentsList()},savedAt:new Date().toISOString()};
+    await writeJsonAtomic(this.statePath,state);return {path:this.statePath,version:21,counts:{thorTasks:state.thor.tasks.length,loki:state.loki.length,secrets:state.kratos.secretRefs.length,freyrPrograms:state.freyr.programs.length,freyrApplications:state.freyr.applications.length,floki:state.floki.entries.length,haraldProjects:state.harald.proposals.length,ivarProjects:state.ivar.projects.length,offers:state.wieszcz.offers.length}};
   }
 
   async #load(){
-    let state=await readJson(this.statePath,null);if(!state)state=await readJson(this.legacyStatePath,{version:20});this.activeAgent=state.activeAgent??'thor';
-    if(state.thor?.automationMode)this.thor.setAutomationMode(state.thor.automationMode);this.thor.restore(state.thor?.tasks??state.thorTasks??[]);this.loki.restore(state.loki??[]);this.kratos.restore(state.kratos??{});this.ragnar.restore(state.ragnar??{});this.floki.restore(state.floki??{});this.tunnels.restore(state.accounts??[]);this.harald.restore(state.harald??{});this.ivar.restore(state.ivar??{});this.wieszcz.restore(state.wieszcz??{});return {loaded:true,version:state.version??20,activeAgent:this.activeAgent};
+    let state=await readJson(this.statePath,null);if(!state)state=await readJson(this.legacyStatePath,null);if(!state)state=await readJson(this.legacyStatePath2,{version:21});this.activeAgent=state.activeAgent??'thor';
+    if(state.thor?.automationMode)this.thor.setAutomationMode(state.thor.automationMode);this.thor.restore(state.thor?.tasks??state.thorTasks??[]);this.loki.restore(state.loki??[]);this.kratos.restore(state.kratos??{});this.ragnar.restore(state.ragnar??{});this.freyr.restore(state.freyr??{});this.floki.restore(state.floki??{});this.tunnels.restore(state.accounts??[]);this.harald.restore(state.harald??{});this.ivar.restore(state.ivar??{});this.wieszcz.restore(state.wieszcz??{});return {loaded:true,version:state.version??21,activeAgent:this.activeAgent};
   }
 }

@@ -4,7 +4,9 @@
     "omega-control-plane": {
       "type": "stdio",
       "command": "node",
-      "args": ["${PLUGIN_ROOT}/mcp/omega-control-plane/src/server.mjs"],
+      "args": [
+        "${PLUGIN_ROOT}/mcp/omega-control-plane/src/server.mjs"
+      ],
       "cwd": "${PLUGIN_ROOT}/mcp/omega-control-plane"
     }
   }

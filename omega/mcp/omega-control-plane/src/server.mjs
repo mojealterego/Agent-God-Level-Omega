@@ -33,7 +33,7 @@ async function invoke(handler) {
 
 function createServer() {
   const plane = new OmegaControlPlane();
-  const server = new McpServer({ name: 'omega-control-plane', version: '12.0.0' });
+  const server = new McpServer({ name: 'omega-control-plane', version: '23.0.0' });
 
   server.registerTool(
     'omega_capabilities',
@@ -664,7 +664,7 @@ function createServer() {
   server.registerTool(
     'omega_asgard',
     {
-      description: 'ASGARD v18 command and orchestration surface with isolated multi-account tunneling. Thor is the primary user-facing orchestrator: task intake, decomposition, category-based delegation, evidence/artifact aggregation and final-product gates. Loki manages evidence-backed market opportunities; Kratos governs secret references, Android signing and monetization security; Ragnar detects installed-app/provider/model changes and automation gaps; Floki maintains categorized provenance/change catalogs; Atreus supervises Android/ADB health and an allowlisted subset of developer options; Harald mines authorized account connectors for AI signals and project proposals; Ivar brokers real external deep-research providers and isolated account profiles without claiming geographic VPN access; Kronikarz produces weekly Mojealterego News editions/PDFs; Wieszcz runs evidence-bounded pricing, tenders, order intake, fulfillment and external-payment plans. Includes a local factory for real skill, MCP, plugin, tool, code-agent, no-code-agent and multi-agent-system scaffolds. Command LISTA AGENTÓW returns the directory. External publishing, market research, device control and signing only execute when real providers/toolchains are available.',
+      description: 'ASGARD v21 command and orchestration surface with isolated multi-account tunneling and Freyr cloud-funding onboarding. Thor is the primary user-facing orchestrator: task intake, decomposition, category-based delegation, evidence/artifact aggregation and final-product gates. Loki manages evidence-backed market opportunities; Kratos governs secret references, Android signing and monetization security; Ragnar detects installed-app/provider/model changes and automation gaps; Floki maintains categorized provenance/change catalogs; Atreus supervises Android/ADB health and an allowlisted subset of developer options; Harald mines authorized account connectors for AI signals and project proposals; Ivar brokers real external deep-research providers and isolated account profiles without claiming geographic VPN access; Kronikarz produces weekly Mojealterego News editions/PDFs; Wieszcz runs evidence-bounded pricing, tenders, order intake, fulfillment and external-payment plans; Freyr manages verified cloud/startup credit opportunities, account-onboarding plans, approval gates, credit ledgers and post-signup automation handoff. Includes a local factory for real skill, MCP, plugin, tool, code-agent, no-code-agent and multi-agent-system scaffolds. Command LISTA AGENTÓW returns the directory. External publishing, market research, device control and signing only execute when real providers/toolchains are available.',
       inputSchema: z.object({
         cwd: z.string().min(1),
         action: z.enum([
@@ -673,6 +673,7 @@ function createServer() {
           'loki-ingest','loki-ranked','loki-handoff','loki-to-thor',
           'kratos-secret-register','kratos-secret-list','kratos-secret-check','kratos-signing-register','kratos-signing-doctor','kratos-sign-apk','kratos-monetization-plan',
           'ragnar-snapshot','ragnar-coverage-set','ragnar-gaps','ragnar-live-packages','ragnar-discovery-ingest','ragnar-discoveries','ragnar-to-thor',
+          'freyr-account-bind','freyr-account-binding','freyr-program-ingest','freyr-programs','freyr-program-get','freyr-qualify','freyr-adapter-register','freyr-adapters','freyr-application-create','freyr-application-get','freyr-applications','freyr-signup-plan','freyr-signup-execute','freyr-application-update','freyr-credit-record','freyr-credit-ledger','freyr-integration-plan','freyr-import-ragnar','freyr-to-thor',
           'floki-record','floki-catalog','floki-summary',
           'atreus-interpret-health','atreus-doctor','atreus-developer-options','atreus-set-developer-option',
           'harald-connector-register','harald-connectors','harald-ingest','harald-pull','harald-projects','harald-to-thor',
@@ -722,6 +723,42 @@ function createServer() {
       })
     },
     async (input) => invoke(() => plane.realityFilter(input))
+  );
+
+  server.registerTool(
+    'omega_omni_architect',
+    {
+      description: 'OMEGA v22 competency plane absorbing Omni-Architect v1/v2 without creating a separate plugin. Provides deduplicated GitHub engineering, repository auditing, CI/CD verification, Google-intelligence normalization, Source-of-Truth Registry v2, Decision/Evidence Ledger v2, prompt-injection defense v2, MCP orchestration, Android engineering, AI-agent engineering, cloud infrastructure and system-architecture gates. Live execution uses existing OMEGA callbacks and never upgrades IMPLEMENTED to TESTED/BUILT/DEPLOYED/VERIFIED-IN-RUNTIME without observed evidence.',
+      inputSchema: z.object({
+        cwd: z.string().min(1),
+        action: z.enum([
+          'competency-map','evidence-add','decision-add','ledger-snapshot','source-upsert','source-resolve','injection-screen',
+          'github-plan','repo-audit','repo-live-inspect','ci-verify','ci-live','google-ingest','google-query',
+          'mcp-register','mcp-route','mcp-live-call','android-gate','android-live','agent-spec','agent-evaluate',
+          'cloud-gate','adr-add','adr-list','quality-gate','state-save','state-load'
+        ]),
+        payload: z.record(z.string(), z.unknown()).default({})
+      })
+    },
+    async (input) => invoke(() => plane.omniArchitect(input))
+  );
+
+  server.registerTool(
+    'omega_assurance_architect',
+    {
+      description: 'OMEGA v23 AI/agent CI assurance plane. Implements internal supply-chain auditing for GitHub Actions, repo-owned landing policy, deterministic agent reliability checks, AI artifact release diffs, MCP behavioral grade gates, governed knowledge/docset writes with CAS and approvals, work-item-scoped session continuity, canonical agent sync, React Native specialist routing, demos-as-code contracts and log-evidence hashing. Third-party Actions remain optional adapters and are never treated as trusted merely because they are installed.',
+      inputSchema: z.object({
+        cwd: z.string().min(1),
+        action: z.enum([
+          'action-audit','landing-evaluate','landing-policy-compare','reliability-audit','ai-artifact-diff','mcp-grade-gate',
+          'knowledge-docset-upsert','knowledge-identity-upsert','knowledge-read','knowledge-write','knowledge-approve','knowledge-requests',
+          'session-save','session-resume','agent-sync-plan','react-native-route','demo-validate','declarative-agent-validate','log-evidence',
+          'toolchain-doctor','external-plan','state-save','state-load'
+        ]),
+        payload: z.record(z.string(), z.unknown()).default({})
+      })
+    },
+    async (input) => invoke(() => plane.assuranceArchitecture(input))
   );
 
   server.registerTool(

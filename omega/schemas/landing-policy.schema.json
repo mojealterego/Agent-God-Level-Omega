@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA v23 Landing Policy",
+  "type": "object",
+  "properties": {
+    "requiredChecks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "ackPaths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "maxAgents": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "maxBudget": {
+      "type": "number",
+      "minimum": 0
+    },
+    "minMcpGrade": {
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "F"
+      ]
+    },
+    "requirePinnedActions": {
+      "type": "boolean"
+    },
+    "lanes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "paths"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

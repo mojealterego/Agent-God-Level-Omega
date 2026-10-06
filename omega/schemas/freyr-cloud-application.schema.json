@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "freyr-cloud-application.schema.json",
+  "title": "Freyr Cloud Application",
+  "type": "object",
+  "required": ["id", "programId", "provider", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "programId": {"type": "string"},
+    "provider": {"type": "string"},
+    "program": {"type": "string"},
+    "accountAlias": {"type": "string"},
+    "profileRef": {"type": ["string", "null"]},
+    "status": {"type": "string"},
+    "externalAccountRef": {"type": ["string", "null"]},
+    "automationConfigured": {"type": "boolean"},
+    "steps": {"type": "array"}
+  },
+  "additionalProperties": true
+}
