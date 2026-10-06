@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Speech Engine Event Guard v25",
+  "type": "object",
+  "required": [
+    "sessionId",
+    "event"
+  ],
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "event": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "init",
+            "user_transcript",
+            "agent_response",
+            "ping",
+            "pong",
+            "close",
+            "error"
+          ]
+        },
+        "event_id": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
