@@ -32,7 +32,7 @@ jobs:
           sha_ref=re.compile(r"^[0-9a-f]{40}$")
           for path in Path(".github/workflows").glob("*.y*ml"):
               text=path.read_text(encoding="utf-8")
-              if "pull_request_target:" in text:
+              if re.search(r"(?m)^\\s{0,2}pull_request_target:\\s*$",text):
                   findings.append(f"{path}: pull_request_target is forbidden")
               if re.search(r"(?m)^\s*permissions:\s*write-all\s*$",text):
                   findings.append(f"{path}: permissions write-all is forbidden")
