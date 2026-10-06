@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Evidence",
+  "type": "object",
+  "required": [
+    "id",
+    "state",
+    "source_type",
+    "source",
+    "summary"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "enum": [
+        "OBSERVED",
+        "INFERRED",
+        "HYPOTHESIS",
+        "UNKNOWN",
+        "DISPROVEN"
+      ]
+    },
+    "source_type": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "revision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "content_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "invalidation_condition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

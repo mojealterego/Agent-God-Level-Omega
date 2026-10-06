@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Control Plane Operation",
+  "type": "object",
+  "required": ["argv", "cwd", "sideEffect", "startedAt", "endedAt", "timedOut", "evidence"],
+  "properties": {
+    "argv": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "cwd": { "type": "string", "minLength": 1 },
+    "sideEffect": { "enum": ["R", "L", "E", "H"] },
+    "startedAt": { "type": "string", "format": "date-time" },
+    "endedAt": { "type": "string", "format": "date-time" },
+    "exitCode": { "type": ["integer", "null"] },
+    "signal": { "type": ["string", "null"] },
+    "timedOut": { "type": "boolean" },
+    "stdout": { "type": "string" },
+    "stderr": { "type": "string" },
+    "stdoutTruncated": { "type": "boolean" },
+    "stderrTruncated": { "type": "boolean" },
+    "evidence": {
+      "type": "object",
+      "required": ["id", "kind", "observedAt", "sha256"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": { "const": "process" },
+        "observedAt": { "type": "string", "format": "date-time" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

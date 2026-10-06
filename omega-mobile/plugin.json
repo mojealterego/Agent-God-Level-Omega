@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "omega-omni-cognitive-engineering-mobile",
+  "version": "4.3.3",
+  "description": "Android-first OMEGA engineering OS for ChatGPT mobile with 171 coordinated agent skills, including 68 AAA Android game specialists, 30 native Android E2E specialists, 30 web/full-stack E2E specialists, 10 code-lifecycle agents, 21 core control-plane agents, and a 12-agent multi-cloud/runtime fabric spanning OpenAI, Gemini/Vertex AI, organization-wide Google Cloud automation, IBM Cloud/watsonx, a Cloud Run-ready OAuth-protected Remote MCP gateway, and the preserved Termux Secure MCP lane.",
+  "author": {
+    "name": "Moje Alterego"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "OMEGA Mobile Engineering v4.3.3",
+        "shortDescription": "171-agent remote MCP OS",
+        "longDescription": "Android-first OMEGA engineering operating system for ChatGPT mobile with a shared Cloud Run-ready Streamable HTTP MCP backend for ChatGPT and Gemini. The remote gateway is an OAuth 2.1 resource server with RFC 9728 protected-resource metadata, OIDC/JWKS or RFC 7662 token verification, Cloud Run health/readiness endpoints, and the same OMEGA control-plane tools used by the local runtime. Existing Google Cloud organization/folder/project automation, Gemini/Vertex AI, IBM Cloud/watsonx, GitHub/GitLab, Unity, Google Play, web/mobile E2E and code-lifecycle squads remain intact. The existing OpenAI Secure MCP Tunnel to Termux is preserved as an additional local/device executor rather than replaced.",
+        "developerName": "Moje Alterego",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Interactive",
+          "Read",
+          "Write"
+        ],
+        "defaultPrompt": [
+          "Use OMEGA Mobile v4.3 as an end-to-end product engineering fabric from ChatGPT on Android; prefer the authenticated Remote MCP gateway for shared cloud execution and use the Termux Secure MCP lane when local/device execution is materially useful.",
+          "For Gemini, expose the same HTTPS /mcp endpoint and OAuth resource server; never assume Gemini custom-app availability until the client actually connects and authenticates.",
+          "Preserve branches, credentials and existing provider integrations; verify every tool, build, deployment, artifact and release with provider-native evidence and never fabricate success."
+        ]
+      },
+      "apps": "./.app.json"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Completion",
+  "type": "object",
+  "required": [
+    "scope_match",
+    "requirements_verified",
+    "behavior_verified",
+    "repository_gate",
+    "done"
+  ],
+  "properties": {
+    "scope_match": {
+      "type": "boolean"
+    },
+    "requirements_verified": {
+      "type": "boolean"
+    },
+    "behavior_verified": {
+      "type": "boolean"
+    },
+    "test_gate": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "build_gate": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "quality_gate": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "security_gate": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "repository_gate": {
+      "type": "boolean"
+    },
+    "ci_gate": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "artifact_gate": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "runtime_gate": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "release_gate": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "required_unknown_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "done": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

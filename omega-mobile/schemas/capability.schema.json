@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA Capability",
+  "type": "object",
+  "required": ["id", "status", "category", "operations", "side_effect_class"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["AVAILABLE", "AVAILABLE_WITH_APPROVAL", "UNAVAILABLE", "UNKNOWN"] },
+    "category": { "type": "string", "minLength": 1 },
+    "provider": { "type": ["string", "null"] },
+    "path": { "type": ["string", "null"] },
+    "operations": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "read_scope": { "type": ["string", "null"] },
+    "write_scope": { "type": ["string", "null"] },
+    "side_effect_class": { "enum": ["R", "L", "E", "H"] },
+    "reversible": { "type": ["boolean", "null"] },
+    "auth_state": { "type": ["string", "null"] },
+    "approval_required": { "type": ["boolean", "null"] },
+    "rate_limit": { "type": ["string", "null"] },
+    "cost_model": { "type": ["string", "null"] },
+    "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+  },
+  "additionalProperties": false
+}
