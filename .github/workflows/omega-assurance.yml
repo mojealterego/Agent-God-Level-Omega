@@ -68,7 +68,14 @@ jobs:
           PY
 
       - name: Validate OMEGA package
-        run: python3 omega/scripts/validate_package.py
+        shell: bash
+        run: |
+          set -euo pipefail
+          tmp="$(mktemp -d)"
+          pkg="$tmp/omega-omni-cognitive-engineering-v2"
+          mkdir -p "$pkg"
+          cp -a omega/. "$pkg/"
+          python3 "$pkg/scripts/validate_package.py"
 
   regression:
     needs: assurance
