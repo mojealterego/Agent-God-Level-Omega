@@ -765,12 +765,13 @@ function createServer() {
   server.registerTool(
     'omega_media_architect',
     {
-      description: 'OMEGA v24 ElevenLabs voice/media plane. Provides secret-ref-only adapters for Speech Engine configuration, Music composition/plans, Text-to-Dialogue, sound effects, voice isolation, voice changing, forced alignment, dubbing and asynchronous image/video generation. Credit-consuming and provider-mutating operations require approved=true; raw API keys are never persisted.',
+      description: 'OMEGA v25 ElevenLabs voice/media hardening plane. Adds Speech Engine JWT verification, event-id interruption guards, list/update/delete lifecycle, Music detailed responses, Dialogue timestamps, stricter SFX/Forced Alignment validation and explicit dubbing billing acknowledgement while preserving secret-ref-only authentication and OMEGA release gates.',
       inputSchema: z.object({
         cwd: z.string().min(1),
         action: z.enum([
-          'doctor','capabilities','latency-plan','speech-engine-upstream-contract','speech-engine-create','speech-engine-get',
-          'music-plan','music-compose','dialogue-generate','sound-effect-generate','voice-isolate','voice-change','forced-align',
+          'doctor','capabilities','latency-plan','speech-engine-upstream-contract','speech-engine-verify-jwt','speech-engine-event-guard',
+          'speech-engine-list','speech-engine-create','speech-engine-get','speech-engine-update','speech-engine-delete',
+          'music-plan','music-compose','music-compose-detailed','dialogue-generate','dialogue-with-timestamps','sound-effect-generate','voice-isolate','voice-change','forced-align',
           'dubbing-project-create','dubbing-project-get','dubbing-language-create','dubbing-language-get','dubbing-language-download',
           'image-create','image-get','image-download','video-create','video-get','video-download'
         ]),
