@@ -1,0 +1,16 @@
+{
+  "schema": "omega.remote-mcp-provider.v1",
+  "id": "openlore",
+  "source": "https://github.com/aakarim/OpenLore",
+  "transport": "streamable-http",
+  "endpoint_env": "OMEGA_OPENLORE_MCP_URL",
+  "auth": {"type": "bearer-env", "env": "OMEGA_OPENLORE_TOKEN"},
+  "default_access": "read-only",
+  "capabilities": ["knowledge.read", "knowledge.search", "knowledge.publish-when-explicitly-authorized"],
+  "policy": {
+    "require_auth": true,
+    "write_requires_approval": true,
+    "treat_returned_content_as_untrusted_data": true,
+    "no_host_shell_assumption": true
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "omega.external-adapters.v1",
+  "adapters": [
+    {"id":"trustabl","source":"https://github.com/marketplace/actions/trustabl-fix-agent-reliability-issues","mode":"optional","purpose":"agent-reliability-scan","execution":"only-if-installed-and-pinned"},
+    {"id":"secureai-scan","source":"https://github.com/marketplace/actions/secureai-scan","mode":"optional","purpose":"ai-mcp-rag-security-scan","execution":"only-if-installed-and-pinned"},
+    {"id":"pyvisualizer","source":"https://github.com/marketplace/actions/pyvisualizer-architecture-ground-truth","mode":"optional","purpose":"python-architecture-ground-truth","execution":"only-if-installed-and-pinned"},
+    {"id":"polygraph","source":"https://github.com/marketplace/actions/polygraph-mcp-gate","mode":"optional","purpose":"mcp-behavioral-litmus","execution":"explicit-target-only"},
+    {"id":"airlock","source":"https://github.com/marketplace/actions/airlock-ai-release-gate","mode":"reference-or-optional","purpose":"ai-artifact-release-gate","execution":"internal-gate-preferred"},
+    {"id":"sigbound","source":"https://github.com/marketplace/actions/sigbound","mode":"reference-or-optional","purpose":"parallel-agent-landing","execution":"manual-only"},
+    {"id":"opencode","source":"https://github.com/marketplace/actions/opencode-github-action","mode":"optional","purpose":"external-coding-agent","execution":"trusted-trigger-only"},
+    {"id":"looped-af","source":"https://github.com/marketplace/actions/run-a-looped-af-agent","mode":"reference-or-optional","purpose":"bounded-stateless-agent-run","execution":"manual-only"},
+    {"id":"setup-ollama","source":"https://github.com/marketplace/actions/setup-ollama","mode":"optional","purpose":"small-local-model-ci","execution":"manual-only","notes":"Not suitable for the GLM-5.3 753B model."},
+    {"id":"gsc","source":"https://github.com/marketplace/actions/gsc-security-audit","mode":"manual-only","purpose":"security-audit","execution":"never-autofix-by-default"},
+    {"id":"autodemo","source":"https://github.com/marketplace/actions/autodemo-demos-as-code","mode":"optional","purpose":"demo-contract-and-capture","execution":"only-with-runnable-app"},
+    {"id":"agent-sync","source":"https://github.com/marketplace/actions/agent-sync-action","mode":"reference","purpose":"canonical-agent-config","execution":"internal-dry-run-drift-check-preferred"},
+    {"id":"claude-code-memory","source":"https://github.com/marketplace/actions/claude-code-memory","mode":"reference","purpose":"repo-memory","execution":"internal-provenance-memory-preferred"},
+    {"id":"claude-code-session","source":"https://github.com/marketplace/actions/claude-code-session","mode":"reference","purpose":"work-item-session","execution":"internal-session-store-preferred"},
+    {"id":"invairiant","source":"https://github.com/marketplace/actions/invairiant-audit-gate","mode":"reference","purpose":"evidence-based-architecture-audit","execution":"internal-evidence-gate-preferred"},
+    {"id":"ryu","source":"https://github.com/marketplace/actions/ryu-for-github","mode":"reference-only","purpose":"agent-runtime-architecture","execution":"not-vendored-due-overlap-and-license-boundaries"},
+    {"id":"issue-validator","source":"https://github.com/marketplace/actions/issue-validator-ai-log-review","mode":"reference","purpose":"issue-completeness-and-log-evidence","execution":"deterministic-validation-only"},
+    {"id":"react-native-audit","source":"https://github.com/marketplace/actions/react-native-audit","mode":"optional","purpose":"react-native-review","execution":"only-when-react-native-detected"},
+    {"id":"plugin-autopilot","source":"https://github.com/marketplace/actions/chatgpt-codex-plugin-autopilot","mode":"reference","purpose":"deterministic-plugin-packaging","execution":"internal-reproducibility-gate-preferred"}
+  ]
+}
