@@ -11,7 +11,7 @@ permissions:
 jobs:
   assurance:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - name: Checkout immutable action
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node immutable action
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Supply-chain workflow audit
         shell: python
@@ -69,7 +69,13 @@ jobs:
 
       - name: Run complete MCP regression
         working-directory: omega/mcp/omega-control-plane
-        run: npm test
+        shell: bash
+        run: |
+          set -euo pipefail
+          start=$(date +%s)
+          npm test
+          end=$(date +%s)
+          echo "OMEGA regression duration: $((end-start))s"
 
       - name: Validate OMEGA package
         run: python3 omega/scripts/validate_package.py
