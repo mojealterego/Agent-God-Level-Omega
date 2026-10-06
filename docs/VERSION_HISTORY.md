@@ -1,10 +1,10 @@
-# OMEGA Version History — v0 → v23
+# OMEGA Version History — v0 → v24
 
-The repository preserves the complete cumulative OMEGA v23 source and an explicit integrity record for every lineage stage from v0 through v20.
+The repository preserves the complete cumulative OMEGA v24 source and an explicit integrity record for every lineage stage from v0 through v20.
 
 ## Integrity rule
 
-No missing historical binary is fabricated. v0/v1 are lineage records for the earliest surviving artifacts. For v2–v23 the original package filenames, byte sizes and SHA-256 hashes are recorded.
+No missing historical binary is fabricated. v0/v1 are lineage records for the earliest surviving artifacts. For v2–v24 the original package filenames, byte sizes and SHA-256 hashes are recorded.
 
 | Version | Milestone | SHA-256 |
 |---:|---|---|
@@ -34,8 +34,10 @@ No missing historical binary is fabricated. v0/v1 are lineage records for the ea
 | v22 | Omni-Architect competency plane absorbed into OMEGA: GitHub engineering, repository audit, CI/CD verification, Google intelligence, source-of-truth/ledger v2, MCP fabric and platform engineering. | `1806225e2e319842592cd6a14c7d5cf635f336e18207db1b49afcb9b05a2dec7` |
 | v23 | Agent CI Assurance Plane: supply-chain Action audit, verified landing policy, bounded reliability, AI artifact diffs, MCP behavior gates, governed knowledge/session continuity, canonical agent sync, React Native routing and demos-as-code. | `fb79e38693390fe591209e83a733446b5e4edfff2b8de63b8215eceb51a0f7e3` |
 
+| v24 | ElevenLabs Media/Voice Plane: Speech Engine, Music, Dialogue, SFX, Voice Isolation/Change, Forced Alignment, Dubbing, Image/Video Flows, billing approvals and secret-ref-only authentication. | `e3fb66e307f1f7407876bb50993e79a4ddbddc17b0a81b251e4e3c6bab4a11f4` |
+
 ## Canonical cumulative source
 
-- `omega/` — complete OMEGA v23 package and embedded MCP control plane.
+- `omega/` — complete OMEGA v24 package and embedded MCP control plane.
 - `history/release-index.json` — archive identity, hashes and Plugin Creator release records.
-- `history/v00` … `history/v20` — per-version lineage records.
+- `history/v00` … `history/v24` — per-version lineage records.

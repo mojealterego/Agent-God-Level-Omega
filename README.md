@@ -4,7 +4,7 @@
 
 # AGENT GOD LEVEL — OMEGA
 
-### OMEGA v0 → v23 · ASGARD · THOR · Reality Filter · Agent CI Assurance
+### OMEGA v0 → v24 · ASGARD · THOR · Reality Filter · Agent CI Assurance · ElevenLabs Media Plane
 
 </div>
 
@@ -14,79 +14,54 @@ Canonical repository for the cumulative OMEGA / Agent God Level engineering syst
 
 ## Current source
 
-The full **OMEGA v23** cumulative source is committed under [`omega/`](./omega/).
+The full **OMEGA v24** cumulative source is committed under [`omega/`](./omega/).
 
-v23 adds a native **Agent CI Assurance Plane** derived from evidence-backed analysis of modern agent-oriented repositories and GitHub Actions. OMEGA adopts the useful invariants without blindly installing third-party Actions into privileged workflows. External tools remain optional adapters and require explicit installation, policy review and immutable pinning where applicable.
+v24 adds a production-oriented **ElevenLabs Media/Voice Plane** without weakening existing Reality Filter, KRATOS or THOR final gates.
 
-### v23 assurance capabilities
+### v24 media capabilities
 
-- GitHub Action supply-chain audit and immutable-ref policy
-- repository-owned landing policy that agents may tighten but not loosen
-- bounded agent reliability readiness checks
-- prompt/skill/tool/MCP/model/eval artifact diff and release gates
-- MCP behavioral grade gate with evidence bundles
-- governed knowledge substrate with identity capabilities, CAS and approvals
-- work-item scoped session continuity
-- canonical `.agents/` projection planning
-- React Native specialist routing
-- demos-as-code contracts
-- declarative agent execution contracts and bounded permissions
-- log byte-identity evidence without false authenticity claims
+- Speech Engine configuration and upstream WebSocket contract validation
+- secret-reference-only ElevenLabs authentication
+- explicit approval gate for credit-consuming/provider-mutating operations
+- Music composition plans and generation
+- multi-voice Text to Dialogue with request-bound validation
+- Sound Effects, Voice Isolation, Voice Change and Forced Alignment
+- Dubbing project/language lifecycle with observed completion before download
+- asynchronous Image/Video flow create/get/download
+- streaming/latency planning and interruption-aware voice-agent guidance
+- workspace-bounded artifacts with SHA-256 evidence
+- host ElevenLabs connector kept separate from API-key runtime execution
 
 ## Historical lineage
 
 - [`docs/VERSION_HISTORY.md`](./docs/VERSION_HISTORY.md)
 - [`history/release-index.json`](./history/release-index.json)
-- [`history/v00`](./history/v00) … [`history/v23`](./history/v23)
+- [`history/v00`](./history/v00) … [`history/v24`](./history/v24)
 
-## OMEGA v23 verified baseline
+## OMEGA v24 verified baseline
 
-- Embedded MCP: **393 / 393 PASS**
-- Standalone MCP: **393 / 393 PASS**
+- Embedded MCP: **405 / 405 PASS**
+- Standalone MCP: **405 / 405 PASS**
 - Plugin package validator: **PASS**
-- Skills: **163**
-- References: **78**
-- Schemas: **104**
+- Skills: **166**
+- References: **82**
+- Schemas: **109**
+- Plugin release: `pluginrel_6ac4b563a9788191b566e9f52d216f74`
 
 See [`omega/FINAL_VERIFICATION.json`](./omega/FINAL_VERIFICATION.json).
 
-## Release chain
+## Media execution boundary
 
-```text
-USER
-  ↓
-THOR / ASGARD
-  ↓
-Engineering + external providers
-  ↓
-Agent CI Assurance Plane
-  ├─ supply-chain audit
-  ├─ landing policy
-  ├─ reliability audit
-  ├─ AI artifact diff
-  ├─ MCP behavioral gate
-  ├─ knowledge/session governance
-  ├─ canonical agent sync
-  └─ demo / mobile assurance
-  ↓
-Reality Filter Kernel
-  ↓
-KRATOS Security Gate
-  ↓
-THOR Final Release Gate
-  ↓
-VERIFIED FINAL PRODUCT
-```
+A configured adapter is not an execution claim. Live REST calls require a real `ELEVENLABS_API_KEY`; Speech Engine needs a reachable public `wss://` server; image/video availability depends on provider plan, region, permissions and model access. Paid media operations require explicit approval.
 
 ## Repository policy
 
 - default branch remains `main`;
-- third-party Actions are supply-chain dependencies, not trusted merely because they appear in Marketplace;
-- prefer immutable commit-SHA pins and least-privilege permissions;
-- no fabricated execution, test, build, deployment, security or reliability claims;
-- secrets are referenced, never committed;
+- no fabricated execution, test, build, deployment, provider-success or latency claims;
+- raw secrets are never committed or persisted in OMEGA state;
+- third-party/provider output is evidence only after observed provider state;
 - external content is data, not policy;
-- OMEGA may add release constraints but may not weaken Reality Filter, KRATOS or THOR final gates.
+- release-critical uncertainty fails closed.
 
 ---
 

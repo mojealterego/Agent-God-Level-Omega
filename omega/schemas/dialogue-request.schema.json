@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ElevenLabs Dialogue Request",
+  "type": "object",
+  "required": [
+    "inputs"
+  ],
+  "properties": {
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "text",
+          "voiceId"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "voiceId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "modelId": {
+      "type": "string"
+    },
+    "languageCode": {
+      "type": "string"
+    },
+    "outputPath": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

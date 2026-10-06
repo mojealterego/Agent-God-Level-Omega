@@ -27,6 +27,7 @@ import { SecretKnowledgeRuntime } from '../knowledge/secret-knowledge-runtime.mj
 import { RealityFilterRuntime } from '../reality/reality-filter-runtime.mjs';
 import { OmniCompetencyRuntime } from '../omni/omni-runtime.mjs';
 import { AssuranceRuntime } from '../assurance/assurance-runtime.mjs';
+import { ElevenLabsMediaRuntime } from '../media/elevenlabs-runtime.mjs';
 
 function parseRoots(value) {
   if (!value) return [process.cwd()];
@@ -53,6 +54,7 @@ export class OmegaControlPlane {
     this.realityFilterRuntimes = new Map();
     this.omniRuntimes = new Map();
     this.assuranceRuntimes = new Map();
+    this.mediaRuntimes = new Map();
     this.mcpClientFactory = mcpClientFactory;
     this.cognitiveProviderTransport = cognitiveProviderTransport;
     this.env = env;
@@ -356,6 +358,14 @@ export class OmegaControlPlane {
   }
 
   async assuranceArchitecture({ cwd, ...input }) { return await this.#assuranceRuntime(cwd).action(input); }
+
+  #mediaRuntime(cwd) {
+    const root = this.#rootFor(cwd);
+    if (!this.mediaRuntimes.has(root)) this.mediaRuntimes.set(root, new ElevenLabsMediaRuntime({ root, env: this.env }));
+    return this.mediaRuntimes.get(root);
+  }
+
+  async mediaArchitecture({ cwd, ...input }) { return await this.#mediaRuntime(cwd).action(input); }
 
   async memory({ cwd, ...input }) { return await this.#runtime(cwd).memory(input); }
   async reasoning({ cwd, ...input }) { return await this.#runtime(cwd).reasoning(input); }

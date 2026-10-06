@@ -60,15 +60,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(cat VERSION)" = "23.0.0"
+          test "$(cat VERSION)" = "24.0.0"
           python3 - <<'PY'
           import json
           from pathlib import Path
           f=json.loads(Path("omega/FINAL_VERIFICATION.json").read_text())
-          assert f["version"]=="23.0.0"
-          assert f["test_suite"]=={"passed":393,"failed":0,"total":393}
+          assert f["version"]=="24.0.0"
+          assert f["test_suite"]=={"passed":405,"failed":0,"total":405}
           assert f["package_validator"]=="PASS"
-          assert f["counts"]=={"skills":163,"references":78,"schemas":104}
+          assert f["counts"]=={"skills":166,"references":82,"schemas":109}
           PY
 
       - name: Validate OMEGA package

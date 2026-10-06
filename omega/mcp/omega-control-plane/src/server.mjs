@@ -33,7 +33,7 @@ async function invoke(handler) {
 
 function createServer() {
   const plane = new OmegaControlPlane();
-  const server = new McpServer({ name: 'omega-control-plane', version: '23.0.0' });
+  const server = new McpServer({ name: 'omega-control-plane', version: '24.0.0' });
 
   server.registerTool(
     'omega_capabilities',
@@ -759,6 +759,25 @@ function createServer() {
       })
     },
     async (input) => invoke(() => plane.assuranceArchitecture(input))
+  );
+
+
+  server.registerTool(
+    'omega_media_architect',
+    {
+      description: 'OMEGA v24 ElevenLabs voice/media plane. Provides secret-ref-only adapters for Speech Engine configuration, Music composition/plans, Text-to-Dialogue, sound effects, voice isolation, voice changing, forced alignment, dubbing and asynchronous image/video generation. Credit-consuming and provider-mutating operations require approved=true; raw API keys are never persisted.',
+      inputSchema: z.object({
+        cwd: z.string().min(1),
+        action: z.enum([
+          'doctor','capabilities','latency-plan','speech-engine-upstream-contract','speech-engine-create','speech-engine-get',
+          'music-plan','music-compose','dialogue-generate','sound-effect-generate','voice-isolate','voice-change','forced-align',
+          'dubbing-project-create','dubbing-project-get','dubbing-language-create','dubbing-language-get','dubbing-language-download',
+          'image-create','image-get','image-download','video-create','video-get','video-download'
+        ]),
+        payload: z.record(z.string(), z.unknown()).default({})
+      })
+    },
+    async (input) => invoke(() => plane.mediaArchitecture(input))
   );
 
   server.registerTool(

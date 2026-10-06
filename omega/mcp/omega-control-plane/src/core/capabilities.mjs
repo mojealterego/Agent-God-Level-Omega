@@ -29,7 +29,7 @@ function cap(id, category, provider, path, operations, sideEffectClass = 'R') {
 }
 
 export async function discoverCapabilities({ resolver = defaultResolver } = {}) {
-  const binaries = ['git', 'gh', 'glab', 'docker', 'podman', 'adb', 'emulator', 'gradle', 'java', 'npm', 'pnpm', 'yarn', 'pytest', 'cargo', 'go', 'iverilog', 'verilator', 'yosys', 'ghdl', 'snarkjs', 'ffmpeg', 'magick', 'darktable-cli', 'rawtherapee-cli', 'dcraw', 'exiftool', 'zfs', 'btrfs', 'mosquitto_sub', 'coap-client', 'makensis', 'wixl', 'agent-device', 'skills-ref', 'android', 'curl', 'openssl', 'dig', 'ss', 'lsof', 'tcpdump', 'tshark', 'strace', 'iostat', 'vmstat', 'journalctl', 'lynis', 'trustabl', 'secureai-scan', 'py-code-visualizer', 'ollama', 'autodemo', 'sig', 'airlock'];
+  const binaries = ['git', 'gh', 'glab', 'docker', 'podman', 'adb', 'emulator', 'gradle', 'java', 'npm', 'pnpm', 'yarn', 'pytest', 'cargo', 'go', 'iverilog', 'verilator', 'yosys', 'ghdl', 'snarkjs', 'ffmpeg', 'magick', 'darktable-cli', 'rawtherapee-cli', 'dcraw', 'exiftool', 'zfs', 'btrfs', 'mosquitto_sub', 'coap-client', 'makensis', 'wixl', 'agent-device', 'skills-ref', 'android', 'curl', 'openssl', 'dig', 'ss', 'lsof', 'tcpdump', 'tshark', 'strace', 'iostat', 'vmstat', 'journalctl', 'lynis', 'trustabl', 'secureai-scan', 'py-code-visualizer', 'ollama', 'autodemo', 'sig', 'airlock', 'elevenlabs'];
   const entries = Object.fromEntries(await Promise.all(binaries.map(async (name) => [name, await resolver(name)])));
   const containerPath = entries.docker ?? entries.podman;
   const ciPath = entries.gh ?? entries.glab;
@@ -168,6 +168,8 @@ export async function discoverCapabilities({ resolver = defaultResolver } = {}) 
     cap('assurance.external.secureai-scan', 'optional-toolchain', 'secureai-scan', entries['secureai-scan'], ['scan'], 'R'),
     cap('assurance.external.pyvisualizer', 'optional-toolchain', 'py-code-visualizer', entries['py-code-visualizer'], ['check','context'], 'R'),
     cap('assurance.external.ollama', 'optional-toolchain', 'ollama', entries.ollama, ['list'], 'R'),
+    cap('media.elevenlabs-api', 'media-provider', 'elevenlabs-api', process.env.ELEVENLABS_API_KEY ? process.execPath : null, ['speech-engine','music','dialogue','sound-effects','voice-isolation','voice-change','forced-alignment','dubbing','image','video'], 'E'),
+    cap('media.elevenlabs-cli', 'media-toolchain', 'elevenlabs', entries.elevenlabs, ['auth','music','dubbing','audio-tools','generate-skills'], 'E'),
     cap('assurance.external.autodemo', 'optional-toolchain', 'autodemo', entries.autodemo, ['help'], 'R')
   ];
 }

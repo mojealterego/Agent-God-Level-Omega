@@ -1,75 +1,56 @@
 {
-  "version": "23.0.0",
+  "version": "24.0.0",
   "status": "DONE",
   "test_suite": {
-    "passed": 393,
+    "passed": 405,
     "failed": 0,
-    "total": 393
+    "total": 405
   },
-  "assurance_v23": {
-    "action_supply_chain_audit": true,
-    "verified_parallel_landing": true,
-    "policy_non_loosening": true,
-    "agent_reliability_readiness": true,
-    "ai_artifact_release_gate": true,
-    "mcp_behavior_grade_gate": true,
-    "governed_knowledge_cas_approvals": true,
-    "work_item_session_continuity": true,
-    "canonical_agent_sync": true,
-    "react_native_specialist_routing": true,
-    "demos_as_code_contracts": true,
-    "declarative_agent_contracts": true,
-    "log_byte_evidence_without_authenticity_claim": true,
+  "media_v24": {
+    "speech_engine_config": true,
+    "music_plan_and_compose": true,
+    "dialogue_limit_gate": true,
+    "sound_effects": true,
+    "voice_isolation": true,
+    "voice_change": true,
+    "forced_alignment": true,
+    "dubbing_lifecycle": true,
+    "image_video_flows": true,
+    "credit_approval_gate": true,
+    "secret_ref_only": true,
+    "workspace_artifact_hashing": true,
+    "latency_guidance": true,
+    "host_elevenlabs_connector_observed": true,
     "reality_filter_preserved": true,
     "kratos_preserved": true,
     "thor_final_gate_preserved": true
   },
-  "reviewed_sources": [
-    "aakarim/OpenLore",
-    "ChatGPT & Codex Plugin Autopilot",
-    "trustabl/trustabl-action",
-    "Sigbound",
-    "invAIriant Audit Gate",
-    "SecureAI Scan",
-    "React Native Audit",
-    "OpenCode GitHub Action",
-    "setup-ollama",
-    "Claude Code Memory",
-    "Issue Validator & AI Log Review",
-    "PyVisualizer",
-    "Looped AF Agent",
-    "Polygraph MCP Gate",
-    "Airlock AI Release Gate",
-    "Claude Code Session",
-    "GSC Security Audit",
-    "Agent Sync Action",
-    "AutoDemo demos-as-code"
-  ],
   "external_or_conditional": [
-    "Third-party GitHub Actions are not auto-installed; direct use requires explicit review and immutable pinning where available.",
-    "Trustabl, SecureAI Scan, PyVisualizer, Ollama and AutoDemo integrations are optional adapters and require the actual local toolchain.",
-    "Marketplace metadata alone is not accepted as evidence of security, correctness or maintainership."
+    "Live REST calls require ELEVENLABS_API_KEY in the runtime environment.",
+    "Speech Engine requires a real publicly reachable wss:// server endpoint before live conversations can connect.",
+    "Image & Video availability depends on ElevenLabs workspace plan, permissions, region and model access.",
+    "Music and other generation operations consume provider credits according to the active ElevenLabs plan."
   ],
   "not_claimed": [
-    "universal agent reliability",
-    "semantic authenticity of logs from hashes alone",
-    "security of third-party Actions merely because they are listed in Marketplace",
-    "automatic safe merge without required repository checks"
+    "active ElevenLabs API-key authentication when ELEVENLABS_API_KEY is absent",
+    "public Speech Engine WebSocket deployment without a deployed host",
+    "free generation for provider-billed operations",
+    "guaranteed latency without runtime measurements"
   ],
   "embedded_mcp": {
-    "passed": 393,
+    "passed": 405,
     "failed": 0,
-    "total": 393
+    "total": 405
   },
   "standalone_mcp": {
-    "passed": 393,
+    "passed": 405,
     "failed": 0,
-    "total": 393
+    "total": 405
   },
   "package_validator": "PASS",
   "counts": {
-    "skills": 163,
-    "references": 78,
-    "schemas": 104
+    "skills": 166,
+    "references": 82,
+    "schemas": 109
   }
 }

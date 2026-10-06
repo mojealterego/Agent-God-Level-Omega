@@ -1,24 +1,18 @@
-# OMEGA Omni-Cognitive Engineering v23
+# OMEGA Omni-Cognitive Engineering v24
 
-OMEGA v23 extends the cumulative v0→v22 system with an **AI/agent CI assurance plane**. It does not blindly install the reviewed GitHub Marketplace Actions. Instead it internalizes their strongest engineering invariants and keeps external products as optional, explicitly detected adapters.
+Cumulative OMEGA release adding the ElevenLabs Media/Voice Plane.
 
-## v23 assurance plane
+## v24
 
-`omega_assurance_architect` provides:
+- Speech Engine create/get and upstream contract validation
+- secret-ref-only `ELEVENLABS_API_KEY` authentication
+- explicit approval gates for credit-consuming operations
+- Music `music_v2_5` plans and composition
+- Text-to-Dialogue with the 2,000-character reliability bound
+- Sound Effects, Voice Isolation, Voice Change and Forced Alignment
+- Dubbing project/language lifecycle and signed-output download
+- asynchronous Image/Video Flows create/get/download
+- latency planning for streaming voice agents
+- immutable local artifact SHA-256 evidence
 
-- GitHub Action supply-chain auditing and immutable-reference policy;
-- repo-owned parallel landing policy with sensitive-path parking and non-loosening checks;
-- static agent reliability/readiness scoring;
-- AI artifact diff/release HOLD gates for prompts, skills, tools, MCP, models, judges and evals;
-- MCP behavioral grade preflight with source/evidence pinning;
-- identity-scoped governed knowledge with compare-and-swap and approvals;
-- provider/work-item/workflow scoped session continuity;
-- canonical `.agents` synchronization plans;
-- narrow React Native specialist routing;
-- deterministic demos-as-code contracts;
-- declarative event-agent permission/secret/budget contracts;
-- byte-hash log evidence without claiming semantic authenticity.
-
-External integrations such as Trustabl, SecureAI Scan, PyVisualizer, Ollama and AutoDemo are optional toolchain adapters. Absence is reported as unavailable; planning never becomes an execution claim.
-
-Reality Filter, KRATOS, THOR and all earlier OMEGA gates remain authoritative.
+Reality Filter, KRATOS and THOR final release gates remain in force.

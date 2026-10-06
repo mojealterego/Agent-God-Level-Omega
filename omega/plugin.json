@@ -1,17 +1,17 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "omega-omni-cognitive-engineering-v2",
-  "version": "23.0.0",
-  "description": "OMEGA v23 adds an AI/agent CI assurance plane: supply-chain Action auditing, verified landing policy, reliability readiness, AI artifact release diffs, MCP behavior gates, governed knowledge/session continuity, canonical agent sync, React Native specialist routing and demos-as-code.",
+  "version": "24.0.0",
+  "description": "OMEGA v24 adds a production ElevenLabs media/voice plane with Speech Engine configuration, streaming guidance, music, dialogue, SFX, voice isolation/change, forced alignment, dubbing, image/video flows, approval-based billing gates and secret-ref-only authentication.",
   "author": {
     "name": "Moje Alterego"
   },
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "OMEGA Omni-Cognitive Engineering v23",
-        "shortDescription": "Agent CI Assurance",
-        "longDescription": "OMEGA v23 strengthens the cumulative OMEGA/ASGARD system with an internal AI/agent CI assurance plane inspired by modern agent-oriented repositories and GitHub Actions. It keeps external Actions optional and implements the core invariants natively: immutable supply-chain references, least-privilege workflow checks, repo-owned landing policy, bounded agent reliability, AI artifact diff/release gates, MCP behavior grading, governed knowledge, scoped session continuity, canonical agent sync, targeted React Native specialists and deterministic demos-as-code while preserving Reality Filter, Kratos and Thor final gates.",
+        "displayName": "OMEGA Omni-Cognitive Engineering v24",
+        "shortDescription": "ElevenLabs Media Plane",
+        "longDescription": "OMEGA v24 extends the cumulative OMEGA/ASGARD system with a production-oriented ElevenLabs media and voice plane. It provides secret-ref-only authentication, explicit credit-consumption approvals, Speech Engine configuration and upstream contract validation, low-latency streaming guidance, music composition, multi-voice dialogue, sound effects, voice isolation and voice changing, forced alignment, dubbing lifecycle support and asynchronous image/video generation while preserving Reality Filter, KRATOS and THOR release gates.",
         "developerName": "Moje Alterego",
         "category": "Developer Tools",
         "capabilities": [

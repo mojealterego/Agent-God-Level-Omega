@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMEGA ElevenLabs Media Request",
+  "type": "object",
+  "required": [
+    "action",
+    "payload"
+  ],
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "approved": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

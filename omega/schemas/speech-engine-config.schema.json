@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Speech Engine Config",
+  "type": "object",
+  "required": [
+    "wsUrl"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "wsUrl": {
+      "type": "string",
+      "pattern": "^wss://"
+    },
+    "requestHeaders": {
+      "type": "object"
+    },
+    "asr": {
+      "type": "object"
+    },
+    "tts": {
+      "type": "object"
+    },
+    "turn": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

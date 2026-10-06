@@ -15,3 +15,8 @@ Thor remains the default user-facing orchestrator. v23 adds an assurance plane b
 9. Pass Reality Filter, KRATOS and THOR final release gates.
 
 External Marketplace Actions are replaceable adapters, not policy authorities. Their presence cannot weaken OMEGA policy.
+
+
+## v24 media rule
+
+Provider media generation never upgrades from submitted to completed without observed provider state. Credit-consuming ElevenLabs operations require explicit approval and raw API keys are never persisted.

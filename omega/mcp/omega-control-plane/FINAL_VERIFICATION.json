@@ -1,21 +1,12 @@
 {
-  "version": "23.0.0",
+  "version": "24.0.0",
   "status": "DONE",
   "test_suite": {
-    "passed": 393,
+    "passed": 405,
     "failed": 0,
-    "total": 393
+    "total": 405
   },
-  "assurance_runtime": true,
-  "external_adapters_optional": true,
-  "embedded_mcp": {
-    "passed": 393,
-    "failed": 0,
-    "total": 393
-  },
-  "standalone_copy": {
-    "passed": 393,
-    "failed": 0,
-    "total": 393
-  }
+  "media_runtime": true,
+  "secret_ref_only": true,
+  "billable_operations_approval_gated": true
 }

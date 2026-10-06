@@ -1,16 +1,5 @@
-# Implementation status — v23
+# OMEGA v24 implementation status
 
-- AI/agent CI assurance runtime: IMPLEMENTED.
-- GitHub Action supply-chain gate: IMPLEMENTED.
-- Verified parallel landing / policy non-loosening: IMPLEMENTED.
-- Agent reliability/readiness auditor: IMPLEMENTED.
-- AI artifact release diff + HOLD gate: IMPLEMENTED.
-- MCP behavior/evidence gate: IMPLEMENTED.
-- Governed knowledge substrate + CAS + approvals: IMPLEMENTED.
-- Work-item session continuity: IMPLEMENTED.
-- Canonical agent sync planner: IMPLEMENTED.
-- React Native specialist router: IMPLEMENTED.
-- Demos-as-code contract validator: IMPLEMENTED.
-- Declarative bounded agent contract validator: IMPLEMENTED.
-- External reviewed Actions/toolchains: OPTIONAL ADAPTERS, never auto-trusted or silently installed.
-- Reality Filter / KRATOS / THOR final gates: PRESERVED.
+**DONE** — ElevenLabs media plane is implemented and regression tested.
+
+External execution still requires a real ElevenLabs API key or host connector. Paid-plan/model restrictions are provider-controlled. Speech Engine public WebSocket hosting remains an external deployment concern; OMEGA configures and validates the contract but does not claim a public endpoint exists until one is deployed.
