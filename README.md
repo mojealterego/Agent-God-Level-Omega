@@ -70,3 +70,7 @@ A configured adapter is not an execution claim. Live REST calls require a real `
 ## OMEGA Mobile Engineering
 
 The Android-first ChatGPT/Gemini cloud control surface is synchronized in [`omega-mobile/`](./omega-mobile/). It contains the Remote MCP, Google Cloud bootstrap/WIF/Cloud Run assets, OAuth resource-server layer, client integration docs, Termux local-executor lane and the coordinated mobile skill registry.
+
+## OMEGA Assurance Research Toolkit
+
+Research-derived deterministic assurance tooling is in [`tools/omega-assurance/`](./tools/omega-assurance/), with repository policy under [`.omega/`](./.omega/) and the feasibility dossier in [`docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md`](./docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md). External agent/security Actions remain optional; the default CI path is evidence-first, pinned and deterministic.
