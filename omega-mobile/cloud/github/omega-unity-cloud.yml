@@ -1,0 +1,82 @@
+name: OMEGA Unity Cloud Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_target_id:
+        description: Optional Unity Build Automation target override
+        required: false
+        type: string
+      clean:
+        description: Request a clean Unity cloud build
+        required: true
+        default: true
+        type: boolean
+      timeout_seconds:
+        description: Maximum wait time
+        required: true
+        default: "7200"
+        type: string
+  workflow_call:
+    inputs:
+      build_target_id:
+        required: false
+        type: string
+      clean:
+        required: false
+        default: true
+        type: boolean
+      timeout_seconds:
+        required: false
+        default: "7200"
+        type: string
+    secrets:
+      UNITY_SERVICE_ACCOUNT_KEY_ID:
+        required: true
+      UNITY_SERVICE_ACCOUNT_SECRET:
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  unity-cloud-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 130
+    env:
+      UNITY_ORG_ID: ${{ vars.UNITY_ORG_ID }}
+      UNITY_PROJECT_ID: ${{ vars.UNITY_PROJECT_ID }}
+      UNITY_BUILD_TARGET_ID: ${{ inputs.build_target_id || vars.UNITY_BUILD_TARGET_ID }}
+      UNITY_SERVICE_ACCOUNT_KEY_ID: ${{ secrets.UNITY_SERVICE_ACCOUNT_KEY_ID }}
+      UNITY_SERVICE_ACCOUNT_SECRET: ${{ secrets.UNITY_SERVICE_ACCOUNT_SECRET }}
+      OMEGA_UNITY_CLEAN: ${{ inputs.clean }}
+      OMEGA_UNITY_TIMEOUT_SECONDS: ${{ inputs.timeout_seconds || '7200' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Validate Unity cloud configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in UNITY_ORG_ID UNITY_PROJECT_ID UNITY_BUILD_TARGET_ID UNITY_SERVICE_ACCOUNT_KEY_ID UNITY_SERVICE_ACCOUNT_SECRET; do
+            if [ -z "${!name:-}" ]; then
+              echo "Missing required Unity configuration: $name" >&2
+              exit 1
+            fi
+          done
+      - name: Trigger and verify Unity Build Automation
+        shell: bash
+        run: |
+          set -euo pipefail
+          args=(trigger --branch "$GITHUB_REF_NAME" --commit "$GITHUB_SHA" --label "github-${GITHUB_RUN_ID}" --wait --timeout-seconds "$OMEGA_UNITY_TIMEOUT_SECONDS")
+          if [ "${OMEGA_UNITY_CLEAN:-true}" = "false" ]; then
+            args+=(--no-clean)
+          fi
+          python3 cloud/unity/unity_build_automation.py "${args[@]}" | tee omega-unity-build-result.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: omega-unity-cloud-${{ github.sha }}
+          path: omega-unity-build-result.json

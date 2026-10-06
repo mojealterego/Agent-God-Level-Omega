@@ -1,0 +1,79 @@
+name: OMEGA Remote MCP Cloud Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      region:
+        description: Cloud Run region
+        required: true
+        default: europe-west1
+        type: string
+      service:
+        description: Cloud Run service name
+        required: true
+        default: omega-remote-mcp
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment: omega-remote-mcp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test MCP control plane
+        working-directory: mcp/omega-control-plane
+        run: |
+          npm install --ignore-scripts --no-audit --no-fund
+          npm test
+      - id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+      - uses: google-github-actions/setup-gcloud@v3
+      - name: Deploy OAuth-protected Streamable HTTP MCP
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${{ vars.OMEGA_OAUTH_ISSUER }}"
+          test -n "${{ vars.OMEGA_OAUTH_AUDIENCE }}"
+          gcloud run deploy "${{ inputs.service }}" \
+            --project "${{ vars.GCP_PROJECT_ID }}" \
+            --region "${{ inputs.region }}" \
+            --source mcp/omega-control-plane \
+            --allow-unauthenticated \
+            --port 8080 \
+            --min 0 \
+            --max 10 \
+            --concurrency 40 \
+            --set-env-vars "OMEGA_AUTH_MODE=jwt,OMEGA_OAUTH_ISSUER=${{ vars.OMEGA_OAUTH_ISSUER }},OMEGA_OAUTH_AUDIENCE=${{ vars.OMEGA_OAUTH_AUDIENCE }},OMEGA_OAUTH_SCOPES=${{ vars.OMEGA_OAUTH_SCOPES || 'omega.mcp' }}"
+      - name: Lock canonical URL and verify auth boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="$(gcloud run services describe "${{ inputs.service }}" --project "${{ vars.GCP_PROJECT_ID }}" --region "${{ inputs.region }}" --format='value(status.url)')"
+          host="${url#https://}"
+          gcloud run services update "${{ inputs.service }}" \
+            --project "${{ vars.GCP_PROJECT_ID }}" \
+            --region "${{ inputs.region }}" \
+            --update-env-vars "OMEGA_PUBLIC_BASE_URL=${url},OMEGA_ALLOWED_HOSTS=${host}"
+          curl --fail --silent --show-error "${url}/healthz" | tee omega-remote-mcp-health.json
+          curl --fail --silent --show-error "${url}/readyz" | tee omega-remote-mcp-ready.json
+          curl --fail --silent --show-error "${url}/.well-known/oauth-protected-resource" | tee omega-remote-mcp-oauth.json
+          status="$(curl -sS -o /tmp/omega-unauth.json -w '%{http_code}' -X POST "${url}/mcp" -H 'content-type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')"
+          test "$status" = "401"
+          printf '%s\n' "$url" > omega-remote-mcp-url.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: omega-remote-mcp-deploy-${{ github.sha }}
+          if-no-files-found: ignore
+          path: omega-remote-mcp-*.json

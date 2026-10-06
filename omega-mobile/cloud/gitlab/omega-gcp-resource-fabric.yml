@@ -1,0 +1,20 @@
+stages: [omega-gcp-fabric]
+omega_gcp_resource_fabric:
+  stage: omega-gcp-fabric
+  image: google/cloud-sdk:slim
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual
+    - when: never
+  id_tokens:
+    GCP_OIDC_TOKEN:
+      aud: $GCP_WIF_AUDIENCE
+  script:
+    - set -euo pipefail
+    - test -n "${GCP_WIF_CREDENTIAL_CONFIG:-}" || { echo "GCP_WIF_CREDENTIAL_CONFIG is required" >&2; exit 1; }
+    - printf '%s' "$GCP_WIF_CREDENTIAL_CONFIG" > /tmp/gcp-wif.json
+    - gcloud auth login --cred-file=/tmp/gcp-wif.json --brief
+    - python3 cloud/google/gcp_resource_fabric.py inventory --folders | tee omega-gcp-fabric.json
+  artifacts:
+    when: always
+    paths: [omega-gcp-fabric.json]

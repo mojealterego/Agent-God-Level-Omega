@@ -1,0 +1,57 @@
+stages:
+  - test
+  - build
+
+.omega_android_defaults:
+  variables:
+    OMEGA_ANDROID_MODULE: "app"
+    OMEGA_ANDROID_VARIANT: "release"
+    OMEGA_ANDROID_TEST_VARIANT: "debug"
+  before_script:
+    - chmod +x gradlew
+    - python3 --version
+    - java -version
+
+omega-android-quality-build:
+  extends: .omega_android_defaults
+  stage: build
+  timeout: 75m
+  script:
+    - >-
+      python3 mobile/android/android_pipeline.py run
+      --module "$OMEGA_ANDROID_MODULE"
+      --variant "$OMEGA_ANDROID_VARIANT"
+      --test-variant "$OMEGA_ANDROID_TEST_VARIANT"
+      --e2e-mode none
+    - python3 mobile/android/android_pipeline.py artifacts > omega-android-artifacts.json
+  artifacts:
+    when: always
+    expire_in: 14 days
+    paths:
+      - "**/build/outputs/**/*.apk"
+      - "**/build/outputs/**/*.aab"
+      - "**/build/reports/**"
+      - omega-android-artifacts.json
+
+omega-android-managed-device-e2e:
+  extends: .omega_android_defaults
+  stage: test
+  timeout: 75m
+  rules:
+    - if: '$OMEGA_ANDROID_MANAGED_TASK != null && $OMEGA_ANDROID_MANAGED_TASK != ""'
+      when: on_success
+    - when: never
+  script:
+    - >-
+      python3 mobile/android/android_pipeline.py run
+      --module "$OMEGA_ANDROID_MODULE"
+      --variant "$OMEGA_ANDROID_VARIANT"
+      --test-variant "$OMEGA_ANDROID_TEST_VARIANT"
+      --e2e-mode managed
+      --managed-task "$OMEGA_ANDROID_MANAGED_TASK"
+  artifacts:
+    when: always
+    expire_in: 14 days
+    paths:
+      - "**/build/reports/androidTests/**"
+      - "**/build/outputs/androidTest-results/**"

@@ -1,0 +1,2157 @@
+{
+  "version": "4.3.2",
+  "agent_skill_count": 171,
+  "agents": [
+    {
+      "name": "omega-adversarial-review",
+      "team": "core-control-plane",
+      "role": "Omega Adversarial Review",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-artifact-completion-gate",
+      "team": "core-control-plane",
+      "role": "Omega Artifact Completion Gate",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-capability-discovery-router",
+      "team": "core-control-plane",
+      "role": "Omega Capability Discovery Router",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-checkpoint-resume-engine",
+      "team": "core-control-plane",
+      "role": "Omega Checkpoint Resume Engine",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-ci-cd-release-controller",
+      "team": "core-control-plane",
+      "role": "Omega Ci Cd Release Controller",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-cloud-devops-control-plane",
+      "team": "core-control-plane",
+      "role": "Omega Cloud Devops Control Plane",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-code-world-model",
+      "team": "core-control-plane",
+      "role": "World Model",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-context-compiler",
+      "team": "core-control-plane",
+      "role": "Omega Context Compiler",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-evolutionary-optimization",
+      "team": "core-control-plane",
+      "role": "Omega Evolutionary Optimization",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-mcp-control-plane",
+      "team": "core-control-plane",
+      "role": "Omega Mcp Control Plane",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-multi-agent-orchestration",
+      "team": "core-control-plane",
+      "role": "Omega Multi Agent Orchestration",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-neuro-symbolic-verification",
+      "team": "core-control-plane",
+      "role": "Omega Neuro Symbolic Verification",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-omni-orchestrator",
+      "team": "core-control-plane",
+      "role": "Omega Omni Orchestrator",
+      "lead": true,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-openai-developer-platform",
+      "team": "core-control-plane",
+      "role": "Omega Openai Developer Platform",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-performance-resource-governor",
+      "team": "core-control-plane",
+      "role": "Omega Performance Resource Governor",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-repository-cartographer",
+      "team": "core-control-plane",
+      "role": "Omega Repository Cartographer",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-sasos-context-memory",
+      "team": "core-control-plane",
+      "role": "Omega Sasos Context Memory",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-security-trust-kernel",
+      "team": "core-control-plane",
+      "role": "Omega Security Trust Kernel",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-self-healing-debugger",
+      "team": "core-control-plane",
+      "role": "Omega Self Healing Debugger",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-source-of-truth-verifier",
+      "team": "core-control-plane",
+      "role": "Omega Source Of Truth Verifier",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-tool-autonomy",
+      "team": "core-control-plane",
+      "role": "Omega Tool Autonomy",
+      "lead": false,
+      "activation_tags": [
+        "core",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-code-requirements-compiler",
+      "team": "code-lifecycle",
+      "role": "Requirements Compiler",
+      "lead": false,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-code-architecture-agent",
+      "team": "code-lifecycle",
+      "role": "Architecture Agent",
+      "lead": true,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-code-implementation-agent",
+      "team": "code-lifecycle",
+      "role": "Implementation Agent",
+      "lead": false,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-code-refactoring-agent",
+      "team": "code-lifecycle",
+      "role": "Refactoring Agent",
+      "lead": false,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-code-debugging-agent",
+      "team": "code-lifecycle",
+      "role": "Debugging Agent",
+      "lead": false,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-code-test-generation-agent",
+      "team": "code-lifecycle",
+      "role": "Test Generation Agent",
+      "lead": false,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-code-static-analysis-agent",
+      "team": "code-lifecycle",
+      "role": "Static Analysis Agent",
+      "lead": false,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-code-dependency-upgrade-agent",
+      "team": "code-lifecycle",
+      "role": "Dependency Upgrade Agent",
+      "lead": false,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-code-review-agent",
+      "team": "code-lifecycle",
+      "role": "Review Agent",
+      "lead": false,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-code-migration-agent",
+      "team": "code-lifecycle",
+      "role": "Migration Agent",
+      "lead": false,
+      "activation_tags": [
+        "code",
+        "repository",
+        "implementation",
+        "debug",
+        "test"
+      ]
+    },
+    {
+      "name": "omega-android-device-test-matrix",
+      "team": "android-native",
+      "role": "Device Test Matrix",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-android-e2e-application-engineer",
+      "team": "android-native",
+      "role": "E2E Application Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-android-performance-quality-engineer",
+      "team": "android-native",
+      "role": "Performance Quality Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-android-release-build-engineer",
+      "team": "android-native",
+      "role": "Release Build Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-android-termux-runtime",
+      "team": "android-native",
+      "role": "Termux Runtime",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-chatgpt-android-cloud-runtime",
+      "team": "android-native",
+      "role": "Omega Chatgpt Android Cloud Runtime",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-google-play-developer-automation",
+      "team": "android-native",
+      "role": "Omega Google Play Developer Automation",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-mobile-release-orchestrator",
+      "team": "android-native",
+      "role": "Omega Mobile Release Orchestrator",
+      "lead": true,
+      "activation_tags": [
+        "android",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-android-product-architect",
+      "team": "android-native",
+      "role": "Product Architect",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-kotlin-language-engineer",
+      "team": "android-native",
+      "role": "Kotlin Language Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-compose-ui-engineer",
+      "team": "android-native",
+      "role": "Compose UI Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-view-system-engineer",
+      "team": "android-native",
+      "role": "View System Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-design-system-engineer",
+      "team": "android-native",
+      "role": "Design System Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-clean-architecture-engineer",
+      "team": "android-native",
+      "role": "Clean Architecture Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-modularization-engineer",
+      "team": "android-native",
+      "role": "Modularization Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-gradle-build-architect",
+      "team": "android-native",
+      "role": "Gradle Build Architect",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-dependency-governor",
+      "team": "android-native",
+      "role": "Dependency Governor",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-di-engineer",
+      "team": "android-native",
+      "role": "DI Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-networking-api-engineer",
+      "team": "android-native",
+      "role": "Networking API Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-offline-first-sync-engineer",
+      "team": "android-native",
+      "role": "Offline First Sync Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-database-persistence-engineer",
+      "team": "android-native",
+      "role": "Database Persistence Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-auth-identity-engineer",
+      "team": "android-native",
+      "role": "Auth Identity Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-background-work-engineer",
+      "team": "android-native",
+      "role": "Background Work Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-notification-deeplink-engineer",
+      "team": "android-native",
+      "role": "Notification Deeplink Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-media-camera-engineer",
+      "team": "android-native",
+      "role": "Media Camera Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-accessibility-localization-engineer",
+      "team": "android-native",
+      "role": "Accessibility Localization Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-security-hardening-engineer",
+      "team": "android-native",
+      "role": "Security Hardening Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-instrumentation-e2e-engineer",
+      "team": "android-native",
+      "role": "Instrumentation E2E Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-benchmark-profile-engineer",
+      "team": "android-native",
+      "role": "Benchmark Profile Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-android-crash-anr-observability-engineer",
+      "team": "android-native",
+      "role": "Crash ANR Observability Engineer",
+      "lead": false,
+      "activation_tags": [
+        "android",
+        "kotlin",
+        "compose",
+        "mobile",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-product-architect",
+      "team": "web-e2e",
+      "role": "Product Architect",
+      "lead": true,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-frontend-architect",
+      "team": "web-e2e",
+      "role": "Frontend Architect",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-design-system-engineer",
+      "team": "web-e2e",
+      "role": "Design System Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-react-next-engineer",
+      "team": "web-e2e",
+      "role": "React Next Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-vue-nuxt-engineer",
+      "team": "web-e2e",
+      "role": "Vue Nuxt Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-sveltekit-engineer",
+      "team": "web-e2e",
+      "role": "Sveltekit Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-typescript-engineer",
+      "team": "web-e2e",
+      "role": "Typescript Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-css-responsive-engineer",
+      "team": "web-e2e",
+      "role": "Css Responsive Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-accessibility-engineer",
+      "team": "web-e2e",
+      "role": "Accessibility Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-performance-core-vitals-engineer",
+      "team": "web-e2e",
+      "role": "Performance Core Vitals Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-pwa-offline-engineer",
+      "team": "web-e2e",
+      "role": "PWA Offline Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-seo-metadata-engineer",
+      "team": "web-e2e",
+      "role": "SEO Metadata Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-backend-api-architect",
+      "team": "web-e2e",
+      "role": "Backend API Architect",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-node-backend-engineer",
+      "team": "web-e2e",
+      "role": "Node Backend Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-python-backend-engineer",
+      "team": "web-e2e",
+      "role": "Python Backend Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-go-backend-engineer",
+      "team": "web-e2e",
+      "role": "Go Backend Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-java-dotnet-backend-engineer",
+      "team": "web-e2e",
+      "role": "Java Dotnet Backend Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-database-data-model-engineer",
+      "team": "web-e2e",
+      "role": "Database Data Model Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-cache-queue-engineer",
+      "team": "web-e2e",
+      "role": "Cache Queue Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-auth-session-engineer",
+      "team": "web-e2e",
+      "role": "Auth Session Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-payments-billing-engineer",
+      "team": "web-e2e",
+      "role": "Payments Billing Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-realtime-websocket-engineer",
+      "team": "web-e2e",
+      "role": "Realtime Websocket Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-security-appsec-engineer",
+      "team": "web-e2e",
+      "role": "Security Appsec Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-api-contract-engineer",
+      "team": "web-e2e",
+      "role": "API Contract Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-unit-integration-test-engineer",
+      "team": "web-e2e",
+      "role": "Unit Integration Test Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-playwright-e2e-engineer",
+      "team": "web-e2e",
+      "role": "Playwright E2E Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-visual-regression-engineer",
+      "team": "web-e2e",
+      "role": "Visual Regression Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-observability-sre-engineer",
+      "team": "web-e2e",
+      "role": "Observability Sre Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-cloud-deployment-engineer",
+      "team": "web-e2e",
+      "role": "Cloud Deployment Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-web-release-verification-engineer",
+      "team": "web-e2e",
+      "role": "Release Verification Engineer",
+      "lead": false,
+      "activation_tags": [
+        "web",
+        "frontend",
+        "backend",
+        "full-stack",
+        "e2e"
+      ]
+    },
+    {
+      "name": "omega-aaa-android-game-studio",
+      "team": "aaa-game",
+      "role": "Omega AAA Android Game Studio",
+      "lead": true,
+      "activation_tags": [
+        "aaa",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-unity-cloud-automation",
+      "team": "aaa-game",
+      "role": "Omega Unity Cloud Automation",
+      "lead": false,
+      "activation_tags": [
+        "aaa",
+        "omega"
+      ]
+    },
+    {
+      "name": "omega-game-creative-director",
+      "team": "aaa-game",
+      "role": "Creative Director",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-executive-producer",
+      "team": "aaa-game",
+      "role": "Executive Producer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-technical-director",
+      "team": "aaa-game",
+      "role": "Technical Director",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-gameplay-architect",
+      "team": "aaa-game",
+      "role": "Gameplay Architect",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-core-loop-designer",
+      "team": "aaa-game",
+      "role": "Core Loop Designer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-systems-designer",
+      "team": "aaa-game",
+      "role": "Systems Designer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-progression-economy-designer",
+      "team": "aaa-game",
+      "role": "Progression Economy Designer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-combat-designer",
+      "team": "aaa-game",
+      "role": "Combat Designer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-level-design-engineer",
+      "team": "aaa-game",
+      "role": "Level Design Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-mission-quest-designer",
+      "team": "aaa-game",
+      "role": "Mission Quest Designer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-player-controller-engineer",
+      "team": "aaa-game",
+      "role": "Player Controller Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-camera-engineer",
+      "team": "aaa-game",
+      "role": "Camera Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-input-haptics-engineer",
+      "team": "aaa-game",
+      "role": "Input Haptics Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-ai-behavior-engineer",
+      "team": "aaa-game",
+      "role": "AI Behavior Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-navigation-pathfinding-engineer",
+      "team": "aaa-game",
+      "role": "Navigation Pathfinding Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-npc-simulation-engineer",
+      "team": "aaa-game",
+      "role": "NPC Simulation Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-physics-engineer",
+      "team": "aaa-game",
+      "role": "Physics Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-animation-systems-engineer",
+      "team": "aaa-game",
+      "role": "Animation Systems Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-character-rigging-integration",
+      "team": "aaa-game",
+      "role": "Character Rigging Integration",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-rendering-architect",
+      "team": "aaa-game",
+      "role": "Rendering Architect",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-urp-hdrp-rendering-engineer",
+      "team": "aaa-game",
+      "role": "URP HDRP Rendering Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-shader-engineer",
+      "team": "aaa-game",
+      "role": "Shader Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-lighting-engineer",
+      "team": "aaa-game",
+      "role": "Lighting Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-vfx-engineer",
+      "team": "aaa-game",
+      "role": "VFX Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-post-processing-engineer",
+      "team": "aaa-game",
+      "role": "Post Processing Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-texture-material-pipeline",
+      "team": "aaa-game",
+      "role": "Texture Material Pipeline",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-mesh-lod-optimization",
+      "team": "aaa-game",
+      "role": "Mesh LOD Optimization",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-addressables-engineer",
+      "team": "aaa-game",
+      "role": "Addressables Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-asset-bundle-engineer",
+      "team": "aaa-game",
+      "role": "Asset Bundle Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-play-asset-delivery-engineer",
+      "team": "aaa-game",
+      "role": "Play Asset Delivery Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-audio-systems-engineer",
+      "team": "aaa-game",
+      "role": "Audio Systems Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-spatial-audio-engineer",
+      "team": "aaa-game",
+      "role": "Spatial Audio Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-cutscene-cinematics-engineer",
+      "team": "aaa-game",
+      "role": "Cutscene Cinematics Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-ui-hud-engineer",
+      "team": "aaa-game",
+      "role": "UI Hud Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-ux-flow-engineer",
+      "team": "aaa-game",
+      "role": "UX Flow Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-accessibility-engineer",
+      "team": "aaa-game",
+      "role": "Accessibility Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-localization-engineer",
+      "team": "aaa-game",
+      "role": "Localization Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-save-state-engineer",
+      "team": "aaa-game",
+      "role": "Save State Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-cloud-save-engineer",
+      "team": "aaa-game",
+      "role": "Cloud Save Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-networking-engineer",
+      "team": "aaa-game",
+      "role": "Networking Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-multiplayer-authority-engineer",
+      "team": "aaa-game",
+      "role": "Multiplayer Authority Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-matchmaking-session-engineer",
+      "team": "aaa-game",
+      "role": "Matchmaking Session Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-backend-services-engineer",
+      "team": "aaa-game",
+      "role": "Backend Services Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-telemetry-analytics-engineer",
+      "team": "aaa-game",
+      "role": "Telemetry Analytics Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-liveops-engineer",
+      "team": "aaa-game",
+      "role": "Liveops Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-remote-config-engineer",
+      "team": "aaa-game",
+      "role": "Remote Config Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-iap-billing-engineer",
+      "team": "aaa-game",
+      "role": "IAP Billing Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-ads-monetization-engineer",
+      "team": "aaa-game",
+      "role": "Ads Monetization Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-play-games-services-engineer",
+      "team": "aaa-game",
+      "role": "Play Games Services Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-play-integrity-engineer",
+      "team": "aaa-game",
+      "role": "Play Integrity Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-anti-cheat-security-engineer",
+      "team": "aaa-game",
+      "role": "Anti Cheat Security Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-privacy-compliance-engineer",
+      "team": "aaa-game",
+      "role": "Privacy Compliance Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-crash-anr-engineer",
+      "team": "aaa-game",
+      "role": "Crash ANR Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-memory-profiler",
+      "team": "aaa-game",
+      "role": "Memory Profiler",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-cpu-performance-engineer",
+      "team": "aaa-game",
+      "role": "CPU Performance Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-gpu-performance-engineer",
+      "team": "aaa-game",
+      "role": "GPU Performance Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-frame-pacing-engineer",
+      "team": "aaa-game",
+      "role": "Frame Pacing Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-thermal-battery-engineer",
+      "team": "aaa-game",
+      "role": "Thermal Battery Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-device-tier-optimizer",
+      "team": "aaa-game",
+      "role": "Device Tier Optimizer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-build-release-engineer",
+      "team": "aaa-game",
+      "role": "Build Release Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-unity-test-framework-engineer",
+      "team": "aaa-game",
+      "role": "Unity Test Framework Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-automated-gameplay-tester",
+      "team": "aaa-game",
+      "role": "Automated Gameplay Tester",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-regression-qa-engineer",
+      "team": "aaa-game",
+      "role": "Regression Qa Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-soak-stability-engineer",
+      "team": "aaa-game",
+      "role": "Soak Stability Engineer",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-store-listing-release-manager",
+      "team": "aaa-game",
+      "role": "Store Listing Release Manager",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-game-live-release-verifier",
+      "team": "aaa-game",
+      "role": "Live Release Verifier",
+      "lead": false,
+      "activation_tags": [
+        "game",
+        "unity",
+        "android-game",
+        "aaa",
+        "play"
+      ]
+    },
+    {
+      "name": "omega-multicloud-autonomy-orchestrator",
+      "team": "multicloud-ai",
+      "role": "Multi-cloud Autonomy Orchestrator",
+      "lead": true,
+      "activation_tags": [
+        "multicloud",
+        "gemini",
+        "vertex",
+        "google-cloud",
+        "ibm-cloud",
+        "watsonx",
+        "failover"
+      ]
+    },
+    {
+      "name": "omega-google-cloud-platform-automation",
+      "team": "multicloud-ai",
+      "role": "Google Cloud Platform Automation",
+      "lead": false,
+      "activation_tags": [
+        "google-cloud",
+        "gcp",
+        "cloud-build",
+        "artifact-registry",
+        "cloud-run",
+        "iam"
+      ]
+    },
+    {
+      "name": "omega-gemini-vertex-ai-agent",
+      "team": "multicloud-ai",
+      "role": "Gemini Vertex AI Agent",
+      "lead": false,
+      "activation_tags": [
+        "gemini",
+        "vertex-ai",
+        "google-cloud",
+        "critic",
+        "code-review",
+        "reasoning"
+      ]
+    },
+    {
+      "name": "omega-google-cloud-build-release-agent",
+      "team": "multicloud-ai",
+      "role": "Google Cloud Build and Release Agent",
+      "lead": false,
+      "activation_tags": [
+        "google-cloud",
+        "cloud-build",
+        "artifact-registry",
+        "cloud-run",
+        "release"
+      ]
+    },
+    {
+      "name": "omega-ibm-cloud-platform-automation",
+      "team": "multicloud-ai",
+      "role": "IBM Cloud Platform Automation",
+      "lead": false,
+      "activation_tags": [
+        "ibm-cloud",
+        "code-engine",
+        "container-registry",
+        "deploy",
+        "release"
+      ]
+    },
+    {
+      "name": "omega-watsonx-ai-agent",
+      "team": "multicloud-ai",
+      "role": "watsonx.ai Agent",
+      "lead": false,
+      "activation_tags": [
+        "ibm-cloud",
+        "watsonx",
+        "foundation-model",
+        "critic",
+        "reasoning"
+      ]
+    },
+    {
+      "name": "omega-google-cloud-resource-fabric",
+      "team": "multicloud-ai",
+      "role": "Google Cloud Resource Fabric",
+      "lead": false,
+      "activation_tags": [
+        "google cloud",
+        "gcp",
+        "organization",
+        "folder",
+        "project factory",
+        "resource manager",
+        "iam",
+        "wif",
+        "cloud build",
+        "cloud run",
+        "vertex ai"
+      ]
+    },
+    {
+      "name": "omega-connected-services-fabric",
+      "team": "multicloud-ai",
+      "role": "Connected Services Fabric",
+      "lead": false,
+      "activation_tags": [
+        "connected apps",
+        "connectors",
+        "services",
+        "tools",
+        "github",
+        "gitlab",
+        "vercel",
+        "render",
+        "railway",
+        "replit",
+        "figma",
+        "cloud"
+      ]
+    },
+    {
+      "name": "omega-product-synthesis-director",
+      "team": "multicloud-ai",
+      "role": "Product Synthesis Director",
+      "lead": true,
+      "activation_tags": [
+        "product",
+        "e2e",
+        "best product",
+        "orchestration",
+        "architecture",
+        "quality",
+        "release",
+        "multi-agent",
+        "multicloud"
+      ]
+    },
+    {
+      "name": "omega-remote-mcp-gateway",
+      "team": "multicloud-ai",
+      "role": "Remote MCP Gateway",
+      "lead": true,
+      "activation_tags": [
+        "mcp",
+        "cloud-run",
+        "chatgpt",
+        "gemini",
+        "oauth"
+      ]
+    },
+    {
+      "name": "omega-oauth-resource-server",
+      "team": "multicloud-ai",
+      "role": "OAuth Resource Server",
+      "lead": false,
+      "activation_tags": [
+        "oauth",
+        "oidc",
+        "jwks",
+        "rfc9728",
+        "security"
+      ]
+    },
+    {
+      "name": "omega-cross-client-runtime-router",
+      "team": "multicloud-ai",
+      "role": "Cross-client Runtime Router",
+      "lead": false,
+      "activation_tags": [
+        "chatgpt",
+        "gemini",
+        "termux",
+        "remote-mcp",
+        "routing"
+      ]
+    }
+  ]
+}

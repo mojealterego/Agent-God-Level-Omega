@@ -1,0 +1,54 @@
+name: OMEGA Web E2E
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  web-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ vars.OMEGA_NODE_VERSION || '22' }}
+      - name: Install dependencies and quality gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f pnpm-lock.yaml ]; then
+            corepack enable
+            pm=pnpm
+            pnpm install --frozen-lockfile
+          elif [ -f yarn.lock ]; then
+            corepack enable
+            pm=yarn
+            yarn install --immutable
+          else
+            pm=npm
+            if [ -f package-lock.json ]; then npm ci; else npm install; fi
+          fi
+          node -e 'const p=require("./package.json"); for (const s of ["lint","typecheck","test","build"]) if (p.scripts?.[s]) console.log(s)' > /tmp/omega-scripts
+          while read -r s; do "$pm" run "$s"; done < /tmp/omega-scripts
+          if node -e 'const p=require("./package.json"); process.exit(p.scripts?.e2e?0:1)'; then
+            "$pm" run e2e
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: omega-web-e2e-${{ github.sha }}
+          if-no-files-found: ignore
+          path: |
+            playwright-report/**
+            test-results/**
+            coverage/**
+            dist/**
+            .next/**

@@ -1,0 +1,28 @@
+omega_remote_mcp_cloudrun:
+  image: google/cloud-sdk:slim
+  stage: deploy
+  variables:
+    OMEGA_REMOTE_MCP_SERVICE: "omega-remote-mcp"
+    OMEGA_REMOTE_MCP_REGION: "europe-west1"
+  id_tokens:
+    GCP_ID_TOKEN:
+      aud: $GCP_WORKLOAD_IDENTITY_AUDIENCE
+  script:
+    - set -euo pipefail
+    - test -n "${GCP_PROJECT_ID:-}"
+    - test -n "${OMEGA_OAUTH_ISSUER:-}"
+    - test -n "${OMEGA_OAUTH_AUDIENCE:-}"
+    - printf %s "$GCP_ID_TOKEN" > /tmp/gitlab-oidc.jwt
+    - gcloud iam workload-identity-pools create-cred-config "$GCP_WORKLOAD_IDENTITY_PROVIDER" --service-account="$GCP_SERVICE_ACCOUNT" --credential-source-file=/tmp/gitlab-oidc.jwt --output-file=/tmp/gcp-cred.json
+    - gcloud auth login --cred-file=/tmp/gcp-cred.json
+    - gcloud run deploy "$OMEGA_REMOTE_MCP_SERVICE" --project "$GCP_PROJECT_ID" --region "$OMEGA_REMOTE_MCP_REGION" --source mcp/omega-control-plane --allow-unauthenticated --port 8080 --set-env-vars "OMEGA_AUTH_MODE=jwt,OMEGA_OAUTH_ISSUER=$OMEGA_OAUTH_ISSUER,OMEGA_OAUTH_AUDIENCE=$OMEGA_OAUTH_AUDIENCE,OMEGA_OAUTH_SCOPES=${OMEGA_OAUTH_SCOPES:-omega.mcp}"
+    - url="$(gcloud run services describe "$OMEGA_REMOTE_MCP_SERVICE" --project "$GCP_PROJECT_ID" --region "$OMEGA_REMOTE_MCP_REGION" --format='value(status.url)')"
+    - host="${url#https://}"
+    - gcloud run services update "$OMEGA_REMOTE_MCP_SERVICE" --project "$GCP_PROJECT_ID" --region "$OMEGA_REMOTE_MCP_REGION" --update-env-vars "OMEGA_PUBLIC_BASE_URL=$url,OMEGA_ALLOWED_HOSTS=$host"
+    - curl --fail --silent --show-error "$url/healthz"
+    - curl --fail --silent --show-error "$url/readyz"
+    - curl --fail --silent --show-error "$url/.well-known/oauth-protected-resource"
+    - test "$(curl -sS -o /tmp/unauth.json -w '%{http_code}' -X POST "$url/mcp" -H 'content-type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')" = "401"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual

@@ -1,0 +1,57 @@
+name: OMEGA GCP Resource Fabric
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        required: true
+        type: choice
+        options: [inventory, project-select, project-create, enable-apis, github-wif]
+      project_id: {required: false, type: string}
+      project_name: {required: false, type: string}
+      folder_id: {required: false, type: string}
+      organization_id: {required: false, type: string}
+      billing_account: {required: false, type: string}
+      labels: {required: false, type: string}
+      apis: {required: false, type: string}
+      repository: {required: false, type: string}
+      service_account: {required: false, type: string}
+      apply: {required: true, type: boolean, default: false}
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  gcp-fabric:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ vars.GCP_BOOTSTRAP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_BOOTSTRAP_SERVICE_ACCOUNT }}
+      - uses: google-github-actions/setup-gcloud@v3
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.13'}
+      - name: Execute resource fabric operation
+        shell: bash
+        env:
+          ACTION: ${{ inputs.action }}
+          APPLY: ${{ inputs.apply }}
+        run: |
+          set -euo pipefail
+          apply=(); [ "$APPLY" = "true" ] && apply=(--apply)
+          case "$ACTION" in
+            inventory) python cloud/google/gcp_resource_fabric.py inventory --folders | tee omega-gcp-fabric.json ;;
+            project-select) python cloud/google/gcp_resource_fabric.py project-select --require-label "${{ inputs.labels }}" | tee omega-gcp-fabric.json ;;
+            project-create)
+              parent=(--folder "${{ inputs.folder_id }}"); [ -z "${{ inputs.folder_id }}" ] && parent=(--organization "${{ inputs.organization_id }}")
+              python cloud/google/gcp_resource_fabric.py project-create --project-id "${{ inputs.project_id }}" --name "${{ inputs.project_name }}" "${parent[@]}" --billing-account "${{ inputs.billing_account }}" --labels "${{ inputs.labels }}" "${apply[@]}" | tee omega-gcp-fabric.json ;;
+            enable-apis) python cloud/google/gcp_resource_fabric.py enable-apis --project "${{ inputs.project_id }}" --apis "${{ inputs.apis }}" "${apply[@]}" | tee omega-gcp-fabric.json ;;
+            github-wif) python cloud/google/gcp_resource_fabric.py github-wif --control-project "${{ vars.GCP_CONTROL_PROJECT }}" --repository "${{ inputs.repository }}" --service-account "${{ inputs.service_account }}" "${apply[@]}" | tee omega-gcp-fabric.json ;;
+          esac
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: omega-gcp-resource-fabric-${{ github.run_id }}
+          if-no-files-found: ignore
+          path: omega-gcp-fabric.json

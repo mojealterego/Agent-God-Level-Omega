@@ -1,0 +1,56 @@
+name: OMEGA IBM Cloud + watsonx
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        required: true
+        type: choice
+        default: watsonx-review
+        options: [watsonx-review, code-engine-deploy]
+      prompt:
+        required: false
+        type: string
+      image:
+        required: false
+        type: string
+      application:
+        required: false
+        type: string
+permissions:
+  contents: read
+jobs:
+  ibm-cloud:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      IBMCLOUD_API_KEY: ${{ secrets.IBMCLOUD_API_KEY }}
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with: {python-version: '3.13'}
+    - name: Install IBM Cloud CLI
+      run: curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+    - name: Install Code Engine plugin
+      run: ibmcloud plugin install code-engine -f
+    - name: IBM login and target
+      run: |
+        python cloud/ibm/ibm_cloud_automation.py login --region "${{ vars.IBM_CLOUD_REGION }}" --resource-group "${{ vars.IBM_CLOUD_RESOURCE_GROUP }}" --apply
+        python cloud/ibm/ibm_cloud_automation.py code-engine-project-select --project "${{ vars.IBM_CODE_ENGINE_PROJECT }}" --apply
+    - name: watsonx review
+      if: ${{ inputs.action == 'watsonx-review' }}
+      env:
+        WATSONX_URL: ${{ vars.WATSONX_URL }}
+        WATSONX_PROJECT_ID: ${{ vars.WATSONX_PROJECT_ID }}
+        WATSONX_MODEL_ID: ${{ vars.WATSONX_MODEL_ID }}
+      run: |
+        python -m pip install -r cloud/ibm/requirements.txt
+        python cloud/ibm/watsonx_agent.py --prompt "${{ inputs.prompt }}" --json --output omega-watsonx-result.json
+    - name: Code Engine deploy
+      if: ${{ inputs.action == 'code-engine-deploy' }}
+      run: python cloud/ibm/ibm_cloud_automation.py code-engine-deploy --name "${{ inputs.application }}" --image "${{ inputs.image }}" --apply
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: omega-ibm-cloud-${{ github.sha }}
+        if-no-files-found: ignore
+        path: omega-*.json

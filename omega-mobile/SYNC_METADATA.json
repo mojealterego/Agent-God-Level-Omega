@@ -1,0 +1,16 @@
+{
+  "source": "ChatGPT account plugin",
+  "plugin_id": "plugins_6ac38faa9cc0819186fda27ac11ada02",
+  "plugin_name": "omega-omni-cognitive-engineering-mobile",
+  "plugin_version": "4.3.3",
+  "plugin_release_id": "pluginrel_6ac54c17e32881919d5f4291826bd3cc",
+  "destination": "omega-mobile/",
+  "repository": "mojealterego/Agent-God-Level-Omega",
+  "transient_artifacts_excluded": [
+    ".pytest_cache",
+    "__pycache__",
+    "*.pyc",
+    "package SHA256SUMS referring to transient caches"
+  ],
+  "note": "Existing omega/ core preserved; mobile/cloud distribution synchronized separately."
+}

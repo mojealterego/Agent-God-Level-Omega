@@ -1,0 +1,21 @@
+omega_google_cloud:
+  image: google/cloud-sdk:slim
+  stage: deploy
+  id_tokens:
+    GCP_ID_TOKEN:
+      aud: $GCP_WIF_AUDIENCE
+  script:
+    - printf '%s' "$GCP_ID_TOKEN" > /tmp/gcp-id-token
+    - gcloud iam workload-identity-pools create-cred-config "$GCP_WORKLOAD_IDENTITY_PROVIDER" --service-account="$GCP_SERVICE_ACCOUNT" --credential-source-file=/tmp/gcp-id-token --output-file=/tmp/gcp-wif.json
+    - gcloud auth login --cred-file=/tmp/gcp-wif.json --quiet
+    - gcloud config set project "$GCP_PROJECT_ID"
+    - python3 cloud/google/gcp_automation.py status > omega-gcp-status.json
+    - |
+      if [ "${OMEGA_GCP_ACTION:-status}" = "cloud-build" ]; then
+        python3 cloud/google/gcp_automation.py cloud-build-submit --project "$GCP_PROJECT_ID" --region "${GCP_BUILD_REGION:-us-central1}" --config cloud/google/cloudbuild.yaml --apply
+      fi
+  artifacts:
+    when: always
+    paths: [omega-gcp-status.json]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'

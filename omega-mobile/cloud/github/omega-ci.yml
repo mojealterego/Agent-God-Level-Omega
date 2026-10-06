@@ -1,0 +1,51 @@
+name: OMEGA Cloud CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: mcp/omega-control-plane/package.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install MCP dependencies
+        run: npm --prefix mcp/omega-control-plane install --ignore-scripts --no-audit --no-fund
+      - name: Run MCP tests
+        run: npm --prefix mcp/omega-control-plane test
+      - name: Validate plugin package
+        run: python scripts/validate_package.py
+      - name: Validate shell entrypoints
+        run: bash -n termux/install.sh termux/omega-termux termux/omega-mcp-stdio
+
+  package:
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build verified plugin archive
+        run: |
+          mkdir -p dist
+          zip -qr "dist/omega-omni-cognitive-engineering-${GITHUB_SHA}.zip" . \
+            -x '.git/*' 'dist/*' 'mcp/omega-control-plane/node_modules/*'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: omega-plugin-${{ github.sha }}
+          path: dist/*.zip
+          if-no-files-found: error
+          retention-days: 14

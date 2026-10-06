@@ -1,0 +1,30 @@
+.omega_unity_cloud_build:
+  image: python:3.13-alpine
+  stage: build
+  timeout: 2h 10m
+  script:
+    - |
+      set -eu
+      for name in UNITY_ORG_ID UNITY_PROJECT_ID UNITY_BUILD_TARGET_ID UNITY_SERVICE_ACCOUNT_KEY_ID UNITY_SERVICE_ACCOUNT_SECRET; do
+        eval "value=\${$name:-}"
+        if [ -z "$value" ]; then
+          echo "Missing required Unity configuration: $name" >&2
+          exit 1
+        fi
+      done
+    - >-
+      python3 cloud/unity/unity_build_automation.py trigger
+      --branch "$CI_COMMIT_REF_NAME"
+      --commit "$CI_COMMIT_SHA"
+      --label "gitlab-${CI_PIPELINE_ID}"
+      --wait
+      --timeout-seconds "${UNITY_BUILD_TIMEOUT_SECONDS:-7200}"
+  rules:
+    - if: '$OMEGA_UNITY_CLOUD_AUTO == "1" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      when: on_success
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual
+    - when: never
+
+omega-unity-cloud-build:
+  extends: .omega_unity_cloud_build

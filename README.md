@@ -66,3 +66,7 @@ A configured adapter is not an execution claim. Live REST calls require a real `
 ---
 
 <div align="center"><strong>MOJEALTEREGO · OMEGA · ASGARD</strong></div>
+
+## OMEGA Mobile Engineering
+
+The Android-first ChatGPT/Gemini cloud control surface is synchronized in [`omega-mobile/`](./omega-mobile/). It contains the Remote MCP, Google Cloud bootstrap/WIF/Cloud Run assets, OAuth resource-server layer, client integration docs, Termux local-executor lane and the coordinated mobile skill registry.

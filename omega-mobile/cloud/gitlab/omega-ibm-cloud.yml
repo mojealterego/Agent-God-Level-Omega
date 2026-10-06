@@ -1,0 +1,18 @@
+omega_ibm_cloud:
+  image: ubuntu:24.04
+  stage: deploy
+  before_script:
+    - apt-get update && apt-get install -y curl python3 ca-certificates
+    - curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+    - ibmcloud plugin install code-engine -f
+  script:
+    - python3 cloud/ibm/ibm_cloud_automation.py login --region "$IBM_CLOUD_REGION" --resource-group "$IBM_CLOUD_RESOURCE_GROUP" --apply
+    - python3 cloud/ibm/ibm_cloud_automation.py code-engine-project-select --project "$IBM_CODE_ENGINE_PROJECT" --apply
+    - |
+      if [ "${OMEGA_IBM_ACTION:-status}" = "code-engine-deploy" ]; then
+        python3 cloud/ibm/ibm_cloud_automation.py code-engine-deploy --name "$IBM_CODE_ENGINE_APP" --image "$IBM_CODE_ENGINE_IMAGE" --apply
+      else
+        python3 cloud/ibm/ibm_cloud_automation.py status
+      fi
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'

@@ -1,0 +1,57 @@
+name: OMEGA Google Cloud + Gemini
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        required: true
+        type: choice
+        default: gemini-review
+        options: [gemini-review, cloud-build, cloud-run-deploy]
+      prompt:
+        required: false
+        type: string
+      image:
+        required: false
+        type: string
+      service:
+        required: false
+        type: string
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  google-cloud:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+    - uses: actions/checkout@v4
+    - id: auth
+      uses: google-github-actions/auth@v3
+      with:
+        workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+    - uses: google-github-actions/setup-gcloud@v3
+    - uses: actions/setup-python@v5
+      with: {python-version: '3.13'}
+    - run: python -m pip install -r cloud/google/requirements.txt
+    - name: Verify Google identity
+      run: python cloud/google/gcp_automation.py status > omega-gcp-status.json
+    - name: Gemini review
+      if: ${{ inputs.action == 'gemini-review' }}
+      env:
+        GOOGLE_CLOUD_PROJECT: ${{ vars.GCP_PROJECT_ID }}
+        GOOGLE_CLOUD_LOCATION: ${{ vars.GCP_LOCATION || 'global' }}
+        GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-pro' }}
+      run: python cloud/google/gemini_vertex.py --prompt "${{ inputs.prompt }}" --json --output omega-gemini-result.json
+    - name: Cloud Build
+      if: ${{ inputs.action == 'cloud-build' }}
+      run: python cloud/google/gcp_automation.py cloud-build-submit --project "${{ vars.GCP_PROJECT_ID }}" --region "${{ vars.GCP_BUILD_REGION || 'us-central1' }}" --config cloud/google/cloudbuild.yaml --apply
+    - name: Cloud Run deploy
+      if: ${{ inputs.action == 'cloud-run-deploy' }}
+      run: python cloud/google/gcp_automation.py cloud-run-deploy --project "${{ vars.GCP_PROJECT_ID }}" --region "${{ vars.GCP_RUN_REGION || 'us-central1' }}" --service "${{ inputs.service }}" --image "${{ inputs.image }}" --apply
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: omega-google-cloud-${{ github.sha }}
+        if-no-files-found: ignore
+        path: omega-*.json

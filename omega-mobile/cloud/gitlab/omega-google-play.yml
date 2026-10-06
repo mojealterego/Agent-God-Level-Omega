@@ -1,0 +1,57 @@
+omega-google-play-release:
+  stage: deploy
+  timeout: 90m
+  when: manual
+  allow_failure: false
+  variables:
+    GOOGLE_PLAY_TRACK: "internal"
+    GOOGLE_PLAY_STATUS: "completed"
+    GOOGLE_PLAY_COMMIT: "0"
+    OMEGA_ANDROID_MODULE: "app"
+    OMEGA_ANDROID_VARIANT: "release"
+  script:
+    - |
+      set -eu
+      if [ -z "${GOOGLE_PLAY_PACKAGE:-}" ]; then
+        echo "GOOGLE_PLAY_PACKAGE is required" >&2
+        exit 1
+      fi
+      if [ -z "${GOOGLE_APPLICATION_CREDENTIALS:-}" ] || [ ! -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
+        echo "GOOGLE_APPLICATION_CREDENTIALS must point to a protected GitLab file variable" >&2
+        exit 1
+      fi
+    - python3 mobile/android/android_pipeline.py run --module "$OMEGA_ANDROID_MODULE" --variant "$OMEGA_ANDROID_VARIANT" --e2e-mode none
+    - python3 -m pip install --disable-pip-version-check -r cloud/google-play/requirements.txt
+    - |
+      set -eu
+      artifact="$(find . -type f -path '*/build/outputs/*' -name '*.aab' -size +0c | sort | head -n 1)"
+      if [ -z "$artifact" ]; then
+        echo "No AAB artifact found" >&2
+        exit 1
+      fi
+      set -- --package "$GOOGLE_PLAY_PACKAGE" --artifact "$artifact" --track "$GOOGLE_PLAY_TRACK" --status "$GOOGLE_PLAY_STATUS"
+      if [ -n "${GOOGLE_PLAY_USER_FRACTION:-}" ]; then
+        set -- "$@" --user-fraction "$GOOGLE_PLAY_USER_FRACTION"
+      fi
+      if [ "$GOOGLE_PLAY_COMMIT" = "1" ]; then
+        set -- "$@" --commit
+      fi
+      if [ "$GOOGLE_PLAY_TRACK" = "production" ]; then
+        if [ "${OMEGA_ALLOW_PRODUCTION:-0}" != "1" ]; then
+          echo "Production requires OMEGA_ALLOW_PRODUCTION=1" >&2
+          exit 1
+        fi
+        set -- "$@" --allow-production
+      fi
+      python3 cloud/google-play/google_play_publisher.py "$@" | tee omega-google-play-result.json
+  artifacts:
+    when: always
+    expire_in: 14 days
+    paths:
+      - "**/build/outputs/**/*.apk"
+      - "**/build/outputs/**/*.aab"
+      - omega-google-play-result.json
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual
+    - when: never

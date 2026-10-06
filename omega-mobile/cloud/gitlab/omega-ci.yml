@@ -1,0 +1,38 @@
+stages:
+  - verify
+  - package
+
+default:
+  image: node:20-bookworm
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y --no-install-recommends python3 zip
+  cache:
+    key:
+      files:
+        - mcp/omega-control-plane/package.json
+    paths:
+      - mcp/omega-control-plane/node_modules/
+
+omega_verify:
+  stage: verify
+  timeout: 20m
+  script:
+    - npm --prefix mcp/omega-control-plane install --ignore-scripts --no-audit --no-fund
+    - npm --prefix mcp/omega-control-plane test
+    - python3 scripts/validate_package.py
+    - bash -n termux/install.sh termux/omega-termux termux/omega-mcp-stdio
+
+omega_package:
+  stage: package
+  needs:
+    - omega_verify
+  script:
+    - mkdir -p dist
+    - zip -qr "dist/omega-omni-cognitive-engineering-${CI_COMMIT_SHA}.zip" . -x '.git/*' 'dist/*' 'mcp/omega-control-plane/node_modules/*'
+  artifacts:
+    name: "omega-plugin-${CI_COMMIT_SHA}"
+    expire_in: 14 days
+    when: on_success
+    paths:
+      - dist/*.zip
