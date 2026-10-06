@@ -22,7 +22,7 @@ except Exception as exc:
 
 if manifest.get("name") != ROOT.name:
     fail("manifest name must match root directory name")
-if manifest.get("version") != "24.0.0":
+if manifest.get("version") != "25.0.0":
     fail("unexpected package version")
 short = (((manifest.get("extensions") or {}).get("com.openai") or {}).get("interface") or {}).get("shortDescription", "")
 if len(short) > 30:
@@ -33,8 +33,8 @@ if isinstance(prompts, list) and len(prompts) > 3:
     fail("defaultPrompt must contain at most three prompts")
 
 skills = sorted((ROOT / "skills").glob("*/SKILL.md"))
-if len(skills) != 166:
-    fail(f"expected 166 skills, got {len(skills)}")
+if len(skills) != 167:
+    fail(f"expected 167 skills, got {len(skills)}")
 
 names = set()
 for path in skills:
@@ -69,7 +69,7 @@ required_refs = {
     "ecosystem-research-v14.md", "dedup-policy-v14.md", "mcp-security-v14.md", "android-feedback-v14.md", "skill-evals-v14.md"
     ,"asgard-architecture-v15.md", "asgard-agent-categories-v15.md", "asgard-factory-v15.md", "asgard-security-v15.md", "asgard-loki-ragnar-v15.md",
     "asgard-architecture-v16.md", "harald-account-fabric-v16.md", "ivar-research-broker-v16.md", "kronikarz-news-v16.md", "wieszcz-commerce-v16.md", "adult-consent-policy-v16.md", "gemini-interactions-v17.md", "gemini-library-bridge-v17.md", "account-tunneling-v18.md", "secret-knowledge-v19.md", "defensive-command-policy-v19.md", "reality-filter-v20.md", "claim-state-model-v20.md", "thor-release-gate-v20.md", "freyr-cloud-funding-v21.md", "cloud-signup-policy-v21.md", "omni-architect-v22-integration.md", "omni-architect-dedup-map-v22.md",
-    "agent-ci-assurance-v23.md", "third-party-actions-v23.md", "knowledge-session-v23.md", "mcp-behavior-release-v23.md", "mobile-demo-v23.md", "openlore-governance-v23.md", "elevenlabs-media-v24.md", "speech-engine-v24.md", "elevenlabs-cost-safety-v24.md", "media-latency-v24.md"
+    "agent-ci-assurance-v23.md", "third-party-actions-v23.md", "knowledge-session-v23.md", "mcp-behavior-release-v23.md", "mobile-demo-v23.md", "openlore-governance-v23.md", "elevenlabs-media-v24.md", "speech-engine-v24.md", "elevenlabs-cost-safety-v24.md", "media-latency-v24.md", "elevenlabs-hardening-v25.md"
 }
 actual_refs = {path.name for path in (ROOT / "references").glob("*.md")}
 missing = required_refs - actual_refs
@@ -192,7 +192,9 @@ required_mcp_files = {
     "test/assurance-v23.test.mjs",
     "test/assurance-control-plane-v23.test.mjs",
     "src/media/elevenlabs-runtime.mjs",
+    "src/media/elevenlabs-v25-runtime.mjs",
     "test/media-elevenlabs-v24.test.mjs",
+    "test/media-elevenlabs-v25.test.mjs",
     "test/media-control-plane-v24.test.mjs",
 }
 for relative in required_mcp_files:
@@ -203,7 +205,7 @@ try:
     mcp_package = json.loads((mcp / "package.json").read_text(encoding="utf-8"))
     if mcp_package.get("name") != "@mojealterego/omega-mcp-control-plane":
         fail("unexpected MCP package name")
-    if mcp_package.get("version") != "24.0.0":
+    if mcp_package.get("version") != "25.0.0":
         fail("unexpected MCP package version")
     if (mcp_package.get("dependencies") or {}).get("@modelcontextprotocol/server") != "^2.3.0":
         fail("MCP server dependency must target the verified v2.3 stable line")

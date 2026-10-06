@@ -33,7 +33,7 @@ async function invoke(handler) {
 
 function createServer() {
   const plane = new OmegaControlPlane();
-  const server = new McpServer({ name: 'omega-control-plane', version: '24.0.0' });
+  const server = new McpServer({ name: 'omega-control-plane', version: '25.0.0' });
 
   server.registerTool(
     'omega_capabilities',

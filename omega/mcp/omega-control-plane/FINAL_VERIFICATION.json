@@ -1,12 +1,37 @@
 {
-  "version": "24.0.0",
-  "status": "DONE",
-  "test_suite": {
+  "version": "25.0.0",
+  "status": "CANDIDATE",
+  "verification_state": "awaiting_ci",
+  "baseline_test_suite": {
     "passed": 405,
     "failed": 0,
-    "total": 405
+    "total": 405,
+    "version": "24.0.0"
   },
-  "media_runtime": true,
-  "secret_ref_only": true,
-  "billable_operations_approval_gated": true
+  "candidate_tests": {
+    "added": 14,
+    "expected_total": 419
+  },
+  "media_v25": {
+    "speech_engine_jwt_verification": true,
+    "event_id_interruption_guard": true,
+    "speech_engine_lifecycle_controls": true,
+    "detailed_music_multipart": true,
+    "dialogue_timestamps": true,
+    "sfx_validation_hardening": true,
+    "forced_alignment_bounds": true,
+    "dubbing_billing_ack": true,
+    "secret_ref_only": true
+  },
+  "external_or_conditional": [
+    "Live provider calls require ELEVENLABS_API_KEY in the runtime environment.",
+    "A public Speech Engine conversation still requires a reachable wss:// upstream.",
+    "Provider-billed operations require explicit approval/billing acknowledgements."
+  ],
+  "package_validator": "PENDING_CI",
+  "counts": {
+    "skills": 167,
+    "references": 83,
+    "schemas": 110
+  }
 }

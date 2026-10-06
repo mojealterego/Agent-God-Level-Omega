@@ -1,8 +1,8 @@
 {
   "interface": {
-    "displayName": "OMEGA Omni-Cognitive Engineering v24",
-    "shortDescription": "ElevenLabs Media Plane",
-    "longDescription": "OMEGA v24 extends the cumulative OMEGA/ASGARD system with a production-oriented ElevenLabs media and voice plane. It provides secret-ref-only authentication, explicit credit-consumption approvals, Speech Engine configuration and upstream contract validation, low-latency streaming guidance, music composition, multi-voice dialogue, sound effects, voice isolation and voice changing, forced alignment, dubbing lifecycle support and asynchronous image/video generation while preserving Reality Filter, KRATOS and THOR release gates.",
+    "displayName": "OMEGA Omni-Cognitive Engineering v25",
+    "shortDescription": "ElevenLabs Media Hardening",
+    "longDescription": "OMEGA v25 hardens the cumulative OMEGA/ASGARD media plane with Speech Engine HS256 JWT verification, event-id interruption and stale-output guards, list/update/delete lifecycle controls, detailed music multipart parsing, dialogue timestamps, stricter Sound Effects and Forced Alignment validation, explicit dubbing billing acknowledgements, secret-reference-only authentication and preserved Reality Filter, KRATOS, THOR and Agent CI assurance gates.",
     "developerName": "Moje Alterego",
     "category": "Developer Tools",
     "capabilities": [
@@ -15,8 +15,8 @@
     ]
   },
   "name": "omega-omni-cognitive-engineering-v2",
-  "version": "24.0.0",
-  "description": "OMEGA v24 adds a production ElevenLabs media/voice plane with Speech Engine configuration, streaming guidance, music, dialogue, SFX, voice isolation/change, forced alignment, dubbing, image/video flows, approval-based billing gates and secret-ref-only authentication.",
+  "version": "25.0.0",
+  "description": "OMEGA v25 hardens the ElevenLabs media/voice plane with Speech Engine JWT verification, event-id interruption guards, lifecycle controls, detailed music/dialogue outputs, corrected media validation and explicit billing acknowledgements while preserving cumulative OMEGA/ASGARD assurance gates.",
   "author": {
     "name": "Moje Alterego"
   },
