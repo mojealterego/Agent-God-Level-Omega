@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: omega-agent-ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   assurance:
     runs-on: ubuntu-latest
