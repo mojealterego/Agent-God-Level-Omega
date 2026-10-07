@@ -1,0 +1,11 @@
+{
+  "source": "ChatGPT account plugin",
+  "plugin_id": "plugins_6ac56c3c56a081918f5dd42b829b9f71",
+  "plugin_name": "github-absolute-automation",
+  "plugin_version": "0.3.0",
+  "plugin_release_id": "pluginrel_6ac63e4078448191b21ddc21f8caeab4",
+  "destination": "plugins/github-absolute-automation/",
+  "canonical_omega_skill": "omega/skills/omega-github-pages-jekyll/",
+  "repository": "mojealterego/Agent-God-Level-Omega",
+  "sync_policy": "Every created or expanded plugin is mirrored into this repository and reusable capability is absorbed into canonical OMEGA without changing the default branch."
+}
