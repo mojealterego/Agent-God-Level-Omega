@@ -33,8 +33,8 @@ if isinstance(prompts, list) and len(prompts) > 3:
     fail("defaultPrompt must contain at most three prompts")
 
 skills = sorted((ROOT / "skills").glob("*/SKILL.md"))
-if len(skills) != 167:
-    fail(f"expected 167 skills, got {len(skills)}")
+if len(skills) != 168:
+    fail(f"expected 168 skills, got {len(skills)}")
 
 names = set()
 for path in skills:
@@ -196,6 +196,16 @@ required_mcp_files = {
     "test/media-elevenlabs-v24.test.mjs",
     "test/media-elevenlabs-v25.test.mjs",
     "test/media-control-plane-v24.test.mjs",
+    "src/openai/events-runtime.mjs",
+    "src/openai/extensions-ui.mjs",
+    "src/openai/blob-subscription-store.mjs",
+    "src/openai/blob-json-store.mjs",
+    "src/openai/remote-server.mjs",
+    "src/openai/ui-app.js",
+    "src/openai/generated-control-center.mjs",
+    "api/mcp.mjs",
+    "scripts/build-openai-ui.mjs",
+    "test/openai-events-extensions.test.mjs",
 }
 for relative in required_mcp_files:
     if not (mcp / relative).is_file():

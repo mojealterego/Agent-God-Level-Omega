@@ -68,7 +68,7 @@ jobs:
           f=json.loads(Path("omega/FINAL_VERIFICATION.json").read_text())
           assert f["version"]=="25.0.0"
           assert f["status"] in {"CANDIDATE","DONE"}
-          assert f["counts"]=={"skills":167,"references":83,"schemas":110}
+          assert f["counts"]=={"skills":168,"references":83,"schemas":110}
           PY
 
       - name: Validate OMEGA package
@@ -156,6 +156,9 @@ jobs:
                   "omega-omni-cognitive-engineering-v2/SHA256SUMS.txt",
                   "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/src/visual/wda-runtime.mjs",
                   "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/test/visual-wda.test.mjs",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/src/openai/events-runtime.mjs",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/src/openai/remote-server.mjs",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/test/openai-events-extensions.test.mjs",
               }
               missing=required-set(names)
               assert not missing, sorted(missing)

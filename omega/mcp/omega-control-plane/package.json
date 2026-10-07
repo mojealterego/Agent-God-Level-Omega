@@ -8,11 +8,20 @@
   },
   "scripts": {
     "test": "node --test",
-    "start": "node src/server.mjs"
+    "start": "node src/server.mjs",
+    "build:openai-ui": "node scripts/build-openai-ui.mjs",
+    "build": "npm run build:openai-ui"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.3.0",
     "zod": "^4.0.0",
-    "@modelcontextprotocol/client": "^2.3.0"
+    "@modelcontextprotocol/client": "^2.3.0",
+    "@modelcontextprotocol/node": "^2.1.1",
+    "@modelcontextprotocol/ext-apps": "^2.0.3",
+    "@openai/mcp-extensions": "^0.1.0",
+    "@vercel/blob": "^2.8.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.10"
   }
 }

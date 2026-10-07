@@ -29,11 +29,12 @@
     "Provider-billed operations require explicit approval/billing acknowledgements.",
     "WDA provider execution requires a configured federated visual provider/tool.",
     "WDA visual quality checks remain INCONCLUSIVE until observed validator evidence is supplied.",
-    "WDA deterministic masked post-compositing requires ImageMagick at runtime."
+    "WDA deterministic masked post-compositing requires ImageMagick at runtime.",
+    "Hosted MCP 2.0 Extensions become runtime-active only after a verified public HTTPS deployment and persistent store binding."
   ],
   "package_validator": "PENDING_CI",
   "counts": {
-    "skills": 167,
+    "skills": 168,
     "references": 83,
     "schemas": 110
   },
@@ -48,5 +49,34 @@
     "failure_taxonomy_f1_f13": true,
     "persistent_visual_state": true,
     "provider_generation_determinism_claimed": false
+  },
+  "openai_mcp2_extensions": {
+    "implementation_state": "SOURCE_READY_AWAITING_HOST_DEPLOYMENT",
+    "protocol_version": "2026-07-28",
+    "events": [
+      "omega.run.completed",
+      "omega.artifact.created",
+      "omega.validation.changed"
+    ],
+    "callback_ssrf_gate": true,
+    "standard_webhook_signing": true,
+    "callback_verification": true,
+    "durable_subscription_store": "private-host-object-store",
+    "ui_entrypoints": [
+      "global",
+      "thread",
+      "settings",
+      "file"
+    ],
+    "model_context": true,
+    "deep_links": true,
+    "composer_mentions": true,
+    "rich_forms": true,
+    "host_support_boundaries": {
+      "file": "desktop",
+      "composer_mentions": "desktop",
+      "rich_forms": "desktop-web",
+      "deep_links": "desktop-web-ios"
+    }
   }
 }
