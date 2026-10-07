@@ -782,6 +782,24 @@ function createServer() {
   );
 
   server.registerTool(
+    'omega_visual_architect',
+    {
+      description: 'WDA Omega Infinity visual-control plane: reference-role isolation, immutable visual state, bounded edit scopes, provider-specific compilation, approval-gated federated execution, deterministic masked ImageMagick post-compositing and evidence-based visual validation.',
+      inputSchema: z.object({
+        cwd: z.string().min(1),
+        action: z.enum([
+          'session-create','state-get','reference-add','reference-role-set','reference-map','intent-compile',
+          'state-transition','lock-set','change-budget','edit-plan','mask-plan','provider-compile',
+          'provider-execute','composite-execute','compare','validate','failure-classify','correction-apply',
+          'snapshot','state-save','state-load'
+        ]),
+        payload: z.record(z.string(), z.unknown()).default({})
+      })
+    },
+    async (input) => invoke(() => plane.visualArchitecture(input))
+  );
+
+  server.registerTool(
     'omega_artifact_inspect',
     {
       description: 'Verify a local artifact inside workspace roots and return immutable size, extension, timestamp and SHA-256 metadata.',
