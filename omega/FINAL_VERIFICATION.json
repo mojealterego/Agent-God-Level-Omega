@@ -34,7 +34,7 @@
   ],
   "package_validator": "PENDING_CI",
   "counts": {
-    "skills": 168,
+    "skills": 169,
     "references": 83,
     "schemas": 110
   },
@@ -78,5 +78,21 @@
       "rich_forms": "desktop-web",
       "deep_links": "desktop-web-ios"
     }
+  },
+  "github_pages_jekyll": {
+    "source_plugin": "github-absolute-automation",
+    "source_plugin_version": "0.3.0",
+    "source_release_id": "pluginrel_6ac63e4078448191b21ddc21f8caeab4",
+    "canonical_skill": "omega-github-pages-jekyll",
+    "capabilities": [
+      "pages-site-classification",
+      "jekyll-config-and-front-matter",
+      "actions-pages-build-artifact-deploy",
+      "baseurl-and-route-validation",
+      "theme-and-plugin-compatibility",
+      "pages-failure-diagnostics",
+      "custom-domain-repository-state"
+    ],
+    "live_pages_deployment_claimed": false
   }
 }
