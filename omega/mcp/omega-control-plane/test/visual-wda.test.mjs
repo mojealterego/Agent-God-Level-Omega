@@ -4,6 +4,8 @@ import { mkdtemp, readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { WdaVisualRuntime } from '../src/visual/wda-runtime.mjs';
+import { OmegaControlPlane } from '../src/core/control-plane.mjs';
+import { discoverCapabilities } from '../src/core/capabilities.mjs';
 
 async function runtime(options={}) {
   const root = await mkdtemp(join(tmpdir(), 'omega-wda-'));
@@ -167,4 +169,19 @@ test('semantic compiler retains pose environment optics lighting materials color
   assert.match(compiled.instruction,/CAMERA SPEC:/);
   assert.match(compiled.instruction,/LIGHTING SPEC:/);
   assert.match(compiled.instruction,/COLOR SCIENCE SPEC:/);
+});
+
+test('OmegaControlPlane exposes WDA through visualArchitecture', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'omega-wda-plane-'));
+  const plane = new OmegaControlPlane({ workspaceRoots: [root] });
+  const out = await plane.visualArchitecture({ cwd: root, action: 'session-create', payload: { id: 'plane', rawRequest: 'preserve everything except background' } });
+  assert.equal(out.system, 'WDA_OMEGA_INFINITY');
+  assert.equal(out.id, 'plane');
+});
+
+test('capability discovery advertises WDA visual control plane', async () => {
+  const caps = await discoverCapabilities();
+  const wda = caps.find(x => x.id === 'visual.wda-omega-infinity');
+  assert.ok(wda);
+  assert.equal(wda.category, 'visual-control');
 });
