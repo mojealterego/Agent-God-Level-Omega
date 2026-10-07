@@ -78,3 +78,7 @@ The repository also contains the versioned source of **Automation Forge v0.2.0**
 ## OMEGA Assurance Research Toolkit
 
 Research-derived deterministic assurance tooling is in [`tools/omega-assurance/`](./tools/omega-assurance/), with repository policy under [`.omega/`](./.omega/) and the feasibility dossier in [`docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md`](./docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md). External agent/security Actions remain optional; the default CI path is evidence-first, pinned and deterministic.
+
+## Plugin capability imports
+
+- **GitHub Absolute Automation v0.3.0** is preserved as a repo-safe source package under [`plugins/github-absolute-automation/`](./plugins/github-absolute-automation/) and its reusable GitHub Pages/Jekyll capability is absorbed into [`omega/skills/omega-github-pages-jekyll/`](./omega/skills/omega-github-pages-jekyll/).
