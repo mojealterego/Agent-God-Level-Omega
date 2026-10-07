@@ -28,6 +28,7 @@ import { RealityFilterRuntime } from '../reality/reality-filter-runtime.mjs';
 import { OmniCompetencyRuntime } from '../omni/omni-runtime.mjs';
 import { AssuranceRuntime } from '../assurance/assurance-runtime.mjs';
 import { ElevenLabsMediaRuntimeV25 as ElevenLabsMediaRuntime } from '../media/elevenlabs-v25-runtime.mjs';
+import { WdaVisualRuntime } from '../visual/wda-runtime.mjs';
 
 function parseRoots(value) {
   if (!value) return [process.cwd()];
@@ -55,6 +56,7 @@ export class OmegaControlPlane {
     this.omniRuntimes = new Map();
     this.assuranceRuntimes = new Map();
     this.mediaRuntimes = new Map();
+    this.visualRuntimes = new Map();
     this.mcpClientFactory = mcpClientFactory;
     this.cognitiveProviderTransport = cognitiveProviderTransport;
     this.env = env;
@@ -366,6 +368,33 @@ export class OmegaControlPlane {
   }
 
   async mediaArchitecture({ cwd, ...input }) { return await this.#mediaRuntime(cwd).action(input); }
+
+  #visualRuntime(cwd) {
+    const root = this.#rootFor(cwd);
+    if (!this.visualRuntimes.has(root)) {
+      this.visualRuntimes.set(root, new WdaVisualRuntime({
+        root,
+        providerInvoker: async (input) => await this.#federation(cwd).callTool({
+          providerId: input.providerId,
+          name: input.name,
+          arguments: input.arguments ?? {}
+        }),
+        commandRunner: async (command) => await runProcess({
+          argv: command.argv,
+          cwd: command.cwd ?? root,
+          env: command.env ?? {},
+          sideEffect: command.sideEffect ?? 'L',
+          source: 'project',
+          policy: this.policy,
+          timeoutMs: command.timeoutMs ?? 300_000,
+          maxOutputBytes: command.maxOutputBytes ?? 1_048_576
+        })
+      }));
+    }
+    return this.visualRuntimes.get(root);
+  }
+
+  async visualArchitecture({ cwd, ...input }) { return await this.#visualRuntime(cwd).action(input); }
 
   async memory({ cwd, ...input }) { return await this.#runtime(cwd).memory(input); }
   async reasoning({ cwd, ...input }) { return await this.#runtime(cwd).reasoning(input); }
