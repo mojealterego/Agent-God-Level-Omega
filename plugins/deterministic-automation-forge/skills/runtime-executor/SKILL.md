@@ -23,9 +23,18 @@ A binding is valid only if the tool is actually exposed in the current host.
 
 ## Authentication gate
 
-### GitHub
+### GitHub repository operations
 
 A successful structured repository read against the exact intended repository is evidence that the connector can access that repository. Do not infer write permission from read permission; let the write call enforce authorization and verify the resulting state.
+
+### GitHub account settings / Codespaces preference
+
+Repository authorization is not evidence that account-level settings can be changed. For a Codespaces Stable/Beta preference change:
+
+1. bind a dedicated structured account-setting capability only if it explicitly supports that setting; otherwise
+2. bind authenticated browser automation to GitHub Settings → Codespaces;
+3. require confirmed GitHub browser-session coverage before mutation;
+4. verify the preference after the write through the same authenticated account context.
 
 ### Browser applications
 

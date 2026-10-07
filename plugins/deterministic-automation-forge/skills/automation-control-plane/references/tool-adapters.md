@@ -1,8 +1,8 @@
 # Runtime Tool Bindings
 
-Resolve by capability, then use the exact tool that exists in the current host. Never fabricate a connector, app ID, MCP endpoint, profile ID, repository, branch, or auth state.
+Resolve by capability, then use the exact tool that exists in the current host. Never fabricate a connector, app ID, MCP endpoint, profile ID, repository, branch, auth state, Codespaces preference, or effective host-image channel.
 
-## GitHub binding
+## GitHub repository binding
 
 Preferred structured operations include capabilities equivalent to:
 
@@ -17,20 +17,31 @@ Preferred structured operations include capabilities equivalent to:
 - inspect commits/checks/reviews;
 - update refs with lease semantics when explicitly required.
 
-Current known host names may include `mcp__GitHub__search_installed_repositories_v2`, `mcp__GitHub__search`, `mcp__GitHub__fetch_file`, `mcp__GitHub__create_branch`, `mcp__GitHub__create_file`, `mcp__GitHub__update_file`, `mcp__GitHub__delete_file`, `mcp__GitHub__compare_commits`, `mcp__GitHub__create_pull_request`, `mcp__GitHub__update_pull_request`, `mcp__GitHub__search_issues`, `mcp__GitHub__search_prs`, `mcp__GitHub__create_issue`, `mcp__GitHub__update_issue`, `mcp__GitHub__add_review_to_pr`, and `mcp__GitHub__update_ref`.
-
 If the exact name is absent, discover an equivalent structured connector action. Do not silently downgrade repository writes to browser automation.
+
+## GitHub Codespaces host-image binding
+
+Treat the Stable/Beta host-image preference as an account-setting capability, not a repository capability.
+
+Binding priority:
+
+1. a structured GitHub account-setting action that explicitly supports the Codespaces host-image preference;
+2. authenticated browser automation on GitHub Settings → Codespaces;
+3. otherwise `TOOL_UNAVAILABLE` or `AUTH_REQUIRED` as appropriate.
+
+Repository connectors may still be used to inspect `.devcontainer` files and to read the public `github/codespaces-host-images` repository for current host-image release information.
+
+Never infer the effective host-image channel from the preference alone. If Beta is selected while no Beta image exists, record Stable as the observed effective channel when verified.
 
 ## Browser binding
 
-Preferred TinyFish capabilities:
+Preferred browser capabilities include:
 
-- `mcp__TinyFish__list_profiles`
-- `mcp__TinyFish__create_profile`
-- `mcp__TinyFish__start_profile_setup_session`
-- `mcp__TinyFish__run_web_automation`
-- `mcp__TinyFish__wait_for_run`
-- `mcp__TinyFish__create_monitor` when the user explicitly requests recurring web monitoring.
+- list browser profiles;
+- create/start profile setup sessions;
+- run one browser automation task;
+- wait on the same run ID until terminal;
+- create a monitor only when recurring web monitoring is explicitly requested.
 
 For authenticated sites, profile coverage for the domain is an auth precondition. A profile name alone is not evidence of sign-in.
 

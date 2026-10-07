@@ -1,6 +1,6 @@
 ---
 name: automation-control-plane
-description: Route and execute multi-system automation involving Intercom, GitHub, or browser-operated web applications with evidence-gated, fail-closed controls. Use for any workflow that spans more than one system or needs planning, execution, verification, rollback, audit evidence, or throughput optimization.
+description: Route and execute multi-system automation involving Intercom, GitHub, GitHub Codespaces, or browser-operated web applications with evidence-gated, fail-closed controls. Use for any workflow that spans more than one system or needs planning, execution, verification, rollback, audit evidence, or throughput optimization.
 ---
 
 # Automation Control Plane
@@ -36,6 +36,7 @@ Use these states in order unless a stop condition fires:
 6. Browser run with uncertain terminal state → keep the same run ID; never duplicate the mutation.
 7. Writes to the same resource are serialized. Independent reads may run in parallel.
 8. No passwords, session cookies, API tokens, or secrets are requested in chat or written to repositories.
+9. Codespaces VM host-image preference and repository dev-container configuration are separate state domains and must never be merged into one claim.
 
 ## Cross-system transaction protocol
 
@@ -64,6 +65,7 @@ For jobs spanning multiple systems, use a two-phase discipline:
 - Intercom: `intercom-operator`
 - Intercom↔GitHub transaction: `intercom-github-bridge`
 - GitHub implementation: `github-engineer`
+- GitHub Codespaces Stable/Beta host image: `codespaces-host-image-operator`
 - First-time site certification: `site-registrar`
 - Generic website work: `web-operator`
 - Independent checks: `verifier-auditor`

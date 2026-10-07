@@ -5,7 +5,7 @@ description: Perform repository changes derived from an automation contract usin
 
 # GitHub Engineer
 
-Use for all repository modifications initiated by Automation Forge.
+Use for repository modifications initiated by Automation Forge.
 
 ## Repository identity
 
@@ -22,13 +22,21 @@ Default path:
 
 1. Inspect existing implementation with search and `fetch_file`.
 2. Create a task branch from the verified base ref/SHA.
-3. Create/update/delete files only on that task branch.
+3. Create/update/delete files only on that task branch unless the user explicitly authorizes an exact direct-default-branch workflow.
 4. For existing files, fetch the current blob SHA immediately before mutation.
 5. Do not perform concurrent updates/deletes to the same path.
 6. Re-fetch changed files after each logical batch.
 7. Compare branch/base commits before opening a PR.
 8. Open a draft PR first for substantial changes unless the user explicitly requests otherwise.
 9. Verify PR URL, number, head, base, draft state and changed content.
+
+## Codespaces configuration boundary
+
+Repository-owned Codespaces configuration includes files such as `.devcontainer/devcontainer.json`, Dockerfiles, features and setup scripts. These may be inspected or changed through normal repository workflows.
+
+The **Codespaces Stable/Beta VM host-image preference is not repository state**. Delegate that setting to `codespaces-host-image-operator`. Never claim a repository commit changed the user's host-image preference.
+
+When preparing repository compatibility for a host-image change, inspect host-kernel coupling before editing `.devcontainer`. Prefer evidence-backed compatibility fixes over speculative rewrites.
 
 ## Evidence requirements
 
