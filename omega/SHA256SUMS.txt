@@ -1,6 +1,6 @@
 ed87ccbdf82bf7d76e3359b63072398bdbe88bc2047588f19773bbb47e2bc4a5  .codex-plugin/plugin.json
 4676c5ddc097ebfae5e29c327668b170e7f99b40418e7ce1c188e3ab8fd634cd  .mcp.json
-d3fbbc516ff7301ace67af31429f8f1c344eb66335e14baa2eeea18742a4856b  FINAL_VERIFICATION.json
+915a4003aa25a7eb37939469779b3f79bfc6f31118c78abe0de6b55b9c1b83c5  FINAL_VERIFICATION.json
 2426a1c63ffd64b7eb4bb02eb055dfea9efb4e4d74375027b23cfce14225b111  IMPLEMENTATION_STATUS.md
 598f17fc798fc7f75c2f81a4bc58f4b7ab4f2b55ce304e82e1256d488ab89066  mcp.json
 d3fbbc516ff7301ace67af31429f8f1c344eb66335e14baa2eeea18742a4856b  mcp/omega-control-plane/FINAL_VERIFICATION.json
@@ -59,8 +59,8 @@ e90b8498b02f1d9cdc1cb264e509d34d25ce27cac48caaa63dfc3b1042c31883  mcp/omega-cont
 38819c48576fccbedf7c6e11e30ff540e611d87142f36a6f1c0360f73ddd19f1  mcp/omega-control-plane/src/cognitive/synthetic-red-team.mjs
 a7ad13768a86358349934e752a048ad80b23d9e475cff8e4eb7423443d4101e9  mcp/omega-control-plane/src/cognitive/titans-retention.mjs
 662456905681d9c039c70c7a431404dd8f335e286f1329f2da4913ae62141037  mcp/omega-control-plane/src/core/artifact.mjs
-c28d18e38f4784a1340b6afb9a411579403bdd54ecc46232883078d52e795ad9  mcp/omega-control-plane/src/core/capabilities.mjs
-b6c54f734ba1004dca6043582143a8345e626ff467ed9a909643aacd0fff8dc7  mcp/omega-control-plane/src/core/control-plane.mjs
+f468d6ce5d1e57ec1e4bc1b58474da40b1c2ddaa9fc15514f56b86a2c379c62c  mcp/omega-control-plane/src/core/capabilities.mjs
+053064a6f9b68cb632bf7bbd5ebfb99413414f7bf0b382683a87806196da3b94  mcp/omega-control-plane/src/core/control-plane.mjs
 65b2f825f9b866dc9002b0251de0b363ee1225facf6efd11e6dbd9a5126e1efa  mcp/omega-control-plane/src/core/evidence.mjs
 a08dd6b02cb680fa00af4a01afc5bf87c73860cea8c3c6119acd280c30d1319c  mcp/omega-control-plane/src/core/policy.mjs
 dad069fcdd9cf2d5bd36e1f3ef2684e5a4634dd820fd9c7ce0fe9f964e3584e0  mcp/omega-control-plane/src/core/process.mjs
@@ -82,7 +82,8 @@ ffde4b8516ee94a41eeebd76f6ad86878deafd6c155445ef939a3b3992dd884a  mcp/omega-cont
 d30258bc80b27e8042e477f475d32ce2730a506fadbd62d78db57e57eb1a8c15  mcp/omega-control-plane/src/practical/practical-runtime.mjs
 8652d61d39347b12e9330c7ea964903adffd7e591005472085e3089eccc8ab48  mcp/omega-control-plane/src/reality/reality-filter-architecture.mjs
 4c2e89349315acf0a8bb25ad2591b3790d1579c625aa0dc6e3121c2e986834e1  mcp/omega-control-plane/src/reality/reality-filter-runtime.mjs
-441ef8d5a0dcb2f7458a3485c7131386568d1a1d7e08ae875008858a51e358e3  mcp/omega-control-plane/src/server.mjs
+e0d83c9c0172899c7a2caf1d579166d46682d32ffcb86a8d6a3909b7fadf6329  mcp/omega-control-plane/src/server.mjs
+1aef20c582da1327d6c63fad19a88b2ff043024321f4da2119892ac42b5ad452  mcp/omega-control-plane/src/visual/wda-runtime.mjs
 4a59450976addafb3df0b7b32cb9dcea2d917d96b1621250b1314ec6198f1db0  mcp/omega-control-plane/test/advanced-layer.test.mjs
 de0c0a1982eaed07a49185c2040431011de2814ca624b67cb884607320e14b7f  mcp/omega-control-plane/test/asgard-account-runtime-v18.test.mjs
 2a7b82d78d0b46f0faea5d25131361573612a5471f38704130441f7ea9ca5778  mcp/omega-control-plane/test/asgard-account-tunnel-v18.test.mjs
@@ -128,6 +129,7 @@ d107a1d2635270714b5e6f658cdefaeda107ea25b5ee409ea2d5515ee22ae6bf  mcp/omega-cont
 4d43e2cdcf90635e9305deb522b9c652d3bb44c2d9f4974a10c1fec31a28f451  mcp/omega-control-plane/test/runtime-federation-v6.test.mjs
 461ffb33c5a0201a020aa15812135ac2246b75d1d763db54f21550748fb505a5  mcp/omega-control-plane/test/secret-knowledge-control-plane-v19.test.mjs
 ce9fbc660c8da08bf911754003a10817ec7c08aefe81cccfa4fc789671c64f16  mcp/omega-control-plane/test/secret-knowledge-v19.test.mjs
+509f29aaf0ec8abb577bead05f32e9778c53c77974095b1ecd60044c0b4f3816  mcp/omega-control-plane/test/visual-wda.test.mjs
 bc50156cc7d9ccbd31d6033c4e3e01aa392602d1f9b82d313d8cbe4b33a6bf5b  OMEGA_PROTOCOL.md
 1ddc2e675fad2b3b13393e769dd1c7832520390a7321187c95ef809ceacb23d2  plugin.json
 877ff300a59899786ede042fe33c915791afe223b0ebb10d57be8248d2fa7785  README.md
