@@ -9,8 +9,8 @@
     "version": "24.0.0"
   },
   "candidate_tests": {
-    "added": 14,
-    "expected_total": 419
+    "added": 28,
+    "expected_total": 433
   },
   "media_v25": {
     "speech_engine_jwt_verification": true,
@@ -26,12 +26,27 @@
   "external_or_conditional": [
     "Live provider calls require ELEVENLABS_API_KEY in the runtime environment.",
     "A public Speech Engine conversation still requires a reachable wss:// upstream.",
-    "Provider-billed operations require explicit approval/billing acknowledgements."
+    "Provider-billed operations require explicit approval/billing acknowledgements.",
+    "WDA provider execution requires a configured federated visual provider/tool.",
+    "WDA visual quality checks remain INCONCLUSIVE until observed validator evidence is supplied.",
+    "WDA deterministic masked post-compositing requires ImageMagick at runtime."
   ],
   "package_validator": "PENDING_CI",
   "counts": {
     "skills": 167,
     "references": 83,
     "schemas": 110
+  },
+  "visual_wda": {
+    "reference_role_isolation": true,
+    "immutable_visual_state": true,
+    "change_budget_gate": true,
+    "openai_gemini_compilers": true,
+    "approval_gated_federated_execution": true,
+    "masked_imagemagick_compositor": true,
+    "evidence_validation": true,
+    "failure_taxonomy_f1_f13": true,
+    "persistent_visual_state": true,
+    "provider_generation_determinism_claimed": false
   }
 }
