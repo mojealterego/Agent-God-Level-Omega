@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -94,6 +95,81 @@ jobs:
           python3 tools/omega-assurance/reproducible_zip.py omega-mobile --output /tmp/omega-b.zip --manifest /tmp/omega-b.json
           cmp /tmp/omega-a.zip /tmp/omega-b.zip
           echo "deterministic package reproducibility: PASS"
+
+
+  package:
+    needs: assurance
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout immutable action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Build deterministic OMEGA package
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(cat VERSION)"
+          root="omega-omni-cognitive-engineering-v2"
+          name="Agent-God-Level-Omega-v${version}-WDA"
+          rm -rf dist
+          mkdir -p "dist/stage/${root}" dist/out
+          cp -a omega/. "dist/stage/${root}/"
+          python3 "dist/stage/${root}/scripts/validate_package.py"
+
+          python3 tools/omega-assurance/reproducible_zip.py dist/stage \
+            --output "/tmp/${name}-a.zip" \
+            --manifest "/tmp/${name}-a.manifest.json"
+          python3 tools/omega-assurance/reproducible_zip.py dist/stage \
+            --output "/tmp/${name}-b.zip" \
+            --manifest "/tmp/${name}-b.manifest.json"
+
+          cmp "/tmp/${name}-a.zip" "/tmp/${name}-b.zip"
+          cp "/tmp/${name}-a.zip" "dist/out/${name}.zip"
+          cp "/tmp/${name}-a.manifest.json" "dist/out/${name}.manifest.json"
+          (
+            cd dist/out
+            sha256sum "${name}.zip" > "${name}.sha256"
+          )
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, os, hashlib, zipfile
+          out=Path("dist/out")
+          zips=list(out.glob("*.zip"))
+          assert len(zips)==1, zips
+          z=zips[0]
+          manifest=json.loads(next(out.glob("*.manifest.json")).read_text())
+          digest=hashlib.sha256(z.read_bytes()).hexdigest()
+          assert digest==manifest["archive_sha256"]
+          with zipfile.ZipFile(z) as archive:
+              names=archive.namelist()
+              assert names, "empty package"
+              assert all(name.startswith("omega-omni-cognitive-engineering-v2/") for name in names)
+              required={
+                  "omega-omni-cognitive-engineering-v2/plugin.json",
+                  "omega-omni-cognitive-engineering-v2/SHA256SUMS.txt",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/src/visual/wda-runtime.mjs",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/test/visual-wda.test.mjs",
+              }
+              missing=required-set(names)
+              assert not missing, sorted(missing)
+          print(f"OMEGA package verified: {z.name} sha256={digest} files={manifest['file_count']}")
+          PY
+
+      - name: Upload OMEGA package artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: omega-v25-wda-package-${{ github.sha }}
+          path: dist/out/*
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
 
   regression:
     needs: assurance
