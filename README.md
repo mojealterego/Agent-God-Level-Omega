@@ -71,6 +71,10 @@ A configured adapter is not an execution claim. Live REST calls require a real `
 
 The Android-first ChatGPT/Gemini cloud control surface is synchronized in [`omega-mobile/`](./omega-mobile/). It contains the Remote MCP, Google Cloud bootstrap/WIF/Cloud Run assets, OAuth resource-server layer, client integration docs, Termux local-executor lane and the coordinated mobile skill registry.
 
+## Automation Forge
+
+The repository also contains the versioned source of **Automation Forge v0.2.0** under [`plugins/deterministic-automation-forge/`](./plugins/deterministic-automation-forge/). It is the evidence-gated execution control-plane used for Intercom ↔ GitHub workflows and certified browser automation of additional sites. The repository copy mirrors the current private ChatGPT plugin release source; runtime authentication and external connector availability remain host-dependent.
+
 ## OMEGA Assurance Research Toolkit
 
 Research-derived deterministic assurance tooling is in [`tools/omega-assurance/`](./tools/omega-assurance/), with repository policy under [`.omega/`](./.omega/) and the feasibility dossier in [`docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md`](./docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md). External agent/security Actions remain optional; the default CI path is evidence-first, pinned and deterministic.
