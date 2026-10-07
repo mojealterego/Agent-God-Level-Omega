@@ -9,8 +9,8 @@
     "version": "24.0.0"
   },
   "candidate_tests": {
-    "added": 28,
-    "expected_total": 433
+    "added": 30,
+    "expected_total": 435
   },
   "media_v25": {
     "speech_engine_jwt_verification": true,
