@@ -84,3 +84,10 @@ Research-derived deterministic assurance tooling is in [`tools/omega-assurance/`
 The repository contains the source of **OMEGA Tools Fabric v0.1.0** under [`plugins/omega-tools-fabric/`](./plugins/omega-tools-fabric/). It is a cross-platform Android/web/desktop meta-orchestrator over verified connected apps plus a living registry of advanced MCP, agent, automation, cloud, data, browser and AI frameworks.
 
 The reusable orchestration skill is also mirrored into [`omega/skills/omega-tools-fabric/`](./omega/skills/omega-tools-fabric/) and [`omega-mobile/skills/omega-tools-fabric/`](./omega-mobile/skills/omega-tools-fabric/) so the tool fabric is part of both canonical OMEGA and the Android-first projection. The repository copy intentionally contains no packaged `mcp.json` or `.mcp.json`; live host tool discovery and provider permissions remain authoritative.
+
+
+## Railway Absolute Automation
+
+The repository contains **Railway Absolute Automation v0.1.0** under [`plugins/railway-absolute-automation/`](./plugins/railway-absolute-automation/). It is a cross-platform Android/web/desktop Railway control plane using verified Railway and GitHub app bindings for projects, services, environments, deployments, staged infrastructure changes, observability, incident repair and source-backed redeployment workflows.
+
+The reusable skill is mirrored into [`omega/skills/railway-absolute-automation/`](./omega/skills/railway-absolute-automation/) and [`omega-mobile/skills/railway-absolute-automation/`](./omega-mobile/skills/railway-absolute-automation/). The package intentionally contains no `mcp.json` or `.mcp.json`, so normal operation does not depend on a local PC, CLI, Docker or `stdio`.

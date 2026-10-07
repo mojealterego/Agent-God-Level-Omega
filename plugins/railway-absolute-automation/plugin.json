@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "railway-absolute-automation",
+  "version": "0.1.0",
+  "description": "Cross-platform Railway automation for ChatGPT on Android, web and desktop using verified Railway and GitHub app bindings for projects, services, environments, deployments, observability, troubleshooting, repository changes and controlled infrastructure operations.",
+  "author": {"name": "Moje Alterego"},
+  "extensions": {
+    "com.openai": {
+      "apps": "./.app.json",
+      "interface": {
+        "displayName": "Railway Absolute Automation",
+        "shortDescription": "Railway pełna automatyzacja",
+        "longDescription": "Cross-platform Railway engineering and operations control plane for ChatGPT on Android, web and desktop. Uses the verified Railway app for projects, services, functions, environments, variables, volumes, buckets, domains, feature flags, deployments, logs, metrics, traces, webhooks and staged infrastructure changes, and the verified GitHub app for source changes, pull requests and CI evidence. Prefers staged changes, read-before-write inspection and provider-native verification. Destructive or externally consequential actions remain gated by explicit confirmation or provider-native approval requirements.",
+        "developerName": "Moje Alterego",
+        "category": "Developer Tools",
+        "capabilities": ["Interactive", "Read", "Write"],
+        "defaultPrompt": [
+          "Przejmij ten projekt Railway end-to-end: przeanalizuj środowiska, usługi, wdrożenia, logi, metryki i tracing, napraw problemy oraz zweryfikuj stan końcowy.",
+          "Doprowadź aplikację Railway do zdrowego stanu, używając staged changes, diagnozy deploymentów, zmian w GitHubie i ponownej weryfikacji aż do sukcesu albo rzeczywistego blokera.",
+          "Zarządzaj Railway z Androida bez komputera: projekty, serwisy, funkcje, zmienne, domeny, storage, feature flags, webhooks, deploy i observability."
+        ]
+      }
+    }
+  }
+}

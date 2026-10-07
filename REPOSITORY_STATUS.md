@@ -16,3 +16,8 @@
 - Additional plugin source: `plugins/omega-tools-fabric/` (OMEGA Tools Fabric v0.1.0)
 - Tool-fabric skill mirrors: `omega/skills/omega-tools-fabric/` and `omega-mobile/skills/omega-tools-fabric/`
 - OMEGA Tools Fabric repository integration: source committed; integration-specific CI/status remains unverified until GitHub reports checks for the commit.
+
+- Additional plugin source: `plugins/railway-absolute-automation/` (Railway Absolute Automation v0.1.0)
+- Railway skill mirrors: `omega/skills/railway-absolute-automation/` and `omega-mobile/skills/railway-absolute-automation/`
+- Railway plugin architecture: verified Railway + GitHub app bindings; no packaged `mcp.json` / `.mcp.json`
+- Railway roadmap source retained at `https://github.com/orgs/railwayapp/projects/2/views/1`; Projects v2 board contents are not claimed as read because the current GitHub connector does not expose that surface.
