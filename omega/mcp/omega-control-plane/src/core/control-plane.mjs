@@ -29,6 +29,7 @@ import { OmniCompetencyRuntime } from '../omni/omni-runtime.mjs';
 import { AssuranceRuntime } from '../assurance/assurance-runtime.mjs';
 import { ElevenLabsMediaRuntimeV25 as ElevenLabsMediaRuntime } from '../media/elevenlabs-v25-runtime.mjs';
 import { WdaVisualRuntime } from '../visual/wda-runtime.mjs';
+import { VoiceConciergeRuntime } from '../communications/voice-concierge.mjs';
 
 function parseRoots(value) {
   if (!value) return [process.cwd()];
@@ -57,6 +58,7 @@ export class OmegaControlPlane {
     this.assuranceRuntimes = new Map();
     this.mediaRuntimes = new Map();
     this.visualRuntimes = new Map();
+    this.voiceConciergeRuntimes = new Map();
     this.mcpClientFactory = mcpClientFactory;
     this.cognitiveProviderTransport = cognitiveProviderTransport;
     this.env = env;
@@ -369,6 +371,14 @@ export class OmegaControlPlane {
 
   async mediaArchitecture({ cwd, ...input }) { return await this.#mediaRuntime(cwd).action(input); }
 
+  #voiceConciergeRuntime(cwd) {
+    const root = this.#rootFor(cwd);
+    if (!this.voiceConciergeRuntimes.has(root)) this.voiceConciergeRuntimes.set(root, new VoiceConciergeRuntime());
+    return this.voiceConciergeRuntimes.get(root);
+  }
+
+  async voiceConcierge({ cwd, ...input }) { return this.#voiceConciergeRuntime(cwd).action(input); }
+
   #visualRuntime(cwd) {
     const root = this.#rootFor(cwd);
     if (!this.visualRuntimes.has(root)) {
@@ -550,6 +560,7 @@ export class OmegaControlPlane {
     this.federations.clear();
     this.cognitiveRuntimes.clear();
     this.metaRuntimes.clear();
+    this.voiceConciergeRuntimes.clear();
     this.evolutionaryRuntimes.clear();
     this.asiRuntimes.clear();
     this.formalRuntimes.clear();

@@ -47,6 +47,7 @@ export async function discoverCapabilities({ resolver = defaultResolver, host = 
     cap('device.android', 'device', 'adb', entries.adb, ['list', 'shell', 'install', 'logcat'], 'L'),
     cap('emulator.android', 'device', 'android-emulator', entries.emulator, ['list-avds', 'start'], 'L'),
     cap('verifier.local', 'verifier', 'project-toolchain', verifierPath, ['run-suite'], 'L'),
+    cap('communications.voice-concierge', 'communications', 'omega-internal', process.execPath, ['persona-route','channel-route','conversation-plan','appointment-handoff','post-call-evidence','opt-out-gate'], 'E'),
     {
       id: host.termux ? 'runtime.termux' : host.cloudRun ? 'runtime.cloud-run' : host.android ? 'runtime.android' : 'runtime.host',
       category: 'runtime',

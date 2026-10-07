@@ -8,6 +8,7 @@ import { buildCiCommand } from '../adapters/ci.mjs';
 import { buildContainerRun } from '../adapters/container.mjs';
 import { buildAdbCommand, buildEmulatorCommand } from '../adapters/android.mjs';
 import { detectHostProfile } from './host.mjs';
+import { VoiceConciergeRuntime } from '../communications/voice-concierge.mjs';
 
 function parseRoots(value) {
   if (!value) return [process.cwd()];
@@ -18,6 +19,7 @@ export class OmegaControlPlane {
   constructor({ workspaceRoots = parseRoots(process.env.OMEGA_WORKSPACE_ROOTS), policy } = {}) {
     this.workspaceRoots = workspaceRoots.map((root) => resolve(root));
     this.policy = policy ?? new Policy({ workspaceRoots: this.workspaceRoots });
+    this.voiceConciergeRuntime = new VoiceConciergeRuntime();
   }
 
   capabilities() {
@@ -73,6 +75,10 @@ export class OmegaControlPlane {
     const mutationActions = new Set(['shell', 'install', 'start']);
     const sideEffect = mutationActions.has(input.action) ? 'L' : 'R';
     return await runProcess({ argv, cwd, sideEffect, source: mutationActions.has(input.action) ? 'project' : 'internal', policy: this.policy, timeoutMs: 180_000 });
+  }
+
+  voiceConcierge(input = {}) {
+    return this.voiceConciergeRuntime.action(input);
   }
 
   artifactInspect(path) {

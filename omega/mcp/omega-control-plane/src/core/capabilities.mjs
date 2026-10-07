@@ -168,6 +168,7 @@ export async function discoverCapabilities({ resolver = defaultResolver } = {}) 
     cap('assurance.external.secureai-scan', 'optional-toolchain', 'secureai-scan', entries['secureai-scan'], ['scan'], 'R'),
     cap('assurance.external.pyvisualizer', 'optional-toolchain', 'py-code-visualizer', entries['py-code-visualizer'], ['check','context'], 'R'),
     cap('assurance.external.ollama', 'optional-toolchain', 'ollama', entries.ollama, ['list'], 'R'),
+    cap('communications.voice-concierge', 'communications', 'omega-internal', process.execPath, ['persona-route','channel-route','conversation-plan','appointment-handoff','post-call-evidence','opt-out-gate'], 'E'),
     cap('visual.wda-omega-infinity', 'visual-control', 'omega-internal', process.execPath, ['reference-graph','visual-state','change-budget','provider-compile','provider-execute','masked-composite','visual-validation','failure-classification'], 'L'),
     cap('media.elevenlabs-api', 'media-provider', 'elevenlabs-api', process.env.ELEVENLABS_API_KEY ? process.execPath : null, ['speech-engine','music','dialogue','sound-effects','voice-isolation','voice-change','forced-alignment','dubbing','image','video'], 'E'),
     cap('media.elevenlabs-cli', 'media-toolchain', 'elevenlabs', entries.elevenlabs, ['auth','music','dubbing','audio-tools','generate-skills'], 'E'),
