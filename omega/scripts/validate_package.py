@@ -33,8 +33,8 @@ if isinstance(prompts, list) and len(prompts) > 3:
     fail("defaultPrompt must contain at most three prompts")
 
 skills = sorted((ROOT / "skills").glob("*/SKILL.md"))
-if len(skills) != 168:
-    fail(f"expected 168 skills, got {len(skills)}")
+if len(skills) != 169:
+    fail(f"expected 169 skills, got {len(skills)}")
 
 names = set()
 for path in skills:
