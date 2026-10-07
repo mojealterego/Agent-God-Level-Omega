@@ -1,0 +1,24 @@
+{
+  "apps": {
+    "github": {"id": "connector_76869538009648d5b282a4bb21c3d157"},
+    "gitlab": {"id": "connector_0c9786b2f41f41558056126bdb46c9bd"},
+    "openai-platform": {"id": "connector_2de447f3f15448ebab48783d7e4f5d81"},
+    "vercel": {"id": "asdk_app_690a90ec05c881918afb6a55dc9bbaa1"},
+    "supabase": {"id": "asdk_app_69d3e5ee6a708191baa733f7b8931995"},
+    "neon": {"id": "asdk_app_69e0086d87088191a3edc052fa50c29f"},
+    "railway": {"id": "asdk_app_6a502589384081919c5decf93496c9d1"},
+    "render": {"id": "asdk_app_6a624c56bfe081918f7544f7d58f6faf"},
+    "replit": {"id": "asdk_app_6934801c799081918131791660f02890"},
+    "figma": {"id": "connector_68df038e0ba48191908c8434991bbac2"},
+    "notion": {"id": "asdk_app_69c18c28f1188191bf5b8445c4ab0a2e"},
+    "slack": {"id": "asdk_app_69a1d78e929881919bba0dbda1f6436d"},
+    "google-drive": {"id": "connector_5f3c8c41a1e54ad7a76272c89e2554fa"},
+    "linear": {"id": "asdk_app_69a089a326dc8191b32a3f2553f5be2c"},
+    "gmail": {"id": "connector_2128aebfecb84f64a069897515042a44"},
+    "google-calendar": {"id": "connector_947e0d954944416db111db556030eea6"},
+    "google-contacts": {"id": "connector_c0f748249d6a42aea4b00fd375570ded"},
+    "agentmail": {"id": "asdk_app_6a4ea51b44c48191b49f0b14c7c83897"},
+    "ringcentral-phone": {"id": "asdk_app_6a5163accce48191ab3fac53d63cb197"},
+    "shopify": {"id": "asdk_app_69e65c430b3081919aa4d962ab5d1698"}
+  }
+}

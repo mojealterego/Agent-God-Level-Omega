@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "omega-tools-fabric",
+  "version": "0.1.0",
+  "description": "Cross-platform OMEGA Tools Fabric for ChatGPT on Android, web and desktop: a governed meta-orchestrator over verified connected apps plus a living registry of advanced agent, MCP, automation, browser, cloud, data and AI frameworks.",
+  "author": {"name": "Moje Alterego"},
+  "extensions": {
+    "com.openai": {
+      "apps": "./.app.json",
+      "interface": {
+        "displayName": "OMEGA Tools Fabric",
+        "shortDescription": "Advanced tool fabric",
+        "longDescription": "Cross-platform tool and agent orchestration fabric for ChatGPT on Android, web and desktop. It federates verified app bindings for source control, cloud, databases, design, collaboration, documents, communications and commerce, and uses a living framework registry to route work across MCP, MCP Apps, OpenAI Extensions, Skybridge, Noodle Seed, Eve, Vercel AI SDK, LangGraph, AutoGen, CrewAI, Semantic Kernel, PydanticAI, DSPy, LlamaIndex, WebMCP, A2A and related systems. It never fabricates unavailable tools: live tool discovery, permissions and provider confirmation remain authoritative.",
+        "developerName": "Moje Alterego",
+        "category": "Developer Tools",
+        "capabilities": ["Interactive", "Read", "Write"],
+        "defaultPrompt": [
+          "Użyj OMEGA Tools Fabric jako nadrzędnej warstwy narzędziowej: odkryj dostępne aplikacje i narzędzia, dobierz najlepszy framework i wykonaj zadanie end-to-end z dowodami.",
+          "Zbuduj plan wieloagentowy i tool-routing dla tego zadania, preferując realnie połączone aplikacje i nie wymyślając brakujących konektorów ani uprawnień.",
+          "Przeprowadź zadanie od analizy przez implementację, testy, naprawy i weryfikację, delegując do właściwych repozytoriów, chmury, baz danych, designu, komunikacji i automatyzacji."
+        ]
+      }
+    }
+  }
+}

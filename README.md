@@ -78,3 +78,10 @@ The repository also contains the versioned source of **Automation Forge v0.2.0**
 ## OMEGA Assurance Research Toolkit
 
 Research-derived deterministic assurance tooling is in [`tools/omega-assurance/`](./tools/omega-assurance/), with repository policy under [`.omega/`](./.omega/) and the feasibility dossier in [`docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md`](./docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md). External agent/security Actions remain optional; the default CI path is evidence-first, pinned and deterministic.
+
+
+## OMEGA Tools Fabric
+
+The repository contains the source of **OMEGA Tools Fabric v0.1.0** under [`plugins/omega-tools-fabric/`](./plugins/omega-tools-fabric/). It is a cross-platform Android/web/desktop meta-orchestrator over verified connected apps plus a living registry of advanced MCP, agent, automation, cloud, data, browser and AI frameworks.
+
+The reusable orchestration skill is also mirrored into [`omega/skills/omega-tools-fabric/`](./omega/skills/omega-tools-fabric/) and [`omega-mobile/skills/omega-tools-fabric/`](./omega-mobile/skills/omega-tools-fabric/) so the tool fabric is part of both canonical OMEGA and the Android-first projection. The repository copy intentionally contains no packaged `mcp.json` or `.mcp.json`; live host tool discovery and provider permissions remain authoritative.
