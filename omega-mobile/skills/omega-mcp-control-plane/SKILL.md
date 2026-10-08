@@ -37,6 +37,10 @@ omega_build_run
 omega_verify
 omega_device
 omega_artifact_inspect
+omega_knowledge_info
+omega_knowledge_list
+omega_knowledge_read
+omega_knowledge_search
 ```
 
 ## Routing policy
@@ -111,3 +115,15 @@ Use `omega_artifact_inspect` to independently verify a produced artifact's canon
 ## Completion
 
 OMEGA MCP evidence can satisfy a completion predicate only when the returned observation directly proves that predicate. A successful tool invocation is not by itself proof that the requested software behavior is correct.
+
+
+## Phone knowledge root
+
+When `OMEGA_KNOWLEDGE_ROOT` is configured, treat it as a separate read-only document authority. It is not a workspace root and does not grant terminal/build/repository tools access to the user's personal library.
+
+Use `omega_knowledge_info` first. Then prefer:
+- `omega_knowledge_list` for bounded inventory;
+- `omega_knowledge_read` for bounded text/PDF extraction;
+- `omega_knowledge_search` for targeted discovery across supported documents.
+
+Never infer successful document access from tunnel health alone. Verify the exact path and returned text/evidence. The knowledge tools never authorize delete, rename, move or rewrite operations.
