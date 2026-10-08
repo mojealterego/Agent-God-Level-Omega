@@ -70,6 +70,56 @@ export function createServer(context = {}) {
   );
 
   server.registerTool(
+    'omega_knowledge_info',
+    {
+      description: 'Report whether the read-only phone knowledge folder is configured and accessible.',
+      inputSchema: z.object({})
+    },
+    async () => invoke(() => plane.knowledgeInfo())
+  );
+
+  server.registerTool(
+    'omega_knowledge_list',
+    {
+      description: 'List files and folders beneath the configured phone knowledge root without modifying them.',
+      inputSchema: z.object({
+        path: z.string().default(''),
+        recursive: z.boolean().default(false),
+        limit: z.number().int().min(1).max(10000).default(500)
+      })
+    },
+    async (input) => invoke(() => plane.knowledgeList(input))
+  );
+
+  server.registerTool(
+    'omega_knowledge_read',
+    {
+      description: 'Read a bounded slice of a text document or extract bounded text from a PDF inside the phone knowledge root.',
+      inputSchema: z.object({
+        path: z.string().min(1),
+        offset: z.number().int().min(0).default(0),
+        maxBytes: z.number().int().min(1).max(8388608).default(1048576)
+      })
+    },
+    async (input) => invoke(() => plane.knowledgeRead(input))
+  );
+
+  server.registerTool(
+    'omega_knowledge_search',
+    {
+      description: 'Search supported text and PDF files beneath the phone knowledge root and return bounded excerpts.',
+      inputSchema: z.object({
+        query: z.string().min(1),
+        path: z.string().default(''),
+        limit: z.number().int().min(1).max(500).default(50),
+        maxFiles: z.number().int().min(1).max(5000).default(500),
+        maxBytesPerFile: z.number().int().min(1).max(8388608).default(2097152)
+      })
+    },
+    async (input) => invoke(() => plane.knowledgeSearch(input))
+  );
+
+  server.registerTool(
     'omega_repository_inspect',
     {
       description: 'Inspect repository identity, branch, HEAD, status and remotes without changing branch state.',
