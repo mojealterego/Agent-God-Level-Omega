@@ -252,6 +252,7 @@ These capabilities exist on the current repository line but are not entries in t
 - `railway-absolute-automation` — Railway project/service/environment/deployment automation capability.
 - `pingram-communications` — Governed Pingram communications and messaging operations capability.
 - `rollo-s24-ultra-agent` — Samsung Galaxy S24 Ultra Android-first application orchestration agent.
+- `heimdall-reward-scout` — Asgard reward discovery and legitimate account-onboarding agent for developer/cloud/AI/SaaS services; verifies current offers, creates at most one eligible account, then hands authenticated sites to certified Automation Forge adapters.
 
 Do not silently rewrite the legacy registry merely to make counts look aligned. When a future batch requires registry migration, update the registry, validators, mirrors and checksums together and verify them in CI.
 
@@ -273,4 +274,5 @@ Before ending a batch:
 
 ## Change log
 
+- **2026-10-08 — Heimdall Reward Scout added.** Added `heimdall-reward-scout` from the user-supplied Gemini BONUSY research and explicit account-onboarding requirement. Mirrored the capability into `omega/skills/` and Automation Forge v0.4.0; added current-offer verification, single-account deduplication, secure credential boundaries, signup blocker states, and handoff to `site-registrar` + `web-operator`. Private signup identity remains runtime-only and is not stored in the repository.
 - **2026-10-08 — Baseline index created.** Imported the complete 171-agent formal registry and documented four newer repository-level agent capabilities: `omega-tools-fabric`, `railway-absolute-automation`, `pingram-communications`, and `rollo-s24-ultra-agent`. Established the rule that future Drive-document batches update this file only after their implementation is complete, while the final combined plugin/package is deferred until the entire corpus is finished.
