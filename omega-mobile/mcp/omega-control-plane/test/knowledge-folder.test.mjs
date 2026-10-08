@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import { KnowledgeFolder } from '../src/core/knowledge-folder.mjs';
+import { OmegaControlPlane } from '../src/core/control-plane.mjs';
 
 async function fixture() {
   const root = await mkdtemp(join(tmpdir(), 'omega-knowledge-'));
@@ -71,5 +72,30 @@ test('knowledge folder extracts PDF text through bounded adapter', async () => {
     assert.equal(out.text, 'PDF extracted text');
     assert.equal(out.format, 'pdf-text');
     assert.equal(calls.length, 1);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+
+test('control plane exposes configured knowledge folder as read-only', async () => {
+  const root = await fixture();
+  try {
+    const plane = new OmegaControlPlane({ workspaceRoots: [root], knowledgeRoot: root });
+    const info = await plane.knowledgeInfo();
+    assert.equal(info.configured, true);
+    assert.equal(info.readOnly, true);
+    const listing = await plane.knowledgeList({ recursive: true, limit: 20 });
+    assert.ok(listing.entries.some((entry) => entry.path === 'hello.txt'));
+    const read = await plane.knowledgeRead({ path: 'hello.txt', maxBytes: 5 });
+    assert.equal(read.text, 'alpha');
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test('control plane fails closed when knowledge root is not configured', async () => {
+  const root = await fixture();
+  try {
+    const plane = new OmegaControlPlane({ workspaceRoots: [root], knowledgeRoot: null });
+    const info = await plane.knowledgeInfo();
+    assert.equal(info.configured, false);
+    await assert.rejects(() => plane.knowledgeList({}), /not configured/i);
   } finally { await rm(root, { recursive: true, force: true }); }
 });
