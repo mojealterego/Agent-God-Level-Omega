@@ -1,20 +1,22 @@
 {
   "interface": {
-    "capabilities": ["Interactive"],
+    "capabilities": [
+      "Interactive"
+    ],
     "category": "Productivity",
     "defaultPrompt": [
-      "Uruchom kontrolowany workflow Intercom → GitHub → weryfikacja dla tego zadania.",
-      "Zautomatyzuj tę stronę w trybie fail-closed i zapisz ślady dowodowe.",
-      "Przeprowadź audyt istniejącej automatyzacji i wskaż bezpieczne usprawnienia."
+      "Uruchom kontrolowany workflow Intercom \u2192 GitHub \u2192 weryfikacja dla tego zadania.",
+      "Zautomatyzuj t\u0119 stron\u0119 w trybie fail-closed i zapisz \u015blady dowodowe.",
+      "Przeprowad\u017a audyt istniej\u0105cej automatyzacji i wska\u017c bezpieczne usprawnienia."
     ],
     "developerName": "Moje Alterego",
     "displayName": "Automation Forge",
-    "longDescription": "Executes evidence-gated workflows across Intercom, GitHub, GitHub Codespaces, and other browser-accessible applications. Uses explicit contracts, runtime tool binding, authentication gates, preconditions, postconditions, independent verification, compensating recovery, site-adapter registration, and Codespaces host-image compatibility checks. It fails closed when a required result cannot be verified.",
+    "longDescription": "Executes evidence-gated workflows across Intercom, GitHub, GitHub Codespaces, developer reward discovery, account onboarding, and other browser-accessible applications. Uses explicit contracts, runtime tool binding, authentication gates, preconditions, postconditions, independent verification, compensating recovery, site-adapter registration, secure signup boundaries, and Codespaces host-image compatibility checks. It fails closed when a required result cannot be verified.",
     "shortDescription": "Verified web automation"
   },
   "name": "deterministic-automation-forge",
-  "version": "0.3.0",
-  "description": "Private execution control-plane for evidence-gated automation across Intercom, GitHub, Codespaces, and browser-operated web applications.",
+  "version": "0.4.0",
+  "description": "Private execution control-plane for evidence-gated automation across Intercom, GitHub, Codespaces, reward discovery, account onboarding, and browser-operated web applications.",
   "author": {
     "name": "Moje Alterego",
     "email": "mojealterego21@gmail.com"
