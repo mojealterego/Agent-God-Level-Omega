@@ -72,3 +72,30 @@ omega-termux connector
 ```
 
 Stopping/removing the local runtime does not delete the remote tunnel.
+
+
+## Phone knowledge folder (no cloud upload)
+
+For large document collections, keep the files on the phone and expose only bounded read-only access through the Secure MCP Tunnel.
+
+One-time Android storage permission:
+
+```bash
+termux-setup-storage
+mkdir -p "$HOME/storage/shared/OMEGA-KNOWLEDGE"
+```
+
+The Android file manager path is normally **Internal storage/OMEGA-KNOWLEDGE**. Move or copy the document folders there with the normal Samsung Files app.
+
+`omega-mcp-stdio` sets `OMEGA_KNOWLEDGE_ROOT` to that folder by default. This root is intentionally separate from `OMEGA_WORKSPACE_ROOTS`: repository/build/terminal tools do not gain authority over the document library merely because knowledge access is enabled.
+
+Available MCP tools:
+
+- `omega_knowledge_info` — check whether the folder is configured and mounted;
+- `omega_knowledge_list` — list files/folders with bounded recursion;
+- `omega_knowledge_read` — read bounded text slices; PDF text is extracted locally with Poppler `pdftotext`;
+- `omega_knowledge_search` — search supported text/PDF files and return bounded excerpts.
+
+The tools are read-only. They do not delete, rename, move or rewrite phone files. Only requested metadata/text traverses the outbound Secure MCP Tunnel; the full library is not uploaded in advance.
+
+To use another folder, set `OMEGA_KNOWLEDGE_ROOT` locally before `omega-termux connect`.
