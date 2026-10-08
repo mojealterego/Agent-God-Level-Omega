@@ -1,0 +1,152 @@
+{
+  "schema": "heimdall-research-candidate-seed/v1",
+  "checked_at": "2026-10-08",
+  "source_report": "https://gemini.google.com/share/c2c862119441",
+  "source_trust": "secondary_unverified_discovery_only",
+  "generated_policy": "Every promotion must be rechecked on its official source immediately before any application or signup; account existence, regional eligibility and payment requirements are not inferred.",
+  "candidates": [
+    {
+      "service": "Google Cloud",
+      "domain": "cloud.google.com",
+      "kind": "NEW_CUSTOMER_CREDIT",
+      "advertised_credit": "USD 300",
+      "validity": "90 days",
+      "offer_state": "OFFICIAL_CONFIRMED",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "VERIFY_AT_SIGNUP",
+      "source": "https://docs.cloud.google.com/free/docs/free-cloud-features",
+      "note": "Free Trial for new customers. Trial resource limits apply."
+    },
+    {
+      "service": "AWS",
+      "domain": "aws.amazon.com",
+      "kind": "NEW_CUSTOMER_CREDIT",
+      "advertised_credit": "up to USD 200",
+      "validity": "6 months",
+      "offer_state": "OFFICIAL_CONFIRMED",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "SOMETIMES_REQUIRED",
+      "source": "https://aws.amazon.com/free/free-tier-faqs/",
+      "note": "USD 100 at signup plus up to USD 100 for exploration; 6 months, not 12 as reported by Gemini."
+    },
+    {
+      "service": "Oracle Cloud",
+      "domain": "oracle.com",
+      "kind": "NEW_CUSTOMER_CREDIT",
+      "advertised_credit": "USD 300",
+      "validity": "30 days",
+      "offer_state": "OFFICIAL_CONFIRMED",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "CARD_AND_PHONE_USUALLY_REQUIRED",
+      "source": "https://www.oracle.com/cloud/free/faq/",
+      "note": "Always Free is separate. 2026 ARM shape limits should be verified in the actual tenancy; official marketing material and current community observations differ."
+    },
+    {
+      "service": "Microsoft Azure",
+      "domain": "azure.microsoft.com",
+      "kind": "NEW_CUSTOMER_CREDIT",
+      "advertised_credit": "USD 200",
+      "validity": "30 days",
+      "offer_state": "OFFICIAL_CONFIRMED",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "CARD_REQUIRED",
+      "source": "https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account",
+      "note": "Free account for new customers; do not auto-upgrade to pay-as-you-go."
+    },
+    {
+      "service": "IBM Cloud",
+      "domain": "ibm.com",
+      "kind": "NEW_CUSTOMER_CREDIT",
+      "advertised_credit": "USD 200",
+      "validity": "30 days",
+      "offer_state": "OFFICIAL_CONFIRMED",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "CARD_REQUIRED_PAY_AS_YOU_GO",
+      "source": "https://www.ibm.com/cloud/pricing",
+      "note": "A Pay-As-You-Go account can incur costs for billable services; no signup or provision without separate review."
+    },
+    {
+      "service": "Vultr",
+      "domain": "vultr.com",
+      "kind": "COUPON_CREDIT",
+      "advertised_credit": "up to USD 300 (FLY300VULTR)",
+      "validity": "NOT_CONFIRMED",
+      "offer_state": "OFFICIAL_CONDITIONAL",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "UNKNOWN",
+      "source": "https://www.vultr.com/coupons/",
+      "note": "Official coupon page lists FLY300VULTR, 250VULTRFLY, FLYTWOHUNDRED, VULTRMATCH. New customers, select products, no offer stacking; terms and eligible period require further review."
+    },
+    {
+      "service": "DigitalOcean",
+      "domain": "digitalocean.com",
+      "kind": "REFERRAL_OR_NEW_CUSTOMER_CREDIT",
+      "advertised_credit": "USD 200",
+      "validity": "60 days (historical/community claim)",
+      "offer_state": "UNVERIFIED_CURRENT_OFFER",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "UNKNOWN",
+      "source": "https://www.digitalocean.com/community/questions/signup-and-get-200-in-credit-for-your-first-60-days",
+      "note": "Community Q&A from 2025 is not adequate evidence for a currently universally available 2026 signup credit."
+    },
+    {
+      "service": "AWS Activate Founders",
+      "domain": "aws.amazon.com",
+      "kind": "STARTUP_APPLICATION",
+      "advertised_credit": "USD 1,000 initially; select up to USD 5,000",
+      "validity": "SUBJECT_TO_PROGRAM_TERMS",
+      "offer_state": "OFFICIAL_CONFIRMED_APPLICATION_ONLY",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "AWS_PAID_TIER_REQUIRED",
+      "source": "https://aws.amazon.com/startups/credits",
+      "note": "Company website, startup stage, founding date and other verifiable eligibility conditions; no invented company/funding assertions."
+    },
+    {
+      "service": "AWS Activate Portfolio",
+      "domain": "aws.amazon.com",
+      "kind": "STARTUP_APPLICATION",
+      "advertised_credit": "up to USD 200,000",
+      "validity": "SUBJECT_TO_PROGRAM_TERMS",
+      "offer_state": "OFFICIAL_CONFIRMED_APPLICATION_ONLY",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "AWS_PAID_TIER_REQUIRED",
+      "source": "https://aws.amazon.com/startups/credits",
+      "note": "Requires valid Activate Provider Org ID; not available just by creating a personal account."
+    },
+    {
+      "service": "Google for Startups Cloud Program",
+      "domain": "cloud.google.com",
+      "kind": "STARTUP_APPLICATION",
+      "advertised_credit": "USD 2,000 pre-funded tier; up to USD 200,000 eligible funded; up to USD 350,000 eligible AI-first",
+      "validity": "SUBJECT_TO_PROGRAM_TERMS",
+      "offer_state": "OFFICIAL_CONFIRMED_APPLICATION_ONLY",
+      "individual_eligibility": "UNKNOWN",
+      "payment_requirement": "PROGRAM_DEPENDENT",
+      "source": "https://cloud.google.com/startup/benefits",
+      "note": "Tier-specific eligibility applies; do not treat maximum grant as generally available."
+    }
+  ],
+  "rejected_or_held": [
+    {
+      "service": "IBM Cloud Backup and Recovery",
+      "claim": "BUYBRS USD 5,000 for 90 days",
+      "state": "EXPIRED",
+      "source": "https://www.ibm.com/products/offers-and-discounts",
+      "reason": "Official IBM offer page lists end date July 31, 2026; do not submit as active on Oct 8, 2026."
+    },
+    {
+      "service": "Oracle ARM Always Free",
+      "claim": "2 OCPU/12 GB or 4 OCPU/24 GB across accounts",
+      "state": "CONFLICTING_PUBLIC_EVIDENCE",
+      "source": "https://www.oracle.com/pl/cloud/free/",
+      "reason": "Public marketing lists 4 OCPU/24 GB historical capacity while 2026 OCI community posts discuss limits of 2 OCPU/12 GB; check official per-tenancy actual entitlement before allocating."
+    }
+  ],
+  "next_actions": [
+    "Do not automatically create accounts from this seed document.",
+    "Verify official current terms, user country and prior account state provider by provider.",
+    "Do not use private user identity or payment information in repository data.",
+    "Create at most one eligible legitimate signup and verify account/dashboard before claiming success.",
+    "Prioritize free tiers suitable for persistent agent infrastructure only after quota and egress analysis."
+  ]
+}
