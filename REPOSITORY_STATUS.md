@@ -25,3 +25,10 @@
 - Additional plugin source: `plugins/pingram-communications/` (Pingram Communications v0.1.0)
 - Pingram skill mirrors: `omega/skills/pingram-communications/` and `omega-mobile/skills/pingram-communications/`
 - Pingram plugin architecture: cross-platform companion with no packaged `mcp.json` / `.mcp.json`; live account actions require a separately connected regional Pingram Custom MCP App.
+
+- Additional plugin source: `plugins/rollo-s24-ultra-agent/` (ROLLO S24 Ultra Agent v0.1.1)
+- Canonical ROLLO skill: `omega/skills/rollo-s24-ultra-agent/`
+- ROLLO Android bridge: validated MacroDroid macro source bundled under `plugins/rollo-s24-ultra-agent/assets/rollo-app-router.macro.json`
+- ROLLO cloud bindings: Gmail, Google Calendar, Google Drive, Google Contacts, SharePoint/OneDrive, HYPD AI, Windsor.ai
+- ROLLO protected operations: payments, transfers, OTP/2FA, passwords/passkeys, biometrics/PIN, government identity/signing and sensitive health actions remain user-confirmed.
+- Note: `omega-mobile/skills` already contains more skills than its legacy 171-agent registry; ROLLO is not added to that legacy registry in this commit to avoid worsening the pre-existing package-validator/checksum mismatch.

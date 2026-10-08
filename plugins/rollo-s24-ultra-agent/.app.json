@@ -1,0 +1,11 @@
+{
+  "apps": {
+    "gmail": {"id": "connector_2128aebfecb84f64a069897515042a44"},
+    "google-calendar": {"id": "connector_947e0d954944416db111db556030eea6"},
+    "google-drive": {"id": "connector_5f3c8c41a1e54ad7a76272c89e2554fa"},
+    "google-contacts": {"id": "connector_c0f748249d6a42aea4b00fd375570ded"},
+    "sharepoint-onedrive": {"id": "connector_1e4f6a44acf14e3ca1d96672f8c945bc"},
+    "hypd-ai": {"id": "asdk_app_6a3170ea7fc88191be6c0b9ff250a4b4"},
+    "windsor-ai": {"id": "asdk_app_694a52cfaa3c819192bea84eaa254968"}
+  }
+}

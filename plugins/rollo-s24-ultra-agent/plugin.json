@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "rollo-s24-ultra-agent",
+  "version": "0.1.1",
+  "description": "Android-first ROLLO agent for Samsung Galaxy S24 Ultra that orchestrates verified cloud connectors and MacroDroid-based local app automation across Google, Samsung, social, messaging, media, utilities and protected finance/identity apps.",
+  "author": {
+    "name": "Moje Alterego"
+  },
+  "extensions": {
+    "com.openai": {
+      "apps": "./.app.json",
+      "interface": {
+        "displayName": "ROLLO S24 Ultra Agent",
+        "shortDescription": "ROLLO automatyzacja S24",
+        "longDescription": "Android-first application orchestration agent for Samsung Galaxy S24 Ultra. ROLLO uses verified Gmail, Google Calendar, Google Drive, Google Contacts, Microsoft SharePoint/OneDrive, HYPD AI and Windsor.ai bindings where they provide real account APIs, and routes local-only apps through MacroDroid/Android intents, dynamic installed-app discovery, Samsung Routines, notifications, share intents and guarded UI automation. Banking, identity, authenticator, Samsung Pass, health and payment actions remain protected behind explicit user confirmation and device-native authentication.",
+        "developerName": "Moje Alterego",
+        "category": "Productivity",
+        "capabilities": [
+          "Interactive",
+          "Read",
+          "Write"
+        ],
+        "defaultPrompt": [
+          "ROLLO, obsłuż mój Samsung S24 Ultra: wybierz najlepszą warstwę wykonania, użyj konektora gdy istnieje, w przeciwnym razie przygotuj bezpieczną automatyzację Android/MacroDroid.",
+          "ROLLO, wykonaj ten workflow między aplikacjami telefonu end-to-end, ale zatrzymaj się przed płatnością, przelewem, kodem 2FA, podpisem lub inną operacją wysokiego ryzyka.",
+          "ROLLO, zautomatyzuj tę czynność na telefonie i zweryfikuj wynik bez zakładania, że aplikacja lub UI ma konkretny pakiet albo układ ekranu."
+        ]
+      }
+    }
+  }
+}
