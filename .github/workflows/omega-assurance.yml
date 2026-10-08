@@ -28,6 +28,12 @@ jobs:
         with:
           node-version: '24'
 
+      - name: Test mobile phone knowledge MCP
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test omega-mobile/mcp/omega-control-plane/test/knowledge-folder.test.mjs
+
       - name: Supply-chain workflow audit
         shell: python
         run: |
