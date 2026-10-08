@@ -63,3 +63,18 @@ Use ADB only when `device.android` is available. Any mutating device operation m
 ## Completion
 
 A mobile session is complete only when the requested code/build/artifact result has direct evidence. Tunnel health proves connectivity only; it does not prove the software task succeeded.
+
+
+## Local phone document library
+
+For large document collections, prefer a dedicated local knowledge folder over bulk cloud upload.
+
+Default path after `termux-setup-storage`:
+
+`$HOME/storage/shared/OMEGA-KNOWLEDGE`
+
+The corresponding Android file-manager path is normally **Internal storage/OMEGA-KNOWLEDGE**.
+
+This folder is exposed only through the read-only knowledge tools (`omega_knowledge_info`, `omega_knowledge_list`, `omega_knowledge_read`, `omega_knowledge_search`). Keep it separate from `OMEGA_WORKSPACE_ROOTS` so general execution tools do not gain authority over personal documents.
+
+PDF extraction is local through Poppler `pdftotext`. Only requested metadata/text excerpts cross the Secure MCP Tunnel; there is no required full-library upload.
