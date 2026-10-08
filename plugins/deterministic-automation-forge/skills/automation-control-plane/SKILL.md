@@ -1,6 +1,6 @@
 ---
 name: automation-control-plane
-description: Route and execute multi-system automation involving Intercom, GitHub, GitHub Codespaces, or browser-operated web applications with evidence-gated, fail-closed controls. Use for any workflow that spans more than one system or needs planning, execution, verification, rollback, audit evidence, or throughput optimization.
+description: Route and execute multi-system automation involving Intercom, GitHub, GitHub Codespaces, reward discovery/account onboarding, or browser-operated web applications with evidence-gated, fail-closed controls. Use for any workflow that spans more than one system or needs planning, execution, verification, rollback, audit evidence, or throughput optimization.
 ---
 
 # Automation Control Plane
@@ -19,7 +19,7 @@ Use these states in order unless a stop condition fires:
 - `BIND`: map each required capability to an actually available host tool using `runtime-executor`.
 - `AUTH`: verify connector authorization or browser profile coverage before protected reads/writes.
 - `PLAN`: construct the smallest dependency DAG that reaches the goal.
-- `PRECHECK`: validate identities, invariants, base SHAs, current UI state, permissions and destructive scope.
+- `PRECHECK`: validate identities, invariants, offer eligibility, base SHAs, current UI state, permissions and destructive scope.
 - `EXECUTE`: perform mutations in dependency order and collect receipts.
 - `VERIFY`: independently re-read/re-observe all required postconditions.
 - `COMMIT`: finalize only after verification passes.
@@ -35,38 +35,19 @@ Use these states in order unless a stop condition fires:
 5. Mutation without verifiable postcondition → `BLOCKED_UNVERIFIED`.
 6. Browser run with uncertain terminal state → keep the same run ID; never duplicate the mutation.
 7. Writes to the same resource are serialized. Independent reads may run in parallel.
-8. No passwords, session cookies, API tokens, or secrets are requested in chat or written to repositories.
+8. No passwords, session cookies, API tokens, OTPs, payment-card data, or private signup identity are written to repositories or evidence ledgers.
 9. Codespaces VM host-image preference and repository dev-container configuration are separate state domains and must never be merged into one claim.
-
-## Cross-system transaction protocol
-
-For jobs spanning multiple systems, use a two-phase discipline:
-
-### Phase A — Prepare
-
-- bind tools;
-- authenticate;
-- read current state from every affected system;
-- freeze target identities and invariants;
-- compute planned mutations and compensation actions;
-- refuse execution if any required system cannot be verified.
-
-### Phase B — Execute and verify
-
-- mutate one dependency layer at a time;
-- immediately capture the mutation receipt;
-- independently verify the result;
-- advance only after the layer passes;
-- if a later layer fails, use compensation only where the previous state is evidenced and the reversal is safe.
+10. Account onboarding never creates multiple accounts to evade a service's eligibility, promotional, referral, or abuse-prevention rules.
 
 ## Role routing
 
 - Tool discovery/binding: `runtime-executor`
+- Reward discovery + account onboarding: `heimdall-reward-scout`
 - Intercom: `intercom-operator`
 - Intercom↔GitHub transaction: `intercom-github-bridge`
 - GitHub implementation: `github-engineer`
 - GitHub Codespaces Stable/Beta host image: `codespaces-host-image-operator`
-- First-time site certification: `site-registrar`
+- First-time authenticated site certification: `site-registrar`
 - Generic website work: `web-operator`
 - Independent checks: `verifier-auditor`
 - Failures/reconciliation: `recovery-agent`
@@ -79,10 +60,13 @@ Use exactly one:
 - `VERIFIED_SUCCESS`
 - `PARTIAL_SUCCESS`
 - `AUTH_REQUIRED`
+- `SECRET_STORAGE_REQUIRED`
+- `USER_ACTION_REQUIRED`
+- `OFFER_INELIGIBLE`
 - `TOOL_UNAVAILABLE`
 - `TARGET_AMBIGUOUS`
 - `BLOCKED_UNVERIFIED`
 - `FAILED_RECOVERED`
 - `FAILED_REQUIRES_ACTION`
 
-Never collapse an auth/tool/verification blocker into generic success.
+Never collapse an auth/tool/verification/eligibility blocker into generic success.
