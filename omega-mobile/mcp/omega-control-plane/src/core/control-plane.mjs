@@ -3,6 +3,7 @@ import { Policy } from './policy.mjs';
 import { runProcess } from './process.mjs';
 import { discoverCapabilities } from './capabilities.mjs';
 import { inspectArtifact } from './artifact.mjs';
+import { KnowledgeFolder } from './knowledge-folder.mjs';
 import { inspectRepository, createDetachedWorktree } from '../adapters/git.mjs';
 import { buildCiCommand } from '../adapters/ci.mjs';
 import { buildContainerRun } from '../adapters/container.mjs';
@@ -16,10 +17,12 @@ function parseRoots(value) {
 }
 
 export class OmegaControlPlane {
-  constructor({ workspaceRoots = parseRoots(process.env.OMEGA_WORKSPACE_ROOTS), policy } = {}) {
+  constructor({ workspaceRoots = parseRoots(process.env.OMEGA_WORKSPACE_ROOTS), policy, knowledgeRoot = process.env.OMEGA_KNOWLEDGE_ROOT } = {}) {
     this.workspaceRoots = workspaceRoots.map((root) => resolve(root));
     this.policy = policy ?? new Policy({ workspaceRoots: this.workspaceRoots });
     this.voiceConciergeRuntime = new VoiceConciergeRuntime();
+    this.knowledgeRoot = knowledgeRoot ? resolve(knowledgeRoot) : null;
+    this.knowledgeFolder = this.knowledgeRoot ? new KnowledgeFolder({ root: this.knowledgeRoot }) : null;
   }
 
   capabilities() {
@@ -27,7 +30,27 @@ export class OmegaControlPlane {
   }
 
   hostInfo() {
-    return { ...detectHostProfile(), workspaceRoots: [...this.workspaceRoots] };
+    return { ...detectHostProfile(), workspaceRoots: [...this.workspaceRoots], knowledgeRoot: this.knowledgeRoot };
+  }
+
+  knowledgeInfo() {
+    if (!this.knowledgeFolder) return { configured: false, readOnly: true, root: null };
+    return this.knowledgeFolder.info().then((value) => ({ configured: true, ...value }));
+  }
+
+  knowledgeList(input = {}) {
+    if (!this.knowledgeFolder) throw new Error('OMEGA_KNOWLEDGE_ROOT is not configured');
+    return this.knowledgeFolder.list(input);
+  }
+
+  knowledgeRead(input = {}) {
+    if (!this.knowledgeFolder) throw new Error('OMEGA_KNOWLEDGE_ROOT is not configured');
+    return this.knowledgeFolder.read(input);
+  }
+
+  knowledgeSearch(input = {}) {
+    if (!this.knowledgeFolder) throw new Error('OMEGA_KNOWLEDGE_ROOT is not configured');
+    return this.knowledgeFolder.search(input);
   }
 
   terminalRun(input) {
