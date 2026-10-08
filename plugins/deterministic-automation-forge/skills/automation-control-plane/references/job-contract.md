@@ -13,6 +13,7 @@ job_contract:
       object_type: string
   allowed_reads: [string]
   allowed_writes: [string]
+  private_runtime_inputs: [string]
   invariants: [string]
   preconditions:
     - id: string
@@ -42,6 +43,7 @@ job_contract:
 
 - Derive `job_id` from stable target identifiers plus the current task; do not use it as proof of idempotency unless the downstream tool supports idempotency.
 - Keep exact target locators. Do not replace a URL/object ID with a human nickname after discovery.
+- Keep private runtime inputs such as signup identity, OTPs, credentials, and payment data out of evidence ledgers and repository artifacts.
 - Do not execute steps with unresolved dependencies.
 - A mutation receipt is necessary but not sufficient. Re-read state for verification whenever the connector supports it.
-- For UI automation, capture structured output plus snapshots/screenshots when useful and available.
+- For UI automation, capture structured output plus snapshots/screenshots when useful and available, while excluding private form values where possible.
