@@ -9,7 +9,7 @@ Heimdall is for legitimate developer/cloud/AI/SaaS account onboarding and reward
 - One legitimate account per provider unless the provider explicitly supports multiple organizations/workspaces under one identity.
 - No duplicate accounts to repeat a new-user bonus.
 - No fabricated company, funding, student, geography, referral, investment, or prior-customer claims.
-- Do not circumvent provider verification, anti-abuse, identity, duplicate-account, referral, or promotional controls.
+- No CAPTCHA bypass, OTP interception, KYC evasion, fake identity, disposable identity rotation, or anti-fraud circumvention.
 - No automatic payment-card/bank entry, paid plan, paid trial, auto-renewal, or purchase without separate explicit authorization.
 - No regulated financial/crypto/gambling reward harvesting.
 - No passwords, OTPs, session cookies, payment credentials, or identity documents in public repositories or ordinary logs.
@@ -33,5 +33,17 @@ heimdall_candidate:
   site_adapter_state: NOT_STARTED|READ_ONLY|WRITE_ENABLED|BLOCKED
   evidence: []
 ```
+
+## Weekly discovery output
+
+For each run, report:
+
+- newly discovered verified offers;
+- materially changed offers;
+- rejected/expired/unverified claims;
+- accounts successfully verified;
+- accounts requiring user action;
+- adapters created/certified;
+- exact blockers.
 
 Do not report an account as created merely because a signup form was submitted.
