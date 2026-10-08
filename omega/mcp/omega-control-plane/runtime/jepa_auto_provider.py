@@ -47,8 +47,34 @@ def _load_official() -> Tuple[Any, Any, str]:
     return _OFFICIAL, _PROCESSOR, _DEVICE
 
 
+def _coerce_feature_matrix(raw: Any) -> list[list[float]]:
+    if not isinstance(raw, list) or len(raw) < 2:
+        raise ValueError("features must have shape [T,D] with T >= 2")
+    rows: list[list[float]] = []
+    width = None
+    for row in raw:
+        if not isinstance(row, list) or not row:
+            raise ValueError("features must have shape [T,D]")
+        values = [float(value) for value in row]
+        if width is None:
+            width = len(values)
+        if len(values) != width:
+            raise ValueError("features rows must have a consistent dimension")
+        if not all(math.isfinite(value) for value in values):
+            raise ValueError("features must contain finite numeric values")
+        rows.append(values)
+    if width is None or width < 1:
+        raise ValueError("features must have a non-zero dimension")
+    return rows
+
+
 def _reference_embed(payload: Dict[str, Any]) -> Dict[str, Any]:
-    import torch
+    """Dependency-free JEPA-style reference path.
+
+    This is intentionally not claimed as research-equivalent to V-JEPA. It keeps
+    the local fallback executable even on minimal Python installations while the
+    official path remains available when torch/transformers/numpy are installed.
+    """
     dim = int(payload.get("dim", 64))
     frames = int(payload.get("frames", 16))
     if dim < 4 or dim > 4096:
@@ -58,31 +84,43 @@ def _reference_embed(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     raw = payload.get("features")
     if raw is None:
-        t = torch.linspace(0, 1, frames, dtype=torch.float32)
-        basis = torch.arange(1, dim + 1, dtype=torch.float32)
-        x = torch.sin(t[:, None] * basis[None, :] * math.pi)
+        denom = max(frames - 1, 1)
+        x = [
+            [
+                math.sin((frame / denom) * (axis + 1) * math.pi)
+                for axis in range(dim)
+            ]
+            for frame in range(frames)
+        ]
     else:
-        x = torch.tensor(raw, dtype=torch.float32)
-        if x.ndim != 2:
-            raise ValueError("features must have shape [T,D]")
-        frames, dim = int(x.shape[0]), int(x.shape[1])
+        x = _coerce_feature_matrix(raw)
+        frames = len(x)
+        dim = len(x[0])
 
-    # A real local JEPA-style reference path: context latents predict future latents.
-    context = x[:-1]
-    target = x[1:]
-    prediction = context
-    error = float(torch.mean((prediction - target) ** 2).item())
-    pooled = x.mean(dim=0)
+    squared_error = 0.0
+    terms = 0
+    for context, target in zip(x[:-1], x[1:]):
+        for predicted, expected in zip(context, target):
+            delta = predicted - expected
+            squared_error += delta * delta
+            terms += 1
+    error = squared_error / max(terms, 1)
+
+    pooled = [
+        sum(row[axis] for row in x) / len(x)
+        for axis in range(dim)
+    ]
     return {
-        "embedding": pooled.tolist(),
+        "embedding": pooled,
         "embedding_dim": int(dim),
         "frames": int(frames),
-        "prediction_error": error,
+        "prediction_error": float(error),
         "backend": "omega-native-jepa-reference",
         "provenance": {
             "official": False,
             "research_equivalent": False,
             "semantic_contract": "JEPA-style latent prediction reference backend",
+            "dependency_free": True,
         },
     }
 
@@ -113,20 +151,24 @@ def handle(operation: str, payload: Dict[str, Any]) -> Dict[str, Any]:
     if operation == "health":
         official = _official_available()
         return {
-            "ready": _has("torch"),
+            "ready": True,
             "backend": "meta-vjepa2-huggingface" if official else "omega-native-jepa-reference",
             "official_runtime_ready": official,
             "model": MODEL_ID if official else None,
-            "dependencies": {"torch": _has("torch"), "transformers": _has("transformers"), "numpy": _has("numpy")},
+            "dependencies": {
+                "torch": _has("torch"),
+                "transformers": _has("transformers"),
+                "numpy": _has("numpy"),
+            },
             "capabilities": ["jepa.embed", "jepa.smoke"],
             "provenance": {
                 "official": official,
                 "research_equivalent": official,
                 "fallback_active": not official,
+                "fallback_dependency_free": True,
             },
         }
     if operation == "jepa.embed":
-        # The fallback accepts latent/video features directly; official V-JEPA 2 is used by smoke when available.
         return _reference_embed(payload)
     if operation == "jepa.smoke":
         if _official_available() and os.environ.get("OMEGA_JEPA_FORCE_REFERENCE") != "1":
