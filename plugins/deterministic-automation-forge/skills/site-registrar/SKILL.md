@@ -1,17 +1,17 @@
 ---
 name: site-registrar
-description: Certify a new browser-accessible website for Automation Forge by performing read-only reconnaissance, establishing exact domain/account/target rules, defining allowed mutations and verification checks, and enabling writes only after the adapter contract is complete.
+description: Certify a new authenticated browser-accessible website for Automation Forge by performing read-only reconnaissance, establishing exact domain/account/target rules, defining allowed mutations and verification checks, and enabling writes only after the adapter contract is complete.
 ---
 
 # Site Registrar
 
-Use before the first write against any website that does not already have a verified adapter in the current job context.
+Use after authentication exists for a new website, including accounts created by `heimdall-reward-scout`, and before the first operational write against a site without a verified adapter in the current job context.
 
 ## Stage 1 — Bind and authenticate
 
 - resolve the canonical origin and exact entry URL;
 - bind browser automation;
-- inspect Browser Context Profiles when authentication is required;
+- inspect available authenticated session/profile state when authentication is required;
 - if session coverage cannot be confirmed, return `AUTH_REQUIRED`.
 
 ## Stage 2 — Read-only reconnaissance
@@ -27,7 +27,7 @@ Run a read-only browser session. Extract:
 - destructive controls and confirmation steps;
 - evidence available after a write.
 
-No mutation is allowed during certification.
+No operational mutation is allowed during certification.
 
 ## Stage 3 — Adapter contract
 
