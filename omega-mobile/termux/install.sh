@@ -16,7 +16,7 @@ command -v pkg >/dev/null 2>&1 || fail "this installer must run inside Termux"
 mkdir -p "$BIN_DIR" "$DATA_DIR"
 
 pkg update -y
-pkg install -y nodejs-lts git curl unzip python coreutils
+pkg install -y nodejs-lts git curl unzip python coreutils poppler
 if ! pkg install -y android-tools; then
   printf 'OMEGA Termux installer: android-tools could not be installed; ADB capability will remain unavailable until installed.\n' >&2
 fi
@@ -107,6 +107,14 @@ if ! "$BIN_DIR/tunnel-client" --version >/dev/null 2>&1; then
   build_tunnel_client_from_source
 fi
 "$BIN_DIR/tunnel-client" --version
+
+if [ -d "$HOME/storage/shared" ]; then
+  mkdir -p "$HOME/storage/shared/OMEGA-KNOWLEDGE"
+else
+  printf '\nOMEGA knowledge folder is not mounted yet. Run once in Termux:\n'
+  printf '  termux-setup-storage\n'
+  printf 'Then create Internal storage/OMEGA-KNOWLEDGE (or reconnect after granting storage access).\n'
+fi
 
 case ":$PATH:" in
   *":$BIN_DIR:"*) ;;
