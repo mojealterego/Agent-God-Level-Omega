@@ -73,7 +73,9 @@ The Android-first ChatGPT/Gemini cloud control surface is synchronized in [`omeg
 
 ## Automation Forge
 
-The repository also contains the versioned source of **Automation Forge v0.3.0** under [`plugins/deterministic-automation-forge/`](./plugins/deterministic-automation-forge/). It is the evidence-gated execution control-plane used for Intercom ↔ GitHub workflows, certified browser automation, and GitHub Codespaces Stable/Beta VM host-image compatibility management. The repository copy mirrors the current private ChatGPT plugin release source; runtime authentication, account-level Codespaces settings, and external connector availability remain host-dependent.
+The repository contains the versioned source of **Automation Forge v0.4.0** under [`plugins/deterministic-automation-forge/`](./plugins/deterministic-automation-forge/). It includes **Heimdall Reward Scout**, the Asgard agent for current developer/cloud/AI/SaaS reward discovery, legitimate single-account onboarding, account verification, and handoff into certified site automation.
+
+The canonical reusable Heimdall capability is mirrored under [`omega/skills/heimdall-reward-scout/`](./omega/skills/heimdall-reward-scout/). Private signup identity, credentials, OTPs and payment data remain runtime-only and are not committed to this repository. Runtime authentication, provider eligibility and external connector availability remain host/provider-dependent.
 ## OMEGA Assurance Research Toolkit
 
 Research-derived deterministic assurance tooling is in [`tools/omega-assurance/`](./tools/omega-assurance/), with repository policy under [`.omega/`](./.omega/) and the feasibility dossier in [`docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md`](./docs/OMEGA_ASSURANCE_RESEARCH_2026-10-06.md). External agent/security Actions remain optional; the default CI path is evidence-first, pinned and deterministic.
