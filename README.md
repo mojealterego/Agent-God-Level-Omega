@@ -91,3 +91,10 @@ The reusable orchestration skill is also mirrored into [`omega/skills/omega-tool
 The repository contains **Railway Absolute Automation v0.1.0** under [`plugins/railway-absolute-automation/`](./plugins/railway-absolute-automation/). It is a cross-platform Android/web/desktop Railway control plane using verified Railway and GitHub app bindings for projects, services, environments, deployments, staged infrastructure changes, observability, incident repair and source-backed redeployment workflows.
 
 The reusable skill is mirrored into [`omega/skills/railway-absolute-automation/`](./omega/skills/railway-absolute-automation/) and [`omega-mobile/skills/railway-absolute-automation/`](./omega-mobile/skills/railway-absolute-automation/). The package intentionally contains no `mcp.json` or `.mcp.json`, so normal operation does not depend on a local PC, CLI, Docker or `stdio`.
+
+
+## Pingram Communications
+
+The repository contains **Pingram Communications v0.1.0** under [`plugins/pingram-communications/`](./plugins/pingram-communications/). It is a cross-platform Android/web/desktop companion for Pingram's hosted OAuth MCP service, covering governed email/SMS workflows, delivery tracking, phone-number operations, sender domains, inboxes and US A2P 10DLC account workflows.
+
+The reusable skill is mirrored into [`omega/skills/pingram-communications/`](./omega/skills/pingram-communications/) and [`omega-mobile/skills/pingram-communications/`](./omega-mobile/skills/pingram-communications/). The repository package intentionally contains no `mcp.json` or `.mcp.json`; live Pingram account actions require the corresponding Pingram Custom MCP connection in ChatGPT for the account's US, Canada or EU region.

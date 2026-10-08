@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "pingram-communications",
+  "version": "0.1.0",
+  "description": "Cross-platform Pingram communications workflow for ChatGPT on Android, web and desktop using a separately connected hosted Pingram MCP account for email, SMS, delivery tracking, phone numbers, inboxes, sender domains and A2P account operations.",
+  "author": {"name": "Moje Alterego"},
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Pingram Communications",
+        "shortDescription": "Pingram komunikacja i SMS",
+        "longDescription": "Cross-platform Pingram communications orchestration for ChatGPT on Android, web and desktop. It is designed around Pingram's hosted OAuth MCP service and guides the assistant through region selection, live tool discovery, email/SMS sends, tracking lookups, phone-number operations, sender-domain and inbox management, and US A2P 10DLC account workflows. The plugin intentionally contains no packaged mcp.json so it does not introduce a desktop-only runtime dependency. Actual Pingram account actions require the user's separately connected Pingram Custom MCP App in ChatGPT.",
+        "developerName": "Moje Alterego",
+        "category": "Productivity",
+        "capabilities": ["Interactive", "Read", "Write"],
+        "defaultPrompt": [
+          "Użyj Pingram do obsługi komunikacji: najpierw wykryj region i dostępne narzędzia MCP, potem wykonaj zadanie i zweryfikuj wynik.",
+          "Wyślij lub sprawdź email/SMS w Pingram, korzystając z właściwego regionu konta i nie wymyślając narzędzi, których live MCP nie wystawia.",
+          "Zarządzaj numerami, domenami nadawcy, inboxami i A2P 10DLC w Pingram, zachowując bramki dla zakupów, wysyłek i operacji wpływających na konto."
+        ]
+      }
+    }
+  }
+}

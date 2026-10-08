@@ -21,3 +21,7 @@
 - Railway skill mirrors: `omega/skills/railway-absolute-automation/` and `omega-mobile/skills/railway-absolute-automation/`
 - Railway plugin architecture: verified Railway + GitHub app bindings; no packaged `mcp.json` / `.mcp.json`
 - Railway roadmap source retained at `https://github.com/orgs/railwayapp/projects/2/views/1`; Projects v2 board contents are not claimed as read because the current GitHub connector does not expose that surface.
+
+- Additional plugin source: `plugins/pingram-communications/` (Pingram Communications v0.1.0)
+- Pingram skill mirrors: `omega/skills/pingram-communications/` and `omega-mobile/skills/pingram-communications/`
+- Pingram plugin architecture: cross-platform companion with no packaged `mcp.json` / `.mcp.json`; live account actions require a separately connected regional Pingram Custom MCP App.
