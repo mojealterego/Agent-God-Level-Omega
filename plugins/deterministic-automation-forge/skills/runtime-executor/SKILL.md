@@ -21,7 +21,7 @@ For every requested step create a `RuntimeBinding` containing:
 
 A binding is valid only if the tool is actually exposed in the current host.
 
-## Authentication gate
+## Authentication and signup gate
 
 ### GitHub repository operations
 
@@ -29,16 +29,15 @@ A successful structured repository read against the exact intended repository is
 
 ### GitHub account settings / Codespaces preference
 
-Repository authorization is not evidence that account-level settings can be changed. For a Codespaces Stable/Beta preference change:
-
-1. bind a dedicated structured account-setting capability only if it explicitly supports that setting; otherwise
-2. bind authenticated browser automation to GitHub Settings → Codespaces;
-3. require confirmed GitHub browser-session coverage before mutation;
-4. verify the preference after the write through the same authenticated account context.
+Repository authorization is not evidence that account-level settings can be changed. Bind a dedicated account-setting capability when available; otherwise use authenticated browser automation and verify the preference after the write.
 
 ### Browser applications
 
-List Browser Context Profiles. For a protected site, a profile whose recorded signed-in sites cover the target domain is preferred evidence of session setup. If coverage is absent, return `AUTH_REQUIRED` rather than launching blind mutations.
+For an existing protected account, prefer a browser profile/session whose recorded signed-in sites cover the target domain. If coverage is absent, return `AUTH_REQUIRED` rather than launching blind authenticated mutations.
+
+For new-account onboarding, `heimdall-reward-scout` may begin unauthenticated on the official signup origin, but must bind a secure path for any credential that must persist. If the host cannot safely generate/store the required password or complete a passwordless/OAuth flow already authorized by the user, return `SECRET_STORAGE_REQUIRED`.
+
+Never place passwords, OTPs, session cookies, payment-card data, or identity documents in ordinary logs, source control, or evidence output.
 
 ## Execution receipt
 
