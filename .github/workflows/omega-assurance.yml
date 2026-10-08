@@ -74,7 +74,7 @@ jobs:
           f=json.loads(Path("omega/FINAL_VERIFICATION.json").read_text())
           assert f["version"]=="25.0.0"
           assert f["status"] in {"CANDIDATE","DONE"}
-          assert f["counts"]=={"skills":169,"references":84,"schemas":110}
+          assert f["counts"]=={"skills":173,"references":84,"schemas":110}
           PY
 
       - name: Validate OMEGA package
