@@ -53,3 +53,15 @@ Keep introspection credentials in the runtime secret store.
 - `POST/GET /mcp` through the MCP HTTP handler
 
 The `/mcp` route is protected in production. Health and protected-resource metadata are public by design.
+
+
+## Read-only phone knowledge tools
+
+When `OMEGA_KNOWLEDGE_ROOT` is set, the same stdio control plane exposes:
+
+- `omega_knowledge_info`
+- `omega_knowledge_list`
+- `omega_knowledge_read`
+- `omega_knowledge_search`
+
+On Termux the wrapper defaults this to `$HOME/storage/shared/OMEGA-KNOWLEDGE`. This root is intentionally separate from normal workspace roots. Supported text files are read directly; PDFs are converted locally with `pdftotext`. Reads and searches are bounded by byte/file/result limits and reject traversal outside the configured root.
