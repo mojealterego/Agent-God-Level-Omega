@@ -148,5 +148,36 @@
     "Do not use private user identity or payment information in repository data.",
     "Create at most one eligible legitimate signup and verify account/dashboard before claiming success.",
     "Prioritize free tiers suitable for persistent agent infrastructure only after quota and egress analysis."
-  ]
+  ],
+  "unverified_report_mentions": {
+    "status": "DISCOVERY_ONLY_DO_NOT_SIGNUP",
+    "purpose": "Named platforms and related services found in the Gemini report but not individually verified against current official offer rules in this intake.",
+    "services": [
+      "Alibaba Cloud",
+      "Tencent Cloud",
+      "Akamai Cloud (Linode)",
+      "UpCloud",
+      "Scaleway",
+      "OVHcloud",
+      "Civo",
+      "Gcore",
+      "IONOS",
+      "Kamatera",
+      "Atlantic.Net",
+      "Zomro",
+      "CloudFerro",
+      "CREODIAS",
+      "Paperspace",
+      "Lambda Labs",
+      "Modal Labs",
+      "Spheron",
+      "RunPod",
+      "Vast.ai",
+      "DeepInfra",
+      "CoreWeave",
+      "Latitude.sh",
+      "JarvisLabs"
+    ],
+    "required_next_step": "Review each provider's official pages, 2026 eligibility rules, geography, expiration, billing and existing-account restrictions before promotion or signup."
+  }
 }
