@@ -32,6 +32,15 @@ Use bound apps when applicable:
 - SharePoint/OneDrive — OneDrive/SharePoint document workflows exposed by Microsoft connector tools.
 - HYPD AI — read-only Google Ads / Meta / analytics where exposed.
 - Windsor.ai — supported Google Ads, Meta, Instagram, Threads, TikTok, Pinterest, Snapchat, YouTube analytics and write actions only where the live connector explicitly allows them.
+- GitHub — repositories, issues, pull requests, CI and source changes exposed by the bound connector.
+- OpenAI Developers — OpenAI developer/platform workflows exposed by the bound connector.
+- Canva — design/image/document workflows exposed by the bound connector.
+- Railway — projects, services, deployments and observability exposed by the bound app.
+- Replit — build/deploy/project workflows exposed by the bound app.
+- Notion — workspace/docs/tasks exposed by the bound app.
+- Slack — workspace context/messages/actions exposed by the bound app and current permissions.
+- Hugging Face — models/datasets/Spaces/research exposed by the bound app.
+- Base44 and Lovable — app-building workflows exposed by their bound apps.
 
 A marketing connector is not a Messenger/Instagram-DM/WhatsApp personal-messaging connector.
 
@@ -75,4 +84,9 @@ After a local UI workflow:
 
 ## App registry
 
-Use `references/app-matrix.md` as the routing policy for the user's first installed-app package. It lists every supplied application and its default execution mode.
+Use both routing registries:
+- `references/app-matrix.md` — installed-app package 1.
+- `references/app-matrix-2.md` — installed-app package 2 (318 unique names from 321 supplied entries).
+- `references/app-inventory-2.md` — raw package-2 inventory preserving duplicates and original order.
+
+Do not treat an app name in either registry as proof of an API. Local routing must continue to resolve the live installed-app inventory dynamically.

@@ -102,8 +102,8 @@ The reusable skill is mirrored into [`omega/skills/pingram-communications/`](./o
 
 ## ROLLO S24 Ultra Agent
 
-**ROLLO S24 Ultra Agent v0.1.1** is stored under [`plugins/rollo-s24-ultra-agent/`](./plugins/rollo-s24-ultra-agent/) and its canonical OMEGA skill is mirrored under [`omega/skills/rollo-s24-ultra-agent/`](./omega/skills/rollo-s24-ultra-agent/).
+**ROLLO S24 Ultra Agent v0.2.0** is stored under [`plugins/rollo-s24-ultra-agent/`](./plugins/rollo-s24-ultra-agent/) and its canonical OMEGA skill is mirrored under [`omega/skills/rollo-s24-ultra-agent/`](./omega/skills/rollo-s24-ultra-agent/).
 
 ROLLO is an Android-first application orchestrator for Samsung Galaxy S24 Ultra. It combines verified Gmail, Calendar, Drive, Contacts, SharePoint/OneDrive, HYPD AI and Windsor.ai bindings with a validated MacroDroid bridge for dynamic installed-app discovery and local launch/routing. Finance, government identity, authentication, Samsung Pass, health and payment workflows use Protected Mode and keep final sensitive confirmation on the device/user side.
 
-The standalone ROLLO package contains no `mcp.json` or `.mcp.json`.
+Package 2 contains 321 supplied entries (318 unique application names), covering commerce, media, AI, developer tools, travel, communications, utilities, security and local/offline LLM apps. ROLLO keeps package-name resolution dynamic on Android and uses verified connectors only where they are actually bound or exposed.\n\nThe standalone ROLLO package contains no `mcp.json` or `.mcp.json`.

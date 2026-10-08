@@ -1,0 +1,329 @@
+# ROLLO installed-app inventory — package 2
+
+Supplied entries: **321**. Unique names: **318**.
+
+Duplicates preserved in this raw inventory: `Wiadomości`, `Retouch`, `Local AI`.
+
+## Raw order
+
+- Store
+- Sklep Play
+- Biedronka
+- żappka
+- Empik
+- OLX.pl
+- Circle K
+- Portfel
+- Lidl Plus
+- Allegro
+- HappyMod
+- Temu
+- Eneba
+- G2A
+- Instant Gaming
+- Empik Go
+- Writco
+- Kindle
+- Storytel
+- Ridero
+- Circle
+- Aparat
+- VIEWBUG
+- Fotoferia
+- Retouch
+- Photo & Picture Resizer
+- Obiektyw
+- Photo Resizer
+- Galeria
+- YouCut - Video Editor
+- Mój sejf
+- Adobe Photoshop
+- MIX
+- Camera360
+- PixVerse
+- Facetune
+- Pixabay
+- Reface
+- PhotoRoom
+- Adobe Firefly
+- Adobe Express
+- invideo AI
+- Kalendarz
+- Notes
+- Ustawienia
+- Wiadomości
+- Kontakty
+- Kalkulator
+- Zegar
+- Telefon
+- iPlus
+- AudioGuru
+- Bitmoji
+- Tor Browser
+- Word
+- Fake GPS
+- Word Office
+- Edytor PDF
+- Booksy
+- Rejestrator rozmów
+- AdGuard
+- eduVULCAN
+- Dossier
+- Zip Extractor
+- File Manager
+- Adobe Acrobat
+- RAR
+- DeepL
+- Microsoft Clipchamp
+- WiGLE Wifi
+- Pielęgnacja urządzenia
+- Malwarebytes
+- Authenticator
+- Łącze do Windows
+- Revolut X
+- Norton Password Manager
+- Wiadomości
+- HyperDroid
+- Audacity
+- MediaExpert
+- Pyszne
+- Glovo
+- Freenow
+- Lensa
+- Opera
+- Canva
+- Super Sound
+- MP4 Konwerter
+- Centrum lokalizacji
+- Tłumacz
+- Markdown
+- JailBreakAI
+- Apk Generator
+- ApkCreator
+- Web to App
+- osint_flutter
+- Gemmy AI
+- Screw Blocks
+- Wallet
+- Fditor
+- Blur Face
+- Docusign
+- X
+- iLovePDF
+- Colorize
+- Copilot
+- ElevenReader
+- ElevenLabs
+- GitHub
+- Notebook
+- Edge Gallery
+- AnythingLLM
+- MusicLab
+- Retouch
+- FX
+- LeChat
+- FreedomGPT
+- Studio
+- MistralAI
+- OpenAI Platform
+- Firebase Studio
+- Firebase
+- Appverter
+- Streamlit
+- GitLab
+- Genspark
+- Apk Extractor
+- Flutterpilot
+- AppStudio
+- App Builder
+- Appybuilder
+- Easyapp
+- BuildCores
+- SAP Build Apps
+- Claude
+- AI Agent Builder
+- LMSA
+- OnSpace.AI
+- PocketPal
+- LLMChat
+- FlutterFlow
+- Layla
+- Glama
+- mojeIKP
+- Booking.com
+- CP
+- Ai NUMBER
+- Video To MP3
+- NotebookLM
+- Business Profile
+- Apple TV
+- Prime Video
+- BubbleUPnP
+- Uber
+- Truecaller
+- Chrome Dev
+- F-Droid
+- Termux
+- Kreatywne studio
+- SP Connect
+- SP eCinema
+- Local AI
+- LM Playground
+- Offline AI Chat
+- Uncensored AI
+- LLM Hub
+- Private AI
+- Chatter
+- maid
+- AI Retouch
+- AI Photo Studio
+- UAI
+- OpenLLM
+- HoneyLLM
+- Crosstalk
+- OnLLM
+- Secret Codes
+- Mollie
+- Fusee
+- Remix
+- Replit
+- Base44
+- Vibecode
+- Lovable
+- Vibit
+- Datadog
+- Flow
+- BBWorld
+- Azure
+- Unity
+- Gemini Enterprise
+- LinkedIn
+- Developer Tools
+- PaulaAI
+- EpicNPC
+- PS App
+- Meta Horizon
+- PhotoAiD
+- TC
+- oxproxion
+- LocalMathy
+- huggingAssist
+- Agora
+- Maskan
+- Agent
+- Kai 9000
+- Klarna
+- Repo Store
+- gptAssist
+- Disney+
+- StrykerOSS
+- Stryker Terminal
+- Mój Orange
+- Play24
+- Viking App
+- ARuler
+- AR Zone
+- Szybki pomiar
+- Saal Digital
+- LilithPlay
+- gameforcouples
+- Namiętność
+- Amor
+- Game for Couples
+- OpenAI Developer
+- Services Info
+- WebView DevTools
+- Wolt
+- Tinder
+- VSCodroid
+- Pro Coding Studio
+- Suno
+- Slack
+- GPTMobile
+- Sondo
+- Readwise
+- CodeAgent
+- OpenRouter
+- OpenCode
+- MyClaw Host
+- OpenClaw
+- Claw
+- GoClaw
+- Mobile Claw
+- Picsart
+- Sleep Cycle
+- Headspace
+- Freeletics
+- NordVPN
+- Saily
+- Knowunity
+- Ai Browser
+- Brave
+- NordLocker
+- Afizzy
+- Clever AI
+- Poe
+- EAS
+- Android Developer
+- Railway
+- ChatGPT
+- SumUp Business
+- ExifTool
+- Photo EXIF Editor
+- Alibaba.com
+- MCP server
+- systemprompt
+- Manus
+- UserLAnd
+- Termius
+- Andronix
+- Spck Editor
+- AI story generator
+- Kali Linux
+- Pydroid 3
+- GDevelop
+- Coding Python
+- App Prompter
+- GetOTP
+- GetCode
+- SMS Virtual
+- VSim
+- SimCode
+- Ollama Local
+- Local AI Client
+- Ollama ai app
+- Runable
+- MonoCloud
+- eSIM io
+- Comeet
+- Link
+- LLM AI Server
+- bluetronix
+- Medium
+- Proton Mail
+- SMEPost
+- Proton Drive
+- Scraper
+- Notion
+- MyASUS
+- All Docs Editor
+- MusicGPT
+- OfflineGPT
+- Offline AI
+- AI One
+- Tool Neuron
+- Local AI
+- AI Studio
+- Inferno
+- McDonald's
+- EasyPLN
+- Uber Eats
+- AI GAME FACTORY
+- Bolt
+- Hermes Mobile
+- Transport GZM
+- Bolt Food
+- CHEMIA
+- Experience
+- Free AI Image Generator
+- Pirate Face
