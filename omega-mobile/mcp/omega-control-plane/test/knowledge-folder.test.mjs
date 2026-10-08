@@ -96,6 +96,6 @@ test('control plane fails closed when knowledge root is not configured', async (
     const plane = new OmegaControlPlane({ workspaceRoots: [root], knowledgeRoot: null });
     const info = await plane.knowledgeInfo();
     assert.equal(info.configured, false);
-    await assert.rejects(() => plane.knowledgeList({}), /not configured/i);
+    assert.throws(() => plane.knowledgeList({}), /not configured/i);
   } finally { await rm(root, { recursive: true, force: true }); }
 });
