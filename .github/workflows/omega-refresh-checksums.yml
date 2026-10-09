@@ -46,7 +46,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 omega/scripts/validate_package.py
+          tmp="$(mktemp -d)"
+          pkg="$tmp/omega-omni-cognitive-engineering-v2"
+          mkdir -p "$pkg"
+          cp -a omega/. "$pkg/"
+          python3 "$pkg/scripts/validate_package.py"
 
       - name: Commit refreshed checksums to main
         shell: bash
