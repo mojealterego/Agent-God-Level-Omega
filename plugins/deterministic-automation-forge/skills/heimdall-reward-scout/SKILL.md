@@ -115,3 +115,7 @@ Use one:
 - `FAILED_REQUIRES_ACTION`
 
 Use `references/signup-policy.md` for policy and evidence schema.
+
+## Research seed: 2026-10-08 cloud-credit audit
+
+Before using offers extracted from the user-provided 2026 Gemini cloud-credit report, consult `references/2026-10-08-cloud-credit-offer-seed.json`. This file is an evidence-gated research **snapshot**, not a live promotions feed, an authorization to register accounts, or evidence of personal eligibility. Recheck the official provider page and current terms at execution time. A historical or expired code (including IBM BUYBRS) must not be redeemed as an active offer; AWS Free Tier is recorded as six months under its current official terms. Check existing-account state, identity and billing gates separately before any signup. See `references/signup-policy.md`.
