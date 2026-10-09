@@ -9,6 +9,7 @@ const PLUGIN_TOKEN = process.env.OMEGA_RELAY_PLUGIN_TOKEN ?? '';
 const AGENT_TOKEN = process.env.OMEGA_RELAY_AGENT_TOKEN ?? '';
 const BOOTSTRAP_TOKEN = process.env.OMEGA_RELAY_BOOTSTRAP_TOKEN ?? '';
 const PAIR_CODE = process.env.OMEGA_PAIR_CODE ?? '';
+const READ_BRIDGE_TOKEN = process.env.OMEGA_READ_BRIDGE_TOKEN ?? '';
 const SOURCE_REF = process.env.OMEGA_SOURCE_REF ?? 'main';
 const PORT = Number(process.env.PORT || 10000);
 const RPC_TIMEOUT_MS = Number(process.env.OMEGA_RELAY_RPC_TIMEOUT_MS || 180000);
@@ -311,6 +312,52 @@ const httpServer = createHttpServer(async (req, res) => {
       websocket_url: `${wsOrigin}/agent`,
       agent_token: AGENT_TOKEN
     });
+  }
+
+  if (url.pathname === '/bridge' && req.method === 'GET') {
+    if (!READ_BRIDGE_TOKEN || !safeEqual(url.searchParams.get('token'), READ_BRIDGE_TOKEN)) {
+      return json(res, 404, { error: 'not_found' });
+    }
+    try {
+      const op = url.searchParams.get('op') || 'info';
+      let result;
+      if (op === 'info') {
+        result = await phoneRpc('knowledge.info', {});
+      } else if (op === 'list') {
+        result = await phoneRpc('knowledge.list', {
+          path: url.searchParams.get('path') || '',
+          recursive: url.searchParams.get('recursive') === 'true',
+          maxEntries: Math.max(1, Math.min(20000, Number(url.searchParams.get('maxEntries') || 1000)))
+        });
+      } else if (op === 'metadata') {
+        const path = url.searchParams.get('path') || '';
+        if (!path) return json(res, 400, { error: 'path_required' });
+        result = await phoneRpc('knowledge.metadata', { path });
+      } else if (op === 'read') {
+        const path = url.searchParams.get('path') || '';
+        if (!path) return json(res, 400, { error: 'path_required' });
+        result = await phoneRpc('knowledge.read', {
+          path,
+          maxBytes: Math.max(1, Math.min(4194304, Number(url.searchParams.get('maxBytes') || 1048576)))
+        });
+      } else if (op === 'search') {
+        const query = url.searchParams.get('query') || '';
+        if (!query) return json(res, 400, { error: 'query_required' });
+        result = await phoneRpc('knowledge.search', {
+          query,
+          path: url.searchParams.get('path') || '',
+          recursive: url.searchParams.get('recursive') !== 'false',
+          maxFiles: Math.max(1, Math.min(2000, Number(url.searchParams.get('maxFiles') || 250))),
+          maxMatches: Math.max(1, Math.min(500, Number(url.searchParams.get('maxMatches') || 100))),
+          maxBytesPerFile: Math.max(1024, Math.min(1048576, Number(url.searchParams.get('maxBytesPerFile') || 262144)))
+        });
+      } else {
+        return json(res, 400, { error: 'unsupported_op' });
+      }
+      return json(res, 200, { ok: true, op, result });
+    } catch (error) {
+      return json(res, 503, { ok: false, error: error?.message || String(error) });
+    }
   }
 
   if (url.pathname === '/bootstrap' && req.method === 'GET') {
