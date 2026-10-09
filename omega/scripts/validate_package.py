@@ -22,7 +22,7 @@ except Exception as exc:
 
 if manifest.get("name") != ROOT.name:
     fail("manifest name must match root directory name")
-if manifest.get("version") != "25.0.0":
+if manifest.get("version") != "25.1.1":
     fail("unexpected package version")
 short = (((manifest.get("extensions") or {}).get("com.openai") or {}).get("interface") or {}).get("shortDescription", "")
 if len(short) > 30:
@@ -242,8 +242,10 @@ try:
 except Exception as exc:
     fail(f"MCP package.json invalid: {exc}")
 
-if not (ROOT / "mcp.json").is_file():
-    fail("missing portable mcp.json")
+if (ROOT / "mcp.json").exists() or (ROOT / ".mcp.json").exists():
+    fail("mobile-safe package must not activate top-level MCP descriptors")
+if not (ROOT / ".app.json").is_file():
+    fail("missing verified mobile app binding file")
 
 checksum_path = ROOT / "SHA256SUMS.txt"
 if not checksum_path.is_file():

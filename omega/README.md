@@ -16,3 +16,8 @@ Cumulative OMEGA release adding the ElevenLabs Media/Voice Plane.
 - immutable local artifact SHA-256 evidence
 
 Reality Filter, KRATOS and THOR final release gates remain in force.
+
+
+## OMEGA v25.1.1 mobile-safe packaging
+
+Active top-level mcp.json and .mcp.json are removed to avoid desktop-only ChatGPT classification. Their contents are preserved under references/. Verified app bindings live in .app.json.

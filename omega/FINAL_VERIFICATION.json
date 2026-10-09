@@ -1,7 +1,7 @@
 {
-  "version": "25.0.0",
-  "status": "CANDIDATE",
-  "verification_state": "awaiting_ci",
+  "version": "25.1.1",
+  "status": "SAVED_RELEASE_PENDING_ANDROID_UI_VERIFY",
+  "verification_state": "package_validated_host_ui_pending",
   "baseline_test_suite": {
     "passed": 405,
     "failed": 0,
@@ -32,7 +32,7 @@
     "WDA deterministic masked post-compositing requires ImageMagick at runtime.",
     "Hosted MCP 2.0 Extensions become runtime-active only after a verified public HTTPS deployment and persistent store binding."
   ],
-  "package_validator": "PENDING_CI",
+  "package_validator": "LOCAL_PASS",
   "counts": {
     "skills": 396,
     "references": 83,
@@ -136,5 +136,17 @@
       "omega/mcp/lovable-assurance",
       "omega/mcp/openai-agents-assurance"
     ]
+  },
+  "mobile_packaging": {
+    "active_mcp_json": false,
+    "active_dot_mcp_json": false,
+    "desktop_mcp_definitions_preserved_as_references": true,
+    "app_json": true,
+    "verified_bindings": [
+      "github",
+      "gitlab",
+      "openai-platform"
+    ],
+    "android_ui_physically_verified": false
   }
 }
