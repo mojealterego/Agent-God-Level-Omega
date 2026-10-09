@@ -116,3 +116,18 @@ Package 2 contains 321 supplied entries (318 unique application names), covering
 The repository contains **Plugin Collector Agent v0.2.0** under [`plugins/plugin-collector-agent/`](./plugins/plugin-collector-agent/). Its canonical OMEGA skill is mirrored under [`omega/skills/plugin-collector-agent/`](./omega/skills/plugin-collector-agent/).
 
 The agent scans the ChatGPT Plugin Directory and GitHub MCP Registry pages 1-7, de-duplicates entries, classifies MCP servers as ChatGPT-native, remote/hosted, local/stdio or hybrid/unknown, filters already-installed plugins and surfaces installation suggestions in batches of up to 10. A ChatGPT scheduled task runs the combined scan every three days. Final installation/connection remains a host-level user approval action.
+
+
+## GitHub MCP Registry — pages 1–7
+
+The repository now contains **210 generated cross-platform MCP companion plugins** sourced from GitHub MCP Registry pages 1–7.
+
+- Full plugin sources: `plugins/*-mcp-registry/`
+- Canonical OMEGA integration: `omega/skills/*-mcp-registry/`
+- Imported plugins: **210**
+- Imported OMEGA skills: **210**
+- OMEGA checksum entries added for the imported skill/reference files: **420**
+- Packaging rule: no generated companion includes `mcp.json`, `.mcp.json`, local `stdio`, Docker or localhost as a prerequisite.
+- Live server access remains conditional on a verified native ChatGPT app binding or a separately connected remote MCP endpoint.
+
+The live GitHub MCP Registry showed **394 total servers** when this import was prepared; this repository import intentionally covers the **210 entries visible on pages 1–7** supplied for this task.
