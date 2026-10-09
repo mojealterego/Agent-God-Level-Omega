@@ -1,0 +1,25 @@
+{
+  "name": "contextstreamio-mcp-registry",
+  "version": "0.1.0",
+  "description": "Cross-platform companion for the Contextstreamio MCP entry in GitHub MCP Registry. Preserves Android/web compatibility and requires a verified host connection before claiming live MCP access.",
+  "author": {
+    "name": "Moje Alterego"
+  },
+  "skills": "./skills",
+  "interface": {
+    "displayName": "Contextstreamio MCP",
+    "shortDescription": "MCP companion mobile",
+    "longDescription": "Cross-platform companion for Contextstreamio MCP from GitHub MCP Registry. It keeps the registry source and workflow available in ChatGPT without packaging a desktop-only mcp.json. Live server access is used only after the host exposes a verified app binding or connected remote MCP endpoint.",
+    "developerName": "Moje Alterego",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "defaultPrompt": [
+      "Użyj Contextstreamio MCP: najpierw sprawdź, czy host udostępnia połączony serwer lub natywną aplikację, a potem wykonaj zadanie.",
+      "Sprawdź możliwości Contextstreamio MCP z GitHub MCP Registry i nie wymyślaj narzędzi ani uprawnień.",
+      "Jeśli Contextstreamio MCP nie jest jeszcze połączony, przygotuj poprawną ścieżkę połączenia bez desktopowego wymogu."
+    ]
+  }
+}
