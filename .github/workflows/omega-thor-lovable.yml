@@ -24,6 +24,22 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
+      - name: Resolve validated language image without Docker Hub anonymous limits
+        if: startsWith(github.event.issue.title, '[THOR-CODE] ')
+        shell: bash
+        env:
+          OMEGA_TASK_TITLE: ${{ github.event.issue.title }}
+        run: |
+          set -euo pipefail
+          case "$OMEGA_TASK_TITLE" in
+            '[THOR-CODE] js '*) image='node:22-alpine' ;;
+            '[THOR-CODE] py '*) image='python:3.12-alpine' ;;
+            '[THOR-CODE] go '*) image='golang:1.24-alpine' ;;
+            '[THOR-CODE] rs '*) image='rust:1.85-alpine' ;;
+            *) echo 'Unsupported OMEGA language request'; exit 1 ;;
+          esac
+          docker pull "mirror.gcr.io/library/${image}"
+          docker tag "mirror.gcr.io/library/${image}" "${image}"
       - name: Test OIDC and inference adapter
         run: node --test tests/thor-copilot-worker.test.mjs tests/thor-lovable-agent.test.mjs tests/thor-autobuild.test.mjs tests/omega-project-factory.test.mjs tests/omega-project-agent.test.mjs tests/omega-project-gate.test.mjs tests/omega-engineering-kernel.test.mjs tests/omega-engineering-gate.test.mjs tests/omega-engineering-runner.test.mjs
       - name: Execute live backend model stages using GitHub-signed OIDC
