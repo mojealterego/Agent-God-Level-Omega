@@ -29,7 +29,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 omega/scripts/validate_package.py
+          tmp="$(mktemp -d)"
+          mkdir -p "$tmp/omega-omni-cognitive-engineering-v2"
+          cp -a omega/. "$tmp/omega-omni-cognitive-engineering-v2/"
+          python3 "$tmp/omega-omni-cognitive-engineering-v2/scripts/validate_package.py"
           node --test omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs
           node --test omega-mobile/mcp/omega-control-plane/test/knowledge-folder.test.mjs
           bash omega-mobile/termux/test-knowledge-fallback.sh
