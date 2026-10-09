@@ -8,11 +8,12 @@ import * as z from 'zod/v4';
 const PLUGIN_TOKEN = process.env.OMEGA_RELAY_PLUGIN_TOKEN ?? '';
 const AGENT_TOKEN = process.env.OMEGA_RELAY_AGENT_TOKEN ?? '';
 const BOOTSTRAP_TOKEN = process.env.OMEGA_RELAY_BOOTSTRAP_TOKEN ?? '';
+const PAIR_CODE = process.env.OMEGA_PAIR_CODE ?? '';
 const SOURCE_REF = process.env.OMEGA_SOURCE_REF ?? 'main';
 const PORT = Number(process.env.PORT || 10000);
 const RPC_TIMEOUT_MS = Number(process.env.OMEGA_RELAY_RPC_TIMEOUT_MS || 180000);
 
-if (!PLUGIN_TOKEN || !AGENT_TOKEN || !BOOTSTRAP_TOKEN) {
+if (!PLUGIN_TOKEN || !AGENT_TOKEN || !BOOTSTRAP_TOKEN || !PAIR_CODE) {
   throw new Error('OMEGA relay secrets are not configured');
 }
 
@@ -37,6 +38,37 @@ function json(res, status, value, extraHeaders = {}) {
     ...extraHeaders
   });
   res.end(body);
+}
+
+async function readJsonBody(req, maxBytes = 4096) {
+  const chunks = [];
+  let size = 0;
+  for await (const chunk of req) {
+    size += chunk.length;
+    if (size > maxBytes) {
+      const error = new Error('request_too_large');
+      error.code = 'REQUEST_TOO_LARGE';
+      throw error;
+    }
+    chunks.push(chunk);
+  }
+  if (!chunks.length) return {};
+  return JSON.parse(Buffer.concat(chunks).toString('utf8'));
+}
+
+const pairAttempts = new Map();
+
+function allowPairAttempt(address) {
+  const key = String(address || 'unknown');
+  const now = Date.now();
+  const current = pairAttempts.get(key);
+  if (!current || now >= current.resetAt) {
+    pairAttempts.set(key, { count: 1, resetAt: now + 10 * 60_000 });
+    return true;
+  }
+  if (current.count >= 5) return false;
+  current.count += 1;
+  return true;
 }
 
 let agentSocket = null;
@@ -258,6 +290,27 @@ const httpServer = createHttpServer(async (req, res) => {
   if (url.pathname === '/readyz') {
     const connected = Boolean(agentSocket && agentSocket.readyState === 1 && agentAuthenticated);
     return json(res, connected ? 200 : 503, { ok: connected, phone_connected: connected });
+  }
+
+  if (url.pathname === '/pair' && req.method === 'POST') {
+    if (!allowPairAttempt(req.socket.remoteAddress)) {
+      return json(res, 429, { error: 'too_many_attempts' });
+    }
+    let body;
+    try {
+      body = await readJsonBody(req);
+    } catch (error) {
+      return json(res, error?.code === 'REQUEST_TOO_LARGE' ? 413 : 400, { error: 'invalid_request' });
+    }
+    if (!safeEqual(body?.code, PAIR_CODE)) {
+      return json(res, 403, { error: 'invalid_pair_code' });
+    }
+    const wsOrigin = origin.replace(/^https:/, 'wss:').replace(/^http:/, 'ws:');
+    return json(res, 200, {
+      ok: true,
+      websocket_url: `${wsOrigin}/agent`,
+      agent_token: AGENT_TOKEN
+    });
   }
 
   if (url.pathname === '/bootstrap' && req.method === 'GET') {
