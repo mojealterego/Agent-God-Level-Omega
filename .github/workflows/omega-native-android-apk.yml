@@ -1,0 +1,61 @@
+name: OMEGA Native Android APK Build
+on:
+  push:
+    branches:
+      - 'omega/project-*'
+    paths:
+      - 'experiments/omega-projects/**/app/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  android-debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout reviewed source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Java 17 toolchain
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Gradle 8.9 toolchain
+        uses: gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a
+        with:
+          gradle-version: '8.9'
+      - name: Verify Android SDK and build native APK
+        id: build
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t manifests < <(find experiments/omega-projects -path '*/app/src/main/AndroidManifest.xml' -type f | sort)
+          if [ "${#manifests[@]}" -ne 1 ]; then
+            echo "Expected one Android-native application in the scoped project branch, found ${#manifests[@]}." >&2
+            exit 1
+          fi
+          root="${manifests[0]%/app/src/main/AndroidManifest.xml}"
+          if [ -z "${ANDROID_HOME:-}" ]; then
+            echo 'ANDROID_HOME is not provisioned on runner' >&2
+            exit 1
+          fi
+          if command -v sdkmanager >/dev/null; then
+            yes | sdkmanager --licenses >/dev/null || true
+            sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+          fi
+          gradle --no-daemon --console=plain -p "$root" assembleDebug
+          apk="$root/app/build/outputs/apk/debug/app-debug.apk"
+          test -s "$apk"
+          mkdir -p dist/android
+          cp "$apk" dist/android/omega-native-app-debug.apk
+          sha256sum dist/android/omega-native-app-debug.apk | tee dist/android/SHA256SUMS.txt
+          echo "root=$root" >> "$GITHUB_OUTPUT"
+      - name: Upload verified native Android APK
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: omega-native-android-debug-apk
+          path: dist/android/*
+          if-no-files-found: error
+          retention-days: 30
