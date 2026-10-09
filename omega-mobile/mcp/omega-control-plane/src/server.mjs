@@ -34,7 +34,7 @@ async function invoke(handler) {
 
 export function createServer(context = {}) {
   const plane = new OmegaControlPlane();
-  const server = new McpServer({ name: 'omega-control-plane', version: '4.3.1' });
+  const server = new McpServer({ name: 'omega-control-plane', version: '4.3.2' });
 
   server.registerTool(
     'omega_capabilities',
@@ -273,7 +273,7 @@ export function createServer(context = {}) {
 
 export function startStdio() {
   const handle = serveStdio(() => createServer({ transport: 'stdio' }));
-  console.error('OMEGA MCP control plane v4.3.1 running on stdio');
+  console.error('OMEGA MCP control plane v4.3.2 running on stdio');
   for (const signal of ['SIGINT', 'SIGTERM']) {
     process.on(signal, () => {
       void handle.close().finally(() => process.exit(0));
