@@ -83,3 +83,19 @@ test('phone knowledge root blocks path traversal and symlink escape', async () =
     await rm(base, { recursive: true, force: true });
   }
 });
+
+test('phone knowledge root preserves legacy bounded byte-offset pagination', async () => {
+  const { base, root } = await fixture();
+  try {
+    const kb = new PhoneKnowledgeRoot({ root });
+    const page = await kb.read({ path: 'docs/notes.md', offset: 2, maxBytes: 5 });
+    assert.equal(page.text, 'Alpha');
+    assert.equal(page.offset, 2);
+    assert.equal(page.nextOffset, 7);
+    assert.equal(page.truncated, true);
+    const tail = await kb.read({ path: 'docs/notes.md', offset: 9999, maxBytes: 5 });
+    assert.equal(tail.text, '');
+    assert.equal(tail.truncated, false);
+    await assert.rejects(() => kb.read({ path: 'docs/notes.md', offset: -1 }), /offset/i);
+  } finally { await rm(base, { recursive: true, force: true }); }
+});
