@@ -45,3 +45,11 @@
 - MCP Registry OMEGA integration: 210/210 corresponding skills are present under `omega/skills/*-mcp-registry/`.
 - MCP Registry integrity coverage: `omega/SHA256SUMS.txt` contains 420 checksum entries for the imported SKILL/reference files.
 - MCP Registry generated companions intentionally omit packaged `mcp.json` / `.mcp.json`; live MCP execution requires a verified app binding or separately connected remote MCP endpoint.
+
+## 2026-10-09 TinyFish integration (main)
+
+- New OMEGA agent capability: `omega-tinyfish-web-automation` (legacy agent registry 171 not rewritten).
+- Added canonical skill (+1), Android mirror (+1), local MCP server (+1 with 4 tools), deterministic adapter (+1 with 3 provider methods), hook (+1), six offline unit tests.
+- Observed pre-integration directory counts: `omega/skills` 397, `omega/agents` 12, `omega/tools` 13, `omega/mcp` 9, `omega/hooks` 14, `omega-mobile/skills` 175. Updated intended counts after commit: 398 / 13 / 14 / 10 / 15 / 176 respectively.
+- Live TinyFish provider access not validated; provider API key, OAuth and charged runs depend on runtime configuration.
+- Repository policy: keep only `main` as development target; this batch creates no branch. Existing non-main branches require separate consolidation/deletion workflow and have not been modified.

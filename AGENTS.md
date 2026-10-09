@@ -264,6 +264,8 @@ These capabilities exist on the current repository line but are not entries in t
 
 Do not silently rewrite the legacy registry merely to make counts look aligned. When a future batch requires registry migration, update the registry, validators, mirrors and checksums together and verify them in CI.
 
+- `omega-tinyfish-web-automation` — TinyFish website automation adapter with exact-host policy gate, scoped cost/write approvals, async status evidence, OMEGA companion MCP and official-provider OAuth boundary.
+
 ## Pending changes
 
 Agents/capabilities that exist only on an unmerged branch or pull request are not counted as repository-existing agents here. Add them to this catalog after they are merged into the repository line being documented.
@@ -292,3 +294,8 @@ Before ending a batch:
 - **2026-10-08 — Baseline index created.** Imported the complete 171-agent formal registry and documented four newer repository-level agent capabilities: `omega-tools-fabric`, `railway-absolute-automation`, `pingram-communications`, and `rollo-s24-ultra-agent`. Established the rule that future Drive-document batches update this file only after their implementation is complete, while the final combined plugin/package is deferred until the entire corpus is finished.
 
 - **2026-10-08 — Gemini cloud-credit report audited for Heimdall/Ragnar.** Parsed the shared 2026 cloud-credit research as untrusted discovery input; recorded 10 evidence-gated candidate programs, 24 additional discovery-only provider leads, expired IBM BUYBRS, and corrected the AWS six-month Free Tier window. Added the same source-backed JSON snapshot under both canonical Heimdall and Automation Forge plugin references and linked it from their skill instructions. No cloud accounts, paid plans, credentials, runtime adapters, or provider resources were created. Work was prepared on a dedicated review branch with `main` unchanged.
+
+## 2026-10-09 — TinyFish Quick Start integration batch
+
+Source: https://docs.tinyfish.ai/quick-start (cross-checked with Agent API, MCP Integration and Structured Output docs).
+Created: 1 specialized agent, 1 canonical skill, 1 Android skill mirror, 1 local MCP companion (4 tools), 1 deterministic adapter (3 provider methods), 1 approval hook, 1 source contract, 6 offline tests. Formal legacy registry stays at 171. Canonical omega skill directories: 397 → 398; local omega agents: 12 → 13; MCP directories: 9 → 10; tool directories: 13 → 14; hook files: 14 → 15; omega-mobile skill directories: 175 → 176. No new branch. Provider credentials and live paid calls remain outside repository validation.

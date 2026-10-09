@@ -1,0 +1,16 @@
+{
+  "name": "@mojealterego/omega-tinyfish-web-automation-mcp",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Fail-closed local TinyFish MCP companion for OMEGA, without embedded provider credentials",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test ../../tools/tinyfish-web-automation/adapter.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.3.0",
+    "zod": "^4.0.0"
+  },
+  "engines": {"node": ">=22"}
+}
