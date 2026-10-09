@@ -1,0 +1,4 @@
+interface:
+  display_name: Skill Creator
+  short_description: Projektuj, testuj i paczkuj skills
+  default_prompt: Zbuduj kompletny Agent Skill z mojego materiału, sprawdź strukturę i przygotuj paczkę ZIP.

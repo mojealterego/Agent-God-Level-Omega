@@ -1,0 +1,28 @@
+{
+  "interface": {
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "category": "Developer Tools",
+    "defaultPrompt": [
+      "Stw\u00f3rz kompletny Agent Skill z dostarczonej dokumentacji, przetestuj i przygotuj paczk\u0119 ZIP.",
+      "Przejrzyj umiej\u0119tno\u015bci w Agent-God-Level-Omega, znajd\u017a duplikaty i zaproponuj brakuj\u0105ce skills.",
+      "Dodaj nowy skill do repozytorium Agent-God-Level-Omega wy\u0142\u0105cznie na main i poka\u017c dowody walidacji."
+    ],
+    "developerName": "Moje Alterego",
+    "displayName": "Skill Creator",
+    "longDescription": "Generator i audytor umiej\u0119tno\u015bci Agent Skills: projektuje SKILL.md z precyzyjnymi wyzwalaczami, do\u0142\u0105cza skrypty, referencje i metadane interfejsu, uruchamia walidacj\u0119, wykrywa duplikaty, pakuje ZIP z SHA-256 oraz wsp\u00f3\u0142pracuje z repozytorium OMEGA wy\u0142\u0105cznie na ga\u0142\u0119zi main. Dzia\u0142a jako skill w ChatGPT; lokalne operacje CLI wymagaj\u0105 \u015brodowiska Python i PyYAML. Nie udaje posiadania niepod\u0142\u0105czonych narz\u0119dzi.",
+    "shortDescription": "Tw\u00f3rz i testuj Agent Skills"
+  },
+  "name": "skill-creator",
+  "version": "1.0.0",
+  "description": "Tworzenie, aktualizowanie, audytowanie, testowanie i paczkowanie przeno\u015bnych Agent Skills dla ChatGPT, Codex i repozytorium OMEGA. Zawiera dzia\u0142aj\u0105ce narz\u0119dzie CLI i testy.",
+  "author": {
+    "name": "Moje Alterego",
+    "email": "mojealterego21@gmail.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}
