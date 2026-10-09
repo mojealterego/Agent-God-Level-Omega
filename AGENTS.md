@@ -260,6 +260,7 @@ These capabilities exist on the current repository line but are not entries in t
 - `omega-dgm-self-evolution` — Evidence-first continuous improvement with bounded patch planning, sandbox evaluation, regression comparison and rollback gates.
 - `omega-osint-seeker` — Public-source and authorized evidence analysis with normalization, confidence scoring, timelines and chain-of-custody.
 - `omega-locally-uncensored-flow` — Hybrid local/remote media orchestration with resource-aware routing, asynchronous polling and retry policy.
+- `omega-hackathon-submission-architect` — Evidence-first hackathon compliance and submission architecture with rules, eligibility, build-window provenance, prototype and artifact gates.
 
 Do not silently rewrite the legacy registry merely to make counts look aligned. When a future batch requires registry migration, update the registry, validators, mirrors and checksums together and verify them in CI.
 
@@ -280,6 +281,8 @@ Before ending a batch:
 - no aggregate final plugin/package was produced unless the user explicitly declared the overall document-ingestion project complete.
 
 ## Change log
+
+- **2026-10-09 — Corpus batch: General Learning Hacks.** Added `omega-hackathon-submission-architect` with rules normalization, conservative deadline conflict handling, build-ledger provenance, prototype readiness, submission artifact audit, policy hook, deterministic tool and standalone MCP server.
 
 - **2026-10-09 — Corpus batch: DGM + OSINT Seeker + Locally Uncensored Flow.** Added three canonical agents with matching skills, deterministic tools, hooks and standalone MCP servers. DGM was translated into a proposal/evaluate/land loop with baseline, regression and rollback gates; OSINT Seeker into authorized evidence analysis; Locally Uncensored Flow into provider-neutral local/remote routing with async job polling.
 
