@@ -34,7 +34,7 @@
   ],
   "package_validator": "PENDING_CI",
   "counts": {
-    "skills": 177,
+    "skills": 179,
     "references": 83,
     "schemas": 110
   },
@@ -103,6 +103,38 @@
       "omega-omni-orchestrator",
       "omega-checkpoint-resume-engine",
       "omega-reality-filter-kernel"
+    ]
+  },
+  "corpus_batch_002": {
+    "sources": [
+      "Security overview - Lovable Documentation.pdf",
+      "Test and verify your app - Lovable Documentation.pdf",
+      "Edge functions - Lovable Documentation.pdf",
+      "Secrets - Lovable Documentation.pdf",
+      "Database - Lovable Documentation.pdf",
+      "Design systems - Lovable Documentation.pdf",
+      "Lovable MCP server - Lovable Documentation.pdf",
+      "Revert and restore your project with version history - Lovable D.pdf",
+      "TraceProvider _ OpenAI Agents SDK.pdf",
+      "ToolOutputGuardrailTripwireTriggered _ OpenAI Agents SDK.pdf"
+    ],
+    "new_agent": "omega-lovable-app-engineer",
+    "canonicalized_existing_agent": "omega-openai-developer-platform",
+    "new_skills": [
+      "omega-lovable-app-engineer",
+      "omega-openai-developer-platform"
+    ],
+    "new_tools": [
+      "omega/tools/lovable-assurance/project-readiness.mjs",
+      "omega/tools/openai-agents/trace-guardrail.mjs"
+    ],
+    "new_hooks": [
+      "omega/hooks/lovable-release-gate.mjs",
+      "omega/hooks/openai-agent-tripwire.mjs"
+    ],
+    "new_mcp_servers": [
+      "omega/mcp/lovable-assurance",
+      "omega/mcp/openai-agents-assurance"
     ]
   }
 }
