@@ -30,6 +30,7 @@ import { AssuranceRuntime } from '../assurance/assurance-runtime.mjs';
 import { ElevenLabsMediaRuntimeV25 as ElevenLabsMediaRuntime } from '../media/elevenlabs-v25-runtime.mjs';
 import { WdaVisualRuntime } from '../visual/wda-runtime.mjs';
 import { VoiceConciergeRuntime } from '../communications/voice-concierge.mjs';
+import { GrantBusinessArchitectRuntime } from '../business/grant-business-architect.mjs';
 
 function parseRoots(value) {
   if (!value) return [process.cwd()];
@@ -59,6 +60,7 @@ export class OmegaControlPlane {
     this.mediaRuntimes = new Map();
     this.visualRuntimes = new Map();
     this.voiceConciergeRuntimes = new Map();
+    this.grantBusinessRuntimes = new Map();
     this.mcpClientFactory = mcpClientFactory;
     this.cognitiveProviderTransport = cognitiveProviderTransport;
     this.env = env;
@@ -405,6 +407,14 @@ export class OmegaControlPlane {
   }
 
   async visualArchitecture({ cwd, ...input }) { return await this.#visualRuntime(cwd).action(input); }
+
+  #grantBusinessRuntime(cwd) {
+    const root = this.#rootFor(cwd);
+    if (!this.grantBusinessRuntimes.has(root)) this.grantBusinessRuntimes.set(root, new GrantBusinessArchitectRuntime({ root }));
+    return this.grantBusinessRuntimes.get(root);
+  }
+
+  async grantBusinessArchitect({ cwd, ...input }) { return await this.#grantBusinessRuntime(cwd).action(input); }
 
   async memory({ cwd, ...input }) { return await this.#runtime(cwd).memory(input); }
   async reasoning({ cwd, ...input }) { return await this.#runtime(cwd).reasoning(input); }
