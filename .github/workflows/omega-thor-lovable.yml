@@ -4,6 +4,7 @@ on:
     types: [opened]
 permissions:
   contents: write
+  pull-requests: write
   issues: write
   id-token: write
 concurrency:
