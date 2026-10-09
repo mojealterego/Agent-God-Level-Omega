@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   ai-agents:
-    if: github.repository == 'mojealterego/Agent-God-Level-Omega' && github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[THOR-LOVABLE] ')
+    if: github.repository == 'mojealterego/Agent-God-Level-Omega' && github.event.issue.user.login == github.repository_owner && (startsWith(github.event.issue.title, '[THOR-LOVABLE] ') || startsWith(github.event.issue.title, '[THOR-BUILD] '))
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -24,8 +24,8 @@ jobs:
         with:
           node-version: '22'
       - name: Test OIDC and inference adapter
-        run: node --test tests/thor-copilot-worker.test.mjs tests/thor-lovable-agent.test.mjs
+        run: node --test tests/thor-copilot-worker.test.mjs tests/thor-lovable-agent.test.mjs tests/thor-autobuild.test.mjs
       - name: Execute live backend model stages using GitHub-signed OIDC
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/thor-lovable-agent.mjs
+        run: node scripts/thor-autobuild.mjs
