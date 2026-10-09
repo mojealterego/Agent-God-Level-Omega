@@ -92,7 +92,14 @@ export class OmegaControlPlane {
     return this.knowledgeRuntime;
   }
 
-  knowledgeInfo() { return this.#knowledge().info(); }
+  knowledgeInfo() {
+    if (!this.knowledgeRuntime) {
+      return { configured: false, readOnly: true, root: null };
+    }
+    return Promise.resolve(this.knowledgeRuntime.info()).then((info) => ({
+      ...info, readOnly: true
+    }));
+  }
   knowledgeList(input = {}) { return this.#knowledge().list(input); }
   knowledgeRead(input) { return this.#knowledge().read(input); }
   knowledgeSearch(input) { return this.#knowledge().search(input); }
