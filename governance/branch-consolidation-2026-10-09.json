@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-09",
+  "repository": "mojealterego/Agent-God-Level-Omega",
+  "main_base_commit": "907646df52ee08993e8336991b8aec287c3d523b",
+  "strategy": "Octopus ancestry consolidation with deduplicated worktree; main content retained for path conflicts",
+  "evidence": "GitHub branch tree inspection and compare of each branch to main",
+  "snapshot_findings": {
+    "non_main_branches": 11,
+    "branch_diff_paths_missing_from_main": 0,
+    "branch_exclusive_code_files_to_copy": 0,
+    "policy": "Existing main versions kept for divergent files; all branch commits retained as merge parents to preserve old revisions and their history",
+    "non_main_branch_heads_will_be_merged": true
+  },
+  "source_branches": [
+    {
+      "name": "docs/heimdall-gemini-cloud-credits-20261008",
+      "head_sha": "2db44922d6c9d1a02c8eb76cff24d2093ebcf2e5"
+    },
+    {
+      "name": "feat/android-knowledge-bridge",
+      "head_sha": "ffa2165ed3fbe4acb02503711d50691a621a8588"
+    },
+    {
+      "name": "feat/corpus-forge-batch-001",
+      "head_sha": "5dfdf77e4fbad513d24a37b5d4dbc35e2023c428"
+    },
+    {
+      "name": "feat/omega-termux-knowledge-connector",
+      "head_sha": "f0ac5da8b9eb851b0fb745170bc9a0ecab0a9f20"
+    },
+    {
+      "name": "feat/phone-knowledge-mcp",
+      "head_sha": "9b30a6e33ad6865e5f541b9e455b004393422dda"
+    },
+    {
+      "name": "feat/phone-knowledge-root-mcp",
+      "head_sha": "6b2c51b55156aba50acf94337c8f833adfa4acd3"
+    },
+    {
+      "name": "feat/secure-mcp-tunnel-official",
+      "head_sha": "eb9ab1c41a5fa8b51f26fd6f2ac7134484592954"
+    },
+    {
+      "name": "fix/android-bridge-live-status",
+      "head_sha": "5c167a5d78606706710bf2cae1c67bcef3816b23"
+    },
+    {
+      "name": "sync/github-absolute-automation-v0.3.0-current",
+      "head_sha": "0f328adaf5d1c3e14e22ba23267ad6fd8cdb4a9b"
+    },
+    {
+      "name": "sync/github-absolute-automation-v0.3.0-final",
+      "head_sha": "9a995868f2a8ee5eb2e5b36add83b44b9cde5906"
+    },
+    {
+      "name": "sync/github-absolute-automation-v0.3.0",
+      "head_sha": "0e337b029bbe04b6e56a536e40ef0ff7a1bb2308"
+    }
+  ],
+  "cleanup": "GitHub Actions checks every listed ref SHA, ensures it is reachable from main, then removes non-main refs and verifies only main remains"
+}

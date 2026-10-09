@@ -1,0 +1,97 @@
+name: OMEGA Single Main Branch Cleanup
+on:
+  push:
+    branches: [main]
+    paths:
+      - "governance/branch-consolidation-2026-10-09.json"
+      - ".github/workflows/omega-single-main-cleanup.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: omega-single-main-cleanup
+  cancel-in-progress: false
+
+jobs:
+  consolidate:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout immutable action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Verify all source histories then delete all non-main branch references
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from urllib.parse import quote
+          from urllib.request import Request, urlopen
+
+          repository = os.environ["REPOSITORY"]
+          token = os.environ["GITHUB_TOKEN"]
+          manifest = json.loads(Path("governance/branch-consolidation-2026-10-09.json").read_text())
+          if repository != manifest["repository"]:
+              raise RuntimeError("Repository identity mismatch")
+
+          base = f"https://api.github.com/repos/{repository}"
+          headers = {
+              "Accept": "application/vnd.github+json",
+              "Authorization": f"Bearer {token}",
+              "X-GitHub-Api-Version": "2022-11-28",
+              "User-Agent": "omega-main-consolidation",
+          }
+
+          def api(path, method="GET"):
+              request = Request(base + path, headers=headers, method=method)
+              with urlopen(request, timeout=30) as response:
+                  return json.loads(response.read()) if response.status != 204 else None
+
+          def branch_list():
+              result = []
+              page = 1
+              while True:
+                  entries = api(f"/branches?per_page=100&page={page}")
+                  result.extend(entries)
+                  if len(entries) < 100:
+                      return result
+                  page += 1
+
+          target = {entry["name"]: entry["head_sha"] for entry in manifest["source_branches"]}
+          actual = {branch["name"]: branch["commit"]["sha"] for branch in branch_list()}
+          if set(actual) != (set(target) | {"main"}):
+              raise RuntimeError(f"Unexpected branches: {sorted(set(actual) ^ (set(target) | {'main'}))}")
+          for name, expected_sha in target.items():
+              if actual[name] != expected_sha:
+                  raise RuntimeError(f"Source branch changed: {name}")
+
+          head = actual["main"]
+          if head == manifest["main_base_commit"]:
+              raise RuntimeError("Merge commit not present at main")
+          for name, sha in target.items():
+              comparison = api(f"/compare/{head}...{sha}")
+              if comparison.get("ahead_by") != 0:
+                  raise RuntimeError(f"Unmerged branch history: {name}")
+              print(f"Audited merged ancestry: {name} {sha}")
+
+          for name in sorted(target):
+              path = quote(name, safe="/")
+              api(f"/git/refs/heads/{path}", method="DELETE")
+              print(f"Deleted merged ref: {name}")
+
+          remaining = sorted(branch["name"] for branch in branch_list())
+          if remaining != ["main"]:
+              raise RuntimeError(f"Unexpected branch refs after cleanup: {remaining}")
+          print("SINGLE_MAIN_BRANCH: VERIFIED")
+          PY
