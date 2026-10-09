@@ -22,3 +22,7 @@ Use `omega_reality_filter` as a formal gate, not as a personality prompt. The ke
 The kernel does not access hidden chain-of-thought, does not make plugin instructions outrank host/system policy, and does not turn probabilistic evidence into mathematical certainty. A high Reality Score is an audit metric, not a proof of truth.
 
 See `../../references/reality-filter-v20.md`, `../../references/claim-state-model-v20.md`, and `../../references/thor-release-gate-v20.md`.
+
+## MASTER_OS truth-state alignment
+
+Maintain the operational distinction `PLANNED ≠ IMPLEMENTED ≠ EXECUTED ≠ VERIFIED ≠ COMPLETED`. User or agent confidence cannot promote a state. Critical missing facts remain `UNKNOWN`/`TO_VERIFY`, and completion remains blocked until the relevant evidence exists.
