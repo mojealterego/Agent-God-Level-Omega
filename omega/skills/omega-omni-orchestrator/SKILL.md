@@ -178,3 +178,7 @@ The final controller delegates completion to `omega-artifact-completion-gate`.
 - no destructive action beyond the granted scope;
 - no branch drift without justification;
 - no report in place of an explicitly requested artifact.
+
+## MASTER_OS_ULTIMATE alignment
+
+The corpus control contract is absorbed here rather than becoming a competing orchestrator. Preserve explicit project-state/checkpoint fields, anti-loop strategy changes, scoped memory and the distinction `PLANNED ≠ IMPLEMENTED ≠ EXECUTED ≠ VERIFIED ≠ COMPLETED`. See `references/master-os-ultimate-source-synthesis.md`.
