@@ -86,6 +86,12 @@ export function reportOutcome(out) {
   '', '### Observed test output','\x60\x60\x60',max(out.tested.stdout+'\n'+out.tested.stderr,2000),'\x60\x60\x60'].join('\n').slice(0,12000);
 }
 
+export function evidenceAppendix(out) {
+ return ['\n### Generated source (untrusted until reviewed)',
+   '\x60\x60\x60javascript',max(out.generated.source,8000),'\x60\x60\x60',
+   '\n### Generated tests','\x60\x60\x60javascript',max(out.generated.tests,5200),'\x60\x60\x60'].join('\n');
+}
+
 export async function main(){
  if(!process.env.GITHUB_EVENT_PATH)throw new Error('EVENT_PATH_MISSING');
  const event=JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH,'utf8'));
@@ -110,7 +116,16 @@ export async function main(){
    let prOutput='';
    for(const [bin,args] of cmds){
      const cmd=spawnSync(bin,args,{encoding:'utf8',shell:false,timeout:60000,maxBuffer:1000000,env:process.env});
-     if(cmd.status!==0||cmd.error)throw new Error('PUBLISH_FAILED_'+bin+'_'+max(cmd.stderr??cmd.error?.message,300));
+     if(cmd.status!==0||cmd.error){
+       const message=max(cmd.stderr??cmd.error?.message,300);
+       if(bin==='gh' && /not permitted to create|createPullRequest/.test(message)){
+         const compareUrl='https://github.com/'+REPO+'/compare/main...'+branch;
+         await postComment(issue.number,reportOutcome(result)+'\n\n**SOURCE VERIFIED, BRANCH PUSHED — GitHub Actions cannot open PR under repository settings.**\n\nBranch: '+branch+'\nCompare: '+compareUrl+'\n'+evidenceAppendix(result));
+         process.stdout.write(JSON.stringify({issue:issue.number,status:'VERIFIED_BRANCH_PUSHED',branch,compareUrl,modelCalls:3,tests:'PASS',pr:'PENDING_REPOSITORY_POLICY'})+'\n');
+         return;
+       }
+       throw new Error('PUBLISH_FAILED_'+bin+'_'+message);
+     }
      if(bin==='gh')prOutput=cmd.stdout.trim();
    }
    await postComment(issue.number,reportOutcome(result)+'\n\nPull request: '+prOutput);
