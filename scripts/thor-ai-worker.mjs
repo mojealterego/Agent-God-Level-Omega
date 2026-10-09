@@ -28,14 +28,21 @@ export async function infer(messages, { token = process.env.GITHUB_TOKEN, fetchI
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
-      'Accept': 'application/vnd.github+json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({model: MODEL, messages, temperature: 0.2, max_tokens: 700}),
     signal: AbortSignal.timeout(120000)
   });
   if (!response.ok) throw new Error(`GitHub Models inference HTTP ${response.status}`);
-  const payload = await response.json();
+  const raw = await response.text();
+  let payload;
+  try { payload = JSON.parse(raw); }
+  catch {
+    const contentType = response.headers?.get?.('content-type') ?? 'unknown';
+    const preview = raw.replace(/[\\r\\n]/g,' ').slice(0,120);
+    throw new Error(`GitHub Models invalid JSON; status=${response.status}, contentType=${contentType}, bodyPreview=${preview}`);
+  }
   const result = payload?.choices?.[0]?.message?.content;
   if (typeof result !== 'string' || result.trim().length === 0) throw new Error('Empty model response');
   return result.trim().slice(0, 8000);
