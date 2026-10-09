@@ -162,3 +162,5 @@ jobs:
               raise RuntimeError('Post-delete verification failed: '+str(final))
           print('VERIFIED: ONLY main; no branch content paths missing; full CI passed')
           PY
+
+# Preserve main-branch-only governance after auditing all historical refs.
