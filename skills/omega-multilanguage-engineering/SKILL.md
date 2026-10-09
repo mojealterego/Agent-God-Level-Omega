@@ -40,3 +40,7 @@ Report only observed transitions. Mandatory test and QA failure gates cannot be 
 ## Deterministic compiler smoke (no provider credits)
 
 Dedicated GitHub Actions workflow `omega-engineering-sandbox-matrix.yml` runs `OMEGA_DOCKER_SMOKE=1 node --test tests/omega-engineering-docker-smoke.mjs` against Node, Python, Go and Rust in the same locked-down sandbox. This test verifies container language adapters and compiler execution independently of LLM quotas. **It does not represent new autonomous agent invocations.**
+
+### Observed compiler matrix evidence (2026-10-09)
+
+GitHub Actions run `37990126583` completed successfully after pull-through from Google's public OCI mirror, verifying all four real sandbox compiler/interpreter runs (JS, Python, Go, Rust) **4/4 PASS** and kernel/evidence/controller unit tests **26/26 PASS**. This is deterministic runtime certification; it is **not** four new LLM invocations. Existing THOR LLM gateway enforces owner OIDC and provider daily quota; a 429 means **BLOCKED**, not successful execution. The canonical GitHub THOR workflow pre-fetches the selected language image from the same verified mirror before spending provider model quota.
