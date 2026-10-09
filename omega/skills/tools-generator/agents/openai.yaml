@@ -1,0 +1,4 @@
+interface:
+  display_name: Tools Generator
+  short_description: Generuj kompletne serwery MCP
+  default_prompt: Zwaliduj kontrakt Tools Creator, wygeneruj kod serwera MCP i uruchom testy.

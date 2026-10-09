@@ -1,0 +1,28 @@
+{
+  "interface": {
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "category": "Developer Tools",
+    "defaultPrompt": [
+      "Zaprojektuj bezpieczne narz\u0119dzie MCP, utw\u00f3rz kontrakt JSON i zweryfikuj jego schemat.",
+      "Przygotuj kontrakt wielu narz\u0119dzi zgodny z Tools Generator, wraz z analiz\u0105 ryzyka.",
+      "Dodaj i zweryfikuj kontrakty narz\u0119dzi w Agent-God-Level-Omega wy\u0142\u0105cznie na main."
+    ],
+    "developerName": "Moje Alterego",
+    "displayName": "Tools Creator",
+    "longDescription": "Tworzy specyfikacje narz\u0119dzi w przeno\u015bnym formacie tool-contract v1, waliduje schematy, nazwy i adnotacje bezpiecze\u0144stwa, wykrywa kolizje nazw, dodaje narz\u0119dzia do katalogu i generuje SHA-256. Zapewnia zgodno\u015b\u0107 formatu z Tools Generator. Zawiera offline CLI bez potrzeby dost\u0119pu do lokalnego komputera podczas koncepcyjnej pracy w ChatGPT; uruchomienie CLI wymaga lokalnego Pythona. Nie udaje dzia\u0142ania niepod\u0142\u0105czonego zdalnego MCP.",
+    "shortDescription": "Projektuj narz\u0119dzia MCP"
+  },
+  "name": "tools-creator",
+  "version": "1.0.0",
+  "description": "OMEGA Tools Creator: projektuje i audytuje sprawdzalne kontrakty narz\u0119dzi MCP i przekazuje je do Tools Generator. Zawiera dzia\u0142aj\u0105ce CLI oraz testy.",
+  "author": {
+    "name": "Moje Alterego",
+    "email": "mojealterego21@gmail.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

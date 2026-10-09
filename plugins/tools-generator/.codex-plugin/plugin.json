@@ -1,0 +1,28 @@
+{
+  "interface": {
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "category": "Developer Tools",
+    "defaultPrompt": [
+      "Na podstawie kontraktu z Tools Creator wygeneruj kompletny serwer MCP Python wraz z testami.",
+      "Zbuduj implementacj\u0119 narz\u0119dzi z kontraktu, uruchom testy, poka\u017c ograniczenia i przygotuj paczk\u0119 ZIP.",
+      "Umie\u015b\u0107 wygenerowane, przetestowane narz\u0119dzia w repo Agent-God-Level-Omega na main."
+    ],
+    "developerName": "Moje Alterego",
+    "displayName": "Tools Generator",
+    "longDescription": "Generator kompletnego uruchamialnego serwera MCP SDK 2.x Python stdio na podstawie walidowanego kontraktu Tools Creator. Generuje serwer, niezale\u017cny silnik operacji, kontrakt JSON, instrukcj\u0119 instalacji, wymagania i testy. Obs\u0142uguje siedem bezpiecznych, deterministycznych operacji bez sieci i pow\u0142oki. Wsparcie Android/ChatGPT realizuje jako skill oraz materia\u0142 do repo OMEGA; wygenerowany serwer stdio nie jest zdalnym pod\u0142\u0105czonym serwerem ChatGPT.",
+    "shortDescription": "Generuj serwery MCP 2.x"
+  },
+  "name": "tools-generator",
+  "version": "1.0.0",
+  "description": "OMEGA Tools Generator: zamienia bezpieczne kontrakty Tools Creator na kompletne narz\u0119dzia i serwery MCP SDK 2.x stdio z testami.",
+  "author": {
+    "name": "Moje Alterego",
+    "email": "mojealterego21@gmail.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

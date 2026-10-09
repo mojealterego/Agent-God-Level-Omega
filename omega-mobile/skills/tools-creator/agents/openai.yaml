@@ -1,0 +1,4 @@
+interface:
+  display_name: Tools Creator
+  short_description: Projektuj bezpieczne narzędzia MCP
+  default_prompt: Zaprojektuj i zweryfikuj kontrakt narzędzia MCP wraz ze schematem wejścia i granicami uprawnień.
