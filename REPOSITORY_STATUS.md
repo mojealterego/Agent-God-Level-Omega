@@ -39,4 +39,9 @@
 - Canonical skill: `omega/skills/plugin-collector-agent/`
 - Scheduled scan: every 3 days through ChatGPT Tasks; catalog discovery is automatic, final plugin install/connect remains user-approved by platform design.
 
-- Plugin Collector MCP source: GitHub MCP Registry pages 1-7; current snapshot observed 164 listed MCP servers, with remote/hosted vs local/stdio classification before ChatGPT installation suggestions.
+- Plugin Collector MCP source: GitHub MCP Registry pages 1-7; live registry snapshot observed 394 total servers.
+
+- MCP Registry repository import: 210/210 plugin source copies from pages 1-7 are present under `plugins/*-mcp-registry/`.
+- MCP Registry OMEGA integration: 210/210 corresponding skills are present under `omega/skills/*-mcp-registry/`.
+- MCP Registry integrity coverage: `omega/SHA256SUMS.txt` contains 420 checksum entries for the imported SKILL/reference files.
+- MCP Registry generated companions intentionally omit packaged `mcp.json` / `.mcp.json`; live MCP execution requires a verified app binding or separately connected remote MCP endpoint.
