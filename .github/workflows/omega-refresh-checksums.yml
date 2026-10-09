@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: omega-refresh-checksums-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -21,15 +25,31 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Rebuild SHA256SUMS
+      - name: Sync release counts and rebuild SHA256SUMS
         shell: bash
         run: |
           set -euo pipefail
+          git pull --ff-only origin main
           python3 - <<'PY'
           from pathlib import Path
           import hashlib
+          import json
 
           root = Path("omega")
+          verification_path = root / "FINAL_VERIFICATION.json"
+          verification = json.loads(verification_path.read_text(encoding="utf-8"))
+          verification["counts"] = {
+              "skills": len(list((root / "skills").glob("*/SKILL.md"))),
+              "references": len(list((root / "references").glob("*.md"))),
+              "schemas": len(list((root / "schemas").glob("*.json"))),
+          }
+          verification["verification_state"] = "awaiting_ci"
+          verification["package_validator"] = "PENDING_CI"
+          verification_path.write_text(
+              json.dumps(verification, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
           lines = []
           for path in sorted(
               p for p in root.rglob("*")
@@ -39,7 +59,7 @@ jobs:
               digest = hashlib.sha256(path.read_bytes()).hexdigest()
               lines.append(f"{digest}  {rel}")
           (root / "SHA256SUMS.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
-          print(f"wrote {len(lines)} checksum entries")
+          print(f"counts={verification['counts']} checksums={len(lines)}")
           PY
 
       - name: Validate package
@@ -52,16 +72,16 @@ jobs:
           cp -a omega/. "$pkg/"
           python3 "$pkg/scripts/validate_package.py"
 
-      - name: Commit refreshed checksums to main
+      - name: Commit synchronized release metadata to main
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "omega-checksum-bot"
           git config user.email "omega-checksum-bot@users.noreply.github.com"
-          git add omega/SHA256SUMS.txt
+          git add omega/FINAL_VERIFICATION.json omega/SHA256SUMS.txt
           if git diff --cached --quiet; then
-            echo "Checksums already current."
+            echo "Release metadata already current."
             exit 0
           fi
-          git commit -m "chore(main): refresh OMEGA checksums"
+          git commit -m "chore(main): sync OMEGA release metadata"
           git push origin HEAD:main
