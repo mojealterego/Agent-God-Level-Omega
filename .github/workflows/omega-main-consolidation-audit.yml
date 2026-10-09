@@ -1,0 +1,102 @@
+name: OMEGA Main Consolidation Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/omega-main-consolidation-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout all committed histories
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Compare all branch contributions to main without altering files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin '+refs/heads/*:refs/remotes/origin/*'
+          python3 - <<'PY'
+          import collections
+          import json
+          import pathlib
+          import subprocess
+          import tempfile
+
+          root=pathlib.Path.cwd()
+          baseline='907646df52ee08993e8336991b8aec287c3d523b'
+          branches=[b.removeprefix('origin/') for b in subprocess.check_output(
+              ['git','branch','-r','--format=%(refname:short)'],text=True
+          ).splitlines() if b.strip() and b.strip()!='origin/main' and not b.endswith('/HEAD')]
+          def cmd(*args,check=True):
+              return subprocess.run(['git',*args],capture_output=True,check=check)
+          def blob(ref,path):
+              result=cmd('show',f'{ref}:{path}',check=False)
+              return result.stdout if result.returncode==0 else None
+          def changed(ref,head):
+              b=cmd('diff','--name-only','-z',ref,head).stdout
+              return [x.decode() for x in b.split(b'\0') if x]
+          report={'main':cmd('rev-parse','main').stdout.decode().strip(),'branches':{},
+                  'needs_review':[],'auto_mergeable':[],'already_identical':[],'total_paths_checked':0}
+          for branch in sorted(branches):
+              ref=f'origin/{branch}'
+              ancestor=cmd('merge-base',baseline,ref).stdout.decode().strip()
+              paths=changed(ancestor,ref)
+              entries=[]
+              for path in paths:
+                  report['total_paths_checked']+=1
+                  ours=blob('main',path)
+                  theirs=blob(ref,path)
+                  origin=blob(ancestor,path)
+                  if ours==theirs:
+                      state='identical_in_main'
+                      report['already_identical'].append(path)
+                  elif ours is None or theirs is None or origin is None or b'\0' in ours+theirs+origin:
+                      state='review_binary_or_add_collision'
+                      report['needs_review'].append({'branch':branch,'path':path,'reason':state})
+                  else:
+                      with tempfile.TemporaryDirectory() as temp:
+                          tmp=pathlib.Path(temp)
+                          for n,data in [('ours',ours),('base',origin),('theirs',theirs)]:
+                              (tmp/n).write_bytes(data)
+                          merged=cmd('merge-file','-p','-L','main','-L','common-ancestor',
+                                     '-L',branch,str(tmp/'ours'),str(tmp/'base'),str(tmp/'theirs'),check=False)
+                          if merged.returncode==0:
+                              if merged.stdout==ours:
+                                  state='already_integrated_into_main'
+                              else:
+                                  state='auto_merge_would_change_main'
+                                  report['auto_mergeable'].append({'branch':branch,'path':path,
+                                      'added_bytes':len(merged.stdout)-len(ours)})
+                          else:
+                              state='overlapping_edits_need_review'
+                              report['needs_review'].append({'branch':branch,'path':path,'reason':state})
+                  entries.append({'path':path,'state':state})
+              report['branches'][branch]={'head':cmd('rev-parse',ref).stdout.decode().strip(),
+                  'base':ancestor,'changes':entries}
+          output=root/'omega-consolidation-audit.json'
+          output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+          counts=collections.Counter(x['state'] for b in report['branches'].values() for x in b['changes'])
+          print('OMEGA CONSOLIDATION AUDIT')
+          print(json.dumps({'branch_count':len(branches),'paths_checked':report['total_paths_checked'],
+              'states':dict(counts),'review_count':len(report['needs_review']),
+              'auto_merge_count':len(report['auto_mergeable'])},indent=2))
+          for e in report['needs_review']:
+              print('REVIEW',e['branch'],e['path'],e['reason'])
+          for e in report['auto_mergeable']:
+              print('MERGEABLE',e['branch'],e['path'])
+          PY
+      - name: Upload audit evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: omega-branch-content-audit
+          path: omega-consolidation-audit.json
+          retention-days: 30
