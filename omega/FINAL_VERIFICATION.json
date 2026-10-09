@@ -1,7 +1,7 @@
 {
   "version": "25.1.1",
   "status": "SAVED_RELEASE_PENDING_ANDROID_UI_VERIFY",
-  "verification_state": "package_validated_host_ui_pending",
+  "verification_state": "awaiting_ci",
   "baseline_test_suite": {
     "passed": 405,
     "failed": 0,
@@ -32,9 +32,9 @@
     "WDA deterministic masked post-compositing requires ImageMagick at runtime.",
     "Hosted MCP 2.0 Extensions become runtime-active only after a verified public HTTPS deployment and persistent store binding."
   ],
-  "package_validator": "LOCAL_PASS",
+  "package_validator": "PENDING_CI",
   "counts": {
-    "skills": 398,
+    "skills": 399,
     "references": 83,
     "schemas": 110
   },
