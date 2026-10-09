@@ -1,0 +1,97 @@
+name: Package Final OMEGA
+
+on:
+  push:
+    paths:
+      - ".github/workflows/package-final-omega.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build cumulative OMEGA package
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf build
+          mkdir -p build/omega-omni-cognitive-engineering-v2
+          cp -a omega/. build/omega-omni-cognitive-engineering-v2/
+
+          python - <<'PY'
+          from pathlib import Path
+          import json, hashlib
+
+          root = Path("build/omega-omni-cognitive-engineering-v2")
+          version = "25.1.0"
+          description = (
+              "OMEGA v25.1 cumulative full-system sync containing the complete canonical OMEGA state "
+              "from Agent-God-Level-Omega, including all prior agents, skills, hooks, tools, MCP/control-plane "
+              "layers, OpenAI Events/Extensions, voice, OSINT, ROLLO, Railway, Pingram, Tools Fabric, "
+              "Plugin Collector and 210 GitHub MCP Registry companions."
+          )
+
+          for rel in ["plugin.json", ".codex-plugin/plugin.json"]:
+              p = root / rel
+              data = json.loads(p.read_text(encoding="utf-8"))
+              data["version"] = version
+              data["description"] = description
+              iface = data.get("interface")
+              if iface is None:
+                  iface = ((data.get("extensions") or {}).get("com.openai") or {}).get("interface")
+              if isinstance(iface, dict):
+                  iface["displayName"] = "OMEGA Omni-Cognitive Engineering v25.1"
+                  iface["shortDescription"] = "Cumulative Full-System Sync"
+                  iface["longDescription"] = (
+                      "OMEGA v25.1 is the cumulative canonical release. It preserves the complete prior OMEGA/ASGARD "
+                      "engineering, cognitive, assurance, media, automation and control-plane stack and adds every "
+                      "repository-backed extension currently present, including OpenAI Events/Extensions, Voice Concierge, "
+                      "OSINT Seeker, grant/hackathon/Lovable layers, ROLLO, Railway, Pingram, Tools Fabric, Plugin Collector "
+                      "and 210 GitHub MCP Registry companions."
+                  )
+              p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+          validator = root / "scripts" / "validate_package.py"
+          text = validator.read_text(encoding="utf-8")
+          text = text.replace('manifest.get("version") != "25.0.0"', 'manifest.get("version") != "25.1.0"')
+          validator.write_text(text, encoding="utf-8")
+
+          readme = root / "README.md"
+          current = readme.read_text(encoding="utf-8")
+          marker = "## OMEGA v25.1 cumulative final sync"
+          if marker not in current:
+              current += (
+                  "\n\n## OMEGA v25.1 cumulative final sync\n\n"
+                  "This release is built from the complete current canonical `omega/` tree. "
+                  "It includes all previous OMEGA layers plus the latest agents, hooks, tools, MCP servers, "
+                  "OpenAI Events/Extensions, Voice Concierge, OSINT Seeker, ROLLO, Railway, Pingram, Tools Fabric, "
+                  "Plugin Collector and 210 GitHub MCP Registry companions.\n"
+              )
+              readme.write_text(current, encoding="utf-8")
+
+          sums = []
+          for p in sorted(root.rglob("*")):
+              if p.is_file() and p.name != "SHA256SUMS.txt":
+                  rel = p.relative_to(root).as_posix()
+                  sums.append(f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {rel}")
+          (root / "SHA256SUMS.txt").write_text("\n".join(sums) + "\n", encoding="utf-8")
+          PY
+
+          cd build/omega-omni-cognitive-engineering-v2
+          python scripts/validate_package.py
+          cd ../..
+          tar -C build/omega-omni-cognitive-engineering-v2 -czf final-omega-25.1.0.tar.gz .
+
+      - name: Upload final OMEGA package
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-omega-25.1.0
+          path: final-omega-25.1.0.tar.gz
+          if-no-files-found: error
+          retention-days: 7
