@@ -64,6 +64,14 @@
         "${PLUGIN_ROOT}/mcp/locally-uncensored-flow/src/server.mjs"
       ],
       "cwd": "${PLUGIN_ROOT}/mcp/locally-uncensored-flow"
+    },
+    "omega-hackathon-submission-architect": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/mcp/hackathon-submission-architect/src/server.mjs"
+      ],
+      "cwd": "${PLUGIN_ROOT}/mcp/hackathon-submission-architect"
     }
   }
 }
