@@ -1,7 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -euo pipefail
 
-TUNNEL_CLIENT_VERSION="${OMEGA_TUNNEL_CLIENT_VERSION:-v0.0.15}"
+TUNNEL_CLIENT_VERSION="${OMEGA_TUNNEL_CLIENT_VERSION:-latest}"
+RESOLVED_TUNNEL_CLIENT_VERSION=""
 PLUGIN_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BIN_DIR="$HOME/.local/bin"
 DATA_DIR="$HOME/.local/share/omega-mcp"
@@ -41,19 +42,25 @@ case "$(uname -m)" in
 esac
 
 install_tunnel_client_release() {
-  local tmp release_json asset_url checksum_url asset_name expected actual binary
+  local tmp release_json release_url asset_url checksum_url asset_name expected actual binary
   tmp="$(mktemp -d "${TMPDIR:-$PREFIX/tmp}/omega-tunnel.XXXXXX")"
   trap 'rm -rf "$tmp"' RETURN
 
   release_json="$tmp/release.json"
-  curl -fsSL --retry 3 --retry-delay 1 \
-    "https://api.github.com/repos/openai/tunnel-client/releases/tags/${TUNNEL_CLIENT_VERSION}" \
-    -o "$release_json"
+  if [ "$TUNNEL_CLIENT_VERSION" = "latest" ]; then
+    release_url="https://api.github.com/repos/openai/tunnel-client/releases/latest"
+  else
+    release_url="https://api.github.com/repos/openai/tunnel-client/releases/tags/${TUNNEL_CLIENT_VERSION}"
+  fi
+  curl -fsSL --retry 3 --retry-delay 1 "$release_url" -o "$release_json"
 
   readarray -t resolved < <(python - "$release_json" "$platform" <<'PY'
 import json, sys
 path, platform = sys.argv[1:]
 data = json.load(open(path, encoding='utf-8'))
+tag = data.get('tag_name', '')
+if not tag:
+    raise SystemExit('release tag_name missing')
 assets = data.get('assets', [])
 full = []
 checks = []
@@ -66,14 +73,16 @@ for asset in assets:
         full.append((name, url))
 if len(full) != 1 or len(checks) != 1:
     raise SystemExit(f'could not uniquely resolve full tunnel-client asset for {platform}')
+print(tag)
 print(full[0][0])
 print(full[0][1])
 print(checks[0][1])
 PY
   )
-  asset_name="${resolved[0]}"
-  asset_url="${resolved[1]}"
-  checksum_url="${resolved[2]}"
+  RESOLVED_TUNNEL_CLIENT_VERSION="${resolved[0]}"
+  asset_name="${resolved[1]}"
+  asset_url="${resolved[2]}"
+  checksum_url="${resolved[3]}"
 
   curl -fsSL --retry 3 --retry-delay 1 "$asset_url" -o "$tmp/$asset_name"
   curl -fsSL --retry 3 --retry-delay 1 "$checksum_url" -o "$tmp/SHA256SUMS.txt"
@@ -93,7 +102,9 @@ build_tunnel_client_from_source() {
   pkg install -y golang
   local tmp
   tmp="$(mktemp -d "${TMPDIR:-$PREFIX/tmp}/omega-tunnel-src.XXXXXX")"
-  git clone --quiet --depth 1 --branch "$TUNNEL_CLIENT_VERSION" https://github.com/openai/tunnel-client.git "$tmp/tunnel-client"
+  local source_ref="${RESOLVED_TUNNEL_CLIENT_VERSION:-$TUNNEL_CLIENT_VERSION}"
+  [ "$source_ref" != "latest" ] || fail "could not resolve latest tunnel-client tag for source fallback"
+  git clone --quiet --depth 1 --branch "$source_ref" https://github.com/openai/tunnel-client.git "$tmp/tunnel-client"
   (
     cd "$tmp/tunnel-client"
     go build -o "$BIN_DIR/tunnel-client" ./cmd/client
@@ -116,5 +127,6 @@ esac
 printf '\nOMEGA Termux installed. Next commands:\n'
 printf '  export PATH="$HOME/.local/bin:$PATH"\n'
 printf '  omega-termux configure\n'\nprintf '  omega-termux knowledge-setup\n'
+printf '  omega-termux doctor\n'
 printf '  omega-termux connect\n'
 printf '  omega-termux status\n'
