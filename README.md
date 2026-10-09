@@ -131,3 +131,7 @@ The repository now contains **210 generated cross-platform MCP companion plugins
 - Live server access remains conditional on a verified native ChatGPT app binding or a separately connected remote MCP endpoint.
 
 The live GitHub MCP Registry showed **394 total servers** when this import was prepared; this repository import intentionally covers the **210 entries visible on pages 1–7** supplied for this task.
+
+## Repository-wide component inventory and single-system direction
+
+The canonical repository has one working branch, `main`. Its skill definitions span `omega/`, `omega-mobile/` and `plugins/`; see [COMPONENT_INVENTORY.md](COMPONENT_INVENTORY.md) for the audited physical counts and copy-aware methodology. The planned end state is a single integrated OMEGA system and application rather than independently proliferating agent or plugin packages. New evidence from links and documents must extend existing implementations when possible; new components require a verified functional gap.

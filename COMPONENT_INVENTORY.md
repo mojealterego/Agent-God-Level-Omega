@@ -31,3 +31,9 @@ The 806 physical skill files include mirrored and plugin-distributed copies. Dis
 - Android knowledge bridge, phone knowledge root, and Termux secure MCP tunnel: canonical main implementations retained; older branch behavior for text `offset` pagination and `OMEGA-KNOWLEDGE` folder fallback restored into the current runtime instead of replacing it with older code.
 - Asgard Heimdall cloud-offer seed and GitHub Absolute Automation/Jekyll plugin: relevant source entries already present on `main` at matching blob hashes; outdated branch-level release metadata, workflow-action versions and README text were not used to overwrite more recent main versions.
 - `omega-mobile/mcp/omega-control-plane/src/core/knowledge-folder.mjs` and its tests are present for compatibility, alongside the newer `PhoneKnowledgeRoot`; no duplicate MCP routes added.
+
+## Single-branch verification result
+
+On 2026-10-09, after the source-compatibility gates and full OMEGA CI passed, GitHub branch enumeration returned exactly one ref: `main`. The 11 legacy branch heads remain ancestors of the main merge history, with their original commit objects and source trees reachable through Git history. 103 branch-changed source paths were examined by the consolidation gate; all exist on main. New capability regressions were repaired in the active mobile runtime instead of copying older files or duplicating MCP endpoints.
+
+The actual complete **single unified runtime/application** is not claimed as finished; future source integration and packaging must proceed on `main` only.
