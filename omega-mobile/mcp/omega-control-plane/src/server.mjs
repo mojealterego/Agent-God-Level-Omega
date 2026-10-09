@@ -181,6 +181,65 @@ export function createServer(context = {}) {
   );
 
   server.registerTool(
+    'omega_knowledge_info',
+    {
+      description: 'Report whether the read-only phone knowledge folder is configured and which file types can be extracted.',
+      inputSchema: z.object({})
+    },
+    async () => invoke(() => plane.knowledgeInfo())
+  );
+
+  server.registerTool(
+    'omega_knowledge_list',
+    {
+      description: 'List files and folders under the configured phone knowledge root without exposing files outside it.',
+      inputSchema: z.object({
+        path: z.string().default(''),
+        recursive: z.boolean().default(false),
+        maxEntries: z.number().int().min(1).max(20000).default(1000)
+      })
+    },
+    async (input) => invoke(() => plane.knowledgeList(input))
+  );
+
+  server.registerTool(
+    'omega_knowledge_metadata',
+    {
+      description: 'Return read-only metadata for one path under the configured phone knowledge root.',
+      inputSchema: z.object({ path: z.string().min(1) })
+    },
+    async (input) => invoke(() => plane.knowledgeMetadata(input))
+  );
+
+  server.registerTool(
+    'omega_knowledge_read',
+    {
+      description: 'Extract bounded text from TXT/MD/HTML/JSON/code/PDF/DOCX/ODT files under the configured phone knowledge root.',
+      inputSchema: z.object({
+        path: z.string().min(1),
+        maxBytes: z.number().int().min(1).max(4194304).default(1048576)
+      })
+    },
+    async (input) => invoke(() => plane.knowledgeRead(input))
+  );
+
+  server.registerTool(
+    'omega_knowledge_search',
+    {
+      description: 'Search supported documents under the configured phone knowledge root using bounded read-only extraction.',
+      inputSchema: z.object({
+        query: z.string().min(1).max(512),
+        path: z.string().default(''),
+        recursive: z.boolean().default(true),
+        maxFiles: z.number().int().min(1).max(2000).default(250),
+        maxMatches: z.number().int().min(1).max(500).default(100),
+        maxBytesPerFile: z.number().int().min(1024).max(1048576).default(262144)
+      })
+    },
+    async (input) => invoke(() => plane.knowledgeSearch(input))
+  );
+
+  server.registerTool(
     'omega_artifact_inspect',
     {
       description: 'Verify a local artifact inside workspace roots and return immutable size, extension, timestamp and SHA-256 metadata.',
