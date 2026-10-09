@@ -46,13 +46,15 @@ Use the native tunnel runtime lifecycle where operator execution is available:
 
 ```text
 omega-termux configure
+omega-termux knowledge-setup
+omega-termux doctor
 omega-termux connect
 omega-termux status
 ```
 
-The runtime key must stay local to the device. Never ask the user to paste the key into chat.
+The runtime key must stay local to the device. Never ask the user to paste the key into chat. `omega-termux doctor` must refresh the official `sample_mcp_stdio_local` profile and run `tunnel-client doctor --profile omega-termux --explain` before managed-runtime startup.
 
-Treat the runtime as connected only when status proves the process is running and health/readiness are surfaced. If the runtime is offline, report the tunnel as unavailable rather than claiming tool execution.
+Treat the runtime as connected only when the managed-runtime status proves the process is running and health/readiness are surfaced. A successful `doctor --explain` is a preflight result, not proof that the long-lived runtime is still running. If the runtime is offline, report the tunnel as unavailable rather than claiming tool execution.
 
 ## Android routing
 

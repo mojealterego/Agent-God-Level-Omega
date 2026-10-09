@@ -2,6 +2,7 @@
 set -euo pipefail
 
 ALIAS="${OMEGA_TUNNEL_ALIAS:-omega-termux}"
+PROFILE="${OMEGA_TUNNEL_PROFILE:-omega-termux}"
 CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/omega"
 TUNNEL_ID_FILE="$CONFIG_DIR/tunnel_id"
 RUNTIME_KEY_FILE="$CONFIG_DIR/runtime_api_key"
@@ -118,8 +119,35 @@ configure() {
   printf 'Configured %s. Secret stored only in %s with mode 0600.\n' "$tunnel_id" "$RUNTIME_KEY_FILE"
 }
 
+prepare_profile() {
+  require_binary
+  local tunnel_id runtime_key
+  tunnel_id="$(read_tunnel_id)"
+  runtime_key="$(read_runtime_key)"
+  export CONTROL_PLANE_API_KEY="$runtime_key"
+  "$TUNNEL_CLIENT" init \
+    --sample sample_mcp_stdio_local \
+    --profile "$PROFILE" \
+    --tunnel-id "$tunnel_id" \
+    --mcp-command "$MCP_COMMAND" \
+    --health-listen-addr 127.0.0.1:0 \
+    --force
+  unset CONTROL_PLANE_API_KEY runtime_key
+}
+
+doctor_runtime() {
+  require_binary
+  prepare_profile
+  local runtime_key
+  runtime_key="$(read_runtime_key)"
+  export CONTROL_PLANE_API_KEY="$runtime_key"
+  "$TUNNEL_CLIENT" doctor --profile "$PROFILE" --explain
+  unset CONTROL_PLANE_API_KEY runtime_key
+}
+
 connect_runtime() {
   require_binary
+  doctor_runtime
   local tunnel_id runtime_key
   tunnel_id="$(read_tunnel_id)"
   runtime_key="$(read_runtime_key)"
@@ -153,6 +181,7 @@ show_config() {
   local tunnel_id='not-configured'
   if [ -f "$TUNNEL_ID_FILE" ]; then tunnel_id="$(cat "$TUNNEL_ID_FILE")"; fi
   printf 'alias=%s\n' "$ALIAS"
+  printf 'profile=%s\n' "$PROFILE"
   printf 'tunnel_id=%s\n' "$tunnel_id"
   printf 'mcp_command=%s\n' "$MCP_COMMAND"
   printf 'runtime_key_file=%s\n' "$RUNTIME_KEY_FILE"
@@ -180,7 +209,8 @@ Usage: omega-termux <command>
 
 Commands:
   configure   Store tunnel id and runtime API key locally (0600)
-  connect     Start/reconcile the managed Secure MCP Tunnel runtime and print status
+  doctor      Build/refresh the official stdio profile and run doctor --explain
+  connect     Run doctor, then start/reconcile the managed Secure MCP Tunnel runtime
   status      Print managed runtime health/readiness JSON
   stop        Stop only the local managed runtime; remote tunnel remains
   remove      Remove the local runtime alias; remote tunnel remains
@@ -195,6 +225,7 @@ USAGE
 
 case "${1:-}" in
   configure) configure ;;
+  doctor) doctor_runtime ;;
   connect|start) connect_runtime ;;
   status) status_runtime ;;
   stop) stop_runtime ;;
