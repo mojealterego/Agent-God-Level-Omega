@@ -1,7 +1,12 @@
-# Plugin Collector Agent
+# Plugin Collector Agent v0.2.0
 
-Cross-platform ChatGPT Plugin Directory scanner.
+Cross-platform collector for:
 
-The agent searches broad catalog categories, de-duplicates exact plugin IDs, filters already-installed entries and surfaces up to 10 installation suggestions per scan. A scheduled ChatGPT task runs the scan every three days.
+- ChatGPT Plugin Directory
+- GitHub MCP Registry pages 1-7
 
-Installation or OAuth connection still requires the user's explicit action in the ChatGPT UI.
+It discovers uninstalled ChatGPT plugins, classifies MCP servers as remote/hosted versus local/stdio, searches for ChatGPT-native equivalents, and surfaces up to 10 official installation suggestions per scan.
+
+A ChatGPT scheduled task performs the scan every three days. Final installation/connection remains a user-approved host action.
+
+This package contains no `mcp.json` and does not create a desktop-only runtime dependency.

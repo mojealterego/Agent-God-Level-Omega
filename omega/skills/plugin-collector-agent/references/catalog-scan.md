@@ -1,4 +1,4 @@
-# Catalog scan taxonomy
+# ChatGPT Plugin Directory scan taxonomy
 
 Use multiple concise searches. De-duplicate by exact plugin ID.
 
@@ -116,7 +116,8 @@ app builder
 
 ## Selection
 After searches:
-- keep only exact catalog results with `installed == false`;
+- keep exact catalog results with `installed == false`;
 - prioritize `installation_policy == AVAILABLE`;
 - skip disabled/unavailable results;
-- suggest no more than 10 per run.
+- suggest no more than 10 per run;
+- for MCP-provider names discovered in GitHub Registry, perform an additional exact provider/name search here.

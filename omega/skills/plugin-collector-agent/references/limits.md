@@ -1,10 +1,9 @@
 # Platform limits
 
-Current Plugin Management behavior relevant to this agent:
-
-- `search_plugins` is search/query based, not a guaranteed exhaustive list-all API.
-- `suggest_plugins` can contain at most 10 plugin IDs per call.
-- `suggest_plugins` should be called at most once per conversation turn.
-- Installing or connecting a plugin always requires the user's explicit action in the ChatGPT UI.
-- The agent must not claim a plugin is installed merely because it was suggested.
-- Account authorization/OAuth may still be required after installation.
+- ChatGPT Plugin Management search is query-based, not a guaranteed exhaustive list-all API.
+- `suggest_plugins` accepts at most 10 plugin IDs per call and should be called at most once per turn.
+- Installing/connecting a ChatGPT plugin requires user action in the UI.
+- GitHub MCP Registry can contain local, stdio, remote, hosted and hybrid servers.
+- Registry presence does not prove ChatGPT compatibility.
+- A remote MCP endpoint still needs supported host connection/authentication.
+- Never create a fake `.app.json` binding or invented app ID for a registry-only server.

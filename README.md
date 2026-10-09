@@ -113,6 +113,6 @@ Package 2 contains 321 supplied entries (318 unique application names), covering
 
 ## Plugin Collector Agent
 
-The repository contains **Plugin Collector Agent v0.1.0** under [`plugins/plugin-collector-agent/`](./plugins/plugin-collector-agent/). Its canonical OMEGA skill is mirrored under [`omega/skills/plugin-collector-agent/`](./omega/skills/plugin-collector-agent/).
+The repository contains **Plugin Collector Agent v0.2.0** under [`plugins/plugin-collector-agent/`](./plugins/plugin-collector-agent/). Its canonical OMEGA skill is mirrored under [`omega/skills/plugin-collector-agent/`](./omega/skills/plugin-collector-agent/).
 
-The agent scans the ChatGPT Plugin Directory across a broad taxonomy, de-duplicates plugin IDs, filters already-installed entries and surfaces installation suggestions in batches of up to 10. A ChatGPT scheduled task runs the scan every three days. Final installation/connection remains a host-level user approval action.
+The agent scans the ChatGPT Plugin Directory and GitHub MCP Registry pages 1-7, de-duplicates entries, classifies MCP servers as ChatGPT-native, remote/hosted, local/stdio or hybrid/unknown, filters already-installed plugins and surfaces installation suggestions in batches of up to 10. A ChatGPT scheduled task runs the combined scan every three days. Final installation/connection remains a host-level user approval action.

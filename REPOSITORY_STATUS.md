@@ -35,6 +35,8 @@
 
 - ROLLO package 2 inventory: 321 supplied entries / 318 unique application names; stored in `plugins/rollo-s24-ultra-agent/skills/rollo-s24-ultra-agent/references/app-inventory-2.md` and routed by `app-matrix-2.md`.
 
-- Additional plugin source: `plugins/plugin-collector-agent/` (Plugin Collector Agent v0.1.0)
+- Additional plugin source: `plugins/plugin-collector-agent/` (Plugin Collector Agent v0.2.0)
 - Canonical skill: `omega/skills/plugin-collector-agent/`
 - Scheduled scan: every 3 days through ChatGPT Tasks; catalog discovery is automatic, final plugin install/connect remains user-approved by platform design.
+
+- Plugin Collector MCP source: GitHub MCP Registry pages 1-7; current snapshot observed 164 listed MCP servers, with remote/hosted vs local/stdio classification before ChatGPT installation suggestions.
