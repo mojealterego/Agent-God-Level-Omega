@@ -50,3 +50,8 @@ The actual complete **single unified runtime/application** is not claimed as fin
 ## OMEGA v25.1.1 package parity preservation gate — 2026-10-09
 
 The user-owned release `plugins_6ac3729e2b1c8191aaa1cb728f43183f` is the source-of-truth baseline for the recovery guard. `recovery/baselines/omega-v25.1.1.sha256` holds 1037 original source checksums and `omega-v25.1.1-extras.json` requires 2 additional non-generated source paths (including the mobile-runtime compatibility skill). A transient CPython `.pyc` cache is intentionally excluded. CI verifies that **all 1039 required source files still exist**, computes actual SHA-256 digests, and reports changes separately instead of overwriting newer `main` versions. This is a source-preservation gate, not a proof that all services are deployed or functioning.
+
+
+## Byte-for-byte historical branch restoration — 2026-10-09
+
+The eleven original branch heads remain available as GitHub refs. **448 branch-specific missing-or-different file versions** were restored as SHA-identical blobs under `recovery/historical-source-versions/`, preserving 111 distinct historical Git blob contents (see its `MANIFEST.json`). No active `omega/` implementation was replaced by an older copy. These archival duplicates are excluded from the active-skill directory counts above. GitHub CI verifies all 448 archived files against their original Git blob hashes; runtime-level reconciliation remains separate.
