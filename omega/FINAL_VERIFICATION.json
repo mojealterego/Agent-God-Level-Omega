@@ -34,7 +34,7 @@
   ],
   "package_validator": "PENDING_CI",
   "counts": {
-    "skills": 175,
+    "skills": 177,
     "references": 83,
     "schemas": 110
   },
@@ -78,5 +78,31 @@
       "rich_forms": "desktop-web",
       "deep_links": "desktop-web-ios"
     }
+  },
+  "corpus_batch_001": {
+    "sources": [
+      "MASTER PROMPT — AI ARCHITEKT BIZNESPLANÓW I WNIOSKÓW DOTACYJNYCH.md",
+      "Omni-Architect & ImandraX Synthesis Engine — System Prompt v2.0.md",
+      "WDA Ω∞.md",
+      "MASTER_OS_ULTIMATE (1).md"
+    ],
+    "new_agents": [
+      "omega-grant-business-architect",
+      "omega-visual-architect"
+    ],
+    "new_skills": [
+      "omega-grant-business-architect",
+      "omega-visual-architect"
+    ],
+    "new_tool": "omega/tools/grant-business-architect/grant-math.mjs",
+    "new_hook": "omega/hooks/grant-business-architect.mjs",
+    "new_mcp_server": "omega/mcp/grant-business-architect",
+    "main_mcp_tool": "omega_grant_business_architect",
+    "deduplicated_extensions": [
+      "omega-omni-architect-competency-plane",
+      "omega-omni-orchestrator",
+      "omega-checkpoint-resume-engine",
+      "omega-reality-filter-kernel"
+    ]
   }
 }
