@@ -8,7 +8,7 @@ import { buildCiCommand } from '../adapters/ci.mjs';
 import { buildContainerRun } from '../adapters/container.mjs';
 import { buildAdbCommand, buildEmulatorCommand } from '../adapters/android.mjs';
 import { detectHostProfile } from './host.mjs';
-import { VoiceConciergeRuntime } from '../communications/voice-concierge.mjs';
+import { VoiceConciergeRuntime } from '../communications/voice-concierge.mjs';\nimport { PhoneKnowledgeRoot } from '../knowledge/phone-knowledge-root.mjs';
 
 function parseRoots(value) {
   if (!value) return [process.cwd()];
@@ -16,10 +16,10 @@ function parseRoots(value) {
 }
 
 export class OmegaControlPlane {
-  constructor({ workspaceRoots = parseRoots(process.env.OMEGA_WORKSPACE_ROOTS), policy } = {}) {
+  constructor({ workspaceRoots = parseRoots(process.env.OMEGA_WORKSPACE_ROOTS), policy, knowledgeRoot = process.env.OMEGA_KNOWLEDGE_ROOT, knowledgeRuntime } = {}) {
     this.workspaceRoots = workspaceRoots.map((root) => resolve(root));
     this.policy = policy ?? new Policy({ workspaceRoots: this.workspaceRoots });
-    this.voiceConciergeRuntime = new VoiceConciergeRuntime();
+    this.voiceConciergeRuntime = new VoiceConciergeRuntime();\n    this.knowledgeRuntime = knowledgeRuntime ?? (knowledgeRoot ? new PhoneKnowledgeRoot({ root: knowledgeRoot }) : null);
   }
 
   capabilities() {
@@ -27,7 +27,7 @@ export class OmegaControlPlane {
   }
 
   hostInfo() {
-    return { ...detectHostProfile(), workspaceRoots: [...this.workspaceRoots] };
+    return { ...detectHostProfile(), workspaceRoots: [...this.workspaceRoots], knowledgeRootConfigured: Boolean(this.knowledgeRuntime) };
   }
 
   terminalRun(input) {
