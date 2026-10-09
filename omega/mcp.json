@@ -40,6 +40,30 @@
         "${PLUGIN_ROOT}/mcp/openai-agents-assurance/src/server.mjs"
       ],
       "cwd": "${PLUGIN_ROOT}/mcp/openai-agents-assurance"
+    },
+    "omega-dgm-self-evolution": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/mcp/dgm-self-evolution/src/server.mjs"
+      ],
+      "cwd": "${PLUGIN_ROOT}/mcp/dgm-self-evolution"
+    },
+    "omega-osint-seeker": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/mcp/osint-seeker/src/server.mjs"
+      ],
+      "cwd": "${PLUGIN_ROOT}/mcp/osint-seeker"
+    },
+    "omega-locally-uncensored-flow": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/mcp/locally-uncensored-flow/src/server.mjs"
+      ],
+      "cwd": "${PLUGIN_ROOT}/mcp/locally-uncensored-flow"
     }
   }
 }
