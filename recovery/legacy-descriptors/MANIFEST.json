@@ -1,0 +1,21 @@
+{
+  "why": "Both original MCP descriptors occurred in historical feature branches but were removed from the active plugin root intentionally in OMEGA v25.1.1 mobile-safe packaging. Exact original content is preserved here.",
+  "source_ref": "feat/phone-knowledge-root-mcp",
+  "sources": [
+    {
+      "original_path": "omega/mcp.json",
+      "git_blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "restored_backup_path": "recovery/legacy-descriptors/mcp.json"
+    },
+    {
+      "original_path": "omega/.mcp.json",
+      "git_blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "restored_backup_path": "recovery/legacy-descriptors/dot-mcp.json"
+    }
+  ],
+  "canonical_active_desktop_descriptors": [
+    "omega/references/desktop-mcp.json",
+    "omega/references/desktop-dot-mcp.json"
+  ],
+  "does_not_activate_desktop_only_mcp": true
+}
