@@ -124,7 +124,7 @@ c5ead0f83b69717cb328555842ebe7f91b789cc08772ac763413351f75e66185  mcp/omega-cont
 f4a07078ddeb5a9904287d9614c85eb6ad8a637c9df217f2ca2122a7398ddbe8  mcp/omega-control-plane/test/live-integration-v7.test.mjs
 1e8f3430936fbc5e7273919f4a3f744915643e63303436aeae98c9c4ffb7d36c  mcp/omega-control-plane/test/media-control-plane-v24.test.mjs
 d65c039965160a61813079f0826d5ce8847d97f15dfc57acb023d57f607937e8  mcp/omega-control-plane/test/media-elevenlabs-v24.test.mjs
-971297cf178f719338131d5a1610c6269d67bc139e59b7a17e9c6cc53cc5b98d  mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs
+73ee6e38229acded1842904af2e6ad280c401ddc5efe4da19889d19d6545fe25  mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs
 0f57dce08ecc08f306cedda0d545c670a605e3e8aa1ea4dc86f9ac0ef4da8457  mcp/omega-control-plane/test/meta-architecture-v9.test.mjs
 6ad15d003204bc7f1a54129e1a2a137c4276b5a9eb5079461ee93da425cd24a6  mcp/omega-control-plane/test/meta-cognitive.test.mjs
 91cf89d895ad320df646732461fa250f69213f32fbc3a1d1e4218f0a92ab75ff  mcp/omega-control-plane/test/meta-control-plane-v9.test.mjs
