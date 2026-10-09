@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -38,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
     private TextView status;
     private EditText pairCode;
     private final ExecutorService io = Executors.newSingleThreadExecutor();
+    private final Handler uiHandler = new Handler(Looper.getMainLooper());
+    private final Runnable statusPoller = new Runnable() {
+        @Override
+        public void run() {
+            refreshStatus();
+            uiHandler.postDelayed(this, 1000);
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle state) {
@@ -171,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
         String token = prefs.getString("agent_token", "");
         String tree = prefs.getString("tree_uri", "");
         if (token.isEmpty() || tree.isEmpty()) return;
+        prefs.edit().putString("connection_status", "ŁĄCZY...").apply();
         Intent service = new Intent(this, KnowledgeBridgeService.class);
         startForegroundService(service);
     }
@@ -179,14 +189,30 @@ public class MainActivity extends AppCompatActivity {
         if (status == null) return;
         boolean paired = !prefs.getString("agent_token", "").isEmpty();
         boolean folder = !prefs.getString("tree_uri", "").isEmpty();
+        String bridge = prefs.getString("connection_status",
+                paired && folder ? "OCZEKUJE" : "NIEAKTYWNY");
         status.setText("Parowanie: " + (paired ? "OK" : "BRAK")
                 + "\nFolder: " + (folder ? "OK" : "BRAK")
-                + "\nMost: " + (paired && folder ? "gotowy do połączenia" : "oczekuje"));
+                + "\nMost: " + bridge);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        uiHandler.removeCallbacks(statusPoller);
+        uiHandler.post(statusPoller);
+    }
+
+    @Override
+    protected void onPause() {
+        uiHandler.removeCallbacks(statusPoller);
+        super.onPause();
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        uiHandler.removeCallbacks(statusPoller);
         io.shutdownNow();
+        super.onDestroy();
     }
 }
