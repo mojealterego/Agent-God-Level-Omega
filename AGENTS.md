@@ -2,10 +2,10 @@
 
 Repository-wide operating contract and living agent index for **Agent-God-Level-Omega**.
 
-## Non-negotiable single-branch architecture (confirmed 2026-10-09)
+## Main-only development with preserved historical branches (confirmed 2026-10-09)
 
-- **Only one Git branch may exist: `main`.** Never create temporary, feature, integration, review, sync or recovery branches; commits and verification occur directly on `main`.
-- The historic 11 additional branches were audited, their commits incorporated into the history of `main`, and their refs removed only after tests and all CI gates passed.
+- **All new development, integrations, releases and CI source changes occur directly on `main`.** Do not create new temporary/feature branches without explicit user instruction. Preserve the 11 restored historical branches as immutable recovery references.
+- The historical 11 branches were restored to their original HEADs after accidental deletion. Do not delete, rewrite, force-push, or automatically prune those refs. Historical commits are also reachable from `main`. Explicit new user direction takes priority over obsolete one-ref cleanup instructions.
 - Incoming links, files and documentation are source material to extend existing agents, skills, tools, hooks and MCP servers. Always check for overlap before creating a new component; preserve canonical implementations instead of creating near-identical copies.
 - Long-term product goal: integrate this repository's agents, skills, tools, hooks and MCP services into **one cohesive system and application**, not one new app/plugin per source package.
 - After each completed batch, compute physical file counts across `omega/`, `omega-mobile/` and `plugins/`, distinguish copies from unique capabilities, and update `COMPONENT_INVENTORY.md`, `REPOSITORY_STATUS.md` and affected integrity manifests. Do not report only `omega/skills` as the total skills.

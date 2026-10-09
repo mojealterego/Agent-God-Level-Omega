@@ -61,7 +61,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(cat VERSION)" = "25.0.0"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          repo_version=Path("VERSION").read_text(encoding="utf-8").strip()
+          manifest_version=json.loads(Path("omega/plugin.json").read_text(encoding="utf-8"))["version"]
+          assert repo_version == manifest_version, (repo_version, manifest_version)
+          PY
           python3 - <<'PY'
           import json
           from pathlib import Path
@@ -98,7 +104,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 -m unittest tools/omega-assurance/test_assurance_gate.py
+          python3 -m unittest tools/omega-assurance/test_assurance_gate.py tools/omega-assurance/test_branch_retention.py
           python3 tools/omega-assurance/assurance_gate.py workflow-audit .github/workflows
           python3 tools/omega-assurance/assurance_gate.py model-profile-check .omega/model-providers.json
           python3 tools/omega-assurance/assurance_gate.py python-arch omega-mobile > /tmp/omega-python-arch.json

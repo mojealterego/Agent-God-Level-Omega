@@ -7,7 +7,7 @@
 - Embedded MCP: 405/405 PASS
 - Standalone MCP: 405/405 PASS
 - Plugin validator: PASS
-- Skills: 166
+- Historical base v24 skills: 166 (not the current repository-wide inventory)
 - References: 82
 - Schemas: 109
 - Plugin release: `pluginrel_6ac4b563a9788191b566e9f52d216f74`
@@ -58,11 +58,19 @@
 
 ## 2026-10-09 verified single-main consolidation
 
-- **Branch count:** 1, exactly `main` (verified by GitHub branches API after automated cleanup).
-- Historical 11 source-branch refs removed after all 11 heads were proven ancestors of `main`, all 103 source-changed file paths confirmed present, full GitHub CI succeeded and mobile knowledge compatibility tests passed.
-- Repository-wide skill file count: **806 `SKILL.md`** = 399 `omega/skills` + 177 `omega-mobile/skills` + 230 `plugins/**`. This counts physical copies, not 806 semantically independent skills; 562 distinct parent-directory names and 570 distinct Git blob hashes were observed.
+- **Branch count:** 12 as currently restored: `main` plus 11 original recovery branches (the earlier one-branch state is superseded).
+- Historical 11 source-branch refs were removed during consolidation but have subsequently been **restored at their original commits**. No automatic deletion is authorized.
+- Repository-wide skill file count: **813 `SKILL.md`** = 402 `omega/skills` + 179 `omega-mobile/skills` + 232 `plugins/**`. This counts physical copies, not 813 semantically independent skills; 565 distinct parent-directory names and 573 distinct Git blob hashes were observed.
 - Agent catalog: 171 formal registered agents plus 13 standalone `AGENT.md` definitions (one name overlap), **183 distinct names** in those two registries.
 - Preserved legacy phone-folder support by extending active `PhoneKnowledgeRoot` with byte-offset reads and restoring the `OMEGA-KNOWLEDGE` fallback, retaining newer BAZA WIEDZY default and independent read-only folder authority.
 - Assurance: https://github.com/mojealterego/Agent-God-Level-Omega/actions/runs/37899380940 (success).
 - Final branch cleanup: https://github.com/mojealterego/Agent-God-Level-Omega/actions/runs/37899381017 (success).
 - The eventual integration of all components into a single system/application remains a future product milestone; this status does not claim it has already been built.
+
+
+## Recovery correction — 2026-10-09
+
+- Restored all eleven original historical branch refs. Historical code remains accessible through their original commit hashes.
+- Disabled the destructive finalizer workflow, replacing it with a read-only branch preservation check.
+- Single working/development branch: `main`; historical recovery refs intentionally remain accessible.
+- The user-owned OMEGA v25.1.1 release (`plugins_6ac3729e2b1c8191aaa1cb728f43183f`) was directly enumerated: 1041 package entries, of which 1040 paths exist in `omega/`. The one omitted entry is generated CPython bytecode (`.pyc`). This does not establish byte equality, runtime availability, or completeness of external model/provider connections.
