@@ -1,0 +1,42 @@
+{
+  "format": "omega.project.v1",
+  "spec": {
+    "kind": "android",
+    "slug": "omega-native-build",
+    "title": "OMEGA Canvas Physics Engine",
+    "description": "Native Android launcher Activity with real-time 2D Canvas physics, touch fling interactions, compiled on API 35 with verified CI artifact generation.",
+    "accent": "#6366f1"
+  },
+  "files": [
+    {
+      "name": "README.md",
+      "sha256": "1c05e731c3a832e01c735d07159647619140b6f34c8ad7afc1e59773ca1c4c2c"
+    },
+    {
+      "name": "app/build.gradle",
+      "sha256": "7da6865cdef2f6aeb05391159b055f17f8bd346ecd2ca7d9ad3f96a57aec02ff"
+    },
+    {
+      "name": "app/src/main/AndroidManifest.xml",
+      "sha256": "78bef3d073c5852a84fbd49a1cdc92c771f0488c03df9d74cf788854a709b81a"
+    },
+    {
+      "name": "app/src/main/java/org/mojealterego/omega/omega_native_build/MainActivity.java",
+      "sha256": "8512e9acc716ec18063df6b4a4e14de1cdccc51ef3589676ab66a2034e696e4a"
+    },
+    {
+      "name": "build.gradle",
+      "sha256": "8ebf0602839be8fd4c06f07a93e45da6b4a04444fa1b38df8b9def9c1b5c8032"
+    },
+    {
+      "name": "gradle.properties",
+      "sha256": "4d4c82226865844bdc85391d907a383da4a35d3a3f5348985d5ec3997ab932fe"
+    },
+    {
+      "name": "settings.gradle",
+      "sha256": "27d3e9e11c71e8d11d1279c82cc4f376a9ee175e6dc3948e89f791b033164cf0"
+    }
+  ],
+  "verifiedBuild": false,
+  "verifiedAndroidApk": false
+}
