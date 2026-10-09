@@ -28,4 +28,12 @@ jobs:
       - name: Execute live backend model stages using GitHub-signed OIDC
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/thor-autobuild.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          OMEGA_AUTOBUILD: ${{ startsWith(github.event.issue.title, '[THOR-BUILD] ') }}
+        run: |
+          if [ "$OMEGA_AUTOBUILD" = 'true' ]; then
+            node scripts/thor-autobuild.mjs
+          else
+            node scripts/thor-lovable-agent.mjs
+          fi
