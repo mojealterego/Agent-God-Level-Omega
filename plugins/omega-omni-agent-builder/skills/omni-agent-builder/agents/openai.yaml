@@ -1,0 +1,4 @@
+interface:
+  display_name: "OMEGA Omni Agent Builder"
+  short_description: "Twórz agentów, meta-agentów i roje"
+  default_prompt: "Zbuduj kompletną, przetestowaną architekturę agentową OMEGA w Code/No-Code/Hybrid. Rozdziel działające komponenty od wymagających adaptera."

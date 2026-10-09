@@ -1,0 +1,15 @@
+{
+  "name": "asgard-legion",
+  "level": "legion",
+  "mode": "hybrid",
+  "language": "python",
+  "objective": "Reference blueprint for an ASGARD legion with gated evolution and memory",
+  "agents": [
+    {"name": "odyn", "operation": "uppercase"},
+    {"name": "thor", "operation": "prefix", "config": {"prefix": "THOR:"}},
+    {"name": "heimdall", "operation": "suffix", "config": {"suffix": ":CHECKED"}}
+  ],
+  "edges": [["odyn", "thor"], ["thor", "heimdall"]],
+  "frameworks": ["langgraph", "openai-agents", "n8n", "node-red", "mcp", "zenoh"],
+  "capabilities": ["bitemporal_store", "episodic_memory", "coala", "graph_of_thought", "adversarial_gating", "dgm", "alpha_evolve", "zenoh", "mcp_gateway"]
+}

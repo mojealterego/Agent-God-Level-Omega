@@ -1,0 +1,11 @@
+{
+  "name":"rust-zenoh-swarm",
+  "level":"swarm",
+  "mode":"code",
+  "language":"rust",
+  "objective":"Rust graph reference and Zenoh transport benchmark",
+  "agents":[{"name":"sensor","operation":"uppercase"},{"name":"router","operation":"prefix","config":{"prefix":"OBS:"}}],
+  "edges":[["sensor","router"]],
+  "frameworks":["rust","zenoh","mcp"],
+  "capabilities":["zenoh","mcp_gateway","dgm_engine","adversarial_gating"]
+}

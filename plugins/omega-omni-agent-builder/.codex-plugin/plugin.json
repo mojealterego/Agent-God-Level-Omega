@@ -1,0 +1,28 @@
+{
+  "interface": {
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "category": "Developer Tools",
+    "defaultPrompt": [
+      "Zaprojektuj i wygeneruj kompletny system agentowy OMEGA w trybie Code, No-Code lub hybrydowym, z walidacj\u0105 i dowodami dzia\u0142ania.",
+      "Zbuduj roj lub legion agentow z bitemporalna pamiecia, Decision Cycle i kontrolowana ewolucja DGM, oraz architektura MCP i Zenoh.",
+      "Zamien ten opis agentow na przenosny JSON IR, wygeneruj kod i eksport n8n/Node-RED, przetestuj i zaktualizuj repozytorium main."
+    ],
+    "developerName": "Moje Alterego",
+    "displayName": "OMEGA Omni Agent Builder",
+    "longDescription": "Buduje zweryfikowane specyfikacje, grafy agentowe i exporty dla Python, JavaScript/TypeScript, Go i Rust oraz n8n i Node-RED. Udost\u0119pnia lokalny generator CLI, referencyjn\u0105 bitemporaln\u0105 pami\u0119\u0107 SQLite, graf wykonania, bramk\u0119 mutacji/evaluacji i adaptery architektoniczne dla GoT, CoALA, JEPA, SNN, HDC, DGM, AlphaEvolve, Zenoh i MCP. Zewn\u0119trzne SDK, modele, chmura i serwery MCP wymagaj\u0105 osobnej konfiguracji; nie s\u0105 symulowane jako po\u0142\u0105czone.",
+    "shortDescription": "Code, No-Code i roje agent\u00f3w"
+  },
+  "name": "omega-omni-agent-builder",
+  "version": "1.0.0",
+  "description": "OMEGA Omni Agent Builder: code, no-code i hybrydowy generator architektur agentow, meta-agentow, systemow, rojow i legionow; wielojezykowe uruchamialne szkielety, pamiec bitemporalna, bramki mutacji i biblioteka profilow frameworkow.",
+  "author": {
+    "name": "Moje Alterego",
+    "email": "mojealterego21@gmail.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

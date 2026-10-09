@@ -1,0 +1,10 @@
+{
+  "name":"nocode-team",
+  "level":"meta_agent",
+  "mode":"nocode",
+  "language":"python",
+  "agents":[{"name":"intake","operation":"uppercase"},{"name":"review","operation":"suffix","config":{"suffix":":OK"}}],
+  "edges":[["intake","review"]],
+  "frameworks":["node-red","n8n"],
+  "capabilities":["decision_cycle"]
+}
