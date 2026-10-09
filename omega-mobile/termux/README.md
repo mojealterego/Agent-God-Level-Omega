@@ -120,3 +120,7 @@ Stopping/removing the local runtime does not delete the remote tunnel.
 - tunnel-client repository: https://github.com/openai/tunnel-client
 - Tunnel management: https://platform.openai.com/settings/organization/tunnels
 - ChatGPT connector settings: https://chatgpt.com/plugins
+
+## Legacy phone knowledge folder compatibility
+
+The preferred setup uses `omega-termux knowledge-setup` to bind the actual Android `Download/BAZA WIEDZY` folder. For installations using the original `$HOME/storage/shared/OMEGA-KNOWLEDGE` directory, the `omega-mcp-stdio` launcher still discovers that directory as a fallback when no explicit `OMEGA_KNOWLEDGE_ROOT` or saved folder binding exists. The configured binding has priority. Knowledge-folder access is read-only and does not authorize general filesystem writes.

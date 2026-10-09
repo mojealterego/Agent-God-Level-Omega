@@ -53,3 +53,11 @@ Keep introspection credentials in the runtime secret store.
 - `POST/GET /mcp` through the MCP HTTP handler
 
 The `/mcp` route is protected in production. Health and protected-resource metadata are public by design.
+
+## Phone knowledge provider — consolidated compatibility
+
+The `OMEGA_KNOWLEDGE_ROOT` directory is an independent, **read-only** document authority: it does not expand terminal, build, repository or deployment workspace permissions.
+
+The current `PhoneKnowledgeRoot` implementation exposes `omega_knowledge_info`, `omega_knowledge_list`, `omega_knowledge_metadata`, `omega_knowledge_read` and `omega_knowledge_search`. It supports text, source files, HTML, PDF, DOCX and ODT using bounded local extraction; `omega_knowledge_read` also retains byte-offset pagination of regular text/code files from the historical KnowledgeFolder branch. Extracted PDF/DOCX/ODT content deliberately rejects nonzero raw byte offsets.
+
+Use the requested knowledge tool and verify its observed output. A healthy tunnel is not proof of document access. The earlier `KnowledgeFolder` adapter remains in `src/core/knowledge-folder.mjs` for its existing tests and backwards compatibility; no duplicate MCP route is registered.

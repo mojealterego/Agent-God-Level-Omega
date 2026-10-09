@@ -10,7 +10,7 @@ if [ -z "${OMEGA_KNOWLEDGE_ROOT:-}" ]; then
     IFS= read -r OMEGA_KNOWLEDGE_ROOT < "$OMEGA_KNOWLEDGE_ROOT_FILE"
     export OMEGA_KNOWLEDGE_ROOT
   else
-    for candidate in "$HOME/storage/downloads/BAZA WIEDZY" "/storage/emulated/0/Download/BAZA WIEDZY"; do
+    for candidate in "$HOME/storage/downloads/BAZA WIEDZY" "/storage/emulated/0/Download/BAZA WIEDZY" "$HOME/storage/shared/OMEGA-KNOWLEDGE"; do
       if [ -d "$candidate" ] && [ -r "$candidate" ]; then
         export OMEGA_KNOWLEDGE_ROOT="$candidate"
         break

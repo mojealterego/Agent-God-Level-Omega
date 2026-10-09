@@ -111,3 +111,17 @@ Use `omega_artifact_inspect` to independently verify a produced artifact's canon
 ## Completion
 
 OMEGA MCP evidence can satisfy a completion predicate only when the returned observation directly proves that predicate. A successful tool invocation is not by itself proof that the requested software behavior is correct.
+
+## Consolidated phone knowledge capability
+
+The active tool surface also includes:
+
+```text
+omega_knowledge_info
+omega_knowledge_list
+omega_knowledge_metadata
+omega_knowledge_read
+omega_knowledge_search
+```
+
+`OMEGA_KNOWLEDGE_ROOT` is a separate read-only document authority; granting access to a phone folder never adds terminal or repository write permissions to that folder. Verify `omega_knowledge_info` first; list a bounded directory, then read/search only required paths. Text reads support optional bounded `offset` pagination, preserved from the earlier phone knowledge branch. PDF/DOCX/ODT reads extract bounded text but reject a nonzero byte offset. Never treat tunnel health as proof that any particular phone file was accessed.
