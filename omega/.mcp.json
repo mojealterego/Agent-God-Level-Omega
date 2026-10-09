@@ -26,6 +26,24 @@
       ],
       "env": {},
       "cwd": "${PLUGIN_ROOT}/mcp/omni-imandra"
+    },
+    "lovable-assurance": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/mcp/lovable-assurance/src/server.mjs"
+      ],
+      "env": {},
+      "cwd": "${PLUGIN_ROOT}/mcp/lovable-assurance"
+    },
+    "openai-agents-assurance": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/mcp/openai-agents-assurance/src/server.mjs"
+      ],
+      "env": {},
+      "cwd": "${PLUGIN_ROOT}/mcp/openai-agents-assurance"
     }
   }
 }
