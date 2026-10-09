@@ -32,3 +32,11 @@ If the task requires covert tracking, unauthorized telecom lookup, session/cooki
 - standalone MCP: `omega/mcp/osint-seeker/`
 
 See `references/source-synthesis.md`.
+
+## DGM TechRecon mode
+
+Inside a DGM cycle this skill is the canonical TechRecon role. Collect lawful public technical evidence such as release notes, public repositories, documentation, protocols, MCP servers, architecture patterns and published competitor capabilities. Preserve provenance and confidence; marketing claims are evidence of claims, not proof.
+
+Hand normalized findings to `omega-product-synthesis-director`. Do not mutate production code directly from reconnaissance output.
+
+See `references/dgm-techrecon-mode.md`.
