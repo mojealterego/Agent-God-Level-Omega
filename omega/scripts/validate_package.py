@@ -212,6 +212,23 @@ for relative in required_mcp_files:
     if not (mcp / relative).is_file():
         fail(f"missing MCP file: {relative}")
 
+required_corpus_batch_files = {
+    ROOT / "agents" / "omega-grant-business-architect" / "AGENT.md",
+    ROOT / "agents" / "omega-visual-architect" / "AGENT.md",
+    ROOT / "hooks" / "grant-business-architect.mjs",
+    ROOT / "tools" / "grant-business-architect" / "grant-math.mjs",
+    ROOT / "skills" / "omega-grant-business-architect" / "SKILL.md",
+    ROOT / "skills" / "omega-visual-architect" / "SKILL.md",
+    ROOT / "mcp" / "omega-control-plane" / "src" / "business" / "grant-business-architect.mjs",
+    ROOT / "mcp" / "omega-control-plane" / "test" / "grant-business-architect.test.mjs",
+    ROOT / "mcp" / "grant-business-architect" / "package.json",
+    ROOT / "mcp" / "grant-business-architect" / "README.md",
+    ROOT / "mcp" / "grant-business-architect" / "src" / "server.mjs",
+}
+for required in required_corpus_batch_files:
+    if not required.is_file():
+        fail(f"missing corpus-derived file: {required.relative_to(ROOT)}")
+
 try:
     mcp_package = json.loads((mcp / "package.json").read_text(encoding="utf-8"))
     if mcp_package.get("name") != "@mojealterego/omega-mcp-control-plane":
