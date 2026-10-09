@@ -1,0 +1,27 @@
+{
+  "interface": {
+    "capabilities": [
+      "Interactive"
+    ],
+    "category": "Developer Tools",
+    "defaultPrompt": [
+      "Przeanalizuj wskazane repozytorium GitHub, znajd\u017a problemy i wykonaj wszystkie bezpieczne poprawki autonomicznie.",
+      "Doprowad\u017a ten projekt na GitHub do zielonego CI: diagnozuj, poprawiaj, testuj i aktualizuj PR a\u017c pipeline przejdzie.",
+      "Zarz\u0105dzaj tym repozytorium end-to-end z Androida: backlog, branche, PR-y, Actions, bezpiecze\u0144stwo i wydania."
+    ],
+    "developerName": "Moje Alterego",
+    "displayName": "GitHub Absolute Automation",
+    "longDescription": "Cross-platform GitHub automation layer for ChatGPT on Android, web and desktop. It uses the connected GitHub app/connector rather than a packaged desktop-only MCP server. It can inspect and maintain repositories, code, issues, pull requests, branches, releases, Actions/CI/CD, GitHub Pages/Jekyll sites, Projects, security signals and governance to the extent exposed by the connected GitHub app. Reversible work is automated; destructive or high-impact operations require explicit confirmation.",
+    "shortDescription": "GitHub pe\u0142na automatyzacja"
+  },
+  "apps": "./.app.json",
+  "name": "github-absolute-automation",
+  "version": "0.3.0",
+  "description": "Cross-platform private GitHub automation plugin for ChatGPT on Android, web and desktop using the connected GitHub app instead of a desktop-only packaged MCP runtime.",
+  "author": {
+    "name": "Moje Alterego",
+    "email": "mojealterego21@gmail.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}
