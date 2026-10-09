@@ -1,0 +1,23 @@
+{
+  "name": "OMEGA Engineering Workbench PWA",
+  "short_name": "OMEGA Engineering Work",
+  "description": "Mobile-first offline engineering workbench with a local-first queue, dark visual system, server-side proxy architecture, and verified integration test suite.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080b18",
+  "theme_color": "#080b18",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
