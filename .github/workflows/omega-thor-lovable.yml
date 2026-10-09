@@ -39,3 +39,40 @@ jobs:
           else
             node scripts/thor-lovable-agent.mjs
           fi
+
+      - name: Configure JDK 17 for native Android
+        if: startsWith(github.event.issue.title, '[THOR-PROJECT] android ')
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Configure pinned Gradle 8.9 for native Android
+        if: startsWith(github.event.issue.title, '[THOR-PROJECT] android ')
+        uses: gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a
+        with:
+          gradle-version: '8.9'
+      - name: Native Android APK via Gradle and Android SDK 35
+        if: startsWith(github.event.issue.title, '[THOR-PROJECT] android ')
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t manifests < <(find experiments/omega-projects -path '*/app/src/main/AndroidManifest.xml' -type f)
+          if [ "${#manifests[@]}" -ne 1 ]; then echo "Expected exactly one Android project in working tree" >&2; exit 1; fi
+          root="${manifests[0]%/app/src/main/AndroidManifest.xml}"
+          test -d "${ANDROID_HOME:?Android SDK missing}"
+          if command -v sdkmanager >/dev/null; then
+            sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+          fi
+          gradle --no-daemon --console=plain -p "$root" assembleDebug
+          test -s "$root/app/build/outputs/apk/debug/app-debug.apk"
+          mkdir -p dist/android
+          cp "$root/app/build/outputs/apk/debug/app-debug.apk" dist/android/omega-native-app-debug.apk
+          (cd dist/android && sha256sum omega-native-app-debug.apk > SHA256SUMS.txt)
+      - name: Publish verified native APK artifact
+        if: startsWith(github.event.issue.title, '[THOR-PROJECT] android ')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: omega-native-android-debug-apk
+          path: dist/android/*
+          if-no-files-found: error
+          retention-days: 30
