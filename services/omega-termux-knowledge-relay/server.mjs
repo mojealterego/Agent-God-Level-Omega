@@ -9,6 +9,7 @@ const PLUGIN_TOKEN = process.env.OMEGA_RELAY_PLUGIN_TOKEN ?? '';
 const AGENT_TOKEN = process.env.OMEGA_RELAY_AGENT_TOKEN ?? '';
 const BOOTSTRAP_TOKEN = process.env.OMEGA_RELAY_BOOTSTRAP_TOKEN ?? '';
 const PAIR_CODE = process.env.OMEGA_PAIR_CODE ?? '';
+const READ_BRIDGE_TOKEN = process.env.OMEGA_READ_BRIDGE_TOKEN ?? '';
 const SOURCE_REF = process.env.OMEGA_SOURCE_REF ?? 'main';
 const PORT = Number(process.env.PORT || 10000);
 const RPC_TIMEOUT_MS = Number(process.env.OMEGA_RELAY_RPC_TIMEOUT_MS || 180000);
@@ -275,6 +276,89 @@ printf 'Log: %s\\n' "$HOME/.local/share/omega-knowledge-relay/client.log"
 `;
 }
 
+
+const bridgeJobs = new Map();
+
+function bridgeSpecFromUrl(url) {
+  const op = url.searchParams.get('op') || 'info';
+  if (op === 'info') {
+    return { op, method: 'knowledge.info', params: {} };
+  }
+  if (op === 'list') {
+    return {
+      op,
+      method: 'knowledge.list',
+      params: {
+        path: url.searchParams.get('path') || '',
+        recursive: url.searchParams.get('recursive') === 'true',
+        maxEntries: Math.max(1, Math.min(20000, Number(url.searchParams.get('maxEntries') || 1000)))
+      }
+    };
+  }
+  if (op === 'metadata') {
+    const path = url.searchParams.get('path') || '';
+    if (!path) throw new Error('path_required');
+    return { op, method: 'knowledge.metadata', params: { path } };
+  }
+  if (op === 'read') {
+    const path = url.searchParams.get('path') || '';
+    if (!path) throw new Error('path_required');
+    return {
+      op,
+      method: 'knowledge.read',
+      params: {
+        path,
+        maxBytes: Math.max(1, Math.min(4194304, Number(url.searchParams.get('maxBytes') || 1048576)))
+      }
+    };
+  }
+  if (op === 'search') {
+    const query = url.searchParams.get('query') || '';
+    if (!query) throw new Error('query_required');
+    return {
+      op,
+      method: 'knowledge.search',
+      params: {
+        query,
+        path: url.searchParams.get('path') || '',
+        recursive: url.searchParams.get('recursive') !== 'false',
+        maxFiles: Math.max(1, Math.min(2000, Number(url.searchParams.get('maxFiles') || 250))),
+        maxMatches: Math.max(1, Math.min(500, Number(url.searchParams.get('maxMatches') || 100))),
+        maxBytesPerFile: Math.max(1024, Math.min(1048576, Number(url.searchParams.get('maxBytesPerFile') || 262144)))
+      }
+    };
+  }
+  throw new Error('unsupported_op');
+}
+
+function startBridgeJob(url) {
+  const spec = bridgeSpecFromUrl(url);
+  const id = crypto.randomUUID();
+  const job = {
+    id,
+    op: spec.op,
+    status: 'pending',
+    createdAt: Date.now()
+  };
+  bridgeJobs.set(id, job);
+
+  phoneRpc(spec.method, spec.params)
+    .then((result) => {
+      job.status = 'done';
+      job.result = result;
+      job.finishedAt = Date.now();
+    })
+    .catch((error) => {
+      job.status = 'error';
+      job.error = error?.message || String(error);
+      job.finishedAt = Date.now();
+    });
+
+  const timer = setTimeout(() => bridgeJobs.delete(id), 10 * 60_000);
+  timer.unref?.();
+  return job;
+}
+
 const httpServer = createHttpServer(async (req, res) => {
   const origin = `https://${req.headers.host || 'localhost'}`;
   const url = new URL(req.url || '/', origin);
@@ -311,6 +395,79 @@ const httpServer = createHttpServer(async (req, res) => {
       websocket_url: `${wsOrigin}/agent`,
       agent_token: AGENT_TOKEN
     });
+  }
+
+  if (url.pathname === '/bridge/start' && req.method === 'GET') {
+    if (!READ_BRIDGE_TOKEN || !safeEqual(url.searchParams.get('token'), READ_BRIDGE_TOKEN)) {
+      return json(res, 404, { error: 'not_found' });
+    }
+    try {
+      const job = startBridgeJob(url);
+      return json(res, 202, { ok: true, job_id: job.id, op: job.op, status: job.status });
+    } catch (error) {
+      return json(res, 400, { ok: false, error: error?.message || String(error) });
+    }
+  }
+
+  if (url.pathname === '/bridge/result' && req.method === 'GET') {
+    if (!READ_BRIDGE_TOKEN || !safeEqual(url.searchParams.get('token'), READ_BRIDGE_TOKEN)) {
+      return json(res, 404, { error: 'not_found' });
+    }
+    const id = url.searchParams.get('id') || '';
+    const job = bridgeJobs.get(id);
+    if (!job) return json(res, 404, { error: 'job_not_found' });
+    if (job.status === 'pending') {
+      return json(res, 202, { ok: true, job_id: id, op: job.op, status: 'pending' });
+    }
+    if (job.status === 'error') {
+      return json(res, 503, { ok: false, job_id: id, op: job.op, status: 'error', error: job.error });
+    }
+    const offset = Math.max(0, Number(url.searchParams.get('offset') || 0));
+    const limit = Math.max(1, Math.min(1000, Number(url.searchParams.get('limit') || 1000)));
+    if (job.result && Array.isArray(job.result.entries)) {
+      const total = job.result.entries.length;
+      const slice = job.result.entries.slice(offset, offset + limit);
+      return json(res, 200, {
+        ok: true,
+        job_id: id,
+        op: job.op,
+        status: 'done',
+        result: {
+          ...job.result,
+          entries: slice,
+          page: { offset, limit, returned: slice.length, total }
+        }
+      });
+    }
+    if (job.result && Array.isArray(job.result.matches)) {
+      const total = job.result.matches.length;
+      const slice = job.result.matches.slice(offset, offset + limit);
+      return json(res, 200, {
+        ok: true,
+        job_id: id,
+        op: job.op,
+        status: 'done',
+        result: {
+          ...job.result,
+          matches: slice,
+          page: { offset, limit, returned: slice.length, total }
+        }
+      });
+    }
+    return json(res, 200, { ok: true, job_id: id, op: job.op, status: 'done', result: job.result });
+  }
+
+  if (url.pathname === '/bridge' && req.method === 'GET') {
+    if (!READ_BRIDGE_TOKEN || !safeEqual(url.searchParams.get('token'), READ_BRIDGE_TOKEN)) {
+      return json(res, 404, { error: 'not_found' });
+    }
+    try {
+      const spec = bridgeSpecFromUrl(url);
+      const result = await phoneRpc(spec.method, spec.params);
+      return json(res, 200, { ok: true, op: spec.op, result });
+    } catch (error) {
+      return json(res, 503, { ok: false, error: error?.message || String(error) });
+    }
   }
 
   if (url.pathname === '/bootstrap' && req.method === 'GET') {
