@@ -22,3 +22,7 @@ Use this skill when a task spans several engineering or intelligence planes and 
 ## Quality gate
 
 Final acceptance is delegated to the existing Reality Filter Kernel. Do not duplicate or weaken Reality Filter, Kratos, Thor Final Gate, source-of-truth, prompt-injection or CI release controls. If the host lacks a connector/tool/provider, return the explicit unavailable boundary instead of simulating execution.
+
+## Corpus integration — Omni/ImandraX v2.0
+
+The phone-corpus v2.0 specification reinforces repository-first discovery, evidence-state discipline, counterexample-first engineering and formal invariant modelling. Formal verification is invoked only when a real provider exists; otherwise the boundary remains explicit. See `references/omni-imandra-v2-source-synthesis.md`.
