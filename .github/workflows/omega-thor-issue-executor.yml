@@ -1,0 +1,30 @@
+name: OMEGA THOR GitHub Executor
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: thor-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+jobs:
+  thor:
+    if: github.repository == 'mojealterego/Agent-God-Level-Omega' && github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[THOR] ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout verified repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Run regression suite
+        run: node --test tests/thor-github-bridge.test.mjs
+      - name: Execute THOR routing with observed results
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/thor-github-bridge.mjs
