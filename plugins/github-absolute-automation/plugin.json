@@ -1,0 +1,28 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "github-absolute-automation",
+  "version": "0.3.0",
+  "description": "Repository-safe source package for GitHub automation and GitHub Pages/Jekyll workflows. Runtime GitHub access is supplied by a separately connected host GitHub app.",
+  "author": {
+    "name": "Moje Alterego"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "GitHub Absolute Automation",
+        "shortDescription": "GitHub pełna automatyzacja",
+        "longDescription": "Cross-platform GitHub automation instructions for repository engineering, Actions/CI/CD and GitHub Pages/Jekyll. This repository snapshot intentionally excludes private account connector bindings; runtime GitHub access is supplied by a separately connected host GitHub app.",
+        "developerName": "Moje Alterego",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Interactive"
+        ],
+        "defaultPrompt": [
+          "Przeanalizuj wskazane repozytorium GitHub, znajdź problemy i wykonaj wszystkie bezpieczne poprawki autonomicznie.",
+          "Doprowadź ten projekt na GitHub do zielonego CI: diagnozuj, poprawiaj, testuj i aktualizuj PR aż pipeline przejdzie.",
+          "Zarządzaj tym repozytorium end-to-end z Androida: backlog, branche, PR-y, Actions, bezpieczeństwo i wydania."
+        ]
+      }
+    }
+  }
+}
