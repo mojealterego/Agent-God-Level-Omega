@@ -16,7 +16,7 @@ command -v pkg >/dev/null 2>&1 || fail "this installer must run inside Termux"
 mkdir -p "$BIN_DIR" "$DATA_DIR"
 
 pkg update -y
-pkg install -y nodejs-lts git curl unzip python coreutils
+pkg install -y nodejs-lts git curl unzip python coreutils poppler
 if ! pkg install -y android-tools; then
   printf 'OMEGA Termux installer: android-tools could not be installed; ADB capability will remain unavailable until installed.\n' >&2
 fi
@@ -115,6 +115,6 @@ esac
 
 printf '\nOMEGA Termux installed. Next commands:\n'
 printf '  export PATH="$HOME/.local/bin:$PATH"\n'
-printf '  omega-termux configure\n'
+printf '  omega-termux configure\n'\nprintf '  omega-termux knowledge-setup\n'
 printf '  omega-termux connect\n'
 printf '  omega-termux status\n'
