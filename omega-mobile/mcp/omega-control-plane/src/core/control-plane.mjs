@@ -81,6 +81,21 @@ export class OmegaControlPlane {
     return this.voiceConciergeRuntime.action(input);
   }
 
+  #knowledge() {
+    if (!this.knowledgeRuntime) {
+      const error = new Error('Phone knowledge root is not configured');
+      error.code = 'KNOWLEDGE_ROOT_NOT_CONFIGURED';
+      throw error;
+    }
+    return this.knowledgeRuntime;
+  }
+
+  knowledgeInfo() { return this.#knowledge().info(); }
+  knowledgeList(input = {}) { return this.#knowledge().list(input); }
+  knowledgeRead(input) { return this.#knowledge().read(input); }
+  knowledgeSearch(input) { return this.#knowledge().search(input); }
+  knowledgeMetadata(input) { return this.#knowledge().metadata(input); }
+
   artifactInspect(path) {
     return inspectArtifact({ path, workspaceRoots: this.workspaceRoots });
   }
