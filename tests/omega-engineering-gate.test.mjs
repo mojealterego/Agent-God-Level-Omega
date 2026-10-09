@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import { mkdtempSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';import { join } from 'node:path';
+import {stageFiles,sealEvidence} from '../scripts/omega-engineering-kernel.mjs';
+import {verifyEngineeringEvidence} from '../hooks/omega-engineering-gate.mjs';
+const task={number:44,slug:'engineering-evidence',language:'js',folder:'issue-44-sample'};
+const impl={source:'export function add(a,b){ return a+b; }',tests:"import test from 'node:test';import assert from 'node:assert/strict';import {add} from './index.mjs';test('works',()=>assert.equal(add(1,2),3));",readme:'Addition'};
+const passed={pass:true,exitCode:0,sandbox:'Docker network-disabled read-only unprivileged'};
+const qa={decision:'PASS',findings:'Verified, but additional integration tests are recommended.'};
+test('release gate accepts only genuine sealed evidence and hashes',()=>{const root=mkdtempSync(join(tmpdir(),'omega-gate-'));try{const artifact=stageFiles(task,impl,{root});assert.throws(()=>verifyEngineeringEvidence(artifact.dir),/NOT_VERIFIED/);sealEvidence(artifact,{result:passed,qa,runId:'1234'});assert.equal(verifyEngineeringEvidence(artifact.dir).pass,true);writeFileSync(join(artifact.dir,'index.mjs'),'malicious replacement');assert.throws(()=>verifyEngineeringEvidence(artifact.dir),/DIGEST_MISMATCH/);}finally{rmSync(root,{recursive:true,force:true})}});
+test('source must be intact at sealing time',()=>{const root=mkdtempSync(join(tmpdir(),'omega-seal-'));try{const artifact=stageFiles(task,impl,{root});writeFileSync(join(artifact.dir,'test.mjs'),'changed');assert.throws(()=>sealEvidence(artifact,{result:passed,qa,runId:'12'}),/SOURCE_TAMPER/)}finally{rmSync(root,{recursive:true,force:true})}});
+test('QA BLOCK and test fail do not permit evidence sealing',()=>{const root=mkdtempSync(join(tmpdir(),'omega-block-'));try{const artifact=stageFiles(task,impl,{root});assert.throws(()=>sealEvidence(artifact,{result:{pass:false,exitCode:1},qa,runId:'12'}),/GATES_NOT_MET/);assert.throws(()=>sealEvidence(artifact,{result:passed,qa:{decision:'BLOCK'},runId:'12'}),/GATES_NOT_MET/)}finally{rmSync(root,{recursive:true,force:true})}});
