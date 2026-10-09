@@ -1,0 +1,39 @@
+name: OMEGA Verified Language Sandbox Matrix
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/omega-engineering-kernel.mjs'
+      - 'tests/omega-engineering-docker-smoke.mjs'
+      - '.github/workflows/omega-engineering-sandbox-matrix.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: omega-language-sandbox-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify-language-toolchains:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Checkout immutable OMEGA source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install Node.js 22
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Verify unprivileged Docker runtime availability
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker version
+          docker info --format 'Server OS={{.OperatingSystem}} Driver={{.Driver}}'
+      - name: Run REAL networkless Node/Python/Go/Rust compiler smoke
+        env:
+          OMEGA_DOCKER_SMOKE: '1'
+        run: node --test tests/omega-engineering-docker-smoke.mjs
+      - name: Run engineering unit, evidence and orchestration tests
+        run: node --test tests/omega-engineering-kernel.test.mjs tests/omega-engineering-gate.test.mjs tests/omega-engineering-runner.test.mjs
