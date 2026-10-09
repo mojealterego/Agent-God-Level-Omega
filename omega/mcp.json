@@ -8,6 +8,22 @@
         "${PLUGIN_ROOT}/mcp/omega-control-plane/src/server.mjs"
       ],
       "cwd": "${PLUGIN_ROOT}/mcp/omega-control-plane"
+    },
+    "grant-business-architect": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/mcp/grant-business-architect/src/server.mjs"
+      ],
+      "cwd": "${PLUGIN_ROOT}/mcp/grant-business-architect"
+    },
+    "omega-omni-imandra": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/mcp/omni-imandra/src/server.mjs"
+      ],
+      "cwd": "${PLUGIN_ROOT}/mcp/omni-imandra"
     }
   }
 }
