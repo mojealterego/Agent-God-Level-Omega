@@ -217,6 +217,7 @@ export function createServer(context = {}) {
       description: 'Extract bounded text from TXT/MD/HTML/JSON/code/PDF/DOCX/ODT files under the configured phone knowledge root.',
       inputSchema: z.object({
         path: z.string().min(1),
+        offset: z.number().int().min(0).max(9007199254740991).default(0),
         maxBytes: z.number().int().min(1).max(4194304).default(1048576)
       })
     },

@@ -172,11 +172,11 @@ export class PhoneKnowledgeRoot {
     };
   }
 
-  async #readBoundedFile(path, maxBytes) {
+  async #readBoundedFile(path, maxBytes, offset = 0) {
     const handle = await open(path, 'r');
     try {
       const buffer = Buffer.alloc(maxBytes + 1);
-      const { bytesRead } = await handle.read(buffer, 0, buffer.length, 0);
+      const { bytesRead } = await handle.read(buffer, 0, buffer.length, offset);
       return {
         buffer: buffer.subarray(0, Math.min(bytesRead, maxBytes)),
         truncated: bytesRead > maxBytes
@@ -186,11 +186,15 @@ export class PhoneKnowledgeRoot {
     }
   }
 
-  async read({ path, maxBytes = 1_048_576 }) {
+  async read({ path, offset = 0, maxBytes = 1_048_576 }) {
+    if (!Number.isSafeInteger(offset) || offset < 0) throw new Error('offset must be a non-negative safe integer');
     const { root, canonical } = await this.#resolve(path);
     const info = await stat(canonical);
     if (!info.isFile()) throw new Error('Knowledge read path is not a regular file');
     const extension = extname(canonical).toLowerCase();
+    if (offset !== 0 && (extension === '.pdf' || ARCHIVE_TEXT_EXTENSIONS.has(extension))) {
+      throw new Error('Byte offset is not supported for extracted PDF/DOCX/ODT content');
+    }
     if (!SUPPORTED_EXTENSIONS.has(extension)) {
       const error = new Error(`Unsupported knowledge file type: ${extension || '(none)'}`);
       error.code = 'UNSUPPORTED_FILE_TYPE';
@@ -227,7 +231,7 @@ export class PhoneKnowledgeRoot {
         truncated = true;
       }
     } else {
-      const bounded = await this.#readBoundedFile(canonical, maxBytes);
+      const bounded = await this.#readBoundedFile(canonical, maxBytes, offset);
       text = bounded.buffer.toString('utf8');
       truncated = bounded.truncated;
       if (extension === '.html' || extension === '.htm' || extension === '.xml') {
@@ -243,6 +247,8 @@ export class PhoneKnowledgeRoot {
       modifiedAt: info.mtime.toISOString(),
       extractor,
       truncated,
+      offset: extractor === 'pdftotext' || extractor === 'docx-xml' || extractor === 'odt-xml' ? 0 : offset,
+      nextOffset: extractor === 'pdftotext' || extractor === 'docx-xml' || extractor === 'odt-xml' ? null : Math.min(info.size, offset + (truncated ? maxBytes : Math.max(0, info.size - offset))),
       text
     };
   }
