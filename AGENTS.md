@@ -257,6 +257,9 @@ These capabilities exist on the current repository line but are not entries in t
 - `omega-visual-architect` — WDA Ω∞ visual-state and minimal-change architecture with identity, subject-count and physical-coherence gates.
 - `omega-omni-architect-competency-plane` — Evidence/invariant/counterexample engineering layer absorbed from Omni-Architect & ImandraX.
 - `omega-lovable-app-engineer` — Lovable application engineering with security, secret-placement, verification, version-history, design-system and MCP boundaries.
+- `omega-dgm-self-evolution` — Evidence-first continuous improvement with bounded patch planning, sandbox evaluation, regression comparison and rollback gates.
+- `omega-osint-seeker` — Public-source and authorized evidence analysis with normalization, confidence scoring, timelines and chain-of-custody.
+- `omega-locally-uncensored-flow` — Hybrid local/remote media orchestration with resource-aware routing, asynchronous polling and retry policy.
 
 Do not silently rewrite the legacy registry merely to make counts look aligned. When a future batch requires registry migration, update the registry, validators, mirrors and checksums together and verify them in CI.
 
@@ -277,6 +280,8 @@ Before ending a batch:
 - no aggregate final plugin/package was produced unless the user explicitly declared the overall document-ingestion project complete.
 
 ## Change log
+
+- **2026-10-09 — Corpus batch: DGM + OSINT Seeker + Locally Uncensored Flow.** Added three canonical agents with matching skills, deterministic tools, hooks and standalone MCP servers. DGM was translated into a proposal/evaluate/land loop with baseline, regression and rollback gates; OSINT Seeker into authorized evidence analysis; Locally Uncensored Flow into provider-neutral local/remote routing with async job polling.
 
 - **2026-10-09 — Corpus batch: Lovable platform + OpenAI Agents SDK.** Added `omega-lovable-app-engineer` with security, secrets, verification routing, version-history/database rollback separation, design-system adherence and Lovable MCP boundaries. Canonicalized the legacy `omega-openai-developer-platform` capability into `omega/` and added trace/span lifecycle assurance plus blocking `ToolOutputGuardrailTripwireTriggered` semantics. Added deterministic tools, hooks, two standalone MCP assurance servers, MCP registrations and regression tests; live provider execution remains delegated to real connected provider surfaces.\n\n- **2026-10-09 — Corpus batch: Omni/Imandra, WDA Ω∞, MASTER_OS_ULTIMATE.** Absorbed the already-read phone corpus sources into the canonical main branch without duplicating existing orchestrators/runtimes. Added `omega-omni-architect-competency-plane` agent wrapper, deterministic invariant/counterexample and architecture scoring tools, Omni evidence gates, WDA visual change-budget tooling and acceptance hooks, MASTER_OS claim-state/anti-loop tooling, a narrow read-only `omega-omni-imandra` MCP server, MCP registrations, and regression coverage. Existing WDA and Omni control-plane runtimes remain canonical; formal proof remains an external-provider boundary.
 
