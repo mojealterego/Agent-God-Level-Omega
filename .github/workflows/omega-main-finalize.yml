@@ -1,0 +1,161 @@
+name: OMEGA Final Single-Main Consolidation
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/omega-main-finalize.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: omega-single-main-finalize
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout consolidated main and full branch history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Verify current functionality and compatibility tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 omega/scripts/validate_package.py
+          node --test omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs
+          node --test omega-mobile/mcp/omega-control-plane/test/knowledge-folder.test.mjs
+          bash omega-mobile/termux/test-knowledge-fallback.sh
+
+      - name: Require successful CI, preserve every historical file, and remove old branch refs
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin '+refs/heads/*:refs/remotes/origin/*'
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+          import time
+          from urllib.parse import quote
+          from urllib.request import Request, urlopen
+          from urllib.error import HTTPError
+
+          repository=os.environ['REPOSITORY']
+          if repository!='mojealterego/Agent-God-Level-Omega':
+              raise RuntimeError('wrong repository')
+          token=os.environ['GH_TOKEN']
+          wanted_main=os.environ['EXPECTED_HEAD']
+          api_root=f'https://api.github.com/repos/{repository}'
+          expected={
+              'docs/heimdall-gemini-cloud-credits-20261008':'2db44922d6c9d1a02c8eb76cff24d2093ebcf2e5',
+              'feat/android-knowledge-bridge':'ffa2165ed3fbe4acb02503711d50691a621a8588',
+              'feat/corpus-forge-batch-001':'5dfdf77e4fbad513d24a37b5d4dbc35e2023c428',
+              'feat/omega-termux-knowledge-connector':'f0ac5da8b9eb851b0fb745170bc9a0ecab0a9f20',
+              'feat/phone-knowledge-mcp':'9b30a6e33ad6865e5f541b9e455b004393422dda',
+              'feat/phone-knowledge-root-mcp':'6b2c51b55156aba50acf94337c8f833adfa4acd3',
+              'feat/secure-mcp-tunnel-official':'eb9ab1c41a5fa8b51f26fd6f2ac7134484592954',
+              'fix/android-bridge-live-status':'5c167a5d78606706710bf2cae1c67bcef3816b23',
+              'sync/github-absolute-automation-v0.3.0-current':'0f328adaf5d1c3e14e22ba23267ad6fd8cdb4a9b',
+              'sync/github-absolute-automation-v0.3.0-final':'9a995868f2a8ee5eb2e5b36add83b44b9cde5906',
+              'sync/github-absolute-automation-v0.3.0':'0e337b029bbe04b6e56a536e40ef0ff7a1bb2308'
+          }
+
+          def git(*args):
+              return subprocess.check_output(['git',*args],text=True).strip()
+
+          def api(path, method='GET'):
+              request=Request(api_root+path,method=method,headers={
+                  'Accept':'application/vnd.github+json',
+                  'Authorization':'Bearer '+token,
+                  'X-GitHub-Api-Version':'2022-11-28',
+                  'User-Agent':'omega-one-main-integrity'
+              })
+              try:
+                  with urlopen(request,timeout=35) as res:
+                      return None if res.status==204 else json.loads(res.read())
+              except HTTPError as exc:
+                  raise RuntimeError(f'GitHub {method} {path} returned {exc.code}') from exc
+
+          def branches():
+              all_refs=[]
+              page=1
+              while True:
+                  batch=api(f'/branches?per_page=100&page={page}')
+                  all_refs.extend(batch)
+                  if len(batch)<100:break
+                  page+=1
+              return {x['name']:x['commit']['sha'] for x in all_refs}
+
+          refs=branches()
+          if refs.get('main')!=wanted_main:
+              raise RuntimeError(f'main moved: {refs.get("main")}')
+          if set(refs)!=(set(expected)|{'main'}):
+              raise RuntimeError('branch set differs from previously audited snapshot')
+          for name,sha in expected.items():
+              if refs[name]!=sha:raise RuntimeError(f'branch head drift: {name}')
+              if subprocess.run(['git','merge-base','--is-ancestor',sha,wanted_main]).returncode!=0:
+                  raise RuntimeError(f'historical commits not reachable from main: {name}')
+              ancestor=git('merge-base','907646df52ee08993e8336991b8aec287c3d523b',sha)
+              changed=subprocess.check_output(['git','diff','--name-only','-z',ancestor,sha]).split(b'\0')
+              for raw in changed:
+                  if not raw:continue
+                  file=raw.decode('utf-8')
+                  if subprocess.run(['git','cat-file','-e',f'{wanted_main}:{file}'],
+                                   stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:
+                      raise RuntimeError(f'Historical file omitted from main: {name}: {file}')
+
+          from pathlib import Path
+          all_skills=list(Path('.').glob('omega/skills/*/SKILL.md'))
+          all_mobile=list(Path('.').glob('omega-mobile/skills/*/SKILL.md'))
+          all_plugins=list(Path('.').glob('plugins/**/SKILL.md'))
+          physical=len(all_skills)+len(all_mobile)+len(all_plugins)
+          if (len(all_skills),len(all_mobile),len(all_plugins),physical)!=(399,177,230,806):
+              raise RuntimeError('Full-repository skill inventory drift: '+str((len(all_skills),len(all_mobile),len(all_plugins),physical)))
+          registry=json.loads(Path('omega-mobile/agents/registry.json').read_text())
+          if len(registry['agents'])!=171:
+              raise RuntimeError('Agent registry drift')
+          if 'offset' not in Path('omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs').read_text():
+              raise RuntimeError('Legacy phone-read compatibility missing')
+          if 'OMEGA-KNOWLEDGE' not in Path('omega-mobile/termux/omega-mcp-stdio').read_text():
+              raise RuntimeError('Legacy phone-directory compatibility missing')
+
+          print(f'AUDIT PASS: main={wanted_main}; 11 branch histories preserved; 806 skill files; 171 registry agents')
+
+          # Wait for *this* exact commit to pass the full 4-shard GitHub CI.
+          deadline=time.monotonic()+540
+          while time.monotonic()<deadline:
+              runs=api('/actions/workflows/omega-assurance.yml/runs?head_sha='+wanted_main+'&per_page=30')['workflow_runs']
+              exact=[r for r in runs if r['head_sha']==wanted_main]
+              if any(r['status']=='completed' and r['conclusion']=='success' for r in exact):
+                  print('GitHub Agent CI Assurance: success for exact main HEAD')
+                  break
+              if any(r['status']=='completed' and r['conclusion'] in ('failure','timed_out','cancelled') for r in exact):
+                  raise RuntimeError('CI did not pass for exact main head')
+              time.sleep(12)
+          else:
+              raise RuntimeError('CI proof not observed within deadline; branch refs preserved')
+
+          # Re-read immediately before mutation to avoid deleting changed work.
+          if branches()!=refs:
+              raise RuntimeError('Branch refs changed during final verification')
+          for name in sorted(expected):
+              api('/git/refs/heads/'+quote(name,safe='/'),method='DELETE')
+              print('DELETED MERGED BRANCH REF',name)
+          final=branches()
+          if final!={'main':wanted_main}:
+              raise RuntimeError('Post-delete verification failed: '+str(final))
+          print('VERIFIED: ONLY main; no branch content paths missing; full CI passed')
+          PY
