@@ -1,0 +1,62 @@
+name: OMEGA Refresh Checksums
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/omega-refresh-checksums.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout immutable action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: true
+
+      - name: Rebuild SHA256SUMS
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          root = Path("omega")
+          lines = []
+          for path in sorted(
+              p for p in root.rglob("*")
+              if p.is_file() and p.name != "SHA256SUMS.txt"
+          ):
+              rel = path.relative_to(root).as_posix()
+              digest = hashlib.sha256(path.read_bytes()).hexdigest()
+              lines.append(f"{digest}  {rel}")
+          (root / "SHA256SUMS.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          print(f"wrote {len(lines)} checksum entries")
+          PY
+
+      - name: Validate package
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 omega/scripts/validate_package.py
+
+      - name: Commit refreshed checksums to main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "omega-checksum-bot"
+          git config user.email "omega-checksum-bot@users.noreply.github.com"
+          git add omega/SHA256SUMS.txt
+          if git diff --cached --quiet; then
+            echo "Checksums already current."
+            exit 0
+          fi
+          git commit -m "chore(main): refresh OMEGA checksums"
+          git push origin HEAD:main
