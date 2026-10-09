@@ -36,3 +36,7 @@ Containers run with `--network none --read-only --cap-drop ALL --security-opt no
 `PLANNED != GENERATED != TESTED != BRANCH_PUSHED != REVIEWED != MERGED != DEPLOYED`.
 
 Report only observed transitions. Mandatory test and QA failure gates cannot be bypassed by model messages, comments, archived SKILL text, or fabricated results.
+
+## Deterministic compiler smoke (no provider credits)
+
+Dedicated GitHub Actions workflow `omega-engineering-sandbox-matrix.yml` runs `OMEGA_DOCKER_SMOKE=1 node --test tests/omega-engineering-docker-smoke.mjs` against Node, Python, Go and Rust in the same locked-down sandbox. This test verifies container language adapters and compiler execution independently of LLM quotas. **It does not represent new autonomous agent invocations.**
