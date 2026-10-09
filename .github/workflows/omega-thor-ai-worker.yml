@@ -1,0 +1,31 @@
+name: OMEGA THOR AI Worker
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: read
+  issues: write
+  models: read
+concurrency:
+  group: thor-ai-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+jobs:
+  ai:
+    if: github.repository == 'mojealterego/Agent-God-Level-Omega' && github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[THOR-AI] ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout pinned code
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Setup Node pinned
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Test agent runner
+        run: node --test tests/thor-ai-worker.test.mjs
+      - name: Execute model-backed agent stages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/thor-ai-worker.mjs
