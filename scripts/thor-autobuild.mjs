@@ -21,7 +21,7 @@ export function validateBuildIssue(event) {
 }
 
 export function parseModelFiles(raw) {
-  const text = String(raw??'').trim().replace(/^\\s*\\x60\\x60\\x60(?:json)?\\s*/i,'').replace(/\\x60\\x60\\x60\\s*$/,'');
+  const text = String(raw??'').trim().replace(/^\s*\x60\x60\x60(?:json)?\s*/i,'').replace(/\x60\x60\x60\s*$/,'');
   const first=text.indexOf('{'), last=text.lastIndexOf('}');
   if(first<0||last<=first)throw new Error('MISSING_CODE_JSON');
   let v;
@@ -30,7 +30,7 @@ export function parseModelFiles(raw) {
   if(typeof v.source!=='string'||v.source.length<40||v.source.length>8000 || typeof v.tests!=='string'||v.tests.length<80||v.tests.length>5200)throw new Error('BAD_CODE_LENGTHS');
   if(typeof v.readme!=='string'||v.readme.length>1200)throw new Error('BAD_README');
   if(!v.tests.includes("node:test")||!v.tests.includes('assert')||!v.tests.includes('./index.mjs'))throw new Error('TEST_CONTRACT_MISSING');
-  if(/\\b(?:execSync|spawnSync|child_process|process\\.env|fetch\\s*\\(|https?\\.request)\\b/.test(v.source+'\n'+v.tests))throw new Error('DISALLOWED_SIDE_EFFECT');
+  if(/\b(?:execSync|spawnSync|child_process|process\.env|fetch\s*\(|https?\.request)\b/.test(v.source+'\n'+v.tests))throw new Error('DISALLOWED_SIDE_EFFECT');
   return v;
 }
 
