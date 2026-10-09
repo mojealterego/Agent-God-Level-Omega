@@ -61,8 +61,12 @@ export function stageFiles(task,impl,{root=process.cwd()}={}){
 
 export function sandboxCommand(artifact){
   const cfg=artifact.language;
-  const cmd=['run','--rm','--network','none','--read-only','--cap-drop=ALL','--security-opt','no-new-privileges','--memory','512m','--cpus','1','--pids-limit','64','--user','65534:65534',
-    '--tmpfs','/tmp:rw,mode=1777,size=128m','--env','HOME=/tmp','--env','GOCACHE=/tmp/gocache','--env','GOPATH=/tmp/go','--env','GO111MODULE=off',
+  // Go test and compiled Rust test binaries execute from /tmp. Mount only the ephemeral sandbox
+  // build area with exec; user remains unprivileged, networkless and unable to write to /work.
+  const compiled=['go','rs'].some(lang=>LANGUAGES[lang]===cfg);
+  const scratch=compiled?'/tmp:rw,exec,nosuid,nodev,mode=1777,size=512m':'/tmp:rw,nosuid,nodev,mode=1777,size=128m';
+  const cmd=['run','--rm','--network','none','--read-only','--cap-drop=ALL','--security-opt','no-new-privileges','--memory',compiled?'1024m':'512m','--cpus','1','--pids-limit','64','--user','65534:65534',
+    '--tmpfs',scratch,'--env','HOME=/tmp','--env','GOCACHE=/tmp/gocache','--env','GOPATH=/tmp/go','--env','GO111MODULE=off',
     '--mount',`type=bind,src=${artifact.dir},dst=/work,readonly`,'--workdir','/work',cfg.image,...cfg.command];
   return {bin:'docker',args:cmd};
 }
@@ -105,5 +109,5 @@ export function evidenceSummary({task,result,qa,branch}){
   return ['## OMEGA THOR — MULTILANGUAGE ENGINEERING','',`Language: ${LANGUAGES[task.language].name}`,`Specialists: ${SPECIALISTS[task.language].join(' → ')}`,
     'Observed isolated test result: '+result.status,'Sandbox: '+result.sandbox,'Source/test SHA-256: '+result.sha256.source+' / '+result.sha256.tests,
     'Output branch: '+(branch||'not published'),'Code is generated and gated, not merged/deployed.','','### QA review',String(qa.findings).slice(0,900),
-    '','### Test evidence','```',String(result.stdout).slice(0,1800),'```'].join('\n').slice(0,6500);
+    '','### Test evidence','```',[String(result.stdout||''),String(result.stderr||'')].filter(Boolean).join('\n').slice(0,2600),'```'].join('\n').slice(0,6500);
 }
