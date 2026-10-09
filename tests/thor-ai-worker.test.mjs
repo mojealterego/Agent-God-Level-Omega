@@ -19,10 +19,15 @@ test('inference failure does not claim success',async()=>{
   await assert.rejects(executeAiTask(valid,{inference:async()=>{throw new Error('model unavailable')}}),/model unavailable/);
 });
 test('model success requires an actual response',async()=>{
-  const fake=async()=>({ok:true,json:async()=>({choices:[{message:{content:'  model returned  '}}]})});
+  const fake=async()=>({ok:true,status:200,headers:{get:()=> 'application/json'},text:async()=>JSON.stringify({choices:[{message:{content:'  model returned  '}}]})});
   assert.equal(await infer([{role:'user',content:'x'}],{token:'mock-token',fetchImpl:fake}),'model returned');
 });
 test('HTTP inference failure surfaces the status',async()=>{
   const fake=async()=>({ok:false,status:403});
   await assert.rejects(infer([{role:'user',content:'x'}],{token:'mock-token',fetchImpl:fake}),/403/);
+});
+
+test('reports non-JSON upstream response without claiming success',async()=>{
+  const fake=async()=>({ok:true,status:200,headers:{get:()=> 'text/plain'},text:async()=> 'OK\\r\\n'});
+  await assert.rejects(infer([{role:'user',content:'x'}],{token:'mock-token',fetchImpl:fake}),/invalid JSON/);
 });
