@@ -1,0 +1,30 @@
+{
+  "format": "omega.project.v1",
+  "spec": {
+    "kind": "api",
+    "slug": "omega-service-kit",
+    "title": "Engineering Task Queue API",
+    "description": "Zero-dependency Node.js 22 ESM reference API for in-memory task queue management with native HTTP integration testing.",
+    "accent": "#0ea5e9"
+  },
+  "files": [
+    {
+      "name": "README.md",
+      "sha256": "65164bd96d5e39d87d10efad37e27084b1cac9d3b24b56c73d09bf0cc992c0bc"
+    },
+    {
+      "name": "package.json",
+      "sha256": "7a5a0103916f3bbf1145e9265d40438af9e190da18463b5f42992f011d3d3686"
+    },
+    {
+      "name": "server.mjs",
+      "sha256": "53154520e042438a77594d863def2a21328ffa3f140ee899800962c4d2c8e280"
+    },
+    {
+      "name": "server.test.mjs",
+      "sha256": "971e5a7a5af92ff8cb7690247cfde3014dcf802b07e43004e99c797a4ac001d0"
+    }
+  ],
+  "verifiedBuild": false,
+  "verifiedAndroidApk": false
+}
