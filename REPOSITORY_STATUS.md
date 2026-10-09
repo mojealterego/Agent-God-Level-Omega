@@ -53,3 +53,5 @@
 - Observed pre-integration directory counts: `omega/skills` 397, `omega/agents` 12, `omega/tools` 13, `omega/mcp` 9, `omega/hooks` 14, `omega-mobile/skills` 175. Updated intended counts after commit: 398 / 13 / 14 / 10 / 15 / 176 respectively.
 - Live TinyFish provider access not validated; provider API key, OAuth and charged runs depend on runtime configuration.
 - Repository policy: keep only `main` as development target; this batch creates no branch. Existing non-main branches require separate consolidation/deletion workflow and have not been modified.
+- Subsequent independent Skill Creator addition changed verified canonical `omega/skills` count to **399** (per refreshed `omega/FINAL_VERIFICATION.json`); TinyFish contribution remains +1 skill.
+- TinyFish adapter six-test Node.js suite is now in the OMEGA Agent CI Assurance workflow; runtime provider E2E remains a separately authorized check.

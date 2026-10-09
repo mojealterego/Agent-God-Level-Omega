@@ -88,6 +88,12 @@ jobs:
           python3 "$pkg/scripts/validate_package.py"
 
 
+      - name: Run TinyFish adapter regression tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test omega/tools/tinyfish-web-automation/adapter.test.mjs
+
       - name: Research-derived deterministic assurance gates
         shell: bash
         run: |
