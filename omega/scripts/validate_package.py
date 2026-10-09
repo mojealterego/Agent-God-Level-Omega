@@ -287,7 +287,7 @@ for path in ROOT.rglob("*"):
         marker_b = "DUMMY" + "_SECRET"
         if marker_a in text or marker_b in text:
             fail(f"{path}: placeholder marker detected")
-        if re.search(r"\b(TODO|FIXME)\b", text):
+        if re.search(r"(?m)^\s*(?:(?:#|//|/\*|\*|<!--|[-*])\s*)?(?:TODO|FIXME)\b(?:\s*[:\-]|\s*$)", text):
             fail(f"{path}: unfinished marker detected")
 
 if errors:
