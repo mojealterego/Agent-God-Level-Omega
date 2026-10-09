@@ -94,6 +94,10 @@ jobs:
           for e in report['auto_mergeable']:
               print('MERGEABLE',e['branch'],e['path'])
           PY
+      - name: Verify mobile knowledge-root compatibility
+        shell: bash
+        run: |
+          node --test omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs
       - name: Upload audit evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
