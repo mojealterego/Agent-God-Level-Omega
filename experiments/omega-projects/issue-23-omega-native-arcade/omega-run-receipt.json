@@ -1,0 +1,21 @@
+{
+  "schema": "omega.project-run.v1",
+  "issue": 23,
+  "runId": "37984317187",
+  "kind": "android",
+  "slug": "omega-native-arcade",
+  "modelCalls": 3,
+  "sourceRoot": "experiments/omega-projects/issue-23-omega-native-arcade",
+  "files": 8,
+  "validation": {
+    "status": "ANDROID_SOURCE_READY_APK_UNVERIFIED",
+    "pass": true,
+    "command": "static manifest check",
+    "apkVerified": false,
+    "exitCode": 0,
+    "log": "Android native source and manifest generated. APK not built."
+  },
+  "qaSummary": "### QA Evaluation: Gravity Jump Canvas Prototype\n\n**Classification:** Basic Playable Prototype (Not AAA)  \n**Status:** `ANDROID_SOURCE_READY_APK_UNVERIFIED`  \n**Verdict:** CONDITIONAL PASS (Source/Manifest Ready, APK Unverified)\n\n---\n\n### Verification Summary\n* **Static Verification:** Passed. Native Android Java 17 Canvas project structure, launcher activity, offline-only permissions, and safe manifest constraints are present.\n* **APK & Runtime Status:** `apkVerified: false`. **No APK build, dynamic instrumentation, or emulator/device tests were executed.**\n\n---\n\n### Missing Checks & Required Actions\n1. **CI Debug APK Build:** GitHub CI compilation using Android Gradle Plugin 8.7.3 and Compile SDK 35 has not yet generated the debug APK artifact.\n2. **Cryptographic Provenance:** APK SHA-256 checksum generation and artifact capture are pending compilation.\n3. **Runtime & Touch Mechanics:** Physical/emulator validation of responsive touch inputs, Canvas draw loop stability, and gravity jump physics has not occurred.\n4. **Target SDK Compatibility:** Dynamic runtime execution under Android 15 (API 35) remains unverified.\n\n**Conclusion:** The project meets baseline source and manifest g",
+  "requiresHumanReview": true,
+  "merged": false
+}
