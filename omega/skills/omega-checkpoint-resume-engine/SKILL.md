@@ -50,3 +50,7 @@ When waiting on CI or another external condition:
 - record exact run/resource id;
 - do not create duplicate actions on resume;
 - inspect existing state before retriggering.
+
+## MASTER_OS_ULTIMATE project-state contract
+
+For substantial resumable work, checkpoint state should additionally retain objective/version/current phase/current step, completed/in-progress/blocked work, requirements, decisions, assumptions, risks, quality status and the next executable action. Resume from the first unverified/uncompleted predicate after rereading reality; never replay an already-observed external action blindly. Source synthesis is maintained by `omega-omni-orchestrator/references/master-os-ultimate-source-synthesis.md`.
