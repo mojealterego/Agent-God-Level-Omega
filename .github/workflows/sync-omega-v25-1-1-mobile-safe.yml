@@ -1,0 +1,138 @@
+name: Sync OMEGA v25.1.1 Mobile Safe
+
+on:
+  push:
+    paths:
+      - ".github/workflows/sync-omega-v25-1-1-mobile-safe.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Convert canonical OMEGA to mobile-safe packaging
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json, hashlib
+
+          root=Path("omega")
+
+          for src_name,dst_name in [("mcp.json","desktop-mcp.json"),(".mcp.json","desktop-dot-mcp.json")]:
+              src=root/src_name
+              if src.exists():
+                  (root/"references"/dst_name).write_text(src.read_text(encoding="utf-8"),encoding="utf-8")
+                  src.unlink()
+
+          app={
+            "apps":{
+              "github":{"id":"connector_76869538009648d5b282a4bb21c3d157"},
+              "gitlab":{"id":"connector_0c9786b2f41f41558056126bdb46c9bd"},
+              "openai-platform":{"id":"connector_2de447f3f15448ebab48783d7e4f5d81"}
+            }
+          }
+          (root/".app.json").write_text(json.dumps(app,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+          version="25.1.1"
+          description=("OMEGA v25.1.1 cumulative mobile-safe full-system sync. It preserves the complete OMEGA/ASGARD source tree, "
+          "all agents, skills, hooks, tools, MCP/control-plane sources, OpenAI Events/Extensions, voice, OSINT, ROLLO, Railway, "
+          "Pingram, Tools Fabric, Plugin Collector and 210 GitHub MCP Registry companions while disabling packaged local stdio MCP "
+          "activation that forces desktop-only classification.")
+          long_desc=("OMEGA v25.1.1 is the cumulative full-system mobile-safe release. All prior OMEGA/ASGARD engineering, cognitive, "
+          "assurance, media, automation and control-plane source remains packaged. Local stdio MCP descriptors are retained as inert "
+          "references rather than active top-level configuration, and verified GitHub, GitLab and OpenAI Platform app bindings are "
+          "used for cross-platform host integration.")
+
+          p=root/"plugin.json"
+          d=json.loads(p.read_text(encoding="utf-8"))
+          d["version"]=version
+          d["description"]=description
+          co=d.setdefault("extensions",{}).setdefault("com.openai",{})
+          co["apps"]="./.app.json"
+          iface=co.setdefault("interface",{})
+          iface["displayName"]="OMEGA Omni-Cognitive Engineering v25.1.1"
+          iface["shortDescription"]="Cumulative Mobile-Safe Sync"
+          iface["longDescription"]=long_desc
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+          p=root/".codex-plugin"/"plugin.json"
+          d=json.loads(p.read_text(encoding="utf-8"))
+          d["version"]=version
+          d["description"]=description
+          d["apps"]="./.app.json"
+          d.pop("mcpServers",None)
+          iface=d.setdefault("interface",{})
+          iface["displayName"]="OMEGA Omni-Cognitive Engineering v25.1.1"
+          iface["shortDescription"]="Cumulative Mobile-Safe Sync"
+          iface["longDescription"]=long_desc
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+          validator=root/"scripts"/"validate_package.py"
+          t=validator.read_text(encoding="utf-8")
+          t=t.replace('manifest.get("version") != "25.0.0"','manifest.get("version") != "25.1.1"')
+          t=t.replace('manifest.get("version") != "25.1.0"','manifest.get("version") != "25.1.1"')
+          t=t.replace('if not (ROOT / "mcp.json").is_file():\n    fail("missing portable mcp.json")\n',
+                      'if (ROOT / "mcp.json").exists() or (ROOT / ".mcp.json").exists():\n    fail("mobile-safe package must not activate top-level MCP descriptors")\nif not (ROOT / ".app.json").is_file():\n    fail("missing verified mobile app binding file")\n')
+          validator.write_text(t,encoding="utf-8")
+
+          readme=root/"README.md"
+          body=readme.read_text(encoding="utf-8")
+          marker="## OMEGA v25.1.1 mobile-safe packaging"
+          if marker not in body:
+              body += "\n\n"+marker+"\n\nActive top-level mcp.json and .mcp.json are removed to avoid desktop-only ChatGPT classification. Their contents are preserved under references/. Verified app bindings live in .app.json.\n"
+              readme.write_text(body,encoding="utf-8")
+
+          (root/"IMPLEMENTATION_STATUS.md").write_text(
+              "# OMEGA v25.1.1 implementation status\n\n**MOBILE-SAFE PACKAGE** — complete source preserved; active local stdio descriptors disabled.\n",
+              encoding="utf-8"
+          )
+
+          fv=root/"FINAL_VERIFICATION.json"
+          obj=json.loads(fv.read_text(encoding="utf-8")) if fv.exists() else {}
+          obj["version"]=version
+          obj["status"]="SAVED_RELEASE_PENDING_ANDROID_UI_VERIFY"
+          obj["verification_state"]="package_validated_host_ui_pending"
+          obj["package_validator"]="LOCAL_PASS"
+          obj["mobile_packaging"]={
+            "active_mcp_json":False,
+            "active_dot_mcp_json":False,
+            "desktop_mcp_definitions_preserved_as_references":True,
+            "app_json":True,
+            "verified_bindings":["github","gitlab","openai-platform"],
+            "android_ui_physically_verified":False
+          }
+          fv.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+          sums=[]
+          for f in sorted(root.rglob("*")):
+              if f.is_file() and f.name!="SHA256SUMS.txt":
+                  rel=f.relative_to(root).as_posix()
+                  sums.append(f"{hashlib.sha256(f.read_bytes()).hexdigest()}  {rel}")
+          (root/"SHA256SUMS.txt").write_text("\n".join(sums)+"\n",encoding="utf-8")
+          PY
+
+          rm -rf /tmp/omega-omni-cognitive-engineering-v2
+          cp -a omega /tmp/omega-omni-cognitive-engineering-v2
+          python /tmp/omega-omni-cognitive-engineering-v2/scripts/validate_package.py
+
+      - name: Commit source synchronization
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A omega
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "fix(omega): make v25.1.1 mobile-safe"
+          git push origin HEAD:main
