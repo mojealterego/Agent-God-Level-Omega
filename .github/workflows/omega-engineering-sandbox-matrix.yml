@@ -31,6 +31,14 @@ jobs:
           set -euo pipefail
           docker version
           docker info --format 'Server OS={{.OperatingSystem}} Driver={{.Driver}}'
+      - name: Resolve approved official images from the public Google OCI mirror
+        shell: bash
+        run: |
+          set -euo pipefail
+          for image in node:22-alpine python:3.12-alpine golang:1.24-alpine rust:1.85-alpine; do
+            docker pull "mirror.gcr.io/library/${image}"
+            docker tag "mirror.gcr.io/library/${image}" "${image}"
+          done
       - name: Run REAL networkless Node/Python/Go/Rust compiler smoke
         env:
           OMEGA_DOCKER_SMOKE: '1'
