@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   ai-agents:
-    if: github.repository == 'mojealterego/Agent-God-Level-Omega' && github.event.issue.user.login == github.repository_owner && (startsWith(github.event.issue.title, '[THOR-LOVABLE] ') || startsWith(github.event.issue.title, '[THOR-BUILD] ') || startsWith(github.event.issue.title, '[THOR-PROJECT] '))
+    if: github.repository == 'mojealterego/Agent-God-Level-Omega' && github.event.issue.user.login == github.repository_owner && (startsWith(github.event.issue.title, '[THOR-LOVABLE] ') || startsWith(github.event.issue.title, '[THOR-BUILD] ') || startsWith(github.event.issue.title, '[THOR-PROJECT] ') || startsWith(github.event.issue.title, '[THOR-CODE] '))
     runs-on: ubuntu-latest
     timeout-minutes: 22
     steps:
@@ -25,14 +25,17 @@ jobs:
         with:
           node-version: '22'
       - name: Test OIDC and inference adapter
-        run: node --test tests/thor-copilot-worker.test.mjs tests/thor-lovable-agent.test.mjs tests/thor-autobuild.test.mjs tests/omega-project-factory.test.mjs tests/omega-project-agent.test.mjs tests/omega-project-gate.test.mjs
+        run: node --test tests/thor-copilot-worker.test.mjs tests/thor-lovable-agent.test.mjs tests/thor-autobuild.test.mjs tests/omega-project-factory.test.mjs tests/omega-project-agent.test.mjs tests/omega-project-gate.test.mjs tests/omega-engineering-kernel.test.mjs tests/omega-engineering-gate.test.mjs tests/omega-engineering-runner.test.mjs
       - name: Execute live backend model stages using GitHub-signed OIDC
         env:
           GITHUB_TOKEN: ${{ github.token }}
           OMEGA_AUTOBUILD: ${{ startsWith(github.event.issue.title, '[THOR-BUILD] ') }}
           OMEGA_PROJECT: ${{ startsWith(github.event.issue.title, '[THOR-PROJECT] ') }}
+          OMEGA_ENGINEERING: ${{ startsWith(github.event.issue.title, '[THOR-CODE] ') }}
         run: |
-          if [ "$OMEGA_PROJECT" = 'true' ]; then
+          if [ "$OMEGA_ENGINEERING" = 'true' ]; then
+            node scripts/omega-engineering-runner.mjs
+          elif [ "$OMEGA_PROJECT" = 'true' ]; then
             node scripts/omega-project-agent.mjs
           elif [ "$OMEGA_AUTOBUILD" = 'true' ]; then
             node scripts/thor-autobuild.mjs
