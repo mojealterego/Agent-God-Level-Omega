@@ -25,7 +25,7 @@ test('health and RFC 9728 metadata are public', async () => {
   await withServer({ env }, async (base) => {
     const health = await fetch(`${base}/healthz`);
     assert.equal(health.status, 200);
-    assert.equal((await health.json()).version, '4.3.1');
+    assert.equal((await health.json()).version, '4.3.2');
     const meta = await fetch(`${base}/.well-known/oauth-protected-resource`);
     assert.equal(meta.status, 200);
     const doc = await meta.json();
