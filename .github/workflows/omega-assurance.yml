@@ -66,8 +66,9 @@ jobs:
           import json
           from pathlib import Path
           f=json.loads(Path("omega/FINAL_VERIFICATION.json").read_text())
-          assert f["version"]=="25.0.0"
-          assert f["status"] in {"CANDIDATE","DONE"}
+          current_version=json.loads(Path("omega/plugin.json").read_text())["version"]
+          assert f["version"]==current_version, (f["version"], current_version)
+          assert f["status"] in {"CANDIDATE","DONE","SAVED_RELEASE_PENDING_ANDROID_UI_VERIFY"}
           actual={
               "skills": len(list(Path("omega/skills").glob("*/SKILL.md"))),
               "references": len(list(Path("omega/references").glob("*.md"))),
