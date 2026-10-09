@@ -9,6 +9,7 @@ import { buildContainerRun } from '../adapters/container.mjs';
 import { buildAdbCommand, buildEmulatorCommand } from '../adapters/android.mjs';
 import { detectHostProfile } from './host.mjs';
 import { VoiceConciergeRuntime } from '../communications/voice-concierge.mjs';
+import { PhoneKnowledgeRoot } from '../knowledge/phone-knowledge-root.mjs';
 
 function parseRoots(value) {
   if (!value) return [process.cwd()];
@@ -16,10 +17,11 @@ function parseRoots(value) {
 }
 
 export class OmegaControlPlane {
-  constructor({ workspaceRoots = parseRoots(process.env.OMEGA_WORKSPACE_ROOTS), policy } = {}) {
+  constructor({ workspaceRoots = parseRoots(process.env.OMEGA_WORKSPACE_ROOTS), policy, knowledgeRoot = process.env.OMEGA_KNOWLEDGE_ROOT, knowledgeRuntime } = {}) {
     this.workspaceRoots = workspaceRoots.map((root) => resolve(root));
     this.policy = policy ?? new Policy({ workspaceRoots: this.workspaceRoots });
     this.voiceConciergeRuntime = new VoiceConciergeRuntime();
+    this.knowledgeRuntime = knowledgeRuntime ?? (knowledgeRoot ? new PhoneKnowledgeRoot({ root: knowledgeRoot }) : null);
   }
 
   capabilities() {
@@ -27,7 +29,7 @@ export class OmegaControlPlane {
   }
 
   hostInfo() {
-    return { ...detectHostProfile(), workspaceRoots: [...this.workspaceRoots] };
+    return { ...detectHostProfile(), workspaceRoots: [...this.workspaceRoots], knowledgeRootConfigured: Boolean(this.knowledgeRuntime) };
   }
 
   terminalRun(input) {
@@ -80,6 +82,21 @@ export class OmegaControlPlane {
   voiceConcierge(input = {}) {
     return this.voiceConciergeRuntime.action(input);
   }
+
+  #knowledge() {
+    if (!this.knowledgeRuntime) {
+      const error = new Error('Phone knowledge root is not configured');
+      error.code = 'KNOWLEDGE_ROOT_NOT_CONFIGURED';
+      throw error;
+    }
+    return this.knowledgeRuntime;
+  }
+
+  knowledgeInfo() { return this.#knowledge().info(); }
+  knowledgeList(input = {}) { return this.#knowledge().list(input); }
+  knowledgeRead(input) { return this.#knowledge().read(input); }
+  knowledgeSearch(input) { return this.#knowledge().search(input); }
+  knowledgeMetadata(input) { return this.#knowledge().metadata(input); }
 
   artifactInspect(path) {
     return inspectArtifact({ path, workspaceRoots: this.workspaceRoots });

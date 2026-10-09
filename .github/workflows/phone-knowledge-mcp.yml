@@ -1,0 +1,35 @@
+name: Phone Knowledge MCP
+
+on:
+  pull_request:
+    paths:
+      - 'omega-mobile/mcp/omega-control-plane/**'
+      - 'omega-mobile/termux/**'
+      - 'omega-mobile/skills/omega-android-termux-runtime/**'
+      - '.github/workflows/phone-knowledge-mcp.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mobile-mcp-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout immutable action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Setup Node immutable action
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - name: Install MCP dependencies
+        working-directory: omega-mobile/mcp/omega-control-plane
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Run full mobile MCP test suite
+        working-directory: omega-mobile/mcp/omega-control-plane
+        run: npm test
+      - name: Shell syntax gate
+        run: |
+          bash -n omega-mobile/termux/omega-mcp-stdio
+          bash -n omega-mobile/termux/omega-termux
+          bash -n omega-mobile/termux/install.sh

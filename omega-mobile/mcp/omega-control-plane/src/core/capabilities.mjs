@@ -49,6 +49,15 @@ export async function discoverCapabilities({ resolver = defaultResolver, host = 
     cap('verifier.local', 'verifier', 'project-toolchain', verifierPath, ['run-suite'], 'L'),
     cap('communications.voice-concierge', 'communications', 'omega-internal', process.execPath, ['persona-route','channel-route','conversation-plan','appointment-handoff','post-call-evidence','opt-out-gate'], 'E'),
     {
+      id: 'knowledge.phone-folder',
+      category: 'knowledge',
+      provider: 'android-filesystem-readonly',
+      status: process.env.OMEGA_KNOWLEDGE_ROOT ? 'AVAILABLE' : 'UNAVAILABLE',
+      path: null,
+      operations: ['info', 'list', 'metadata', 'read', 'search'],
+      side_effect_class: 'R'
+    },
+    {
       id: host.termux ? 'runtime.termux' : host.cloudRun ? 'runtime.cloud-run' : host.android ? 'runtime.android' : 'runtime.host',
       category: 'runtime',
       provider: host.termux ? 'termux' : host.cloudRun ? 'google-cloud-run' : host.android ? 'android' : host.platform,

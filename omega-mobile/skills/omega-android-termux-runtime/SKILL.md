@@ -63,3 +63,24 @@ Use ADB only when `device.android` is available. Any mutating device operation m
 ## Completion
 
 A mobile session is complete only when the requested code/build/artifact result has direct evidence. Tunnel health proves connectivity only; it does not prove the software task succeeded.
+
+
+## Phone knowledge root
+
+When the user binds a phone folder through `omega-termux knowledge-setup`, treat
+`knowledge.phone-folder` as a read-only local knowledge source.
+
+Required sequence:
+1. call `omega_knowledge_info`;
+2. inventory with `omega_knowledge_list`;
+3. inspect exact files with `omega_knowledge_metadata` and `omega_knowledge_read`;
+4. use `omega_knowledge_search` for bounded cross-document retrieval;
+5. never claim access to a file that was not returned by the live MCP tools.
+
+The default Android target is the user's shared-storage folder
+`Download/BAZA WIEDZY`, auto-detected through either the Termux storage symlink or
+`/storage/emulated/0/Download/BAZA WIEDZY`.
+
+The knowledge surface intentionally has no create, update, move, rename or delete
+operations. Storage permission remains an Android user-consent boundary and must
+not be bypassed or represented as already granted without live evidence.
