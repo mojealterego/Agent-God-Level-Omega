@@ -14,7 +14,7 @@ jobs:
   ai-agents:
     if: github.repository == 'mojealterego/Agent-God-Level-Omega' && github.event.issue.user.login == github.repository_owner && (startsWith(github.event.issue.title, '[THOR-LOVABLE] ') || startsWith(github.event.issue.title, '[THOR-BUILD] ') || startsWith(github.event.issue.title, '[THOR-PROJECT] '))
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 22
     steps:
       - name: Checkout trusted agent source
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
