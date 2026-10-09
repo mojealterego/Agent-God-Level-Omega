@@ -1,0 +1,21 @@
+{
+  "schema": "omega.project-run.v1",
+  "issue": 25,
+  "runId": "37984661212",
+  "kind": "game",
+  "slug": "omega-touch-runner",
+  "modelCalls": 3,
+  "sourceRoot": "experiments/omega-projects/issue-25-omega-touch-runner",
+  "files": 14,
+  "validation": {
+    "status": "TESTED",
+    "pass": true,
+    "command": "node --test",
+    "apkVerified": false,
+    "exitCode": 0,
+    "log": "TAP version 13\n# Subtest: jump moves player upwards\nok 1 - jump moves player upwards\n  ---\n  duration_ms: 0.964835\n  type: 'test'\n  ...\n# Subtest: landing stops at floor\nok 2 - landing stops at floor\n  ---\n  duration_ms: 0.185437\n  type: 'test'\n  ...\n# Subtest: collision hitbox\nok 3 - collision hitbox\n  ---\n  duration_ms: 0.201377\n  type: 'test'\n  ...\n# Subtest: HTTP serves application and blocks traversal\nok 4 - HTTP serves application and blocks traversal\n  ---\n  duration_ms: 31.604086\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 161.097427\n"
+  },
+  "qaSummary": "### Independent QA Report: Omega Leap: 2D Canvas Jumper\n\n**Overall Assessment:** **PASS** (Core Physics & Server Smoke Tests)\n\n#### 1. Verified Automated Checks (`node --test`)\n* **Core Physics Engine:** Jump kinematics accurately propel the player upward; gravity and floor collision resolution reliably arrest downward movement.\n* **Hitbox Collision:** AABB intersection routines for player-obstacle interactions pass unit test assertions.\n* **HTTP Serving & Security:** Server properly serves asset payloads and prevents path traversal attacks.\n* **Dependencies:** Zero external production dependencies detected.\n\n---\n\n#### 2. Missing Checks & Unverified Scope\n* **Android APK Verification:** **NOT VERIFIED** (`apkVerified: false`). No native Android wrapper or APK compilation tests were performed.\n* **Browser/Touch Interaction:** Visual Canvas rendering, responsive viewport scaling, and real-time touch/keyboard jump event handlers were not evaluated in a live headless browser/DOM environment.\n* **PWA & Offline Execution:** Web App Manifest parsing, PNG icon asset integrity, Service Worker caching lifecycles, and `localStorage` high score persistence remain unverified by automated tests.",
+  "requiresHumanReview": true,
+  "merged": false
+}
