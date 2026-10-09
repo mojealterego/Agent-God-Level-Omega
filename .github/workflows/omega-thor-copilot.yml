@@ -1,0 +1,34 @@
+name: OMEGA THOR Copilot Real Agents
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: omega-real-agents-${{ github.event.issue.number }}
+  cancel-in-progress: false
+jobs:
+  thor-copilot:
+    if: github.repository == 'mojealterego/Agent-God-Level-Omega' && github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[THOR-COPILOT] ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Checkout trusted source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Set up Node.js 22
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Unit and security tests
+        run: node --test tests/thor-copilot-worker.test.mjs
+      - name: Install official GitHub Copilot CLI
+        run: npm install -g @github/copilot
+      - name: Execute three model-backed agent roles
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+          COPILOT_AUTO_UPDATE: 'false'
+        run: node scripts/thor-copilot-worker.mjs
