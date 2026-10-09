@@ -422,6 +422,38 @@ const httpServer = createHttpServer(async (req, res) => {
     if (job.status === 'error') {
       return json(res, 503, { ok: false, job_id: id, op: job.op, status: 'error', error: job.error });
     }
+    const offset = Math.max(0, Number(url.searchParams.get('offset') || 0));
+    const limit = Math.max(1, Math.min(1000, Number(url.searchParams.get('limit') || 1000)));
+    if (job.result && Array.isArray(job.result.entries)) {
+      const total = job.result.entries.length;
+      const slice = job.result.entries.slice(offset, offset + limit);
+      return json(res, 200, {
+        ok: true,
+        job_id: id,
+        op: job.op,
+        status: 'done',
+        result: {
+          ...job.result,
+          entries: slice,
+          page: { offset, limit, returned: slice.length, total }
+        }
+      });
+    }
+    if (job.result && Array.isArray(job.result.matches)) {
+      const total = job.result.matches.length;
+      const slice = job.result.matches.slice(offset, offset + limit);
+      return json(res, 200, {
+        ok: true,
+        job_id: id,
+        op: job.op,
+        status: 'done',
+        result: {
+          ...job.result,
+          matches: slice,
+          page: { offset, limit, returned: slice.length, total }
+        }
+      });
+    }
     return json(res, 200, { ok: true, job_id: id, op: job.op, status: 'done', result: job.result });
   }
 
