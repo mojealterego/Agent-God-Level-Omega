@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/omega-main-consolidation-audit.yml'
+      - 'omega-mobile/mcp/omega-control-plane/**'
   workflow_dispatch:
 
 permissions:
