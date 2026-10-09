@@ -44,6 +44,7 @@ public class KnowledgeBridgeService extends Service {
         super.onCreate();
         PDFBoxResourceLoader.init(getApplicationContext());
         createChannel();
+        setConnectionStatus("ŁĄCZY...");
         startForeground(NOTIFICATION_ID, notification("Łączenie z OMEGA..."));
         client = new OkHttpClient.Builder()
                 .pingInterval(20, TimeUnit.SECONDS)
@@ -64,16 +65,19 @@ public class KnowledgeBridgeService extends Service {
         String wsUrl = prefs.getString("websocket_url", "");
         String treeUri = prefs.getString("tree_uri", "");
         if (token.isEmpty() || wsUrl.isEmpty() || treeUri.isEmpty()) {
+            setConnectionStatus("BRAK KONFIGURACJI");
             updateNotification("Brak konfiguracji parowania lub folderu.");
             stopSelf();
             return;
         }
 
+        setConnectionStatus("ŁĄCZY...");
         Request request = new Request.Builder().url(wsUrl).build();
         socket = client.newWebSocket(request, new WebSocketListener() {
             @Override
             public void onOpen(WebSocket webSocket, Response response) {
                 authenticated = false;
+                setConnectionStatus("UWIERZYTELNIA...");
                 try {
                     webSocket.send(new JSONObject()
                             .put("type", "auth")
@@ -90,6 +94,7 @@ public class KnowledgeBridgeService extends Service {
                     String type = msg.optString("type");
                     if ("auth_ok".equals(type)) {
                         authenticated = true;
+                        setConnectionStatus("POŁĄCZONO");
                         updateNotification("Połączono. BAZA WIEDZY jest dostępna read-only.");
                         return;
                     }
@@ -104,6 +109,7 @@ public class KnowledgeBridgeService extends Service {
             public void onClosed(WebSocket webSocket, int code, String reason) {
                 authenticated = false;
                 socket = null;
+                setConnectionStatus("ROZŁĄCZONO (" + code + ")");
                 scheduleReconnect();
             }
 
@@ -111,6 +117,8 @@ public class KnowledgeBridgeService extends Service {
             public void onFailure(WebSocket webSocket, Throwable t, Response response) {
                 authenticated = false;
                 socket = null;
+                String message = t == null || t.getMessage() == null ? "nieznany błąd" : t.getMessage();
+                setConnectionStatus("BŁĄD: " + message);
                 updateNotification("Rozłączono. Ponawiam połączenie...");
                 scheduleReconnect();
             }
@@ -180,6 +188,13 @@ public class KnowledgeBridgeService extends Service {
     private void updateNotification(String text) {
         NotificationManager nm = getSystemService(NotificationManager.class);
         nm.notify(NOTIFICATION_ID, notification(text));
+    }
+
+    private void setConnectionStatus(String value) {
+        getSharedPreferences(PREFS, MODE_PRIVATE)
+                .edit()
+                .putString("connection_status", value)
+                .apply();
     }
 
     @Override
