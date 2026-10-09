@@ -1,6 +1,6 @@
 # OMEGA on Android / Termux
 
-OMEGA v3.3 can run the local MCP control plane inside Termux and connect it to ChatGPT through OpenAI Secure MCP Tunnel. The phone initiates outbound HTTPS; the MCP server does not need a public inbound port.
+OMEGA can run the local MCP control plane inside Termux and connect it to ChatGPT through OpenAI Secure MCP Tunnel. The phone initiates outbound HTTPS; the MCP server does not need a public inbound port.
 
 ## Install
 
@@ -15,7 +15,7 @@ The installer:
 - installs Node.js, Git, curl, unzip, Python, coreutils, Poppler (`pdftotext`) and Android platform tools when available;
 - installs the OMEGA MCP server under `$HOME/.local/share/omega-mcp/control-plane`;
 - installs MCP dependencies with lifecycle scripts disabled;
-- downloads the pinned official OpenAI `tunnel-client` release for Linux ARM64/AMD64 and verifies its published SHA-256 checksum;
+- resolves the latest public OpenAI `tunnel-client` release by default (or a version selected with `OMEGA_TUNNEL_CLIENT_VERSION`) for Linux ARM64/AMD64 and verifies the published SHA-256 checksum;
 - falls back to building the same release from source if the prebuilt Linux binary is not executable on the local Android/Termux build;
 - installs `omega-mcp-stdio` and `omega-termux` into `$HOME/.local/bin`.
 
@@ -53,14 +53,29 @@ omega-termux knowledge-setup "/storage/emulated/0/Download/OTHER FOLDER"
 Supported extraction includes plain text/code/Markdown/HTML/JSON/XML/YAML/CSV, PDF through
 `pdftotext`, DOCX through read-only XML extraction, and ODT through read-only XML extraction.
 
-## Connect
+## Validate and connect
+
+Before starting the long-lived runtime, materialize the official local stdio profile and run the OpenAI diagnostic path:
+
+```bash
+omega-termux doctor
+```
+
+This runs the equivalent of:
+
+```text
+tunnel-client init --sample sample_mcp_stdio_local --profile omega-termux ...
+tunnel-client doctor --profile omega-termux --explain
+```
+
+Then start the long-lived managed runtime:
 
 ```bash
 omega-termux connect
 omega-termux status
 ```
 
-`connect` uses the native managed runtime flow:
+`connect` first runs the profile/doctor preflight and then uses the native managed runtime flow recommended for a long-lived local runtime:
 
 ```text
 tunnel-client runtimes connect
@@ -87,6 +102,7 @@ Raise those gates only for a task that actually requires them.
 
 ```text
 omega-termux configure
+omega-termux doctor
 omega-termux connect
 omega-termux status
 omega-termux stop
@@ -96,3 +112,11 @@ omega-termux connector
 ```
 
 Stopping/removing the local runtime does not delete the remote tunnel.
+
+
+## Official OpenAI references
+
+- Secure MCP Tunnel: https://developers.openai.com/api/docs/guides/secure-mcp-tunnels
+- tunnel-client repository: https://github.com/openai/tunnel-client
+- Tunnel management: https://platform.openai.com/settings/organization/tunnels
+- ChatGPT connector settings: https://chatgpt.com/plugins
