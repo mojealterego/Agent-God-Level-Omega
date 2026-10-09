@@ -1,0 +1,222 @@
+name: OMEGA Agent CI Assurance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: omega-agent-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  assurance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout immutable action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Setup Node immutable action
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+
+      - name: Supply-chain workflow audit
+        shell: python
+        run: |
+          from pathlib import Path
+          import re, sys
+          findings=[]
+          sha_ref=re.compile(r"^[0-9a-f]{40}$")
+          for path in Path(".github/workflows").glob("*.y*ml"):
+              text=path.read_text(encoding="utf-8")
+              if re.search(r"(?m)^\s{0,2}pull_request_target:\s*$",text):
+                  findings.append(f"{path}: pull_request_target is forbidden")
+              if re.search(r"(?m)^\s*permissions:\s*write-all\s*$",text):
+                  findings.append(f"{path}: permissions write-all is forbidden")
+              if re.search(r"(?i)(curl|wget)[^\n|]*\|\s*(sh|bash)",text):
+                  findings.append(f"{path}: remote pipe-to-shell installer")
+              for m in re.finditer(r"(?m)^\s*-?\s*uses:\s*([^\s#]+)",text):
+                  spec=m.group(1).strip("'\"")
+                  if spec.startswith("./"): continue
+                  if "@" not in spec:
+                      findings.append(f"{path}: unversioned action {spec}")
+                      continue
+                  ref=spec.rsplit("@",1)[1]
+                  if not sha_ref.fullmatch(ref):
+                      findings.append(f"{path}: mutable action ref {spec}")
+          if findings:
+              print("\n".join(findings))
+              sys.exit(1)
+          print("workflow supply-chain audit: PASS")
+
+      - name: Verify release metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(cat VERSION)" = "25.0.0"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          f=json.loads(Path("omega/FINAL_VERIFICATION.json").read_text())
+          assert f["version"]=="25.0.0"
+          assert f["status"] in {"CANDIDATE","DONE"}
+          assert f["counts"]=={"skills":169,"references":84,"schemas":110}
+          PY
+
+      - name: Validate OMEGA package
+        shell: bash
+        run: |
+          set -euo pipefail
+          tmp="$(mktemp -d)"
+          pkg="$tmp/omega-omni-cognitive-engineering-v2"
+          mkdir -p "$pkg"
+          cp -a omega/. "$pkg/"
+          python3 "$pkg/scripts/validate_package.py"
+
+
+      - name: Research-derived deterministic assurance gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest tools/omega-assurance/test_assurance_gate.py
+          python3 tools/omega-assurance/assurance_gate.py workflow-audit .github/workflows
+          python3 tools/omega-assurance/assurance_gate.py model-profile-check .omega/model-providers.json
+          python3 tools/omega-assurance/assurance_gate.py python-arch omega-mobile > /tmp/omega-python-arch.json
+          python3 tools/omega-assurance/assurance_gate.py knowledge-manifest omega-mobile/references > /tmp/omega-knowledge-manifest.json
+          python3 tools/omega-assurance/reproducible_zip.py omega-mobile --output /tmp/omega-a.zip --manifest /tmp/omega-a.json
+          python3 tools/omega-assurance/reproducible_zip.py omega-mobile --output /tmp/omega-b.zip --manifest /tmp/omega-b.json
+          cmp /tmp/omega-a.zip /tmp/omega-b.zip
+          echo "deterministic package reproducibility: PASS"
+
+
+  package:
+    needs: assurance
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout immutable action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Build deterministic OMEGA package
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(cat VERSION)"
+          root="omega-omni-cognitive-engineering-v2"
+          name="Agent-God-Level-Omega-v${version}-WDA"
+          rm -rf dist
+          mkdir -p "dist/stage/${root}" dist/out
+          cp -a omega/. "dist/stage/${root}/"
+          python3 "dist/stage/${root}/scripts/validate_package.py"
+
+          python3 tools/omega-assurance/reproducible_zip.py dist/stage \
+            --output "/tmp/${name}-a.zip" \
+            --manifest "/tmp/${name}-a.manifest.json"
+          python3 tools/omega-assurance/reproducible_zip.py dist/stage \
+            --output "/tmp/${name}-b.zip" \
+            --manifest "/tmp/${name}-b.manifest.json"
+
+          cmp "/tmp/${name}-a.zip" "/tmp/${name}-b.zip"
+          cp "/tmp/${name}-a.zip" "dist/out/${name}.zip"
+          cp "/tmp/${name}-a.manifest.json" "dist/out/${name}.manifest.json"
+          (
+            cd dist/out
+            sha256sum "${name}.zip" > "${name}.sha256"
+          )
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, os, hashlib, zipfile
+          out=Path("dist/out")
+          zips=list(out.glob("*.zip"))
+          assert len(zips)==1, zips
+          z=zips[0]
+          manifest=json.loads(next(out.glob("*.manifest.json")).read_text())
+          digest=hashlib.sha256(z.read_bytes()).hexdigest()
+          assert digest==manifest["archive_sha256"]
+          with zipfile.ZipFile(z) as archive:
+              names=archive.namelist()
+              assert names, "empty package"
+              assert all(name.startswith("omega-omni-cognitive-engineering-v2/") for name in names)
+              required={
+                  "omega-omni-cognitive-engineering-v2/plugin.json",
+                  "omega-omni-cognitive-engineering-v2/SHA256SUMS.txt",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/src/visual/wda-runtime.mjs",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/test/visual-wda.test.mjs",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/src/openai/events-runtime.mjs",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/src/openai/remote-server.mjs",
+                  "omega-omni-cognitive-engineering-v2/mcp/omega-control-plane/test/openai-events-extensions.test.mjs",
+              }
+              missing=required-set(names)
+              assert not missing, sorted(missing)
+          print(f"OMEGA package verified: {z.name} sha256={digest} files={manifest['file_count']}")
+          PY
+
+      - name: Upload OMEGA package artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: omega-v25-wda-package-${{ github.sha }}
+          path: dist/out/*
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+
+  regression:
+    needs: assurance
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - name: Checkout immutable action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Setup Node immutable action
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+
+      - name: Install pinned Python runtime dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install --disable-pip-version-check --no-input -r .github/requirements-runtime.txt
+
+      - name: Run regression shard
+        working-directory: omega/mcp/omega-control-plane
+        shell: bash
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARDS: 4
+          OMEGA_JEPA_FORCE_REFERENCE: '1'
+          OMEGA_TITANS_FORCE_NATIVE: '1'
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(find test -maxdepth 1 -type f -name '*.test.mjs' | sort | awk -v s="$SHARD" -v n="$SHARDS" '((NR-1)%n)==s')
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No tests assigned to shard $SHARD"
+            exit 1
+          fi
+          printf 'Shard %s/%s running %s files\n' "$SHARD" "$SHARDS" "${#files[@]}"
+          printf '%s\n' "${files[@]}"
+          start=$(date +%s)
+          timeout 12m node --test --test-concurrency=1 "${files[@]}"
+          end=$(date +%s)
+          echo "OMEGA shard $SHARD duration: $((end-start))s"

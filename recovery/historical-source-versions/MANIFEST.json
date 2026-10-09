@@ -1,0 +1,3650 @@
+{
+  "format": "omega-historical-source-recovery-v1",
+  "baseline_main_commit": "8338e8fc34c2d169f39d77f3a35e74da95f72418",
+  "scope": "inert snapshots of all absent or byte-different historic files; current canonical active OMEGA sources are not overwritten",
+  "branches": [
+    {
+      "name": "docs/heimdall-gemini-cloud-credits-20261008",
+      "head_sha": "2db44922d6c9d1a02c8eb76cff24d2093ebcf2e5",
+      "files": 981
+    },
+    {
+      "name": "feat/android-knowledge-bridge",
+      "head_sha": "ffa2165ed3fbe4acb02503711d50691a621a8588",
+      "files": 1007
+    },
+    {
+      "name": "feat/corpus-forge-batch-001",
+      "head_sha": "5dfdf77e4fbad513d24a37b5d4dbc35e2023c428",
+      "files": 1007
+    },
+    {
+      "name": "feat/omega-termux-knowledge-connector",
+      "head_sha": "f0ac5da8b9eb851b0fb745170bc9a0ecab0a9f20",
+      "files": 995
+    },
+    {
+      "name": "feat/phone-knowledge-mcp",
+      "head_sha": "9b30a6e33ad6865e5f541b9e455b004393422dda",
+      "files": 980
+    },
+    {
+      "name": "feat/phone-knowledge-root-mcp",
+      "head_sha": "6b2c51b55156aba50acf94337c8f833adfa4acd3",
+      "files": 991
+    },
+    {
+      "name": "feat/secure-mcp-tunnel-official",
+      "head_sha": "eb9ab1c41a5fa8b51f26fd6f2ac7134484592954",
+      "files": 997
+    },
+    {
+      "name": "fix/android-bridge-live-status",
+      "head_sha": "5c167a5d78606706710bf2cae1c67bcef3816b23",
+      "files": 1007
+    },
+    {
+      "name": "sync/github-absolute-automation-v0.3.0-current",
+      "head_sha": "0f328adaf5d1c3e14e22ba23267ad6fd8cdb4a9b",
+      "files": 914
+    },
+    {
+      "name": "sync/github-absolute-automation-v0.3.0-final",
+      "head_sha": "9a995868f2a8ee5eb2e5b36add83b44b9cde5906",
+      "files": 983
+    },
+    {
+      "name": "sync/github-absolute-automation-v0.3.0",
+      "head_sha": "0e337b029bbe04b6e56a536e40ef0ff7a1bb2308",
+      "files": 896
+    }
+  ],
+  "restored_file_versions": 448,
+  "unique_historical_blob_shas": 111,
+  "files": [
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "16f8704fd06007bdc3d2ee37a3785909e75b103f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "AGENTS.md",
+      "blob_sha": "52cc1e024c69680181a86bee3ff642bb43793554",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/AGENTS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "README.md",
+      "blob_sha": "b391172573551e396f647f74450b33ed262375f1",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "cc6a29e55b7e4cd102ef71e3a30d4e4e6a1df230",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "blob_sha": "e04a964567b7480e482680a9c4586b506052c911",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "e4caa1cb0bf8b804966c752c592b71105502a974",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "4ad50183bade12a0852edbe9730594f70e506ff9",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "blob_sha": "71ef0a7ab7c165851f8f17e096e4e5bc5e3f9c78",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "blob_sha": "2c9cf8b3f2adced1fc245ea7292c01ce257c4ea0",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "831167ba00626c0bded3bd0c28784fe52657039d",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/termux/install.sh",
+      "blob_sha": "413a908718506a67b77e84fe2c50702f0c279c27",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/termux/install.sh",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "22ab8778992698cb1a16b58ea92c0383573989f3",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega-mobile/termux/omega-termux",
+      "blob_sha": "9d763b1a625d1658a6e630c55f99183751395c24",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega-mobile/termux/omega-termux",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "a2454d4a3508b84db3dcf4b201645921648445e3",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "46f5cfcf6ea0936509c72ec360f4b44f4b0cb833",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "2804e532533faac221447771228b87029b32a986",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "docs/heimdall-gemini-cloud-credits-20261008",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/docs__heimdall-gemini-cloud-credits-20261008/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": ".github/workflows/android-knowledge-bridge.yml",
+      "blob_sha": "bc1e8ad4885903d0b5501a3fce916d7e31c2f7dc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/.github/workflows/android-knowledge-bridge.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "16f8704fd06007bdc3d2ee37a3785909e75b103f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "AGENTS.md",
+      "blob_sha": "499387d4c1a3abb4247171159b88fa4f77725a72",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/AGENTS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "README.md",
+      "blob_sha": "f4df236608cc1f20c778c63ea2a2934f49d5183e",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "34fbb59fc349c03edfaaf3a6df9ccdabcbbe8312",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/android-knowledge-bridge/app/src/main/java/pl/mojealterego/omega/bridge/KnowledgeBridgeService.java",
+      "blob_sha": "41203d151b88fb2ac9314cff8877dcf226ebe4eb",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/android-knowledge-bridge/app/src/main/java/pl/mojealterego/omega/bridge/KnowledgeBridgeService.java",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/android-knowledge-bridge/app/src/main/java/pl/mojealterego/omega/bridge/MainActivity.java",
+      "blob_sha": "e19b95b8e45991dd979d60f7d1dabf1d9036f813",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/android-knowledge-bridge/app/src/main/java/pl/mojealterego/omega/bridge/MainActivity.java",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "673b128bd6a283e0f69af122e732f27566b0fc89",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "blob_sha": "7ba6f1f36ae1adb3a223540286fa1155fb654ea6",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "d4f2841d0f88e8f207c100f44739688cdd94630a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "blob_sha": "ce4fd7079bf323af3b05ddb4a718437f98fb65f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "4bca90954996a6abc49789fd79712a4c25110c0a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "84e07fd71de1dcaf804e4b15091c74c81e66f633",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "a2454d4a3508b84db3dcf4b201645921648445e3",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "46f5cfcf6ea0936509c72ec360f4b44f4b0cb833",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "2804e532533faac221447771228b87029b32a986",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "e49bb48150903e54d24eefa7af0df052f7db60df",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "5c924045d8cd64684325bff82692d3773ee0941b",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/android-knowledge-bridge",
+      "source_path": "services/omega-termux-knowledge-relay/server.mjs",
+      "blob_sha": "9e1f0d4a5084b91310410a71362597f6ab658c2f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__android-knowledge-bridge/services/omega-termux-knowledge-relay/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": ".github/workflows/android-knowledge-bridge.yml",
+      "blob_sha": "bc1e8ad4885903d0b5501a3fce916d7e31c2f7dc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/.github/workflows/android-knowledge-bridge.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "16f8704fd06007bdc3d2ee37a3785909e75b103f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "AGENTS.md",
+      "blob_sha": "499387d4c1a3abb4247171159b88fa4f77725a72",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/AGENTS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "README.md",
+      "blob_sha": "f4df236608cc1f20c778c63ea2a2934f49d5183e",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "34fbb59fc349c03edfaaf3a6df9ccdabcbbe8312",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/android-knowledge-bridge/app/src/main/java/pl/mojealterego/omega/bridge/KnowledgeBridgeService.java",
+      "blob_sha": "41203d151b88fb2ac9314cff8877dcf226ebe4eb",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/android-knowledge-bridge/app/src/main/java/pl/mojealterego/omega/bridge/KnowledgeBridgeService.java",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/android-knowledge-bridge/app/src/main/java/pl/mojealterego/omega/bridge/MainActivity.java",
+      "blob_sha": "e19b95b8e45991dd979d60f7d1dabf1d9036f813",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/android-knowledge-bridge/app/src/main/java/pl/mojealterego/omega/bridge/MainActivity.java",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "673b128bd6a283e0f69af122e732f27566b0fc89",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "blob_sha": "7ba6f1f36ae1adb3a223540286fa1155fb654ea6",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "d4f2841d0f88e8f207c100f44739688cdd94630a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "blob_sha": "ce4fd7079bf323af3b05ddb4a718437f98fb65f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "4bca90954996a6abc49789fd79712a4c25110c0a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "84e07fd71de1dcaf804e4b15091c74c81e66f633",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "a2454d4a3508b84db3dcf4b201645921648445e3",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "46f5cfcf6ea0936509c72ec360f4b44f4b0cb833",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "2804e532533faac221447771228b87029b32a986",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "e49bb48150903e54d24eefa7af0df052f7db60df",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "5c924045d8cd64684325bff82692d3773ee0941b",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/corpus-forge-batch-001",
+      "source_path": "services/omega-termux-knowledge-relay/server.mjs",
+      "blob_sha": "9e1f0d4a5084b91310410a71362597f6ab658c2f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__corpus-forge-batch-001/services/omega-termux-knowledge-relay/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "16f8704fd06007bdc3d2ee37a3785909e75b103f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "AGENTS.md",
+      "blob_sha": "499387d4c1a3abb4247171159b88fa4f77725a72",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/AGENTS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "README.md",
+      "blob_sha": "a70a4f4383e96b2a8b3fc8ce18bfcab85920d6c8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "a5505932cb88e3f01a5988f16d2f84cf0ba75124",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "673b128bd6a283e0f69af122e732f27566b0fc89",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "blob_sha": "7ba6f1f36ae1adb3a223540286fa1155fb654ea6",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "d4f2841d0f88e8f207c100f44739688cdd94630a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "blob_sha": "ce4fd7079bf323af3b05ddb4a718437f98fb65f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "blob_sha": "30cfd42e11388647c179f078b5dc4d2764df1935",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "24b9e051595fd8e4d190988aeb06d99447a7d2de",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/termux/install.sh",
+      "blob_sha": "b8f751604a968cb85e64db5a90f87859f0012b87",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/termux/install.sh",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "84e07fd71de1dcaf804e4b15091c74c81e66f633",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega-mobile/termux/omega-termux",
+      "blob_sha": "29b7723fcdf8079ef47702cff07cd762c11162ce",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega-mobile/termux/omega-termux",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "a2454d4a3508b84db3dcf4b201645921648445e3",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "46f5cfcf6ea0936509c72ec360f4b44f4b0cb833",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "2804e532533faac221447771228b87029b32a986",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "e49bb48150903e54d24eefa7af0df052f7db60df",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/skills/plugin-collector-agent/SKILL.md",
+      "blob_sha": "dea7ff2c77fa454c664e0cee54944ecc70a62fdd",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/skills/plugin-collector-agent/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/skills/plugin-collector-agent/references/catalog-scan.md",
+      "blob_sha": "1c75a00a2fa019e4f282eb73d413494a897fb66c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/skills/plugin-collector-agent/references/catalog-scan.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "omega/skills/plugin-collector-agent/references/limits.md",
+      "blob_sha": "7d6f900e1bf4ce4fed6630b3e7554b8df3d977ac",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/omega/skills/plugin-collector-agent/references/limits.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "5c924045d8cd64684325bff82692d3773ee0941b",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "plugins/plugin-collector-agent/.codex-plugin/plugin.json",
+      "blob_sha": "919c56e3aa79d8877324912b204a189b1ea1ad5f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/plugins/plugin-collector-agent/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "plugins/plugin-collector-agent/README.md",
+      "blob_sha": "cb28afb507bc41fef77a61c547cbd05c2f40cd4a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/plugins/plugin-collector-agent/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "plugins/plugin-collector-agent/plugin.json",
+      "blob_sha": "a05df037cdda5da81f17cdfc2ff42e375125baf0",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/plugins/plugin-collector-agent/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "plugins/plugin-collector-agent/skills/plugin-collector-agent/SKILL.md",
+      "blob_sha": "dea7ff2c77fa454c664e0cee54944ecc70a62fdd",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/plugins/plugin-collector-agent/skills/plugin-collector-agent/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "plugins/plugin-collector-agent/skills/plugin-collector-agent/references/catalog-scan.md",
+      "blob_sha": "1c75a00a2fa019e4f282eb73d413494a897fb66c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/plugins/plugin-collector-agent/skills/plugin-collector-agent/references/catalog-scan.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/omega-termux-knowledge-connector",
+      "source_path": "plugins/plugin-collector-agent/skills/plugin-collector-agent/references/limits.md",
+      "blob_sha": "7d6f900e1bf4ce4fed6630b3e7554b8df3d977ac",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__omega-termux-knowledge-connector/plugins/plugin-collector-agent/skills/plugin-collector-agent/references/limits.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "42337210284e838800d04cc16cccf1db6036e606",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "AGENTS.md",
+      "blob_sha": "093a16df845bc5faa23d17238f000cab77738f70",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/AGENTS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "README.md",
+      "blob_sha": "3e9a1fbe3bfc00e10ec6b0a6e8adf0aee623f001",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "cc6a29e55b7e4cd102ef71e3a30d4e4e6a1df230",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "44c56fd7a0625583613f9bf48bc7acceaffe40f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "blob_sha": "e04a964567b7480e482680a9c4586b506052c911",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "d2fca5683d88329e41ece929cf4f1cfa8ab74a75",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "4c244655eeb6ca2952ad8a6d98ae9c869726966c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "blob_sha": "71ef0a7ab7c165851f8f17e096e4e5bc5e3f9c78",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "blob_sha": "57a57c98f64a63cf76dce002270e2e064b33dec0",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "083d8b94bdef7d00a40588225aab59373ecee165",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "6dfec2d2655d88c4d54d6f7cf0059be76737b2c0",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/termux/install.sh",
+      "blob_sha": "6c16ae4c1fb1db53f5f5e21cdcd31c15efc7eeb8",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/termux/install.sh",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "f6a7e19294a858568b56879a938bdacb8501b9e2",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega-mobile/termux/omega-termux",
+      "blob_sha": "9d763b1a625d1658a6e630c55f99183751395c24",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega-mobile/termux/omega-termux",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "d0013027529fd8f6d90758be75bdcb1971222884",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "9034ccf1baca946b1980e898e3c0ea53de8c2412",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "b837fdcc4f886808fb35ac8c2d4930b1b93af68c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "e49bb48150903e54d24eefa7af0df052f7db60df",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "plugins/deterministic-automation-forge/.codex-plugin/plugin.json",
+      "blob_sha": "894d1630e67783bd63fc13b7b65d595a214e7396",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/plugins/deterministic-automation-forge/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "plugins/deterministic-automation-forge/README.md",
+      "blob_sha": "3b1346e94f4a87b099de16a0ebfc819b7c211065",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/plugins/deterministic-automation-forge/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "plugins/deterministic-automation-forge/skills/automation-control-plane/SKILL.md",
+      "blob_sha": "764ca85d4bd3182ae3d6ec9f9d8a6ca5026f200f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/plugins/deterministic-automation-forge/skills/automation-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "plugins/deterministic-automation-forge/skills/automation-control-plane/references/job-contract.md",
+      "blob_sha": "56161a9a5ec513d7320d77c23de0a5819688f343",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/plugins/deterministic-automation-forge/skills/automation-control-plane/references/job-contract.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "e49bb48150903e54d24eefa7af0df052f7db60df",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "plugins/deterministic-automation-forge/skills/heimdall-reward-scout/references/signup-policy.md",
+      "blob_sha": "0674ab5e2132efab9ddb38a833549b0685720509",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/plugins/deterministic-automation-forge/skills/heimdall-reward-scout/references/signup-policy.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "plugins/deterministic-automation-forge/skills/runtime-executor/SKILL.md",
+      "blob_sha": "0aad4eb3a99cd957b72082e356b39a59e96f5c44",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/plugins/deterministic-automation-forge/skills/runtime-executor/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-mcp",
+      "source_path": "plugins/deterministic-automation-forge/skills/site-registrar/SKILL.md",
+      "blob_sha": "a43b93bf6c2ead5425a25d7df2e74f020fc5ad3c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-mcp/plugins/deterministic-automation-forge/skills/site-registrar/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "16f8704fd06007bdc3d2ee37a3785909e75b103f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "AGENTS.md",
+      "blob_sha": "499387d4c1a3abb4247171159b88fa4f77725a72",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/AGENTS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "README.md",
+      "blob_sha": "a70a4f4383e96b2a8b3fc8ce18bfcab85920d6c8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "a5505932cb88e3f01a5988f16d2f84cf0ba75124",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "673b128bd6a283e0f69af122e732f27566b0fc89",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "blob_sha": "7ba6f1f36ae1adb3a223540286fa1155fb654ea6",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "d4f2841d0f88e8f207c100f44739688cdd94630a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "blob_sha": "ce4fd7079bf323af3b05ddb4a718437f98fb65f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "blob_sha": "30cfd42e11388647c179f078b5dc4d2764df1935",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "24b9e051595fd8e4d190988aeb06d99447a7d2de",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/termux/install.sh",
+      "blob_sha": "b8f751604a968cb85e64db5a90f87859f0012b87",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/termux/install.sh",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "84e07fd71de1dcaf804e4b15091c74c81e66f633",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega-mobile/termux/omega-termux",
+      "blob_sha": "29b7723fcdf8079ef47702cff07cd762c11162ce",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega-mobile/termux/omega-termux",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "a2454d4a3508b84db3dcf4b201645921648445e3",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "46f5cfcf6ea0936509c72ec360f4b44f4b0cb833",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "2804e532533faac221447771228b87029b32a986",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "e49bb48150903e54d24eefa7af0df052f7db60df",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/skills/plugin-collector-agent/SKILL.md",
+      "blob_sha": "dea7ff2c77fa454c664e0cee54944ecc70a62fdd",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/skills/plugin-collector-agent/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/skills/plugin-collector-agent/references/catalog-scan.md",
+      "blob_sha": "1c75a00a2fa019e4f282eb73d413494a897fb66c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/skills/plugin-collector-agent/references/catalog-scan.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "omega/skills/plugin-collector-agent/references/limits.md",
+      "blob_sha": "7d6f900e1bf4ce4fed6630b3e7554b8df3d977ac",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/omega/skills/plugin-collector-agent/references/limits.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "5c924045d8cd64684325bff82692d3773ee0941b",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "plugins/plugin-collector-agent/.codex-plugin/plugin.json",
+      "blob_sha": "919c56e3aa79d8877324912b204a189b1ea1ad5f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/plugins/plugin-collector-agent/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "plugins/plugin-collector-agent/README.md",
+      "blob_sha": "cb28afb507bc41fef77a61c547cbd05c2f40cd4a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/plugins/plugin-collector-agent/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "plugins/plugin-collector-agent/plugin.json",
+      "blob_sha": "a05df037cdda5da81f17cdfc2ff42e375125baf0",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/plugins/plugin-collector-agent/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "plugins/plugin-collector-agent/skills/plugin-collector-agent/SKILL.md",
+      "blob_sha": "dea7ff2c77fa454c664e0cee54944ecc70a62fdd",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/plugins/plugin-collector-agent/skills/plugin-collector-agent/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "plugins/plugin-collector-agent/skills/plugin-collector-agent/references/catalog-scan.md",
+      "blob_sha": "1c75a00a2fa019e4f282eb73d413494a897fb66c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/plugins/plugin-collector-agent/skills/plugin-collector-agent/references/catalog-scan.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/phone-knowledge-root-mcp",
+      "source_path": "plugins/plugin-collector-agent/skills/plugin-collector-agent/references/limits.md",
+      "blob_sha": "7d6f900e1bf4ce4fed6630b3e7554b8df3d977ac",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__phone-knowledge-root-mcp/plugins/plugin-collector-agent/skills/plugin-collector-agent/references/limits.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "16f8704fd06007bdc3d2ee37a3785909e75b103f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "AGENTS.md",
+      "blob_sha": "499387d4c1a3abb4247171159b88fa4f77725a72",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/AGENTS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "README.md",
+      "blob_sha": "f4df236608cc1f20c778c63ea2a2934f49d5183e",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "34fbb59fc349c03edfaaf3a6df9ccdabcbbe8312",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "673b128bd6a283e0f69af122e732f27566b0fc89",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "blob_sha": "7ba6f1f36ae1adb3a223540286fa1155fb654ea6",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "d4f2841d0f88e8f207c100f44739688cdd94630a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "blob_sha": "ce4fd7079bf323af3b05ddb4a718437f98fb65f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "4bca90954996a6abc49789fd79712a4c25110c0a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "84e07fd71de1dcaf804e4b15091c74c81e66f633",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "a2454d4a3508b84db3dcf4b201645921648445e3",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "46f5cfcf6ea0936509c72ec360f4b44f4b0cb833",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "2804e532533faac221447771228b87029b32a986",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "e49bb48150903e54d24eefa7af0df052f7db60df",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "5c924045d8cd64684325bff82692d3773ee0941b",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "feat/secure-mcp-tunnel-official",
+      "source_path": "services/omega-termux-knowledge-relay/server.mjs",
+      "blob_sha": "456dc7a20ae1d4ad71be2ecf788aba556623b91f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/feat__secure-mcp-tunnel-official/services/omega-termux-knowledge-relay/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": ".github/workflows/android-knowledge-bridge.yml",
+      "blob_sha": "bc1e8ad4885903d0b5501a3fce916d7e31c2f7dc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/.github/workflows/android-knowledge-bridge.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "16f8704fd06007bdc3d2ee37a3785909e75b103f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "AGENTS.md",
+      "blob_sha": "499387d4c1a3abb4247171159b88fa4f77725a72",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/AGENTS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "README.md",
+      "blob_sha": "f4df236608cc1f20c778c63ea2a2934f49d5183e",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "34fbb59fc349c03edfaaf3a6df9ccdabcbbe8312",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "673b128bd6a283e0f69af122e732f27566b0fc89",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "blob_sha": "7ba6f1f36ae1adb3a223540286fa1155fb654ea6",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "d4f2841d0f88e8f207c100f44739688cdd94630a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "blob_sha": "ce4fd7079bf323af3b05ddb4a718437f98fb65f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega-mobile/mcp/omega-control-plane/test/phone-knowledge-root.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "4bca90954996a6abc49789fd79712a4c25110c0a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "84e07fd71de1dcaf804e4b15091c74c81e66f633",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "a2454d4a3508b84db3dcf4b201645921648445e3",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "46f5cfcf6ea0936509c72ec360f4b44f4b0cb833",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "2804e532533faac221447771228b87029b32a986",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "e49bb48150903e54d24eefa7af0df052f7db60df",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "blob_sha": "5c924045d8cd64684325bff82692d3773ee0941b",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/plugins/deterministic-automation-forge/skills/heimdall-reward-scout/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "fix/android-bridge-live-status",
+      "source_path": "services/omega-termux-knowledge-relay/server.mjs",
+      "blob_sha": "9e1f0d4a5084b91310410a71362597f6ab658c2f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/fix__android-bridge-live-status/services/omega-termux-knowledge-relay/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "d8e65011f918c8ee995d51227789fb9ce631d06a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "README.md",
+      "blob_sha": "1327109fa157aff29f1955f94a95afeda45bcfa9",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "d20bf9e5ef60ae942b7ce851a59f0e4cf62a3b41",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "blob_sha": "e04a964567b7480e482680a9c4586b506052c911",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "e4caa1cb0bf8b804966c752c592b71105502a974",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "4ad50183bade12a0852edbe9730594f70e506ff9",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "blob_sha": "71ef0a7ab7c165851f8f17e096e4e5bc5e3f9c78",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "blob_sha": "2c9cf8b3f2adced1fc245ea7292c01ce257c4ea0",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "831167ba00626c0bded3bd0c28784fe52657039d",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/termux/install.sh",
+      "blob_sha": "413a908718506a67b77e84fe2c50702f0c279c27",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/termux/install.sh",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "22ab8778992698cb1a16b58ea92c0383573989f3",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega-mobile/termux/omega-termux",
+      "blob_sha": "9d763b1a625d1658a6e630c55f99183751395c24",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega-mobile/termux/omega-termux",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "47901fbcb1b60e96f4ffef07fb402653a65cee23",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "ea447e220f2d48894ad1d60ad8de54eeee32f4f6",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "e6495023e9087466d4e5c20368ef417cf87ae1a8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "plugins/deterministic-automation-forge/.codex-plugin/plugin.json",
+      "blob_sha": "86af7d9617fa4866918e0aabb4ec5da1067b8483",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/plugins/deterministic-automation-forge/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "plugins/deterministic-automation-forge/README.md",
+      "blob_sha": "f703e165a172e7c8d26e5f525f89935f23f702b6",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/plugins/deterministic-automation-forge/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "plugins/deterministic-automation-forge/plugin.json",
+      "blob_sha": "74d6da9ea3fddb3526c58ca607e39dc2016a3c61",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/plugins/deterministic-automation-forge/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "plugins/deterministic-automation-forge/skills/automation-control-plane/SKILL.md",
+      "blob_sha": "9f495a03bc3c3d935cd9d246af48d65b7dcda4d2",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/plugins/deterministic-automation-forge/skills/automation-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "plugins/deterministic-automation-forge/skills/automation-control-plane/references/job-contract.md",
+      "blob_sha": "56161a9a5ec513d7320d77c23de0a5819688f343",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/plugins/deterministic-automation-forge/skills/automation-control-plane/references/job-contract.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "plugins/deterministic-automation-forge/skills/automation-control-plane/references/tool-adapters.md",
+      "blob_sha": "8f47e82093dd576dc3fe8ebee558e18a30392816",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/plugins/deterministic-automation-forge/skills/automation-control-plane/references/tool-adapters.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "plugins/deterministic-automation-forge/skills/github-engineer/SKILL.md",
+      "blob_sha": "9390b6a7741050f4779c29304eb7a9d2855c2ec9",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/plugins/deterministic-automation-forge/skills/github-engineer/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "plugins/deterministic-automation-forge/skills/runtime-executor/SKILL.md",
+      "blob_sha": "82761fdeae3e485dc45c0e9bbbb9354764906417",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/plugins/deterministic-automation-forge/skills/runtime-executor/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-current",
+      "source_path": "plugins/deterministic-automation-forge/skills/site-registrar/SKILL.md",
+      "blob_sha": "a43b93bf6c2ead5425a25d7df2e74f020fc5ad3c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-current/plugins/deterministic-automation-forge/skills/site-registrar/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "b3ec9b03985151e3df02f14de8d427431e2bd445",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "README.md",
+      "blob_sha": "8631d51f5b3941cf8facff4f947a52a7168ddf67",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "cc6a29e55b7e4cd102ef71e3a30d4e4e6a1df230",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "blob_sha": "e04a964567b7480e482680a9c4586b506052c911",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "e4caa1cb0bf8b804966c752c592b71105502a974",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "4ad50183bade12a0852edbe9730594f70e506ff9",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "blob_sha": "71ef0a7ab7c165851f8f17e096e4e5bc5e3f9c78",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "blob_sha": "2c9cf8b3f2adced1fc245ea7292c01ce257c4ea0",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "831167ba00626c0bded3bd0c28784fe52657039d",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/termux/install.sh",
+      "blob_sha": "413a908718506a67b77e84fe2c50702f0c279c27",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/termux/install.sh",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "22ab8778992698cb1a16b58ea92c0383573989f3",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega-mobile/termux/omega-termux",
+      "blob_sha": "9d763b1a625d1658a6e630c55f99183751395c24",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega-mobile/termux/omega-termux",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "31fc85b7a0f076a29aac04494eb3f4d9afc6e13f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "7ab3ca5e74fda0a8d1c3316b3649e58e79868817",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "b837fdcc4f886808fb35ac8c2d4930b1b93af68c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "plugins/deterministic-automation-forge/.codex-plugin/plugin.json",
+      "blob_sha": "63511b096e5d22f11010f498b23c26fae4995a1d",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/plugins/deterministic-automation-forge/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "plugins/deterministic-automation-forge/README.md",
+      "blob_sha": "2171971191685f8379dc1e3399bd0bb168c978f9",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/plugins/deterministic-automation-forge/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "plugins/deterministic-automation-forge/plugin.json",
+      "blob_sha": "c963a3a46e947e84886eae90f43dbfa04ae564ae",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/plugins/deterministic-automation-forge/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "plugins/deterministic-automation-forge/skills/automation-control-plane/SKILL.md",
+      "blob_sha": "764ca85d4bd3182ae3d6ec9f9d8a6ca5026f200f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/plugins/deterministic-automation-forge/skills/automation-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "plugins/deterministic-automation-forge/skills/automation-control-plane/references/job-contract.md",
+      "blob_sha": "56161a9a5ec513d7320d77c23de0a5819688f343",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/plugins/deterministic-automation-forge/skills/automation-control-plane/references/job-contract.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "plugins/deterministic-automation-forge/skills/runtime-executor/SKILL.md",
+      "blob_sha": "0aad4eb3a99cd957b72082e356b39a59e96f5c44",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/plugins/deterministic-automation-forge/skills/runtime-executor/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0-final",
+      "source_path": "plugins/deterministic-automation-forge/skills/site-registrar/SKILL.md",
+      "blob_sha": "a43b93bf6c2ead5425a25d7df2e74f020fc5ad3c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0-final/plugins/deterministic-automation-forge/skills/site-registrar/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": ".github/workflows/omega-assurance.yml",
+      "blob_sha": "d8e65011f918c8ee995d51227789fb9ce631d06a",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/.github/workflows/omega-assurance.yml",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "README.md",
+      "blob_sha": "2cfa94a6209e98b74d81aa06d0e7492cadc9e405",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "REPOSITORY_STATUS.md",
+      "blob_sha": "d20bf9e5ef60ae942b7ce851a59f0e4cf62a3b41",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/REPOSITORY_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "VERSION",
+      "blob_sha": "2c0a9e33605740ca2a3a56bb4f0db850aea99013",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/VERSION",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/mcp/omega-control-plane/README.md",
+      "blob_sha": "9efc99c4a0ebddffd102de3a3400d5dafced67ef",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/mcp/omega-control-plane/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "blob_sha": "e04a964567b7480e482680a9c4586b506052c911",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/mcp/omega-control-plane/src/core/capabilities.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "e4caa1cb0bf8b804966c752c592b71105502a974",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "4ad50183bade12a0852edbe9730594f70e506ff9",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "blob_sha": "71ef0a7ab7c165851f8f17e096e4e5bc5e3f9c78",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/mcp/omega-control-plane/test/http-server.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "blob_sha": "2c9cf8b3f2adced1fc245ea7292c01ce257c4ea0",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/skills/omega-android-termux-runtime/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "blob_sha": "38bbc285e72922ae5a65049d77d40b294f19a2ee",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/skills/omega-mcp-control-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/termux/README.md",
+      "blob_sha": "831167ba00626c0bded3bd0c28784fe52657039d",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/termux/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/termux/install.sh",
+      "blob_sha": "413a908718506a67b77e84fe2c50702f0c279c27",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/termux/install.sh",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/termux/omega-mcp-stdio",
+      "blob_sha": "22ab8778992698cb1a16b58ea92c0383573989f3",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/termux/omega-mcp-stdio",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega-mobile/termux/omega-termux",
+      "blob_sha": "9d763b1a625d1658a6e630c55f99183751395c24",
+      "mode": "100755",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega-mobile/termux/omega-termux",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/.codex-plugin/plugin.json",
+      "blob_sha": "31b17c52c8d1f76c85bc95a65b1b7db40fdf63bc",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/.codex-plugin/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/.mcp.json",
+      "blob_sha": "73b9d5a265af6b65c3e32d24ae5ae72dcbdeed12",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/.mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/FINAL_VERIFICATION.json",
+      "blob_sha": "04f906bebdd7f8ef7c2930e9cfa92f8810926408",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/FINAL_VERIFICATION.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/IMPLEMENTATION_STATUS.md",
+      "blob_sha": "a91da36162729110cf657738d371106e42e49541",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/IMPLEMENTATION_STATUS.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/README.md",
+      "blob_sha": "a7416005f0a1c11ff3bbe1717ee53c56fb9bf549",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/SHA256SUMS.txt",
+      "blob_sha": "759105d5696964a287ec5c7f107d73f0c7fcbcab",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/mcp.json",
+      "blob_sha": "6c41b246f3ed9cc713c95293f2afaa5e52884b76",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/mcp.json",
+      "was_missing_in_main": true
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "blob_sha": "a382a7e18a7d1707a29be002d22ad97c4c6850a5",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/mcp/omega-control-plane/SHA256SUMS.txt",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "blob_sha": "1fad883634c2662f3123c80367f9e1509d447955",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/mcp/omega-control-plane/runtime/jepa_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "blob_sha": "bdb1062029548181c8da27d7a1a9327967a984f8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/mcp/omega-control-plane/runtime/titans_auto_provider.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "blob_sha": "c76e0aa67f2f0a9072ec73c705d67798fad78dda",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/mcp/omega-control-plane/src/core/control-plane.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/mcp/omega-control-plane/src/server.mjs",
+      "blob_sha": "198f1d2bc74723ffea1f4e9ceb1de7e6142e4191",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/mcp/omega-control-plane/src/server.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "blob_sha": "f77ac82e194e3150ec18a62b7ded51fbf44ed764",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/mcp/omega-control-plane/test/media-elevenlabs-v25.test.mjs",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/plugin.json",
+      "blob_sha": "7d882d06a8c2483970abd428934752a6fae50710",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/plugin.json",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/scripts/validate_package.py",
+      "blob_sha": "e6495023e9087466d4e5c20368ef417cf87ae1a8",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/scripts/validate_package.py",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "blob_sha": "2d39a451d27d8fdd4355212300b2fb85e2872824",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/skills/omega-checkpoint-resume-engine/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/skills/omega-github-pages-jekyll/SKILL.md",
+      "blob_sha": "1b2d2f2a596e0bdd9703635f38284e9c483049aa",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/skills/omega-github-pages-jekyll/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "blob_sha": "f265ed68d14fc392be572d6ab4cbd4668775df34",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/skills/omega-omni-architect-competency-plane/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/skills/omega-omni-orchestrator/SKILL.md",
+      "blob_sha": "8f604c09d16d03ddcd754972ff9abd163dd53025",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/skills/omega-omni-orchestrator/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "blob_sha": "9bc3432fe373b76296206efa0d62f44d933da72f",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/skills/omega-prompt-injection-epistemic-firewall/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "blob_sha": "106c9bdc39bb7fa50696b7a624c5ae54dd99a35c",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/omega/skills/omega-reality-filter-kernel/SKILL.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "plugins/github-absolute-automation/README.md",
+      "blob_sha": "c1cd629097beb33f750a20e558044fe4fe7cd2e1",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/plugins/github-absolute-automation/README.md",
+      "was_missing_in_main": false
+    },
+    {
+      "branch": "sync/github-absolute-automation-v0.3.0",
+      "source_path": "plugins/github-absolute-automation/plugin.json",
+      "blob_sha": "4271d90e433728af36483ded9c6f3c825d4722d7",
+      "mode": "100644",
+      "recovery_path": "recovery/historical-source-versions/sync__github-absolute-automation-v0.3.0/plugins/github-absolute-automation/plugin.json",
+      "was_missing_in_main": false
+    }
+  ]
+}

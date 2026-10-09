@@ -1,0 +1,21 @@
+{
+  "interface": {
+    "capabilities": ["Interactive", "Read"],
+    "category": "Productivity",
+    "defaultPrompt": [
+      "Przeskanuj katalog ChatGPT Plugins i pokaż mi następne niezainstalowane wtyczki do instalacji.",
+      "Sprawdź, czy pojawiły się nowe wtyczki od ostatniego skanu, i przygotuj je do instalacji.",
+      "Kontynuuj zbieranie wtyczek: pomiń już zainstalowane i pokaż następną partię."
+    ],
+    "developerName": "Moje Alterego",
+    "displayName": "Plugin Collector Agent",
+    "longDescription": "Agent katalogowy dla ChatGPT Plugins. Przeszukuje katalog szerokimi kategoriami, wykrywa wtyczki dostępne na koncie i jeszcze niezainstalowane, usuwa duplikaty, pomija pozycje już zainstalowane lub oczekujące i wystawia gotowe sugestie instalacji. Instalacja lub połączenie aplikacji nadal wymaga potwierdzenia użytkownika w interfejsie ChatGPT.",
+    "shortDescription": "Auto-skan wtyczek ChatGPT"
+  },
+  "name": "plugin-collector-agent",
+  "version": "0.1.0",
+  "description": "Cross-platform ChatGPT plugin catalog agent that repeatedly scans the Plugin Directory, detects eligible plugins that are not installed, de-duplicates results, and surfaces one-tap installation suggestions without claiming silent installation.",
+  "author": {"name":"Moje Alterego"},
+  "keywords": [],
+  "skills": "./skills"
+}

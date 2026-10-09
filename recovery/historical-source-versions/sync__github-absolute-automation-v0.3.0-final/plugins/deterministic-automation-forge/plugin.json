@@ -1,0 +1,27 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "email": "mojealterego21@gmail.com",
+    "name": "Moje Alterego"
+  },
+  "description": "Private execution control-plane for evidence-gated automation across Intercom, GitHub, Codespaces, and browser-operated web applications.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": ["Interactive"],
+        "category": "Productivity",
+        "defaultPrompt": [
+          "Uruchom kontrolowany workflow Intercom → GitHub → weryfikacja dla tego zadania.",
+          "Zautomatyzuj tę stronę w trybie fail-closed i zapisz ślady dowodowe.",
+          "Przeprowadź audyt istniejącej automatyzacji i wskaż bezpieczne usprawnienia."
+        ],
+        "developerName": "Moje Alterego",
+        "displayName": "Automation Forge",
+        "longDescription": "Executes evidence-gated workflows across Intercom, GitHub, GitHub Codespaces, and other browser-accessible applications. Uses explicit contracts, runtime tool binding, authentication gates, preconditions, postconditions, independent verification, compensating recovery, site-adapter registration, and Codespaces host-image compatibility checks. It fails closed when a required result cannot be verified.",
+        "shortDescription": "Verified web automation"
+      }
+    }
+  },
+  "name": "deterministic-automation-forge",
+  "version": "0.3.0"
+}

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "omega-control-plane": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/mcp/omega-control-plane/src/server.mjs"
+      ],
+      "env": {},
+      "cwd": "${PLUGIN_ROOT}/mcp/omega-control-plane"
+    }
+  }
+}

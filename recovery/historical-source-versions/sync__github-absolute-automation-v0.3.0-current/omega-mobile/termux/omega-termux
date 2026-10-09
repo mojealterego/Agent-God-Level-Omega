@@ -1,0 +1,135 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
+
+ALIAS="${OMEGA_TUNNEL_ALIAS:-omega-termux}"
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/omega"
+TUNNEL_ID_FILE="$CONFIG_DIR/tunnel_id"
+RUNTIME_KEY_FILE="$CONFIG_DIR/runtime_api_key"
+BIN_DIR="${HOME}/.local/bin"
+TUNNEL_CLIENT="${TUNNEL_CLIENT_BIN:-$BIN_DIR/tunnel-client}"
+MCP_COMMAND="${OMEGA_MCP_COMMAND:-$BIN_DIR/omega-mcp-stdio}"
+
+fail() {
+  printf 'OMEGA Termux: %s\n' "$*" >&2
+  exit 1
+}
+
+require_binary() {
+  [ -x "$TUNNEL_CLIENT" ] || fail "tunnel-client not installed at $TUNNEL_CLIENT; run termux/install.sh first"
+  [ -x "$MCP_COMMAND" ] || fail "OMEGA MCP wrapper not installed at $MCP_COMMAND; run termux/install.sh first"
+}
+
+read_tunnel_id() {
+  [ -f "$TUNNEL_ID_FILE" ] || fail "missing tunnel id; run: omega-termux configure"
+  local value
+  value="$(cat "$TUNNEL_ID_FILE")"
+  [[ "$value" =~ ^tunnel_[A-Za-z0-9_-]+$ ]] || fail "stored tunnel id has invalid format"
+  printf '%s' "$value"
+}
+
+read_runtime_key() {
+  [ -f "$RUNTIME_KEY_FILE" ] || fail "missing runtime API key; run: omega-termux configure"
+  local value
+  value="$(cat "$RUNTIME_KEY_FILE")"
+  [ -n "$value" ] || fail "stored runtime API key is empty"
+  printf '%s' "$value"
+}
+
+configure() {
+  mkdir -p "$CONFIG_DIR"
+  chmod 700 "$CONFIG_DIR"
+
+  local tunnel_id runtime_key
+  printf 'OpenAI tunnel id (tunnel_...): '
+  IFS= read -r tunnel_id
+  [[ "$tunnel_id" =~ ^tunnel_[A-Za-z0-9_-]+$ ]] || fail "invalid tunnel id"
+
+  printf 'Runtime API key (input hidden): '
+  IFS= read -r -s runtime_key
+  printf '\n'
+  [ -n "$runtime_key" ] || fail "runtime API key cannot be empty"
+
+  umask 077
+  printf '%s\n' "$tunnel_id" > "$TUNNEL_ID_FILE"
+  printf '%s\n' "$runtime_key" > "$RUNTIME_KEY_FILE"
+  chmod 600 "$TUNNEL_ID_FILE" "$RUNTIME_KEY_FILE"
+  unset runtime_key
+  printf 'Configured %s. Secret stored only in %s with mode 0600.\n' "$tunnel_id" "$RUNTIME_KEY_FILE"
+}
+
+connect_runtime() {
+  require_binary
+  local tunnel_id runtime_key
+  tunnel_id="$(read_tunnel_id)"
+  runtime_key="$(read_runtime_key)"
+  export CONTROL_PLANE_API_KEY="$runtime_key"
+  "$TUNNEL_CLIENT" runtimes connect \
+    --alias "$ALIAS" \
+    --tunnel-id "$tunnel_id" \
+    --runtime-api-key env:CONTROL_PLANE_API_KEY \
+    --mcp-command "$MCP_COMMAND" \
+    --json
+  unset CONTROL_PLANE_API_KEY runtime_key
+  "$TUNNEL_CLIENT" runtimes status "$ALIAS" --json
+}
+
+status_runtime() {
+  require_binary
+  "$TUNNEL_CLIENT" runtimes status "$ALIAS" --json
+}
+
+stop_runtime() {
+  require_binary
+  "$TUNNEL_CLIENT" runtimes stop "$ALIAS" --json
+}
+
+remove_runtime() {
+  require_binary
+  "$TUNNEL_CLIENT" runtimes rm "$ALIAS" --json
+}
+
+show_config() {
+  local tunnel_id='not-configured'
+  if [ -f "$TUNNEL_ID_FILE" ]; then tunnel_id="$(cat "$TUNNEL_ID_FILE")"; fi
+  printf 'alias=%s\n' "$ALIAS"
+  printf 'tunnel_id=%s\n' "$tunnel_id"
+  printf 'mcp_command=%s\n' "$MCP_COMMAND"
+  printf 'runtime_key_file=%s\n' "$RUNTIME_KEY_FILE"
+  printf 'runtime_key_present=%s\n' "$([ -s "$RUNTIME_KEY_FILE" ] && printf yes || printf no)"
+}
+
+open_connector_settings() {
+  local url='https://chatgpt.com/#settings/Connectors'
+  if command -v termux-open-url >/dev/null 2>&1; then
+    termux-open-url "$url"
+  else
+    printf '%s\n' "$url"
+  fi
+}
+
+usage() {
+  cat <<'USAGE'
+Usage: omega-termux <command>
+
+Commands:
+  configure   Store tunnel id and runtime API key locally (0600)
+  connect     Start/reconcile the managed Secure MCP Tunnel runtime and print status
+  status      Print managed runtime health/readiness JSON
+  stop        Stop only the local managed runtime; remote tunnel remains
+  remove      Remove the local runtime alias; remote tunnel remains
+  config      Show non-secret local configuration state
+  connector   Open ChatGPT connector settings when termux-open-url is available
+USAGE
+}
+
+case "${1:-}" in
+  configure) configure ;;
+  connect|start) connect_runtime ;;
+  status) status_runtime ;;
+  stop) stop_runtime ;;
+  remove|rm) remove_runtime ;;
+  config) show_config ;;
+  connector) open_connector_settings ;;
+  help|-h|--help|'') usage ;;
+  *) usage >&2; exit 2 ;;
+esac

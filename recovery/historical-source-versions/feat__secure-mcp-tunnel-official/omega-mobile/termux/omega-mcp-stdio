@@ -1,0 +1,29 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
+
+OMEGA_CONTROL_PLANE_DIR="${OMEGA_CONTROL_PLANE_DIR:-$HOME/.local/share/omega-mcp/control-plane}"
+OMEGA_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/omega"
+OMEGA_KNOWLEDGE_ROOT_FILE="$OMEGA_CONFIG_DIR/knowledge_root"
+
+if [ -z "${OMEGA_KNOWLEDGE_ROOT:-}" ]; then
+  if [ -s "$OMEGA_KNOWLEDGE_ROOT_FILE" ]; then
+    IFS= read -r OMEGA_KNOWLEDGE_ROOT < "$OMEGA_KNOWLEDGE_ROOT_FILE"
+    export OMEGA_KNOWLEDGE_ROOT
+  else
+    for candidate in "$HOME/storage/downloads/BAZA WIEDZY" "/storage/emulated/0/Download/BAZA WIEDZY"; do
+      if [ -d "$candidate" ] && [ -r "$candidate" ]; then
+        export OMEGA_KNOWLEDGE_ROOT="$candidate"
+        break
+      fi
+    done
+  fi
+fi
+
+export OMEGA_WORKSPACE_ROOTS="${OMEGA_WORKSPACE_ROOTS:-$HOME}"
+export OMEGA_ALLOW_PROJECT_EXECUTION="${OMEGA_ALLOW_PROJECT_EXECUTION:-1}"
+export OMEGA_ALLOW_UNRESTRICTED_TERMINAL="${OMEGA_ALLOW_UNRESTRICTED_TERMINAL:-0}"
+export OMEGA_ALLOW_EXTERNAL="${OMEGA_ALLOW_EXTERNAL:-0}"
+export OMEGA_ALLOW_HIGH_IMPACT="${OMEGA_ALLOW_HIGH_IMPACT:-0}"
+export OMEGA_ALLOW_SHELL_INTERPRETER="${OMEGA_ALLOW_SHELL_INTERPRETER:-0}"
+
+exec node "$OMEGA_CONTROL_PLANE_DIR/src/server.mjs"
