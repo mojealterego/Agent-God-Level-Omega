@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "omega/**"
       - ".github/workflows/omega-refresh-checksums.yml"
   workflow_dispatch:
 
