@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {parseRequest,execute,runCopilot,issueReport,postComment,AGENTS} from '../scripts/thor-copilot-worker.mjs';
+const event={repository:{full_name:'mojealterego/Agent-God-Level-Omega',owner:{login:'mojealterego'}},issue:{number:24,title:'[THOR-COPILOT] Build a verified fixture',user:{login:'mojealterego'},body:'Test fixture only'}};
+test('rejects foreign issue owner',()=>assert.throws(()=>parseRequest({...event,issue:{...event.issue,user:{login:'outsider'}}}),/UNAUTHORIZED/));
+test('rejects oversized task',()=>assert.throws(()=>parseRequest({...event,issue:{...event.issue,body:'a'.repeat(4001)}}),/INVALID_TASK/));
+test('three model-backed roles in sequential orchestration',async()=>{const prompts=[];const v=await execute(event,{invoke:async p=>{prompts.push(p);return `long verified fake model response #${prompts.length}`;}});assert.equal(v.results.length,3);assert.equal(v.modelInvocations,3);assert.match(prompts[1],/PRIOR AGENTS/);assert.equal(v.filesChanged,false);assert.match(issueReport(v),/Code not changed, built or deployed/)});
+test('fails closed on absent model',async()=>assert.rejects(execute(event,{invoke:async()=>{throw new Error('403 PLAN_NOT_ELIGIBLE')}}),/PLAN_NOT_ELIGIBLE/));
+test('rejects too short model response',async()=>assert.rejects(execute(event,{invoke:async()=> 'OK'}),/INVALID_OUTPUT/));
+test('CLI execution rejects missing credential',()=>assert.throws(()=>runCopilot('hi',{token:''}),/COPILOT_CREDENTIAL_MISSING/));
+test('CLI execution isolates permissions',()=>{let args;const v=runCopilot('a valid prompt',{token:'internal-test',runner:(bin,a,opts)=>{args=a;assert.equal(opts.shell,false);assert.equal(opts.env.GITHUB_TOKEN,undefined);return {status:0,stdout:'This is an actual mocked agent response.',stderr:''}}});assert.match(v,/mocked/);assert(args.includes('--deny-tool=shell'));assert(args.includes('--deny-tool=write'));});
+test('does not post success if GitHub rejects comment',async()=>assert.rejects(postComment(1,'x',{token:'fake',fetchImpl:async()=>({ok:false,status:403})}),/REPORT_FAILED_403/));
+test('canonical agent ids',()=>assert.deepEqual(AGENTS.map(x=>x.id),['architect','implementer','qa-reviewer']));
