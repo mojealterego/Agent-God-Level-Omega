@@ -800,6 +800,19 @@ function createServer() {
   );
 
   server.registerTool(
+    'omega_grant_business_architect',
+    {
+      description: 'Evidence-first business-plan and public-funding architecture: verified programme preflight, scoring matrix, deterministic unit economics/scenarios, defensive budget audit, risk register, cross-consistency checks, missing-data triage and fail-closed final gate.',
+      inputSchema: z.object({
+        cwd: z.string().min(1),
+        action: z.enum(['preflight','criteria-matrix','unit-economics','scenario-model','budget-audit','risk-register','cross-consistency','missing-data','final-gate']),
+        payload: z.record(z.string(), z.unknown()).default({})
+      })
+    },
+    async (input) => invoke(() => plane.grantBusinessArchitect(input))
+  );
+
+  server.registerTool(
     'omega_artifact_inspect',
     {
       description: 'Verify a local artifact inside workspace roots and return immutable size, extension, timestamp and SHA-256 metadata.',
