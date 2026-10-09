@@ -45,3 +45,8 @@ The actual complete **single unified runtime/application** is not claimed as fin
 - Current `main` has **813** physical `SKILL.md` files: 402 canonical, 179 mobile, 232 plugin mirrors. This physical count includes duplicate distribution copies.
 - The owned OMEGA v25.1.1 plugin file list contains 1041 entries; 1040 are present at matching paths under `omega/` in main. Its remaining entry is a generated Python `.pyc` cache file, not portable source. This is a path-presence comparison, **not** a byte-for-byte or runtime functionality proof.
 - The preserved history and legacy refs do not prove all expected features are active. Detailed capability/runtime verification remains distinct.
+
+
+## OMEGA v25.1.1 package parity preservation gate — 2026-10-09
+
+The user-owned release `plugins_6ac3729e2b1c8191aaa1cb728f43183f` is the source-of-truth baseline for the recovery guard. `recovery/baselines/omega-v25.1.1.sha256` holds 1037 original source checksums and `omega-v25.1.1-extras.json` requires 2 additional non-generated source paths (including the mobile-runtime compatibility skill). A transient CPython `.pyc` cache is intentionally excluded. CI verifies that **all 1039 required source files still exist**, computes actual SHA-256 digests, and reports changes separately instead of overwriting newer `main` versions. This is a source-preservation gate, not a proof that all services are deployed or functioning.

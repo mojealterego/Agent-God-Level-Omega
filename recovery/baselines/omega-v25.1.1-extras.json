@@ -1,0 +1,13 @@
+{
+  "release": "25.1.1",
+  "plugin_id": "plugins_6ac3729e2b1c8191aaa1cb728f43183f",
+  "source": "owned-plugin-current-release-SHA256SUMS.txt",
+  "required_extra_paths": [
+    "mcp/omega-control-plane/SHA256SUMS.txt",
+    "skills/omega-mobile-runtime-compat/SKILL.md"
+  ],
+  "ignored_generated_cache": [
+    "mcp/omega-control-plane/runtime/__pycache__/_protocol.cpython-313.pyc"
+  ],
+  "note": "The 1037 signed source paths and two additional unmanifested source files must remain in main. Modified digests are explicitly reported; generated Python bytecode is not restored."
+}
