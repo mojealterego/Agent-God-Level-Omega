@@ -56,6 +56,21 @@ jobs:
             assert all(name.startswith('omega-omni-cognitive-engineering-v2/') for name in z.namelist())
           print('OMEGA SOURCE FEDERATION PASS:', report)
           PY
+      - name: Execute real registry-router regression tests from release artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import zipfile
+          from pathlib import Path
+          p=Path('dist/OMEGA-v25.3.8-verified-source-federation.zip')
+          with zipfile.ZipFile(p) as z:
+            for name in z.namelist():
+              assert name.startswith('omega-omni-cognitive-engineering-v2/')
+              assert '..' not in Path(name).parts
+            z.extractall('dist/router-verification')
+          PY
+          python3 -m unittest discover -s dist/router-verification/omega-omni-cognitive-engineering-v2/tests -v
       - name: Upload archive and transparent inventory report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
