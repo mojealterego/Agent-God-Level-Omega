@@ -1,0 +1,55 @@
+name: OMEGA Missing SKILL Recovery — Provenance Verified
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: omega-skill-restore-${{ github.event.issue.number || github.ref }}
+  cancel-in-progress: false
+jobs:
+  recover:
+    if: github.event_name == 'workflow_dispatch' || (github.repository == 'mojealterego/Agent-God-Level-Omega' && github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[OMEGA-SKILL-RESTORE] '))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository without altering main
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            omega
+            omega-mobile
+            scripts/omega_skill_restore.py
+            tests/test_omega_skill_restore.py
+            references/omega-skill-restore-plan-2026-10-10.json
+      - name: Test restoration validation and archive safety
+        run: python3 -m unittest discover -s tests -p test_omega_skill_restore.py -v
+      - name: Build hash-gated incremental plugin overlay (no side effects)
+        run: python3 scripts/omega_skill_restore.py --plan references/omega-skill-restore-plan-2026-10-10.json --output dist/OMEGA-skill-recovery-overlay.zip
+      - name: Inspect ZIP for zip-slip and manifest
+        run: |
+          python3 - <<'PY'
+          from zipfile import ZipFile
+          import json, pathlib
+          f=pathlib.Path("dist/OMEGA-skill-recovery-overlay.zip")
+          with ZipFile(f) as z:
+              names=z.namelist()
+              assert len(names)==120, (len(names), names[:10])
+              assert len(set(names))==len(names)
+              assert all(n.startswith("omega-omni-cognitive-engineering-v2/") for n in names)
+              assert all("/../" not in n and not n.startswith("/") for n in names)
+              report=json.loads(z.read("omega-omni-cognitive-engineering-v2/references/omega-skill-restore-audit.json"))
+              assert report["imported"]==119
+              print(json.dumps({"expected_imported":119,"archive_files":len(names),"bytes":f.stat().st_size,"status":"VALIDATED"}))
+          PY
+      - name: Upload verified skill restoration archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: OMEGA-skill-recovery-overlay
+          path: dist/OMEGA-skill-recovery-overlay.zip
+          retention-days: 14
+          if-no-files-found: error
