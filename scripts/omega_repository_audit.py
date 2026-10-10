@@ -77,7 +77,7 @@ def audit(catalog: dict, shard: int, shards: int, token: str, *, lookup=api_tree
         except Exception as ex:
             name=item.get("repository","INVALID") if isinstance(item,dict) else "INVALID"
             classified={"repository":name,"status":"ERROR","error":type(ex).__name__+":"+str(ex)[:180]}
-        classified["catalog_index"]=shard+index*shards
+        classified["catalog_index"]=index
         records.append(classified)
         if len(records)%25==0: print(json.dumps({"shard":shard,"visited":len(records),"of":len(selected)}), flush=True)
     return {"schema":"omega.github-owner-source-audit.v1","shard":shard,"shards":shards,
