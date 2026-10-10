@@ -1,0 +1,67 @@
+name: OMEGA Source Federation Build
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/omega-source-federation-package.py'
+      - '.github/workflows/omega-source-federation-package.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: omega-source-federation-release
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout canonical OMEGA main
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Checkout MIT agent reference material pinned to revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: mojealterego/agents
+          ref: cc37bfdd292ce520ba1c44df7a3a70d5f8137236
+          path: _external_agents
+          persist-credentials: false
+      - name: Source and license checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s _external_agents/LICENSE
+          grep -q 'MIT License' _external_agents/LICENSE
+          test -s omega-mobile/agents/registry.json
+          test -s references/github-mojealterego-589-repositories-2026-10-10.json
+          python3 -m py_compile scripts/omega-source-federation-package.py
+      - name: Build additive, deduplicated OMEGA overlay
+        run: python3 scripts/omega-source-federation-package.py
+      - name: Verify archive and exact counts with stdlib
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, zipfile
+          root=Path('dist')
+          report=json.loads((root/'federation-report.json').read_text())
+          p=root/'OMEGA-v25.3.8-verified-source-federation.zip'
+          with zipfile.ZipFile(p) as z:
+            assert z.testzip() is None
+            assert len(z.namelist())==report['files']
+            assert report['agent_cards']==171 and report['mit_reference_profiles']==192
+            assert report['added_skills']>=100
+            assert len(set(z.namelist()))==len(z.namelist())
+            assert all(name.startswith('omega-omni-cognitive-engineering-v2/') for name in z.namelist())
+          print('OMEGA SOURCE FEDERATION PASS:', report)
+          PY
+      - name: Upload archive and transparent inventory report
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: omega-source-federation-v25-3-8
+          path: |
+            dist/OMEGA-v25.3.8-verified-source-federation.zip
+            dist/federation-report.json
+          if-no-files-found: error
+          retention-days: 30
