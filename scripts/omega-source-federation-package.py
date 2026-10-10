@@ -144,7 +144,7 @@ if __name__=="__main__":main()
 '''
 add("tools/omega-federation-router/router.py",router)
 test='''import pathlib,unittest,sys
-ROOT=pathlib.Path(__file__).resolve().parents[2]
+ROOT=pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"tools/omega-federation-router"))
 import router
 class FederationRoutingTest(unittest.TestCase):
