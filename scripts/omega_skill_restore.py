@@ -18,7 +18,7 @@ NAME = re.compile(r"^[a-z0-9][a-z0-9-]{1,90}$")
 MAX_FILE = 64_000
 
 def git_blob_sha(content: bytes) -> str:
-    return hashlib.sha1(b"blob " + str(len(content)).encode() + b"\\0" + content).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(content)).encode() + b"\0" + content).hexdigest()
 
 def verify_item(item: dict, content: bytes) -> str:
     src, dest = item["src"], item["dest"]
@@ -39,7 +39,7 @@ def verify_item(item: dict, content: bytes) -> str:
     if BAD_SECRETS.search(content.decode("utf-8")):
         raise ValueError(f"detected secret in {src}")
     text = content.decode("utf-8-sig")
-    if not text.startswith("---\\n") or not re.search(r"^name:\\s*[a-z0-9][a-z0-9-]+", text, re.M) or not re.search(r"^description:", text, re.M):
+    if not text.startswith("---\n") or not re.search(r"^name:\s*[a-z0-9][a-z0-9-]+", text, re.M) or not re.search(r"^description:", text, re.M):
         raise ValueError(f"SKILL frontmatter missing: {src}")
     return text
 
@@ -76,7 +76,7 @@ def package(plan_path: Path, output_path: Path, *, checkout: Path) -> dict:
                   "import_scope":"instruction files only, no local executors or MCP connections",
                   "entries":added}
         zf.writestr(PACKAGE + "/references/omega-skill-restore-audit.json",
-                    json.dumps(report, indent=2, ensure_ascii=False) + "\\n")
+                    json.dumps(report, indent=2, ensure_ascii=False) + "\n")
     return report
 
 def main() -> None:
