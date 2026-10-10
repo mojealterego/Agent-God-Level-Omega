@@ -7,7 +7,7 @@ on:
       - 'scripts/omega-all-repos-static-audit.py'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -16,11 +16,24 @@ jobs:
       - name: Checkout OMEGA owned repository catalog
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          persist-credentials: false
+          persist-credentials: true
       - name: Scan all 589 repository metadata and safely bound Git trees
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 scripts/omega-all-repos-static-audit.py
+      - name: Preserve all 589-repository analysis in a review-only Git branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p references/omega-corpus
+          cp out/omega-repo-corpus/OMEGA-ALL-REPOSITORIES-STATIC-AUDIT.json references/omega-corpus/
+          cp out/omega-repo-corpus/OMEGA-ALL-REPOSITORIES-STATIC-AUDIT.md references/omega-corpus/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c omega/repo-corpus-589-20261010
+          git add -- references/omega-corpus
+          git commit -m 'docs(omega): preserve provenance-ranked 589-repo static audit'
+          git push -u origin omega/repo-corpus-589-20261010
       - name: Export provenance-backed scan results
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
