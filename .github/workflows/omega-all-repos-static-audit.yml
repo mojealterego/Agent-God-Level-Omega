@@ -1,0 +1,30 @@
+name: OMEGA All Repository Static Source Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/omega-all-repos-static-audit.yml'
+      - 'scripts/omega-all-repos-static-audit.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - name: Checkout OMEGA owned repository catalog
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Scan all 589 repository metadata and safely bound Git trees
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 scripts/omega-all-repos-static-audit.py
+      - name: Export provenance-backed scan results
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: omega-589-repository-static-audit
+          path: out/omega-repo-corpus/*
+          if-no-files-found: error
+          retention-days: 30
