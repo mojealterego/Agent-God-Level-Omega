@@ -1,0 +1,5313 @@
+{
+  "schema": "omega.github-repositories.snapshot.v1",
+  "owner": "mojealterego",
+  "source": "GitHub connected search user:mojealterego",
+  "query_timestamp": "2026-10-10",
+  "pages_scanned": 6,
+  "page_size": 100,
+  "repository_count": 589,
+  "notice": "GitHub repository-search indexing. This is a catalog, not a content audit or copy of source code.",
+  "repositories": [
+    {
+      "repository": "mojealterego/mojealterego.github.io",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3571,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenConstructionERP",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1198637,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/react-native-windows",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 386295,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/nocodb",
+      "branch": "develop",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 644639,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/plasmic",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 323425,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/WAO-AI-2",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 31,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/budibase",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 786336,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/MaxKB",
+      "branch": "v2",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 82493,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/CALL-E-Your-Code-Is-Calling-Hacktown",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 583,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Agents-for-Humans-Hackathon",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 189,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/chatgpt-on-wechat",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 15413,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/artemis",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 26335,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ragflow",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 165191,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/crewAI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 295960,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ai",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 743,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Kartografia",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 18,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Agent-Voice-XXX-Roleplay-18-",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 10,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/public-apis",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 8509,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Kai",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2388786,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/anything-llm",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 93323,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/dcache",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 428005,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/sim",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 659722,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/FastGPT",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 464702,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/transformers",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 425799,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Agent-Android",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 39,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/awesome-phone-call-agents",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 47464,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Ptero",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 641,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/open5gs",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 86734,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mailtm-client",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 11,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mcp-server",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 85,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Host-a-Static-Website-on-Amazon-S3",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4764,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ToolJet",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1706064,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/compose-multiplatform",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 288285,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/chappie-bot",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3836,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Flowise",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 62167,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/L3MON-1",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 21644,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/lore",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2663,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/MaxVideoAi",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 119278,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/xalgorix",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 54502,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/email-generator",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 421,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Awesome-LLMs-meet-Multimodal-Generation",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13328,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/stable-diffusion-webui",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 36038,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/termux-app",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4870,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/maui",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1769024,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Librechat-Mobile",
+      "branch": "develop",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 63783,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/awesome-agent-skills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 584,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ArchGen",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5037,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Email-Generator-Using-Langchain-Flask",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 27,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/phidata",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 59290,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AllHackingTools",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 14895,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/pegasus_spyware",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3748,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenCodeEnterpise",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 332,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mini-mobile-7",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 265,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Chemia-game",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 225,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/flutter",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 475307,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SMS-MAN-Reality-Check-2026-cheap-numbers-hidden-trads",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 7,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/webstudio",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 139729,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/langgraph",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 515739,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/llama_index",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 440540,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/saltcorn",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 334707,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/UERANSIM",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5057,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/appsmith",
+      "branch": "release",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 522967,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/dify",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 548947,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AutoGPT",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 621715,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Hands-on-with-SMS-MAN-complete-virtual-number-benchmark2026",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 6,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/MCP-Server-Eleven-Labs",
+      "branch": "main",
+      "visibility": "private",
+      "archived": false,
+      "size_kb": 149,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ext-skills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1248,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 24,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenHands",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 305150,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Android",
+      "branch": "develop",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 353758,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/srsRAN_4G",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 67944,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/tauri",
+      "branch": "dev",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 99067,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Googleskills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2415,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/WAO-AI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 21,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mobile-use",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 23574,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Cz-owiek-Roku-Film",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 83,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/example-remote-server",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1100,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agnes-ai-video-suite",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 875,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/langflow",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 872948,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/baresip-studio",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13019,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/GDevelop",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1979993,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/milvus",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 255671,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/gonnect",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 18791,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Neo-residency-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 73,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/renpy",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 225202,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hhvm",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 891774,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/promptfoo",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 731609,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/fdroidclient",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 61481,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/unsloth",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 200631,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Nowe-projekty",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 134,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/YuE",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 28071,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OGAM",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 202516,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/firecrawl",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 179097,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/railpack",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 26167,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/rust-sdk",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3284,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Open-Generative-AI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 114561,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hackerai",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 26995,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/codeql",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 513004,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SMS-MAN-Technical-Review-delivery-reliability-and-API-response-tim",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/datadog-agent",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 602200,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Omni-mobile",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/twine",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 77227,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/f95-gallery-gleaner",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1506,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/google-cloud-node",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1872562,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/awesome-seedance-prompts",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 143435,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/stryker-js",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 138356,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/breeze-tts",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 185,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/llama.cpp",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 535321,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/nocobase",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 356370,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/material-design-icons",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4985146,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Awesome-Quantum-Computing-Platform",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 384,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/docs2",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 47306,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ollama",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 64660,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Virtual-SMS-at-scale-evaluating-SMS-MAN-s-2026-infrastructu",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 7,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/localmind",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 50293,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/bisheng",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 220132,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Nem-master",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 445,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/PLANY-I-POST-PY--W-REPOZYTORIACH",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 540,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/openinterpreter",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 273238,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/n8n",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 426342,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/local-dream",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 14650,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Knowledge-projects",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3165,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/brave-browser",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 38998,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ODYN-AI",
+      "branch": "codex/termux-five-goals",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2138980,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/terraform-aws-mongodb-ec2",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 362,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/PaulaA",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/G0DM0D3",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1118,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SYSTEM-EKSPERCKI-GRANT-BUSINESS-ARCHITECT",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 6,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/pegasus-skills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 30,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/free-esim",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 12,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/LTX-Video",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 126,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/developerPortfolio",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 14564,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AI-Email-Reply-Generator",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 55,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/tempmail",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 789,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/sms-verification-platforms",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 9534,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mobile-ai-agents",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 674,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/whatsapp-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2989,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-Tools-Template",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13772,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/zeroclaw",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 239803,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/PaulaAI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 123,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/tuskbot",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 12766,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/End-to-End-Kubernetes-Three-Tier-DevSecOps-Project",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1378,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Rivo-Agent-Application",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 11059,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Temp-SMS-Receive",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 30,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Uncensored-Local-Studio",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4088,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/tempnumber-api-client",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 50,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Rap-Agent",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 105,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/saient",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 34212,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hermesclaw",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1850,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agent-starter-pack",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 38078,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Agriculture_KnowledgeGraph",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 342748,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/locally-uncensored",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 33018,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/cookbooks",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 59388,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ESIM2",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 62295,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OnlineSimBot2",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 21,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/NetGuard",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 28829,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/sannabotapp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 38543,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Text2Image-Generation",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 34133,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/srsRAN_matlab",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2112,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/omega-x-neuromesh",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 193,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/octelium",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 37178,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SNK-RAT",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 11774,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/androrat",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3254,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/openai-chatkit-starter-app",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 862,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/awesome-mcp-servers",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 403290,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/GameDev-MCP-Server",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 8232,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Paths-of-Delight",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 58,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/PyPhone",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 354,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/telephony",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 568,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Issabel-PBX",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 240,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AI_Offensive_MCP_Using_KaliLinux",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 883,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/grapesjs",
+      "branch": "dev",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 114584,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/visionclaw",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3824,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/stumblybot",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 20,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/eSim",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1029924,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/MetaGPT",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 184037,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/docs",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 476165,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agent-command-center-sdk",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 60166,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/IBM-Cloud-automation",
+      "branch": "main",
+      "visibility": "private",
+      "archived": false,
+      "size_kb": 257,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/llm-graph-builder",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 56827,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Local-Diffusion",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 65142,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/NewGPT",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 697,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Android-AI-Studio",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 391,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-Animation",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 39928,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/builder-www",
+      "branch": "develop",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 19011,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/futureagi-sdk",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 28818,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/MATS-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 91,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/skills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 911,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/engram",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3643,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/EchoPBX",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2208,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/babyagi",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2297,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/git-lfs",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 21081,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ai-novel-generator",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 755,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/stitch-skills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 248,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SMS-MAN-vs-OnlineSIM-2026-disposable-numbers-from-0.01-service-compariso",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/FastRecvSMS",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 104,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/softphone",
+      "branch": "inbound",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5368,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Ai-game-factory",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 396,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/skillsOPENai",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2528,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/huggingassist",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 706,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-Cinemachine",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 31132,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-ParticleSystem",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 40385,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/tinyfish-cookbook",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 43831,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/astro",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 6472,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/layla-sdk",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 151703,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/pentagram",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3112,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agenticSeek",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 26973,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/cli",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5019,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Desktop-AAA-Game-Builder-No-Code",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 44,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/elevenlabs-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 640,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/freemail",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 48048,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/26CP3600177-ai-email-generator",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/krypton-byte",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 6515,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ZeroAI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 22870,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/lonlybot",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13111,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/railway-go-sdk",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 21,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/openpilot",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4879687,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/open5gs_5gc_ueransim_sample_config",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 660,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 106,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/duix-doc",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 107091,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/sanna",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1691,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/exiftool",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 59927,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/kernel-browser-automation-starter",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 167,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/element-x-android",
+      "branch": "develop",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 118643,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/LocalAI",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 104357,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Kindroid-discord",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 59,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TTS-Voice-Direction-Benchmark",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 18,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/RayCodes_Breeze_TTS_2",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mojealterego",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 167,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ATF",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 141455,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/prim-ftpd",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 17943,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ida-pro-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2452,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unreal-MCP",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4052,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Cashiro",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 93680,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/fdroiddata",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 325121,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Projekt-NeuroMaintenance-4.0",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 0,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/openai-cookbook",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 962737,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AURELIS-AI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 705,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-Navigation",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 30662,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mcp-coding-agent",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 86,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/alexandria-audiobook",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 124841,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/open-agent-platform",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 14136,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Hound-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 112,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/future-agi",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 159754,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/examples",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 46614,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/railway-design",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 6982,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/stable-diffusion.cpp",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 163709,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/llmedge",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 77143,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Veil",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 756,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unreal-AI-GAS",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 88,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unreal-AI-EnhancedInput",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 89,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Pegasus-samples",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 8239,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Azure-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2168,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/500-AI-Agents-Projects",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1744,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/no-code-ml-mpodel-training-app",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 67,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Man-in-the-year",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 16,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/aider",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 140356,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/enklayve",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1757,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/reor",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 98281,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/threema-android",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 114261,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hexstrike-ai",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2175,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/eSim-Cloud",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 54170,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/construct-3-games",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 83586,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/expo",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3780862,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Lemon-termux",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 37869,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/react-portfolio",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 14867,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenMusic",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2155,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AI-Rental-Hunter",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 49,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/rat-collection",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 67893,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/anx-reader",
+      "branch": "develop",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 144944,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unreal-AI-Niagara",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 92,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/FENG-LABORATORY",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 368,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/episodic-memory",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2086,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/atrilabs-engine",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 33730,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Paula",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/VideoiOSSDK",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 23141,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/project-voice",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 7019,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/emailnator-tempmail",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 16,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/InvokeAI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 371980,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TTS-Voice-Design-Benchmark",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 18,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/terraform-provider-mongodb",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 103,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ai-game-builder",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 518,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/coruna",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 10921,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/com.vadhod.apkextractor",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 8303,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/BlackOps-Armarda",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 87,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Godot-AI-Tools-Template",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 80,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Pixel-turn-on-5G-Volte-and-automatically-register-with-IMS",
+      "branch": "主分支-🗂️子龙",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 95,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AI-Powered-Cold-Email-Generator-Job-Client-Outreach",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 144,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/fingerprint-browser-guide.github.io",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5975,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ai-email-writer",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 139,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/twilio-pbx",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 433,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/autogen",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 148692,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/pageplug",
+      "branch": "open-v1.9.39",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 755897,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Llamatik",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 204757,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/tmpsms",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 551,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Meta3D",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 68967,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/aihub",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 15600,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Ageni-AI-mojealterego",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 508,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Kartografia-zmys-w",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 22,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Anthropic-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 34,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/elevenlabs-python",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 11099,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/fotografaandrzej333.github.io",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 0,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/No-code_AI_app_builder",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 15295,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Awesome-Hacking",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1461,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/youpac-ai",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3800,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Context-Engine",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13198,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SexLab",
+      "branch": "development",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 206447,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/wifi-densepose",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 8142,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenAlpha_Evolve",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 241,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TTS-Latency-Benchmark",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 63,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/awesome-gpt-image-2-API-and-Prompts",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 276183,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Text-To-Video-API",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 11,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/voice-builder",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 502,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/sherpa",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5844,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/geminiAssist",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1525,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/computer-use-linux",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1249,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TheFatRat",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 487954,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/GhidraMCP",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 180,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/JARVIS-2.0",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 80,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/homebrew-tap",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/predator",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 23545,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hackingtool",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 6457,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/chat-ui",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 16453,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hackGPT",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 63178,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SuperAGI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 63451,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hack-skills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2231,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/CN_Patch.RenPy_Games",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 143,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/railway-skills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 646,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/tortoise-tts",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 55498,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/open-router-android-client",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4006,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SMS-MAN-vs-TextNow-2026-free-vs-paid-virtual-numbers-key",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ShipinKit",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 153,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/The-Zero-Latency-Builder-Sprint",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 82,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Agentic-Cinema-The-Blockbuster-Hackathon",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 43,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/esim-response-selection",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1620,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/superpowers",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4425,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ChatGPT-CodeReview",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 7219,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Roblox-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 91,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Problemy-milenijne",
+      "branch": "main",
+      "visibility": "private",
+      "archived": false,
+      "size_kb": 303,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/openai-chatkit-advanced-samples",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 65842,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/free-claude-code",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 11245,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/open-agent-builder",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1104,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/packages",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 10688,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/sugar",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2238,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/NekokoLPA",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 18478,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/CubicByteWebsite",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3633,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/HunyuanPortraitLCM",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1005,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SPYZIER-APP",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 146,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/phisher98",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 14,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/VoxCPM",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4120,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ran",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 7015,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Titans-extrsctor",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 0,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SentryPeerHQ",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4800,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Stable-Diffusion",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 98860,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/VoxCPM2_portable",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 551,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Dopefolio",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2236,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Awesome-AI-Hacking-Agents",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 117,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/flutter-instagram-offline-first-clone",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 379480,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/maskan",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 6097,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mersenne-twister-predictor",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 21,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/futureagi-mcp-vscode",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 32,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Shadowbroker",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13558,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ULTIMATE-APP",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 74,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/South-Park-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 64,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/opencode",
+      "branch": "dev",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 309508,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/NeoApps.AI-CodeGenerator",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5318,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/con-terminal",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 28896,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hackai-2025",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 65058,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SpyNote",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 22061,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SeaShell",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 19515,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Agora",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 112470,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/pennywiseai-tracker",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 64021,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/gemini-notebook-mcp-cli",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5498,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unreal-AI-Landscape",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 87,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/gptAssist",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1012,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/builder",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 324321,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/chrome-devtools-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 9746,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Desktop-AAA-Game-Builder-No-Code-",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 0,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/langchain",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 595672,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ComfyUI-audio",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 87,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AhMyth-Android-RAT",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 60458,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenVoice",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3944,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ivr-llm",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 34609,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/dialogic",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 29760,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/MumbleLink",
+      "branch": "develop",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13017,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/UserLAnd",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 43099,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/CCR-WORLD",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 424,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/firecrawl-mcp-server",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 6038,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/HappyMods",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 73,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenCodeEnterprise",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 276,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/unity-mcp",
+      "branch": "beta",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 45259,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/USB-Uncensored-LLM",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 158,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/pocketpal-ai",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 51476,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/elevenlabs-js",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 11596,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agent",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 7968,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Claude-Code-Game-Studios",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1639,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/krypton-byte.github.io",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1697,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TaskingAI",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 17147,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/claude-code-android",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2818,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OmniVideoBench",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 287001,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OmniVideo-100K",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4696,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/pjproject-archive",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 42491,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/honcho",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 26036,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/CamRaptor",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 117,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-MCP2",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 182023,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/actions",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 122,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/getbelmo",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 106,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hermes-mobile",
+      "branch": "dev",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5157,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ID-Xbox-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 33,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/simplex-chat",
+      "branch": "stable",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 453028,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/citibank-van",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 322,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/eSIM-Tools",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 26761,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/awesome-voip",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 71,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/High-Delivery-Non-VoIP-Numbers-for-Telegram-WhatsApp-Google-OTP",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 9,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/suno-cli",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 541,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Ghost",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 413,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/gsm-sip-bridge",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 7240,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mdas_mongodb",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1637,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/maid",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 78340,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/MyGirlGPT",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5095,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/JieMa_2025",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 12,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenMontage",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 76452,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agentic-ai-hack",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3327,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/create-railway",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 56,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/MahaTTS",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 98,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agents-voice",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 32735,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/electron-builder",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 182372,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/deep-research-agent",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 164,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/wda-photo-agent",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 38,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Prawda-czy-wyzwanie",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 83,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/volatility-attributeht",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 140,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/awesome-free-llm-apis",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 350,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ODYN-Diffusion-Android",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 108,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/strykerapp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 16946,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ToolNeuron",
+      "branch": "re-write",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1019414,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/graph-of-thoughts",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 15026,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/terraform-aws-mongodb",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 584,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/bulk-email-scraper",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/sipdroid",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5424,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Low-Code-No-Code-Platforms",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1799,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/PixelVision8",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 11947,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenLLM",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 42806,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/RNGeesus",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1380,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AgentGPT",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 84687,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-InputSystem",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 30514,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/JARVIS-Omega-Infinity",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 346,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Cinematic-Agents",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 27,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Longview-Philanthropy-Grant",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 99,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TorBot",
+      "branch": "dev",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 14460,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/PornHubBot",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2968,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/PornHub",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 81,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/client-sdk-swift",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5320,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/oxproxion",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 16689,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TTS-WebUI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 37419,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/work-companion-pro",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 416,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AI-Email-Generator",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 18,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ChatDev",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 381817,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OmniVoice",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1187,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Detroit-Become-Human-Randomizer",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 510,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mcpo",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 327,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/DesktopCommanderMCP",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 74087,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mobile-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4046,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mcp-toolbox",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1439400,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-Timeline",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 30970,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Alibaba-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 128,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TrueRandomNumberGenerator",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 42,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/local-llms-on-android",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 129641,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/PhoneClaw",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 132525,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ComfyUI-LTXVideo",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13135,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Duix-Mobile",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 397996,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/graphify",
+      "branch": "v8",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 11795,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/bark",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2641,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/homebrew-engram",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/system-prompts-and-models-of-ai-tools",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1343,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/elevenlabs-n8n",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 252,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mars",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 38755,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/n8n-nodes-futureagi",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 847,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/gpt_mobile",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 10704,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/tart",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 18653,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-Terrain",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 31021,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/omega7-messenger",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 307,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/google-analytics-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 122,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agents",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 5783,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/plugin",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 526,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/unity",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4107,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/desktop-tutorial",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 0,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/duix-skills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 16177,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/lume",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 133455,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Box",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 90316,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ai-email-generator-2",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 209,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mailtm_client",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 190,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mcp-server-phone",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 595,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/HunyuanVideo-I2V",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 153052,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SExtractor",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 90777,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/malware-1",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 585395,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unreal-AI-PCG",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 78,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Email-Generation",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 8,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/chathub",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4962,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AutoAgent",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 171320,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Resolver-Stable-Diffusion-Client-for-android",
+      "branch": "dev",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 13066,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/secret-pie-adult-edition-unlocked",
+      "branch": "branch",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Cz-owiek-Roku",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4259,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/elevenlabs-swift-sdk",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1097,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Stable-Diffusion-KMP",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 81910,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Build-Low-Code-No-Code-Machine-Learning-Web-App.",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 175,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/autopentest-ai",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 10359,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/DorkAgent",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 792,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Decepticon",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 310111,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Codex-Android",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 249,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/awesome-selfhosted",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 17385,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/book-to-skill",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2717,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Awesome-Serverless-Visual-Workflow-Orchestration",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 34,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/git-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 30803,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/virtual-girlfriend",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 10049,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/xtempmail",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 7214,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Stable-Diffusion-3.5-Web-UI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 37,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ACE-Step-1.5",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 14300,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Fellowship-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 84,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/base44-platform-starter",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 825,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agent-learning-kit",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 54799,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Bug-Bounty-Agents",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 247,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ride-voice-agent",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 157,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Heavy-Rain",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 293,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/github-mcp-server",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 57148,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-ProBuilder",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 37400,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Agent-God-Level-Omega",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1996,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/pegasus-one",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 17,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Kalynt",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 8975,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Nebius-x-NVIDIA-Global-AI-Hackathon",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 75,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/lucidrag",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 167828,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/traceAI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 52482,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agent-opt",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 44665,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/VoIP-Spoofing-Research",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 26,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/story-generator",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 305,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/godot-orchestrator",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 10205,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/PornHub.bundle",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2093,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/git-patch-viewer",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 306,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/graphiti",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 15603,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/elevenlabs-mcp-player",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 207,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/L3MON",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 29969,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/skills-phone",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 79,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Duix-Avatar",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 98909,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/SillyTavern",
+      "branch": "release",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 215405,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OpenDevin",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 22804,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OmniMAS-Advanced",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 41,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Cieszyn-Fight",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 0,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/pangolin",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 92902,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unreal-AI-Template",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 90,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/virtual-phone",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 25928,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/simulate-sdk",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 96869,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/activepieces",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 708613,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agent-framework",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 141029,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/elevenlabs-android",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 759,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Qwen2.5-Sex",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 53,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/perplexicapp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 1763,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/openchakra",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 3825,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/tiktok-downloader",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2776,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TempMailBot",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 20,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/cs3-phisher-modded",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 73191,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/santamonica",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 9658,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agentskills",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 782,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/substrate",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 37516,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/mcp-context-forge",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 458846,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AI-Game-Dev-CLI-Core",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 666,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Taluxi-Open-Source",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 6255,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/AI-Resume-Optimizer",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 107350,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hmdm-android",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 4205,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/hmdm-docker",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 39,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/nsfw_data_scraper",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 8472,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/open_nsfw_android",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 193636,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/CzatBotSingularity",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 0,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Feng-Grants",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 0,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/scoop-bucket",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Private-couples-experience",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 10,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/fdroidserver",
+      "branch": "master",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 38748,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-Splines",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 30892,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/TARS",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 2282,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/OnlineSimBot",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 31,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/dgm",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 8954,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/agy-claude-plugin",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 10,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/My-project-2",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 100,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/ui",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 19059,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/sugar-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 251,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Giant-Music-Transformer",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 16537,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/MCQ-Generator-Using-Langchain-and-OpenAI",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 142,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Uncensored-Local-AI-Multiplatform",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 413,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/notebooklm-mcp",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 60,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/codex",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 674248,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    },
+    {
+      "repository": "mojealterego/Unity-AI-Tilemap",
+      "branch": "main",
+      "visibility": "public",
+      "archived": false,
+      "size_kb": 30515,
+      "owner": "mojealterego",
+      "source": "github-connected-search"
+    }
+  ]
+}
