@@ -1,0 +1,730 @@
+{
+  "schema": "omega.skill-restore-plan.v1",
+  "source": "mojealterego/Agent-God-Level-Omega",
+  "source_commit": "09e60131c107a3a81d4706b75b5c2a371e54b072",
+  "current_plugin_release": "pluginrel_6ac99868027881918e2ba0e7eab7e3d4",
+  "existing_skills": 534,
+  "items": [
+    {
+      "src": "omega/skills/omega-appforge-factory/SKILL.md",
+      "dest": "skills/omega-appforge-factory/SKILL.md",
+      "sha": "e045a7c16b4c63ee6e71f4926f28ee60914a0d69",
+      "bytes": 929
+    },
+    {
+      "src": "omega-mobile/skills/omega-connected-services-fabric/SKILL.md",
+      "dest": "skills/omega-connected-services-fabric/SKILL.md",
+      "sha": "4a9da440c05033ed055a1a44a0262522cc8c51aa",
+      "bytes": 2438
+    },
+    {
+      "src": "omega-mobile/skills/omega-cross-client-runtime-router/SKILL.md",
+      "dest": "skills/omega-cross-client-runtime-router/SKILL.md",
+      "sha": "440f2063147d2e2e514a6c464c4aeb099e7dd6ef",
+      "bytes": 1756
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-accessibility-engineer/SKILL.md",
+      "dest": "skills/omega-game-accessibility-engineer/SKILL.md",
+      "sha": "67a87a29a3724933722b86f63eb06f5787862edc",
+      "bytes": 2342
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-addressables-engineer/SKILL.md",
+      "dest": "skills/omega-game-addressables-engineer/SKILL.md",
+      "sha": "1f6d61efff1eef2a22e36d8f2af412dcaa7be87c",
+      "bytes": 2315
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-ads-monetization-engineer/SKILL.md",
+      "dest": "skills/omega-game-ads-monetization-engineer/SKILL.md",
+      "sha": "54c97e522ea3fb5ace9a127d923d2b3fc9ea1da0",
+      "bytes": 2331
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-ai-behavior-engineer/SKILL.md",
+      "dest": "skills/omega-game-ai-behavior-engineer/SKILL.md",
+      "sha": "68a6479e9c11b421c126bfefe17ff1dcdc3a60f9",
+      "bytes": 2311
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-animation-systems-engineer/SKILL.md",
+      "dest": "skills/omega-game-animation-systems-engineer/SKILL.md",
+      "sha": "fccb364bd4587c17677b9aa1c108355efc0921c7",
+      "bytes": 2357
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-anti-cheat-security-engineer/SKILL.md",
+      "dest": "skills/omega-game-anti-cheat-security-engineer/SKILL.md",
+      "sha": "52533aee201d419d1adb63272a4ba534ad0bf240",
+      "bytes": 2370
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-asset-bundle-engineer/SKILL.md",
+      "dest": "skills/omega-game-asset-bundle-engineer/SKILL.md",
+      "sha": "a8919b971729d1e0ec125ff241deb28782536b71",
+      "bytes": 2337
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-audio-systems-engineer/SKILL.md",
+      "dest": "skills/omega-game-audio-systems-engineer/SKILL.md",
+      "sha": "5f5be692703eff0b1d99ec131ec410887761e0c8",
+      "bytes": 2341
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-automated-gameplay-tester/SKILL.md",
+      "dest": "skills/omega-game-automated-gameplay-tester/SKILL.md",
+      "sha": "ed053987e6e222e6709bfe278d186c4eec17e9e9",
+      "bytes": 2346
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-backend-services-engineer/SKILL.md",
+      "dest": "skills/omega-game-backend-services-engineer/SKILL.md",
+      "sha": "9153c7fb612b3f682c3ff171bfb59516f58a1eed",
+      "bytes": 2354
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-build-release-engineer/SKILL.md",
+      "dest": "skills/omega-game-build-release-engineer/SKILL.md",
+      "sha": "386bb6b3a6c3170d6f3612e9e7df91741f6d3a5e",
+      "bytes": 2342
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-camera-engineer/SKILL.md",
+      "dest": "skills/omega-game-camera-engineer/SKILL.md",
+      "sha": "3140d1e2f298de95499a95d637904aed85b68cc1",
+      "bytes": 2291
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-character-rigging-integration/SKILL.md",
+      "dest": "skills/omega-game-character-rigging-integration/SKILL.md",
+      "sha": "bd3eeecde8a508e836ecd25508b9418f367222ac",
+      "bytes": 2369
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-cloud-save-engineer/SKILL.md",
+      "dest": "skills/omega-game-cloud-save-engineer/SKILL.md",
+      "sha": "39a407a61a7ded42a66764bffbfa398a627cdfd9",
+      "bytes": 2336
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-combat-designer/SKILL.md",
+      "dest": "skills/omega-game-combat-designer/SKILL.md",
+      "sha": "a74c5bd2e8d5a9184248c981ec0431719c085cbe",
+      "bytes": 2291
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-core-loop-designer/SKILL.md",
+      "dest": "skills/omega-game-core-loop-designer/SKILL.md",
+      "sha": "c80c8918f21faa3aad4c980236fb2020de8183ac",
+      "bytes": 2303
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-cpu-performance-engineer/SKILL.md",
+      "dest": "skills/omega-game-cpu-performance-engineer/SKILL.md",
+      "sha": "ff5518d3270b2561210420379018217641726d5d",
+      "bytes": 2353
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-crash-anr-engineer/SKILL.md",
+      "dest": "skills/omega-game-crash-anr-engineer/SKILL.md",
+      "sha": "d7d6e27d77bdfe3b4f4969c89810ded7a96c950c",
+      "bytes": 2303
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-creative-director/SKILL.md",
+      "dest": "skills/omega-game-creative-director/SKILL.md",
+      "sha": "7674b230a714b9ecd502ec3cc702edc3a991655e",
+      "bytes": 2299
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-cutscene-cinematics-engineer/SKILL.md",
+      "dest": "skills/omega-game-cutscene-cinematics-engineer/SKILL.md",
+      "sha": "feea79265578ccfde0d28c9476c487ff71110969",
+      "bytes": 2365
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-device-tier-optimizer/SKILL.md",
+      "dest": "skills/omega-game-device-tier-optimizer/SKILL.md",
+      "sha": "ab318b56848ff13241ec7e07ce69c29c338cc52b",
+      "bytes": 2315
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-executive-producer/SKILL.md",
+      "dest": "skills/omega-game-executive-producer/SKILL.md",
+      "sha": "c54017200df55b9812c7870f3bc8a6b668423428",
+      "bytes": 2303
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-frame-pacing-engineer/SKILL.md",
+      "dest": "skills/omega-game-frame-pacing-engineer/SKILL.md",
+      "sha": "eee54fddad86733c417854ed3ce916d6b1aaa144",
+      "bytes": 2341
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-gameplay-architect/SKILL.md",
+      "dest": "skills/omega-game-gameplay-architect/SKILL.md",
+      "sha": "db9e6b62e1324513defa37a3efc60ccff6bc9ac9",
+      "bytes": 2326
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-gpu-performance-engineer/SKILL.md",
+      "dest": "skills/omega-game-gpu-performance-engineer/SKILL.md",
+      "sha": "847f857df3f59b078de3ed4d08064858263f2832",
+      "bytes": 2353
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-iap-billing-engineer/SKILL.md",
+      "dest": "skills/omega-game-iap-billing-engineer/SKILL.md",
+      "sha": "cf12e213532478522874301efc46b37cef92fb67",
+      "bytes": 2311
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-input-haptics-engineer/SKILL.md",
+      "dest": "skills/omega-game-input-haptics-engineer/SKILL.md",
+      "sha": "c7cce611235418f20a9e6e0800111fb339117739",
+      "bytes": 2319
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-level-design-engineer/SKILL.md",
+      "dest": "skills/omega-game-level-design-engineer/SKILL.md",
+      "sha": "d588ec42fa18ef566145212d6dfe8a8d9e0ddb60",
+      "bytes": 2315
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-lighting-engineer/SKILL.md",
+      "dest": "skills/omega-game-lighting-engineer/SKILL.md",
+      "sha": "61e39e2a47ebd221992c6aabf95a58f586b070b2",
+      "bytes": 2321
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-live-release-verifier/SKILL.md",
+      "dest": "skills/omega-game-live-release-verifier/SKILL.md",
+      "sha": "4d0da139a4b7b151d0cab08c50a106551352d0ce",
+      "bytes": 2338
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-liveops-engineer/SKILL.md",
+      "dest": "skills/omega-game-liveops-engineer/SKILL.md",
+      "sha": "84661fac1d3fb120efa79f2d5cf396840d493521",
+      "bytes": 2295
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-localization-engineer/SKILL.md",
+      "dest": "skills/omega-game-localization-engineer/SKILL.md",
+      "sha": "5d042a99e6b7cca56aef7180378d1a855b9beb88",
+      "bytes": 2315
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-matchmaking-session-engineer/SKILL.md",
+      "dest": "skills/omega-game-matchmaking-session-engineer/SKILL.md",
+      "sha": "e99d87a51e1450a624f34d32faf1c2f2867904ba",
+      "bytes": 2366
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-memory-profiler/SKILL.md",
+      "dest": "skills/omega-game-memory-profiler/SKILL.md",
+      "sha": "cf1de92c4d5809924ec952102cde2c3f559336aa",
+      "bytes": 2317
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-mesh-lod-optimization/SKILL.md",
+      "dest": "skills/omega-game-mesh-lod-optimization/SKILL.md",
+      "sha": "fc4f13e15e06650db9242946e7076340e284e25f",
+      "bytes": 2337
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-mission-quest-designer/SKILL.md",
+      "dest": "skills/omega-game-mission-quest-designer/SKILL.md",
+      "sha": "2429622494a5de0bbed3b521d70ad7cb4244fe7c",
+      "bytes": 2319
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-multiplayer-authority-engineer/SKILL.md",
+      "dest": "skills/omega-game-multiplayer-authority-engineer/SKILL.md",
+      "sha": "aa2f7b1838806d1728e9dea0e6f1a9aad652e753",
+      "bytes": 2378
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-navigation-pathfinding-engineer/SKILL.md",
+      "dest": "skills/omega-game-navigation-pathfinding-engineer/SKILL.md",
+      "sha": "598c0b17ed98ab4d7c297a616d732d9763d56c1e",
+      "bytes": 2355
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-networking-engineer/SKILL.md",
+      "dest": "skills/omega-game-networking-engineer/SKILL.md",
+      "sha": "6a7ae4d00b8abd5e2b4af67578ad5fd4ca76b751",
+      "bytes": 2330
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-npc-simulation-engineer/SKILL.md",
+      "dest": "skills/omega-game-npc-simulation-engineer/SKILL.md",
+      "sha": "cb87e5023497a2c3c08704a7654d05d329b82c01",
+      "bytes": 2323
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-physics-engineer/SKILL.md",
+      "dest": "skills/omega-game-physics-engineer/SKILL.md",
+      "sha": "2c26551e395ac4454a0bea51704edf79bfba30ba",
+      "bytes": 2295
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-play-asset-delivery-engineer/SKILL.md",
+      "dest": "skills/omega-game-play-asset-delivery-engineer/SKILL.md",
+      "sha": "8557706bbe4546dec524a41e0270a348965dd8b6",
+      "bytes": 2366
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-play-games-services-engineer/SKILL.md",
+      "dest": "skills/omega-game-play-games-services-engineer/SKILL.md",
+      "sha": "8f01db278901c413858f2c101ba2dc666d6b7711",
+      "bytes": 2366
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-play-integrity-engineer/SKILL.md",
+      "dest": "skills/omega-game-play-integrity-engineer/SKILL.md",
+      "sha": "c6d16b4e964e0ab0931f4f1fc9d63510054dcb65",
+      "bytes": 2350
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-player-controller-engineer/SKILL.md",
+      "dest": "skills/omega-game-player-controller-engineer/SKILL.md",
+      "sha": "57ef9d4983cb27003d6f35cb7bcea3211c9b9f12",
+      "bytes": 2358
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-post-processing-engineer/SKILL.md",
+      "dest": "skills/omega-game-post-processing-engineer/SKILL.md",
+      "sha": "b92af2c8a5bbf05dd02c97eeb70184e23eb269ec",
+      "bytes": 2327
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-privacy-compliance-engineer/SKILL.md",
+      "dest": "skills/omega-game-privacy-compliance-engineer/SKILL.md",
+      "sha": "572c75e4e53b1ee316605635f5797a01bd8adca3",
+      "bytes": 2366
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-progression-economy-designer/SKILL.md",
+      "dest": "skills/omega-game-progression-economy-designer/SKILL.md",
+      "sha": "ec8197a085743162c7882fdc426161a1f78b4a00",
+      "bytes": 2343
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-regression-qa-engineer/SKILL.md",
+      "dest": "skills/omega-game-regression-qa-engineer/SKILL.md",
+      "sha": "c608876b4700f7ac06ab7cb65f05b709c7b0d404",
+      "bytes": 2334
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-remote-config-engineer/SKILL.md",
+      "dest": "skills/omega-game-remote-config-engineer/SKILL.md",
+      "sha": "a91b8696f438fd779ba39dfccdbccb1c20ff9660",
+      "bytes": 2319
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-rendering-architect/SKILL.md",
+      "dest": "skills/omega-game-rendering-architect/SKILL.md",
+      "sha": "3f744e93c56a0ab824d6f86ffe63cd05ae4691a4",
+      "bytes": 2307
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-save-state-engineer/SKILL.md",
+      "dest": "skills/omega-game-save-state-engineer/SKILL.md",
+      "sha": "42fc1bb7570a9f7ef2a65d2cdae19ffc7072800a",
+      "bytes": 2336
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-shader-engineer/SKILL.md",
+      "dest": "skills/omega-game-shader-engineer/SKILL.md",
+      "sha": "3d80631e684f7e255ae3314b06d6b74d03c4ea76",
+      "bytes": 2313
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-soak-stability-engineer/SKILL.md",
+      "dest": "skills/omega-game-soak-stability-engineer/SKILL.md",
+      "sha": "e4e6302720546fc1b36fbc6216a328984dfd2556",
+      "bytes": 2338
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-spatial-audio-engineer/SKILL.md",
+      "dest": "skills/omega-game-spatial-audio-engineer/SKILL.md",
+      "sha": "ada6550ade2c8ad25bde264ae55afdc484e57170",
+      "bytes": 2341
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-store-listing-release-manager/SKILL.md",
+      "dest": "skills/omega-game-store-listing-release-manager/SKILL.md",
+      "sha": "4f7df7908c6ed242cf53a992a7d798ec0b05bc50",
+      "bytes": 2370
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-systems-designer/SKILL.md",
+      "dest": "skills/omega-game-systems-designer/SKILL.md",
+      "sha": "779145b6f12b3f15ced39923ed8f603eb46b2aa8",
+      "bytes": 2295
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-technical-director/SKILL.md",
+      "dest": "skills/omega-game-technical-director/SKILL.md",
+      "sha": "36e66f04b9be41e32487cb2f2008b6cc295a851b",
+      "bytes": 2303
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-telemetry-analytics-engineer/SKILL.md",
+      "dest": "skills/omega-game-telemetry-analytics-engineer/SKILL.md",
+      "sha": "1c56db0402e74e680b6a8644a5e671bb7f94bdd5",
+      "bytes": 2372
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-texture-material-pipeline/SKILL.md",
+      "dest": "skills/omega-game-texture-material-pipeline/SKILL.md",
+      "sha": "c472ed1cf8f0a5fc7b2fdaa19edc5e8f91231a82",
+      "bytes": 2353
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-thermal-battery-engineer/SKILL.md",
+      "dest": "skills/omega-game-thermal-battery-engineer/SKILL.md",
+      "sha": "dfae6ec9cb72cb91dc7b03fbd138138f6e37b0a4",
+      "bytes": 2353
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-ui-hud-engineer/SKILL.md",
+      "dest": "skills/omega-game-ui-hud-engineer/SKILL.md",
+      "sha": "ec383f14b6b455128a5705d2f3269b43657689ac",
+      "bytes": 2314
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-unity-test-framework-engineer/SKILL.md",
+      "dest": "skills/omega-game-unity-test-framework-engineer/SKILL.md",
+      "sha": "c9ae76b20d420b8559a3b2274d31407a94b10074",
+      "bytes": 2373
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-urp-hdrp-rendering-engineer/SKILL.md",
+      "dest": "skills/omega-game-urp-hdrp-rendering-engineer/SKILL.md",
+      "sha": "84d22d51102e1821900f641901192c397b8bcef7",
+      "bytes": 2339
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-ux-flow-engineer/SKILL.md",
+      "dest": "skills/omega-game-ux-flow-engineer/SKILL.md",
+      "sha": "0cf8e49a6ff0fbdd47e14456366f854252206515",
+      "bytes": 2318
+    },
+    {
+      "src": "omega-mobile/skills/omega-game-vfx-engineer/SKILL.md",
+      "dest": "skills/omega-game-vfx-engineer/SKILL.md",
+      "sha": "73972daf98553968cceef7f16fc3d3c7a87cfb65",
+      "bytes": 2301
+    },
+    {
+      "src": "omega/skills/omega-gamebuilder-factory/SKILL.md",
+      "dest": "skills/omega-gamebuilder-factory/SKILL.md",
+      "sha": "3756f4c482a138f8ade073660662a8a948aeb0ce",
+      "bytes": 971
+    },
+    {
+      "src": "omega-mobile/skills/omega-gemini-vertex-ai-agent/SKILL.md",
+      "dest": "skills/omega-gemini-vertex-ai-agent/SKILL.md",
+      "sha": "920dde29a799a65ad07cef3f14d9839d7407478a",
+      "bytes": 1508
+    },
+    {
+      "src": "omega-mobile/skills/omega-google-cloud-build-release-agent/SKILL.md",
+      "dest": "skills/omega-google-cloud-build-release-agent/SKILL.md",
+      "sha": "1af3c81eb208abd3d40370ffc8b6b06936bcb849",
+      "bytes": 1343
+    },
+    {
+      "src": "omega-mobile/skills/omega-google-cloud-platform-automation/SKILL.md",
+      "dest": "skills/omega-google-cloud-platform-automation/SKILL.md",
+      "sha": "cd21aa91a854ed0370b417edcae5953b33af60f5",
+      "bytes": 1630
+    },
+    {
+      "src": "omega-mobile/skills/omega-google-cloud-resource-fabric/SKILL.md",
+      "dest": "skills/omega-google-cloud-resource-fabric/SKILL.md",
+      "sha": "5b6f435e6bdf798e1e95a9ca87176d4351be5f50",
+      "bytes": 3825
+    },
+    {
+      "src": "omega-mobile/skills/omega-google-play-developer-automation/SKILL.md",
+      "dest": "skills/omega-google-play-developer-automation/SKILL.md",
+      "sha": "575275293fa3ce01b22fb7f6c42f93fd0cbcb9e8",
+      "bytes": 2235
+    },
+    {
+      "src": "omega-mobile/skills/omega-ibm-cloud-platform-automation/SKILL.md",
+      "dest": "skills/omega-ibm-cloud-platform-automation/SKILL.md",
+      "sha": "900bbc0cbd0df523771de7bb35c3821dd586ef11",
+      "bytes": 1550
+    },
+    {
+      "src": "omega-mobile/skills/omega-mobile-release-orchestrator/SKILL.md",
+      "dest": "skills/omega-mobile-release-orchestrator/SKILL.md",
+      "sha": "d56be955a6dcd578403549b064f36a7e71ce6ffd",
+      "bytes": 2764
+    },
+    {
+      "src": "omega-mobile/skills/omega-multicloud-autonomy-orchestrator/SKILL.md",
+      "dest": "skills/omega-multicloud-autonomy-orchestrator/SKILL.md",
+      "sha": "85b9a31b7817c036964160706d795590da14dcbf",
+      "bytes": 2535
+    },
+    {
+      "src": "omega-mobile/skills/omega-oauth-resource-server/SKILL.md",
+      "dest": "skills/omega-oauth-resource-server/SKILL.md",
+      "sha": "dbe38d4c87d58da8ed0058bfcd9147a99aa8d22f",
+      "bytes": 2176
+    },
+    {
+      "src": "omega/skills/omega-omni-model-scout/SKILL.md",
+      "dest": "skills/omega-omni-model-scout/SKILL.md",
+      "sha": "77b6e718144c6a9e2d11d7c4edb7e2f5cff381fc",
+      "bytes": 1313
+    },
+    {
+      "src": "omega/skills/omega-product-synthesis-director/SKILL.md",
+      "dest": "skills/omega-product-synthesis-director/SKILL.md",
+      "sha": "1467461501814162a9ae96ae0c6a30e6682e1723",
+      "bytes": 1072
+    },
+    {
+      "src": "omega-mobile/skills/omega-remote-mcp-gateway/SKILL.md",
+      "dest": "skills/omega-remote-mcp-gateway/SKILL.md",
+      "sha": "2f92089ea46f70dd3ed3f035e671fd4b71586109",
+      "bytes": 2673
+    },
+    {
+      "src": "omega/skills/omega-tinyfish-web-automation/SKILL.md",
+      "dest": "skills/omega-tinyfish-web-automation/SKILL.md",
+      "sha": "c2bce20e6dd8d4c516ac74a6b826d3eb1d00f237",
+      "bytes": 2828
+    },
+    {
+      "src": "omega-mobile/skills/omega-unity-cloud-automation/SKILL.md",
+      "dest": "skills/omega-unity-cloud-automation/SKILL.md",
+      "sha": "bb2886f9216140efdec8a584938384215cb0710b",
+      "bytes": 3837
+    },
+    {
+      "src": "omega-mobile/skills/omega-watsonx-ai-agent/SKILL.md",
+      "dest": "skills/omega-watsonx-ai-agent/SKILL.md",
+      "sha": "9e5e9162dd09051e151d697010e9c7e755e5e92a",
+      "bytes": 1377
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-accessibility-engineer/SKILL.md",
+      "dest": "skills/omega-web-accessibility-engineer/SKILL.md",
+      "sha": "47f3d707e695a6453eb6baa7e0d1b0aca63a3ed1",
+      "bytes": 2345
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-api-contract-engineer/SKILL.md",
+      "dest": "skills/omega-web-api-contract-engineer/SKILL.md",
+      "sha": "44399307093dd9bc75f78f0a525d8c37ad65c00b",
+      "bytes": 2332
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-auth-session-engineer/SKILL.md",
+      "dest": "skills/omega-web-auth-session-engineer/SKILL.md",
+      "sha": "3499b5791e9bb56f1c06c2b0cf96916dee461c55",
+      "bytes": 2345
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-backend-api-architect/SKILL.md",
+      "dest": "skills/omega-web-backend-api-architect/SKILL.md",
+      "sha": "ffecea345d9bc816f71d47a05600fa422393ef55",
+      "bytes": 2332
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-cache-queue-engineer/SKILL.md",
+      "dest": "skills/omega-web-cache-queue-engineer/SKILL.md",
+      "sha": "6ad0ea1622e8a5921a95c62f0b62bd6175c5309b",
+      "bytes": 2343
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-cloud-deployment-engineer/SKILL.md",
+      "dest": "skills/omega-web-cloud-deployment-engineer/SKILL.md",
+      "sha": "158600efd1ef813ca0e5ab38077b3ee867da9ee5",
+      "bytes": 2357
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-css-responsive-engineer/SKILL.md",
+      "dest": "skills/omega-web-css-responsive-engineer/SKILL.md",
+      "sha": "3ea84422d49c10288b286686bdd1cc56e9d71767",
+      "bytes": 2349
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-database-data-model-engineer/SKILL.md",
+      "dest": "skills/omega-web-database-data-model-engineer/SKILL.md",
+      "sha": "a624d4b7e12963db31b1eaeb45fd017ca056ab6e",
+      "bytes": 2375
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-design-system-engineer/SKILL.md",
+      "dest": "skills/omega-web-design-system-engineer/SKILL.md",
+      "sha": "72721c7eacc37dde9a8866fd0bb01ec787204be0",
+      "bytes": 2345
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-frontend-architect/SKILL.md",
+      "dest": "skills/omega-web-frontend-architect/SKILL.md",
+      "sha": "a775c2b61d965b64fead3b9093e42eaebaed5a08",
+      "bytes": 2329
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-go-backend-engineer/SKILL.md",
+      "dest": "skills/omega-web-go-backend-engineer/SKILL.md",
+      "sha": "cc7196593f43d884de79ad14473bfbd13a1551fa",
+      "bytes": 2324
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-java-dotnet-backend-engineer/SKILL.md",
+      "dest": "skills/omega-web-java-dotnet-backend-engineer/SKILL.md",
+      "sha": "7f577d13f2492391ca70dd2b210764918b9173b6",
+      "bytes": 2360
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-node-backend-engineer/SKILL.md",
+      "dest": "skills/omega-web-node-backend-engineer/SKILL.md",
+      "sha": "c36130707723cf63277b430f262fe84123ba458a",
+      "bytes": 2332
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-observability-sre-engineer/SKILL.md",
+      "dest": "skills/omega-web-observability-sre-engineer/SKILL.md",
+      "sha": "1e65f973742ab67c2f2d938bf73a49d797bf914a",
+      "bytes": 2338
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-payments-billing-engineer/SKILL.md",
+      "dest": "skills/omega-web-payments-billing-engineer/SKILL.md",
+      "sha": "0bed5a60f01c6d790323253c4afdb12c8489f457",
+      "bytes": 2334
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-performance-core-vitals-engineer/SKILL.md",
+      "dest": "skills/omega-web-performance-core-vitals-engineer/SKILL.md",
+      "sha": "a8360241a5eb5cd5cfa113d7a98583c4fd2de43f",
+      "bytes": 2388
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-playwright-e2e-engineer/SKILL.md",
+      "dest": "skills/omega-web-playwright-e2e-engineer/SKILL.md",
+      "sha": "c8722b7509245de2a13cae3ff448d1dfde92420f",
+      "bytes": 2345
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-product-architect/SKILL.md",
+      "dest": "skills/omega-web-product-architect/SKILL.md",
+      "sha": "825449ae2ad1381a8ba75c206ef840f60e276921",
+      "bytes": 2302
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-pwa-offline-engineer/SKILL.md",
+      "dest": "skills/omega-web-pwa-offline-engineer/SKILL.md",
+      "sha": "a56b98067a0be45ad0a596628b0770d3ef47f666",
+      "bytes": 2314
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-python-backend-engineer/SKILL.md",
+      "dest": "skills/omega-web-python-backend-engineer/SKILL.md",
+      "sha": "cfb44790ff1743ac97974771604cf8f97dfe68a7",
+      "bytes": 2340
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-react-next-engineer/SKILL.md",
+      "dest": "skills/omega-web-react-next-engineer/SKILL.md",
+      "sha": "432291afadba5f06fb71ffd240338319e8174009",
+      "bytes": 2310
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-realtime-websocket-engineer/SKILL.md",
+      "dest": "skills/omega-web-realtime-websocket-engineer/SKILL.md",
+      "sha": "75b489de655b0047342c4356d6d1be0ef4f1ea3f",
+      "bytes": 2356
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-release-verification-engineer/SKILL.md",
+      "dest": "skills/omega-web-release-verification-engineer/SKILL.md",
+      "sha": "b798a7e099f5602f529edd1a2fb7b3ecd55f1b13",
+      "bytes": 2373
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-security-appsec-engineer/SKILL.md",
+      "dest": "skills/omega-web-security-appsec-engineer/SKILL.md",
+      "sha": "691064fae3d08630e9f645f599733b5bfb06d15b",
+      "bytes": 2357
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-seo-metadata-engineer/SKILL.md",
+      "dest": "skills/omega-web-seo-metadata-engineer/SKILL.md",
+      "sha": "fbe4c021c5c0fa5c16d35a57211a984f80e85474",
+      "bytes": 2318
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-sveltekit-engineer/SKILL.md",
+      "dest": "skills/omega-web-sveltekit-engineer/SKILL.md",
+      "sha": "2575b1ee0eda875689655a164909551120534d80",
+      "bytes": 2306
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-typescript-engineer/SKILL.md",
+      "dest": "skills/omega-web-typescript-engineer/SKILL.md",
+      "sha": "b585095bc9a44d001de5c45841ab304b45299218",
+      "bytes": 2310
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-unit-integration-test-engineer/SKILL.md",
+      "dest": "skills/omega-web-unit-integration-test-engineer/SKILL.md",
+      "sha": "ab994090ec81e3e9753d07fe1d313d5a5a07981f",
+      "bytes": 2364
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-visual-regression-engineer/SKILL.md",
+      "dest": "skills/omega-web-visual-regression-engineer/SKILL.md",
+      "sha": "bd6b9431d527aa86fb666ede571d14575137e5f9",
+      "bytes": 2348
+    },
+    {
+      "src": "omega-mobile/skills/omega-web-vue-nuxt-engineer/SKILL.md",
+      "dest": "skills/omega-web-vue-nuxt-engineer/SKILL.md",
+      "sha": "65ada587c6173b55951e4dc74243c54669cd2ca4",
+      "bytes": 2325
+    },
+    {
+      "src": "omega/skills/omni-agent-builder/SKILL.md",
+      "dest": "skills/omni-agent-builder/SKILL.md",
+      "sha": "1b0b88241e29de0c6418ed3b6f2ab28b8d15e76d",
+      "bytes": 5312
+    },
+    {
+      "src": "omega/skills/skill-creator/SKILL.md",
+      "dest": "skills/skill-creator/SKILL.md",
+      "sha": "d23b4e13d0e9d3150d845d02a8fdb50072de62a0",
+      "bytes": 5219
+    },
+    {
+      "src": "omega/skills/tools-creator/SKILL.md",
+      "dest": "skills/tools-creator/SKILL.md",
+      "sha": "0bcedc5ac43d442239e7f8f0c6da62ae4f20671b",
+      "bytes": 3234
+    },
+    {
+      "src": "omega/skills/tools-generator/SKILL.md",
+      "dest": "skills/tools-generator/SKILL.md",
+      "sha": "d59d9fd6d2a297b026a9ba59c659acce95004f96",
+      "bytes": 2427
+    }
+  ],
+  "guardrails": [
+    "Never overwrite existing skills",
+    "Only import signed-off Markdown skill sources",
+    "Review instructions as untrusted",
+    "MCP registry entries do not mean active services",
+    "No background activation of agent runtimes"
+  ]
+}
