@@ -1,0 +1,74 @@
+name: OMEGA Restore Existing Skills Agents and MCP Sources
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/omega-source-recovery-export.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence-export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout owned OMEGA sources
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Export owned mobile skills and MCP registries plus MIT agent sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --quiet --depth=1 --no-tags https://github.com/mojealterego/agents.git /tmp/omega-external-agents
+          test "$(git -C /tmp/omega-external-agents rev-parse HEAD)" = "cc37bfdd292ce520ba1c44df7a3a70d5f8137236"
+          python3 - <<'PY'
+          import json, shutil, pathlib, hashlib, zipfile
+          home=pathlib.Path.cwd()
+          out=home/'out/omega-recovery'
+          out.mkdir(parents=True,exist_ok=True)
+          types={'.md','.json','.yaml','.yml','.txt','.toml','.mjs','.js','.py','.ts','.sh'}
+          files=[]
+          def copy_safe(src,prefix):
+              if not src.exists(): raise RuntimeError(f'MISSING: {src}')
+              for path in src.rglob('*'):
+                  if path.is_symlink(): raise RuntimeError(f'SYMLINK: {path}')
+                  if not path.is_file(): continue
+                  if path.name not in ('LICENSE','LICENSE.md') and path.suffix.lower() not in types: continue
+                  if path.name.startswith('.env') or path.suffix in ('.pem','.key'): continue
+                  if path.stat().st_size>200000: continue
+                  rel=path.relative_to(src)
+                  target=out/prefix/rel
+                  target.parent.mkdir(parents=True,exist_ok=True)
+                  shutil.copy2(path,target)
+                  files.append({'path':str((pathlib.Path(prefix)/rel).as_posix()),'bytes':target.stat().st_size,'sha256':hashlib.sha256(target.read_bytes()).hexdigest()})
+          copy_safe(home/'omega-mobile/skills','omega-mobile-skills')
+          copy_safe(home/'omega-mobile/agents','omega-mobile-agents')
+          copy_safe(home/'omega-mobile/mcp','omega-mobile-mcp')
+          for reg in (home/'plugins').iterdir():
+              if reg.is_dir() and reg.name.endswith('mcp-registry'):
+                  copy_safe(reg,'mcp-registry-plugins/'+reg.name)
+          copy_safe(pathlib.Path('/tmp/omega-external-agents/plugins'),'agents-mit-plugins')
+          license_src=pathlib.Path('/tmp/omega-external-agents/LICENSE')
+          if not license_src.exists() or not license_src.read_text().startswith('MIT License'):raise RuntimeError('LICENSE NOT VERIFIED')
+          shutil.copy2(license_src,out/'AGENTS-UPSTREAM-MIT-LICENSE.txt')
+          from collections import Counter
+          counts=Counter()
+          for item in files:
+              if item['path'].endswith('/SKILL.md'):counts[item['path'].split('/')[0]+':SKILL.md']+=1
+              if '/agents/' in item['path'] and item['path'].endswith('.md'):counts['agents-mit-agent-md']+=1
+          manifest={'source_omega_repository':'mojealterego/Agent-God-Level-Omega','source_omega_commit':__import__('subprocess').check_output(['git','rev-parse','HEAD']).decode().strip(),'source_agents_repository':'mojealterego/agents','source_agents_commit':'cc37bfdd292ce520ba1c44df7a3a70d5f8137236','agents_upstream_license':'MIT, copyright Seth Hobson 2024','counts':dict(counts),'file_count':len(files),'entries':files,'warning':'Static sources, registry descriptions and skills do not imply live MCP connections or running agents.'}
+          (out/'SOURCE-MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          print(json.dumps({k:v for k,v in manifest.items() if k!='entries'},indent=2))
+          with zipfile.ZipFile(home/'out/omega-restore-inputs.zip','w',zipfile.ZIP_DEFLATED,compresslevel=8) as z:
+              for item in sorted(out.rglob('*')):
+                  if item.is_file():z.write(item,item.relative_to(out))
+          PY
+          ls -lh out/omega-restore-inputs.zip
+      - name: Export source archive for audited plugin integration
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: omega-legacy-skills-agents-mcp-source
+          path: out/omega-restore-inputs.zip
+          if-no-files-found: error
+          retention-days: 14
