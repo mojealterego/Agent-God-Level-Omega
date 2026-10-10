@@ -10,9 +10,9 @@ spec = importlib.util.spec_from_file_location("rest", "scripts/omega_skill_resto
 rest = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(rest)
 
-CONTENT = b"---\\nname: omega-test-agent\\ndescription: Test agent for deterministic source extraction.\\n---\\n\\n# Test\\nOnly inspect permitted files.\\n"
+CONTENT = b"---\nname: omega-test-agent\ndescription: Test agent for deterministic source extraction.\n---\n\n# Test\nOnly inspect permitted files.\n"
 def blob(b):
-    return hashlib.sha1(b"blob " + str(len(b)).encode() + b"\\0" + b).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(b)).encode() + b"\0" + b).hexdigest()
 
 class RecoveryTests(unittest.TestCase):
     def test_good(self):
