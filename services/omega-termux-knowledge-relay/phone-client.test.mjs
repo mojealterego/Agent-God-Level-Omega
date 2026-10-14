@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
-import { mkdtemp, copyFile, rm, mkdir } from 'node:fs/promises';
+import { mkdtemp, copyFile, rm, mkdir, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve, join } from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
@@ -22,7 +22,26 @@ test('unconfigured knowledge folder does not prevent Termux relay agent starting
     OMEGA_RELAY_URL: 'https://127.0.0.1:9',
     OMEGA_RELAY_AGENT_TOKEN: 'test-agent-token',
   };
-  const child = spawn(process.execPath, [clientFile], { env, stdio: ['ignore', 'pipe', 'pipe'] });
+  // Use a deterministic offline WebSocket transport. A real localhost connection
+  // can close immediately and does not exercise the knowledge-root fallback.
+  const preloader = join(root, 'mock-websocket.mjs');
+  await writeFile(preloader, `
+    class MockWebSocket {
+      static OPEN = 1;
+      constructor() {
+        this.readyState = MockWebSocket.OPEN;
+        this.hold = setInterval(() => {}, 30000);
+        setTimeout(() => this.onopen?.(), 1);
+      }
+      send() {}
+      close() {
+        clearInterval(this.hold);
+        this.onclose?.();
+      }
+    }
+    globalThis.WebSocket = MockWebSocket;
+  `);
+  const child = spawn(process.execPath, ['--import', preloader, clientFile], { env, stdio: ['ignore', 'pipe', 'pipe'] });
   let exited = false;
   let stderr = '';
   child.on('exit', () => { exited = true; });
