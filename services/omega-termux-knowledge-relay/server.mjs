@@ -4,6 +4,7 @@ import { WebSocketServer } from 'ws';
 import { createMcpHandler, McpServer } from '@modelcontextprotocol/server';
 import { toNodeHandler } from '@modelcontextprotocol/node';
 import * as z from 'zod/v4';
+import { startRepoQueueBridge } from './repo-queue.mjs';
 
 const PLUGIN_TOKEN = process.env.OMEGA_RELAY_PLUGIN_TOKEN ?? '';
 const AGENT_TOKEN = process.env.OMEGA_RELAY_AGENT_TOKEN ?? '';
@@ -526,6 +527,10 @@ httpServer.on('upgrade', (req, socket, head) => {
     webSocketServer.emit('connection', ws, req);
   });
 });
+
+// Read-only diagnostics requested by the owner through the linked GitHub main
+// branch. Existing Android agent policies still control every phone operation.
+startRepoQueueBridge({run: phoneRpc});
 
 httpServer.listen(PORT, '0.0.0.0', () => {
   console.log(`OMEGA Termux Knowledge Relay listening on 0.0.0.0:${PORT}`);
