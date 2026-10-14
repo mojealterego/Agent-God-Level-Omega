@@ -1,15 +1,17 @@
 {
-  "id": "ocaf038-openssl-20261014035948",
-  "issuedAt": "2026-10-14T03:59:48.565Z",
+  "id": "ocaf038-install-openssl-20261014040112",
+  "issuedAt": "2026-10-14T04:01:12.236Z",
   "method": "terminal.run",
   "params": {
     "argv": [
-      "openssl",
-      "version"
+      "pkg",
+      "install",
+      "openssl-tool",
+      "-y"
     ],
     "cwd": ".",
-    "sideEffect": "R",
-    "timeoutMs": 10000,
-    "maxOutputBytes": 2048
+    "sideEffect": "L",
+    "timeoutMs": 30000,
+    "maxOutputBytes": 6000
   }
 }
