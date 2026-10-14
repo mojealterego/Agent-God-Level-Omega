@@ -70,6 +70,7 @@ async function grantStatus(now = Date.now()) {
   try {
     const file = await readFile(GRANT_PATH, 'utf8');
     const grant = JSON.parse(file);
+    if (grant.mode === 'persistent-full' && grant.enabled === true) return {armed:true,expiresAt:null,grantMode:'persistent-full'};
     if (grant.mode === 'persistent-readonly' && grant.enabled === true) return {armed:true,expiresAt:null,grantMode:'persistent-readonly'};
     const expiresAt = Number(grant.expiresAt);
     return { armed: Number.isSafeInteger(expiresAt) && expiresAt > now && expiresAt <= now + 15 * 60 * 1000, expiresAt, grantMode:'timed' };
