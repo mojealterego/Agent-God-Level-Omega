@@ -105,8 +105,8 @@ class UpgradeTests(unittest.TestCase):
         self.addCleanup(self.stop_client)
         cfg = self.root / ".config/omega"
         cfg.mkdir(parents=True)
-        (cfg / "relay_url").write_text(RELAY + "\\n")
-        (cfg / "relay_agent_token").write_text("existing-credential\\n")
+        (cfg / "relay_url").write_text(RELAY + "\n")
+        (cfg / "relay_agent_token").write_text("existing-credential\n")
         result = self.run_upgrade("", args=("--permanent-readonly",))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         grant_path = cfg / "relay_terminal_grant.json"
