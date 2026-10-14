@@ -24,7 +24,7 @@ export function validateTask(value, now = Date.now()) {
   if (typeof issuedAt !== 'string') failure('issuedAt');
   const timestamp = Date.parse(issuedAt);
   if (!Number.isFinite(timestamp) || timestamp > now + 60_000 || now - timestamp > 180_000) failure('expired');
-  if (method === 'terminal.status') return {id, method, params:{}};
+  if (method === 'terminal.status' || method === 'knowledge.info') return {id, method, params:{}};
   if (method !== 'terminal.run') failure('method');
   if (!params || !Array.isArray(params.argv) || params.argv.length > 3 ||
       !params.argv.every(x=>typeof x === 'string' && x.length>0 && x.length<=80)) failure('argv');
@@ -35,23 +35,35 @@ export function validateTask(value, now = Date.now()) {
 }
 
 export function createRepoQueueWorker({ fetchTask, run, log = console.log }) {
-  let lastDone = null, busy = false;
+  let lastDone = null, lastRejected = null, busy = false;
   return {
     async tick() {
       if (busy) return;
       busy = true;
+      let raw = null, task = null;
       try {
-        const raw = await fetchTask();
+        raw = await fetchTask();
         if (!raw) return;
-        const task = validateTask(raw);
+        task = validateTask(raw);
         if (task.id === lastDone) return;
         const result = await run(task.method, task.params);
         lastDone = task.id;
-        log('OMEGA_REPO_JOB_RESULT ' + JSON.stringify({id:task.id, ok:true, result}).slice(0,4096));
+        log('OMEGA_REPO_JOB_RESULT ' + JSON.stringify({id:task.id,ok:true,result}).slice(0,4096));
       } catch(error) {
         const msg = String(error?.message || error).slice(0,180);
-        // Keep offline tasks retryable. Invalid/stale tasks never reach phone.
-        if (!msg.startsWith('REPO_JOB_INVALID')) log('OMEGA_REPO_JOB_ERROR ' + msg);
+        if (msg.startsWith('REPO_JOB_INVALID')) {
+          const marker = String(raw?.id ?? 'unknown').slice(0,80)+'|'+msg;
+          if (marker !== lastRejected) {
+            lastRejected = marker;
+            log('OMEGA_REPO_JOB_REJECTED ' + JSON.stringify({id:typeof raw?.id === 'string' ? raw.id.slice(0,80) : null,reason:msg}));
+          }
+        } else if (task && /Remote terminal disabled|TERMINAL_POLICY_DENIED|arm it locally in Termux/i.test(msg)) {
+          lastDone = task.id;
+          log('OMEGA_REPO_JOB_RESULT ' + JSON.stringify({id:task.id,ok:false,error:'consent_required'}));
+        } else {
+          // Transport errors are transient. Keep the task retryable.
+          log('OMEGA_REPO_JOB_ERROR ' + msg);
+        }
       } finally {
         busy = false;
       }
