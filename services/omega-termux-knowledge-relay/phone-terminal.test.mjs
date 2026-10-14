@@ -18,7 +18,7 @@ test('approved package management is classified as local mutation', () => {
   assert.equal(classifyCommand(['pkg', 'install', 'openssl-tool', '-y']), 'L');
 });
 test('blocks shell invocation, sensitive paths and network git operations', () => {
-  for (const argv of [['bash', '-lc', 'id'], ['git', 'push'], ['ls', '/etc'], ['cat', '.config/omega/runtime_api_key'], ['node', '-e', 'console.log(1)\n']]) {
+  for (const argv of [['bash', '-lc', 'id'], ['git', 'push'], ['git', 'branch', '-D', 'main'], ['git', 'remote', 'add', 'bad', 'https://invalid.test'], ['ls', '/etc'], ['pkg', 'install', '--password=secret'], ['cat', '.config/omega/runtime_api_key'], ['node', '-e', 'console.log(1)\n']]) {
     assert.throws(() => classifyCommand(argv), TerminalPolicyError);
   }
 });
