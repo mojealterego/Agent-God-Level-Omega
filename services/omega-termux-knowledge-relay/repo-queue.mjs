@@ -10,6 +10,8 @@ import { classifyCommand } from './phone-terminal.mjs';
 // GitHub main is protected by the repository's own write permissions.
 const SOURCE_URL = 'https://raw.githubusercontent.com/mojealterego/Agent-God-Level-Omega/main/' +
   'services/omega-termux-knowledge-relay/queue/command.json';
+const API_URL = 'https://api.github.com/repos/mojealterego/Agent-God-Level-Omega/contents/' +
+  'services/omega-termux-knowledge-relay/queue/command.json';
 
 const ALLOWED_BINARIES = new Set([
   'pwd','ls','head','tail','wc','stat','sha256sum','git','openssl',
@@ -49,7 +51,8 @@ export function validateTask(value, now = Date.now()) {
 }
 
 export function createRepoQueueWorker({ fetchTask, run, log = console.log }) {
-  let lastDone = null, lastRejected = null, busy = false;
+  const doneIds = new Set();
+  let lastRejected = null, busy = false;
   return {
     async tick() {
       if (busy) return;
@@ -59,7 +62,7 @@ export function createRepoQueueWorker({ fetchTask, run, log = console.log }) {
         raw = await fetchTask();
         if (!raw) return;
         task = validateTask(raw);
-        if (task.id === lastDone) return;
+        if (doneIds.has(task.id)) return;
         const result = await run(task.method, task.params);
         lastDone = task.id;
         log('OMEGA_REPO_JOB_RESULT ' + JSON.stringify({id:task.id,ok:true,result}).slice(0,4096));
@@ -85,23 +88,57 @@ export function createRepoQueueWorker({ fetchTask, run, log = console.log }) {
   };
 }
 
+// GitHub's raw branch edge can serve an old main ref even with cache busting.
+// Cross-check latest contents through the REST API at most 48 times/hour
+// (anonymous public API limit is 60/hour). Prefer the newest issuedAt.
 export function startRepoQueueBridge({run, log=console.log, intervalMs=12000}) {
-  const worker = createRepoQueueWorker({
-    run, log,
+  let lastApiAt = 0;
+  let latestApiTask = null;
+  const jobUrl = SOURCE_URL;
+  async function requestText(url, headers) {
+    const ac = new AbortController();
+    const timeout = setTimeout(()=>ac.abort(),4500);
+    try {
+      const response = await fetch(url, {signal:ac.signal,redirect:'error',
+        cache:'no-store',headers});
+      if(response.status===404) return null;
+      if(!response.ok) throw new Error('github_http_'+response.status);
+      const content=await response.text();
+      if(content.length>5000) throw new Error('github_body_too_large');
+      return content;
+    } finally {clearTimeout(timeout);}
+  }
+  const worker=createRepoQueueWorker({
+    run,log,
     fetchTask:async()=>{
-      const ac=new AbortController();
-      const timeout=setTimeout(()=>ac.abort(), 4500);
+      let rawTask=null, lastError=null;
       try {
-        const response=await fetch(SOURCE_URL+'?t='+Date.now(), {
-          signal:ac.signal, redirect:'error', cache:'no-store',
-          headers:{accept:'application/json', 'user-agent':'omega-relay-repo-jobs/1.0'}
-        });
-        if (response.status===404) return null;
-        if (!response.ok) throw new Error('github_task_fetch_'+response.status);
-        const body=await response.text();
-        if(body.length>2048) throw new Error('github_task_too_large');
-        return JSON.parse(body);
-      } finally {clearTimeout(timeout);}
+        const raw=await requestText(jobUrl+'?nocache='+Date.now(),
+          {accept:'application/json','user-agent':'omega-termux-repo-worker'});
+        if(raw) rawTask=JSON.parse(raw);
+      } catch(e) {lastError=e;}
+      const now=Date.now();
+      if(now-lastApiAt>=75000 || lastApiAt===0){
+        lastApiAt=now;
+        try {
+          const payload=await requestText(API_URL+'?ref=main&nocache='+now,
+            {accept:'application/vnd.github+json','user-agent':'omega-termux-repo-worker',
+             'x-github-api-version':'2022-11-28'});
+          if(payload){
+            const o=JSON.parse(payload);
+            if(o.encoding!=='base64' || typeof o.content!=='string')
+              throw new Error('github_api_invalid_encoding');
+            const json=Buffer.from(o.content.replace(/\\s+/g,''),'base64').toString('utf8');
+            if(json.length>2048) throw new Error('github_api_task_too_large');
+            latestApiTask=JSON.parse(json);
+          }
+        } catch(e) {lastError=e;}
+      }
+      const apiTime=Date.parse(latestApiTask?.issuedAt??'')||0;
+      const rawTime=Date.parse(rawTask?.issuedAt??'')||0;
+      const newest=apiTime>=rawTime ? (latestApiTask??rawTask) : rawTask;
+      if(!newest && lastError) throw lastError;
+      return newest;
     }
   });
   const timer=setInterval(()=>worker.tick(),intervalMs);
