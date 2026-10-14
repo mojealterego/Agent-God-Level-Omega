@@ -2,7 +2,7 @@
 set -euo pipefail
 umask 077
 
-readonly REVISION="d6ed2f96e1fc4b4fc42efa265838a4f5e9854637"
+readonly REVISION="e7c0f24486e789d2c2cdf9307a6e5d425570bcee"
 readonly RAW="https://raw.githubusercontent.com/mojealterego/Agent-God-Level-Omega/${REVISION}"
 readonly INSTALL_DIR="${HOME}/.local/share/omega-knowledge-relay"
 readonly CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/omega"
