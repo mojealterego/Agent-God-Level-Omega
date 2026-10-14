@@ -66,3 +66,16 @@ test('acknowledges device-consent denial without endless retries', async () => {
 test('supports read-only knowledge status without terminal grant', () => {
   assert.equal(validateTask({...good,id:'knowledge-status-001',method:'knowledge.info'}).method,'knowledge.info');
 });
+test('allows scoped local changes with explicit L flag for device-authorized full grant', () => {
+  const t={...good,id:'full-readwrite-001',method:'terminal.run',params:{argv:['pkg','install','openssl-tool','-y'],sideEffect:'L',cwd:'.'}};
+  const parsed=validateTask(t);
+  assert.deepEqual(parsed.params.argv,t.params.argv);
+  assert.equal(parsed.params.sideEffect,'L');
+});
+test('blocks shell launch, parent escape, credentials, and unsafe args before phone', () => {
+  const argvSets=[['sh','-c','echo unsafe'],['bash','-lc','echo unsafe'],['node','-e','console.log(1)'],['ls','../'],['ls','.config/omega/relay_agent_token'],['git','push']];
+  for(const argv of argvSets){
+    assert.throws(()=>validateTask({...good,id:'bad-repo-job-123',method:'terminal.run',params:{argv,sideEffect:'L',cwd:'.'}}));
+  }
+  assert.throws(()=>validateTask({...good,method:'terminal.run',params:{argv:['pwd'],sideEffect:'R',cwd:'../'}}));
+});
