@@ -43,17 +43,27 @@ if (typeof WebSocket !== 'function') {
   throw new Error('This connector requires Termux Node.js with the built-in WebSocket API');
 }
 
-const root = await resolveRoot();
-const knowledge = new PhoneKnowledgeRoot({ root });
+// Terminal tools do not depend on the optional knowledge folder. An unconfigured
+// BAZA WIEDZY must not prevent an otherwise paired phone agent from connecting.
+let knowledge = null;
+try {
+  const root = await resolveRoot();
+  const candidate = new PhoneKnowledgeRoot({ root });
+  await candidate.info();
+  knowledge = candidate;
+} catch {
+  // Status remains queryable. File-specific knowledge calls will fail closed.
+}
+
 const socketUrl = relayUrl.replace(/^http:/, 'ws:').replace(/^https:/, 'wss:').replace(/\/$/, '') + '/agent';
 
 async function dispatch(method, params = {}) {
   switch (method) {
-    case 'knowledge.info': return knowledge.info();
-    case 'knowledge.list': return knowledge.list(params);
-    case 'knowledge.metadata': return knowledge.metadata(params);
-    case 'knowledge.read': return knowledge.read(params);
-    case 'knowledge.search': return knowledge.search(params);
+    case 'knowledge.info': return knowledge ? knowledge.info() : { configured: false, available: false, readOnly: true };
+    case 'knowledge.list': if (!knowledge) throw new Error('BAZA WIEDZY is not configured on this device'); return knowledge.list(params);
+    case 'knowledge.metadata': if (!knowledge) throw new Error('BAZA WIEDZY is not configured on this device'); return knowledge.metadata(params);
+    case 'knowledge.read': if (!knowledge) throw new Error('BAZA WIEDZY is not configured on this device'); return knowledge.read(params);
+    case 'knowledge.search': if (!knowledge) throw new Error('BAZA WIEDZY is not configured on this device'); return knowledge.search(params);
     case 'terminal.status': {
       const terminal = await import('./phone-terminal.mjs');
       return terminal.terminalStatus();
