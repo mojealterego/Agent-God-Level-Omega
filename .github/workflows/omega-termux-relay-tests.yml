@@ -29,4 +29,7 @@ jobs:
           node --check services/omega-termux-knowledge-relay/phone-terminal.mjs
           node --check services/omega-termux-knowledge-relay/phone-terminal-consent.mjs
       - name: Run security and behavior tests
-        run: node --test services/omega-termux-knowledge-relay/phone-terminal.test.mjs
+        run: |
+          node --test services/omega-termux-knowledge-relay/phone-terminal.test.mjs
+          node --test services/omega-termux-knowledge-relay/phone-client.test.mjs
+          python3 services/omega-termux-knowledge-relay/upgrade-phone.test.py
