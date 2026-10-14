@@ -2,7 +2,7 @@
 
 Private HTTPS MCP relay and Android WebSocket agent. Knowledge tools remain read-only.
 The remote terminal requires local consent. Read-only operations support a revocable
-persistent grant without expiry; local modifications require separate timed consent. Prefer the official OpenAI Secure MCP Tunnel
+persistent grant without expiry. Full local modifications may also be authorized by the phone owner with a non-expiring full grant. Prefer the official OpenAI Secure MCP Tunnel
 for broad engineering access.
 
 ## Architecture
@@ -78,3 +78,26 @@ Hosting secrets must remain in Render environment variables:
 Do not commit bearer tokens to Git or portable plugin source. Rotate legacy
 credentials stored in old plugin archives before enabling long-lived remote
 terminal use. The official OAuth-protected Secure MCP Tunnel is preferred.
+
+## Android: one-time non-expiring authorization
+
+After the latest installer has been downloaded ONCE, the phone owner can run
+
+    bash "$HOME/omega-relay-upgrade.sh" --permanent
+
+This grants read and allowed local modification commands without time expiry.
+It remains revocable locally with
+
+    node "$HOME/.local/share/omega-knowledge-relay/phone-terminal-consent.mjs" disable
+
+The remote server cannot silently enable the grant.
+
+## Android ChatGPT execution (without custom mobile MCP exposure)
+
+Write a fresh JSON job with a new ID to the GitHub main-branch queue at
+services/omega-termux-knowledge-relay/queue/command.json.
+Rendered relay polls main, revalidates via GitHub Contents API to avoid CDN staleness,
+and forwards through the already paired WebSocket. Match the exact job ID in
+OMEGA_REPO_JOB_RESULT logs and inspect exitCode, stdout and stderr.
+Only one task should be submitted at a time. Do not place secrets in public GitHub.
+Queue freshness controls replay, not the lifetime of the local grant.
