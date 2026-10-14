@@ -133,8 +133,15 @@ export function startRepoQueueBridge({run, log=console.log, intervalMs=12000}) {
             const json=Buffer.from(o.content.replace(/\s+/g,''),'base64').toString('utf8');
             if(json.length>2048) throw new Error('github_api_task_too_large');
             latestApiTask=JSON.parse(json);
+            log('OMEGA_REPO_API_STATUS '+JSON.stringify({
+              jobId:typeof latestApiTask?.id==='string' ? latestApiTask.id.slice(0,64):null,
+              issuedAt:latestApiTask?.issuedAt??null
+            }));
           }
-        } catch(e) {lastError=e;}
+        } catch(e) {
+          lastError=e;
+          log('OMEGA_REPO_API_ERROR '+String(e?.message||e).slice(0,120));
+        }
       }
       const apiTime=Date.parse(latestApiTask?.issuedAt??'')||0;
       const rawTime=Date.parse(rawTask?.issuedAt??'')||0;
