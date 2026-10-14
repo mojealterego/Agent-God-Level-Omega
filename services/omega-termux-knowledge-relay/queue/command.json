@@ -1,6 +1,15 @@
 {
-  "id": "ocaf038-termux-status-20261014035818",
-  "issuedAt": "2026-10-14T03:58:18.598Z",
-  "method": "terminal.status",
-  "params": {}
+  "id": "ocaf038-openssl-20261014035948",
+  "issuedAt": "2026-10-14T03:59:48.565Z",
+  "method": "terminal.run",
+  "params": {
+    "argv": [
+      "openssl",
+      "version"
+    ],
+    "cwd": ".",
+    "sideEffect": "R",
+    "timeoutMs": 10000,
+    "maxOutputBytes": 2048
+  }
 }
