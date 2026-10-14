@@ -15,7 +15,7 @@ const ALLOWED_BINARIES = new Set([
   'pwd','ls','head','tail','wc','stat','sha256sum','git','openssl',
   'node','python3','npm','pkg','apt','cargo','rustc'
 ]);
-const SENSITIVE = /(^|\\/)(\\.config|\\.ssh|\\.gnupg|\\.aws|\\.npmrc|\\.netrc|relay_agent_token|id_ed25519|runtime_api_key)(\\/|$)|--?(token|password|secret|api[_-]?key|authorization|credential)/i;
+const SENSITIVE = /(^|\/)(\.config|\.ssh|\.gnupg|\.aws|\.npmrc|\.netrc|relay_agent_token|id_ed25519|runtime_api_key)(\/|$)|--?(token|password|secret|api[_-]?key|authorization|credential)/i;
 function failure(msg) { throw new Error('REPO_JOB_INVALID: ' + msg); }
 
 export function validateTask(value, now = Date.now()) {
@@ -28,7 +28,7 @@ export function validateTask(value, now = Date.now()) {
   if (method === 'terminal.status' || method === 'knowledge.info') return {id, method, params:{}};
   if (method !== 'terminal.run') failure('method');
   if (!params || !Array.isArray(params.argv) || params.argv.length < 1 || params.argv.length > 32 ||
-      !params.argv.every(x => typeof x === 'string' && x.length > 0 && x.length <= 512 && !/[\\r\\n\\0]/.test(x))) failure('argv');
+      !params.argv.every(x => typeof x === 'string' && x.length > 0 && x.length <= 512 && !/[\r\n\0]/.test(x))) failure('argv');
   if (!ALLOWED_BINARIES.has(params.argv[0])) failure('executable_not_allowlisted');
   if (params.argv.some(x => SENSITIVE.test(x))) failure('sensitive_argv');
   if (params.argv.slice(1).some(x => x.includes('..') || x.startsWith('/') || x.startsWith('~'))) failure('unsafe_argument_path');
