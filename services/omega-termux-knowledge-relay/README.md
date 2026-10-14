@@ -1,8 +1,8 @@
 # OMEGA Termux Knowledge Relay
 
 Private HTTPS MCP relay and Android WebSocket agent. Knowledge tools remain read-only.
-The remote terminal is **disabled until the user explicitly arms a short-lived
-consent window on their own phone**. Prefer the official OpenAI Secure MCP Tunnel
+The remote terminal requires local consent. Read-only operations support a revocable
+persistent grant without expiry; local modifications require separate timed consent. Prefer the official OpenAI Secure MCP Tunnel
 for broad engineering access.
 
 ## Architecture
