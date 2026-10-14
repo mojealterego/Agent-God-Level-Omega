@@ -40,6 +40,14 @@ all these files on fresh setup. Restart the phone client so its new
 `terminal.*` dispatch becomes available. Do not expose bootstrap or bearer
 tokens through chat, command history, screenshots, or repositories.
 
+For **persistent read-only access without expiry**, run this once on the phone:
+
+```bash
+bash "$HOME/omega-relay-upgrade.sh" --permanent-readonly
+```
+
+This enables only read-classified commands. Local modifications still require separate authorization. Revoke either grant with `disable` below.
+
 Grant a ten-minute local execution window *on the Android device*:
 
 ```bash
@@ -52,7 +60,7 @@ Revoke before expiry with:
 node "$HOME/.local/share/omega-knowledge-relay/phone-terminal-consent.mjs" disable
 ```
 
-Consent lasts 1–15 minutes and is OFF by default. The local grant is stored
+Timed write-consent lasts 1–15 minutes and is OFF by default. Read-only consent may instead be granted persistently once on the phone. The local grant is stored
 under `~/.config/omega/relay_terminal_grant.json` with restrictive permissions.
 Never expose the grant to ChatGPT as a secret or remotely extend it.
 
