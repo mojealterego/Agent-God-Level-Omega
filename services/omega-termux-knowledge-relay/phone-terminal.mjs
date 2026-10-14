@@ -10,8 +10,8 @@ const CONFIG_DIR = process.env.XDG_CONFIG_HOME
 const GRANT_PATH = join(CONFIG_DIR, 'relay_terminal_grant.json');
 const READ_BINARIES = new Set(['pwd', 'ls', 'head', 'tail', 'wc', 'stat', 'sha256sum', 'git', 'openssl']);
 const EXEC_BINARIES = new Set(['pkg', 'apt', 'npm', 'node', 'python3', 'cargo', 'rustc', 'git', 'openssl', 'ls', 'pwd', 'head', 'tail', 'wc', 'stat', 'sha256sum']);
-const GIT_READ = new Set(['status', 'diff', 'log', 'show', 'rev-parse', 'ls-files', 'ls-tree', 'branch', 'remote']);
-const SENSITIVE_ARG = /(^|\/)(\.config|\.ssh|\.gnupg|\.aws|\.npmrc|\.netrc|id_rsa|id_ed25519|relay_agent_token|runtime_api_key)(\/|$)/i;
+const GIT_READ = new Set(['status', 'diff', 'log', 'show', 'rev-parse', 'ls-files', 'ls-tree']);
+const SENSITIVE_ARG = /(^|\/)(\.config|\.ssh|\.gnupg|\.aws|\.npmrc|\.netrc|id_rsa|id_ed25519|relay_agent_token|runtime_api_key)(\/|$)|(^--?(token|password|secret|api[_-]?key|authorization|credential)(=|$))|Bearer\s+[A-Za-z0-9._~+\/=-]{8,}/i;
 const MAX_OUTPUT = 131072;
 
 export class TerminalPolicyError extends Error {
@@ -71,7 +71,7 @@ async function grantStatus(now = Date.now()) {
     const file = await readFile(GRANT_PATH, 'utf8');
     const grant = JSON.parse(file);
     const expiresAt = Number(grant.expiresAt);
-    return { armed: Number.isSafeInteger(expiresAt) && expiresAt > now && expiresAt <= now + 24 * 60 * 60 * 1000, expiresAt };
+    return { armed: Number.isSafeInteger(expiresAt) && expiresAt > now && expiresAt <= now + 15 * 60 * 1000, expiresAt };
   } catch { return { armed: false, expiresAt: null }; }
 }
 
