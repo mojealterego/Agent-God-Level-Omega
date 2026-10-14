@@ -84,14 +84,15 @@ test('does not replay older job IDs after another task has finished', async () =
   const old={...good,id:'first_task_20261014'};
   const newer={...good,id:'second_task_20261014'};
   const tasks=[old,newer,old];
-  let n=0;
+  let n=0, executed=0;
   const worker=createRepoQueueWorker({
     fetchTask:async()=>tasks[Math.min(n++,tasks.length-1)],
-    run:async()=>({ok:true}),
+    run:async()=>{executed++;return {ok:true};},
     log:()=>{}
   });
   await worker.tick();await worker.tick();await worker.tick();
   assert.equal(n,3);
+  assert.equal(executed,2);
   // the worker exposes executed-set behavior through the logger below in real runs;
   // no repeated RPC should occur, even if the CDN returns the first task again.
 });
