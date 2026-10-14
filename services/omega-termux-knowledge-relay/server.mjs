@@ -167,7 +167,26 @@ function buildMcpServer() {
         maxBytesPerFile: z.number().int().min(1024).max(1048576).default(262144)
       }),
       (input) => phoneRpc('knowledge.search', input)
-    )
+    ),
+    omega_terminal_status: readOnlyTool(
+      'Check whether the paired Termux agent supports locally armed argv-only terminal execution.',
+      z.object({}),
+      () => phoneRpc('terminal.status', {})
+    ),
+    omega_terminal_run: {
+      config: {
+        description: 'Execute one allowlisted argv command in the paired Termux workspace only after short-lived on-device consent. No shell, arbitrary paths, network Git mutations, or high-impact commands.',
+        inputSchema: z.object({
+          argv: z.array(z.string().min(1).max(2048)).min(1).max(32),
+          cwd: z.string().default('.'),
+          sideEffect: z.enum(['R', 'L']).default('R'),
+          timeoutMs: z.number().int().min(1).max(120000).default(30000),
+          maxOutputBytes: z.number().int().min(1).max(131072).default(16384)
+        }),
+        annotations: { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false }
+      },
+      handler: async (input) => mcpSuccess(await phoneRpc('terminal.run', input))
+    }
   };
 
   for (const [name, tool] of Object.entries(tools)) {
@@ -255,6 +274,8 @@ termux-setup-storage >/dev/null 2>&1 || true
 mkdir -p "$HOME/.config/omega" "$HOME/.local/share/omega-knowledge-relay"
 chmod 700 "$HOME/.config/omega" "$HOME/.local/share/omega-knowledge-relay"
 curl -fsSL "${rawBase}/services/omega-termux-knowledge-relay/phone-client.mjs" -o "$HOME/.local/share/omega-knowledge-relay/phone-client.mjs"
+curl -fsSL "${rawBase}/services/omega-termux-knowledge-relay/phone-terminal.mjs" -o "$HOME/.local/share/omega-knowledge-relay/phone-terminal.mjs"
+curl -fsSL "${rawBase}/services/omega-termux-knowledge-relay/phone-terminal-consent.mjs" -o "$HOME/.local/share/omega-knowledge-relay/phone-terminal-consent.mjs"
 curl -fsSL "${rawBase}/omega-mobile/mcp/omega-control-plane/src/knowledge/phone-knowledge-root.mjs" -o "$HOME/.local/share/omega-knowledge-relay/phone-knowledge-root.mjs"
 cat > "$HOME/.config/omega/relay_url" <<'OMEGA_RELAY_URL'
 ${origin}
