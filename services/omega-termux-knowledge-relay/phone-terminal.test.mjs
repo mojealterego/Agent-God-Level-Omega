@@ -95,3 +95,5 @@ test('explicit persistent full grant authorizes local mutations without expiry',
   execFileSync(process.execPath,[consent,'disable'],{env:{...process.env,XDG_CONFIG_HOME:tmp}});
   await assert.rejects(terminalRun({argv:['pwd']},{workspaceRoot:tmp}),TerminalPolicyError);
 });
+
+await import('./repo-queue.test.mjs');
