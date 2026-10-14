@@ -2,7 +2,7 @@
 set -euo pipefail
 umask 077
 
-readonly REVISION="e7c0f24486e789d2c2cdf9307a6e5d425570bcee"
+readonly REVISION="89d728e8025baf8bf38959119cf4beb195451bf3"
 readonly RAW="https://raw.githubusercontent.com/mojealterego/Agent-God-Level-Omega/${REVISION}"
 readonly INSTALL_DIR="${HOME}/.local/share/omega-knowledge-relay"
 readonly CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/omega"
@@ -98,11 +98,13 @@ nohup node "${INSTALL_DIR}/phone-client.mjs" > "${INSTALL_DIR}/client.log" 2>&1 
 printf '%s\n' "$!" > "${INSTALL_DIR}/client.pid"
 printf 'OMEGA Termux agent updated and launched. Execution remains disabled by default.\n'
 
-if [ "${1:-}" = '--permanent-readonly' ]; then
+if [ "${1:-}" = '--permanent' ]; then
+  node "${INSTALL_DIR}/phone-terminal-consent.mjs" enable full
+elif [ "${1:-}" = '--permanent-readonly' ]; then
   node "${INSTALL_DIR}/phone-terminal-consent.mjs" enable readonly
 elif [ "${1:-}" = '--arm' ]; then
   node "${INSTALL_DIR}/phone-terminal-consent.mjs" arm "${2:-10}"
 elif [ "$#" -gt 0 ]; then
-  printf 'Usage: bash upgrade-phone.sh [--permanent-readonly | --arm 1..15]\n' >&2
+  printf 'Usage: bash upgrade-phone.sh [--permanent | --permanent-readonly | --arm 1..15]\n' >&2
   exit 2
 fi
