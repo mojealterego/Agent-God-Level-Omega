@@ -50,18 +50,18 @@ test('explicit permanent local grant survives without any expiry timestamp', asy
   const config = join(tmp, 'omega');
   await mkdir(config, {recursive:true});
   const consent = join(import.meta.dirname, 'phone-terminal-consent.mjs');
-  execFileSync(process.execPath, [consent, 'enable', 'persistent'], {
+  execFileSync(process.execPath, [consent, 'enable', 'readonly'], {
     env: {...process.env, XDG_CONFIG_HOME: tmp}
   });
   const grantPath = join(config, 'relay_terminal_grant.json');
   const grant = JSON.parse(await readFile(grantPath, 'utf8'));
-  assert.equal(grant.mode, 'persistent');
+  assert.equal(grant.mode, 'persistent-readonly');
   assert.equal(grant.enabled, true);
   assert.equal(Object.hasOwn(grant, 'expiresAt'), false);
   assert.equal((await stat(grantPath)).mode & 0o777, 0o600);
   const status = await terminalStatus();
   assert.equal(status.armed, true);
-  assert.equal(status.grantMode, 'persistent');
+  assert.equal(status.grantMode, 'persistent-readonly');
   assert.equal(status.expiresAt, null);
   const result = await terminalRun({argv:['pwd'], cwd:'.', sideEffect:'R'}, {workspaceRoot:tmp});
   assert.equal(result.exitCode, 0);
