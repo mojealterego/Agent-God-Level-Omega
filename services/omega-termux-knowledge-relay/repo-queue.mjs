@@ -4,21 +4,18 @@
 //
 // Only fixed read-only diagnostics are accepted here. Other operations must use
 // the authenticated MCP endpoint and existing on-device policy/consent gates.
-// Pin a specific GitHub commit when invoked through the Render connector.
-// GitHub raw's branch edge cache can remain stale after a new task commit.
-const configuredRef = process.env.OMEGA_REPO_QUEUE_REF || 'main';
-const sourceRef = /^[a-f0-9]{40}$/.test(configuredRef) ? configuredRef : 'main';
-const SOURCE_URL =
-  'https://raw.githubusercontent.com/mojealterego/Agent-God-Level-Omega/' + sourceRef + '/' +
+import { classifyCommand } from './phone-terminal.mjs';
+
+// Always read main: a pinned commit silently freezes the queue after one task.
+// GitHub main is protected by the repository's own write permissions.
+const SOURCE_URL = 'https://raw.githubusercontent.com/mojealterego/Agent-God-Level-Omega/main/' +
   'services/omega-termux-knowledge-relay/queue/command.json';
 
-const ALLOWED = new Set([
-  'pwd',
-  'node --version',
-  'python3 --version',
-  'openssl version',
-  'git status --short'
+const ALLOWED_BINARIES = new Set([
+  'pwd','ls','head','tail','wc','stat','sha256sum','git','openssl',
+  'node','python3','npm','pkg','apt','cargo','rustc'
 ]);
+const SENSITIVE = /(^|\\/)(\\.config|\\.ssh|\\.gnupg|\\.aws|\\.npmrc|\\.netrc|relay_agent_token|id_ed25519|runtime_api_key)(\\/|$)|--?(token|password|secret|api[_-]?key|authorization|credential)/i;
 function failure(msg) { throw new Error('REPO_JOB_INVALID: ' + msg); }
 
 export function validateTask(value, now = Date.now()) {
@@ -30,12 +27,25 @@ export function validateTask(value, now = Date.now()) {
   if (!Number.isFinite(timestamp) || timestamp > now + 60_000 || now - timestamp > 180_000) failure('expired');
   if (method === 'terminal.status' || method === 'knowledge.info') return {id, method, params:{}};
   if (method !== 'terminal.run') failure('method');
-  if (!params || !Array.isArray(params.argv) || params.argv.length > 3 ||
-      !params.argv.every(x=>typeof x === 'string' && x.length>0 && x.length<=80)) failure('argv');
-  if (params.sideEffect !== 'R') failure('requires_read_only');
-  if (params.cwd !== undefined && params.cwd !== '.') failure('cwd');
-  if (!ALLOWED.has(params.argv.join(' '))) failure('command_not_on_diagnostics_allowlist');
-  return {id, method, params:{argv:params.argv, sideEffect:'R', cwd:'.', timeoutMs:10000, maxOutputBytes:2048}};
+  if (!params || !Array.isArray(params.argv) || params.argv.length < 1 || params.argv.length > 32 ||
+      !params.argv.every(x => typeof x === 'string' && x.length > 0 && x.length <= 512 && !/[\\r\\n\\0]/.test(x))) failure('argv');
+  if (!ALLOWED_BINARIES.has(params.argv[0])) failure('executable_not_allowlisted');
+  if (params.argv.some(x => SENSITIVE.test(x))) failure('sensitive_argv');
+  if (params.argv.slice(1).some(x => x.includes('..') || x.startsWith('/') || x.startsWith('~'))) failure('unsafe_argument_path');
+  if (params.argv.slice(1).some(x => /^(-e|-p|-c|--eval|--print|--input-type)$/.test(x))) failure('inline_code_forbidden');
+  if (!['R','L'].includes(params.sideEffect)) failure('sideEffect');
+  const cwd = params.cwd ?? '.';
+  if (typeof cwd !== 'string' || cwd.length > 200 || cwd.startsWith('/') || cwd.includes('..') ||
+      cwd.startsWith('~') || SENSITIVE.test(cwd)) failure('cwd');
+  let actualEffect;
+  try { actualEffect = classifyCommand(params.argv); }
+  catch { failure('device_policy_denies_command'); }
+  if (actualEffect !== params.sideEffect) failure('side_effect_mismatch');
+  return {id,method,params:{
+    argv:params.argv,cwd,sideEffect:params.sideEffect,
+    timeoutMs:Math.min(30000, Math.max(1000, Number(params.timeoutMs)||10000)),
+    maxOutputBytes:Math.min(8192,Math.max(256,Number(params.maxOutputBytes)||2048))
+  }};
 }
 
 export function createRepoQueueWorker({ fetchTask, run, log = console.log }) {
