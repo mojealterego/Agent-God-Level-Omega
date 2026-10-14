@@ -6,10 +6,13 @@
 // the authenticated MCP endpoint and existing on-device policy/consent gates.
 import { classifyCommand } from './phone-terminal.mjs';
 
-// Always read main: a pinned commit silently freezes the queue after one task.
-// GitHub main is protected by the repository's own write permissions.
-const SOURCE_URL = 'https://raw.githubusercontent.com/mojealterego/Agent-God-Level-Omega/main/' +
-  'services/omega-termux-knowledge-relay/queue/command.json';
+// When the public GitHub branch edge is stale and GitHub API access is
+// rate limited, the connected Render tool can deploy a specific task commit.
+// Every new task requires a new commit pin; no pin is ever reused.
+const configuredRef=process.env.OMEGA_REPO_QUEUE_REF ?? '';
+const PINNED_COMMIT=/^[a-f0-9]{40}$/.test(configuredRef) ? configuredRef : null;
+const SOURCE_URL = 'https://raw.githubusercontent.com/mojealterego/Agent-God-Level-Omega/' +
+  (PINNED_COMMIT ?? 'main') + '/services/omega-termux-knowledge-relay/queue/command.json';
 const API_URL = 'https://api.github.com/repos/mojealterego/Agent-God-Level-Omega/contents/' +
   'services/omega-termux-knowledge-relay/queue/command.json';
 
@@ -120,7 +123,7 @@ export function startRepoQueueBridge({run, log=console.log, intervalMs=12000}) {
         if(raw) rawTask=JSON.parse(raw);
       } catch(e) {lastError=e;}
       const now=Date.now();
-      if(now-lastApiAt>=75000 || lastApiAt===0){
+      if(!PINNED_COMMIT && (now-lastApiAt>=75000 || lastApiAt===0)){
         lastApiAt=now;
         try {
           const payload=await requestText(API_URL+'?ref=main&nocache='+now,
