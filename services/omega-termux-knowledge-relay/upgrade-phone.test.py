@@ -116,6 +116,17 @@ class UpgradeTests(unittest.TestCase):
         self.assertNotIn("expiresAt", grant)
         self.assertEqual(grant_path.stat().st_mode & 0o777, 0o600)
 
+    def test_explicit_permanent_full_grant_never_expires(self):
+        self.addCleanup(self.stop_client)
+        cfg = self.root / ".config/omega"
+        cfg.mkdir(parents=True)
+        (cfg / "relay_url").write_text(RELAY + "\n")
+        (cfg / "relay_agent_token").write_text("existing-credential\n")
+        result = self.run_upgrade("", args=("--permanent",))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        grant = json.loads((cfg / "relay_terminal_grant.json").read_text())
+        self.assertEqual(grant, {"mode":"persistent-full","enabled":True})
+
     def test_existing_pair_is_preserved(self):
         self.addCleanup(self.stop_client)
         cfg = self.root / ".config/omega"
