@@ -64,7 +64,8 @@ export function createRepoQueueWorker({ fetchTask, run, log = console.log }) {
         task = validateTask(raw);
         if (doneIds.has(task.id)) return;
         const result = await run(task.method, task.params);
-        lastDone = task.id;
+        doneIds.add(task.id);
+        if (doneIds.size > 256) doneIds.delete(doneIds.values().next().value);
         log('OMEGA_REPO_JOB_RESULT ' + JSON.stringify({id:task.id,ok:true,result}).slice(0,4096));
       } catch(error) {
         const msg = String(error?.message || error).slice(0,180);
@@ -75,7 +76,8 @@ export function createRepoQueueWorker({ fetchTask, run, log = console.log }) {
             log('OMEGA_REPO_JOB_REJECTED ' + JSON.stringify({id:typeof raw?.id === 'string' ? raw.id.slice(0,80) : null,reason:msg}));
           }
         } else if (task && /Remote terminal disabled|TERMINAL_POLICY_DENIED|arm it locally in Termux/i.test(msg)) {
-          lastDone = task.id;
+          doneIds.add(task.id);
+        if (doneIds.size > 256) doneIds.delete(doneIds.values().next().value);
           log('OMEGA_REPO_JOB_RESULT ' + JSON.stringify({id:task.id,ok:false,error:'consent_required'}));
         } else {
           // Transport errors are transient. Keep the task retryable.
