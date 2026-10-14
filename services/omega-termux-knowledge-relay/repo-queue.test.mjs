@@ -42,3 +42,27 @@ test('does not mark offline tasks done, so reconnect can retry', async () => {
   await worker.tick();await worker.tick();
   assert.equal(tries,2);
 });
+test('provides explicit receipt for expired task rather than silent rejection', async () => {
+  const bad = {...good, issuedAt:'2020-01-01T00:00:00Z'};
+  const logs=[];
+  const worker=createRepoQueueWorker({
+    fetchTask:async()=>bad, run:async()=>{throw Error('should_not_execute');},
+    log:(entry)=>logs.push(entry)
+  });
+  await worker.tick(); await worker.tick();
+  assert.equal(logs.filter(x=>x.startsWith('OMEGA_REPO_JOB_REJECTED ')).length,1);
+  assert.match(logs[0], /expired/);
+});
+test('acknowledges device-consent denial without endless retries', async () => {
+  const logs=[];
+  let calls=0;
+  const task={...good, id:'android-consent-denied-1',method:'terminal.run',params:{argv:['pwd'],sideEffect:'R'}};
+  const worker=createRepoQueueWorker({fetchTask:async()=>task,run:async()=>{calls++;throw Error('Remote terminal disabled: arm it locally in Termux before use');},log:x=>logs.push(x)});
+  await worker.tick(); await worker.tick();
+  assert.equal(calls,1);
+  assert.match(logs.at(-1), /OMEGA_REPO_JOB_RESULT /);
+  assert.match(logs.at(-1), /consent_required/);
+});
+test('supports read-only knowledge status without terminal grant', () => {
+  assert.equal(validateTask({...good,id:'knowledge-status-001',method:'knowledge.info'}).method,'knowledge.info');
+});
