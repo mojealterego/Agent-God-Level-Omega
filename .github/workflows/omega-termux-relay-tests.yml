@@ -1,0 +1,32 @@
+name: OMEGA Termux Relay Tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'services/omega-termux-knowledge-relay/**'
+      - '.github/workflows/omega-termux-relay-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Set up Node 22
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Syntax checks
+        run: |
+          node --check services/omega-termux-knowledge-relay/server.mjs
+          node --check services/omega-termux-knowledge-relay/phone-client.mjs
+          node --check services/omega-termux-knowledge-relay/phone-terminal.mjs
+          node --check services/omega-termux-knowledge-relay/phone-terminal-consent.mjs
+      - name: Run security and behavior tests
+        run: node --test services/omega-termux-knowledge-relay/phone-terminal.test.mjs
