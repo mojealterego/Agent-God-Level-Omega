@@ -1,4 +1,4 @@
-import { mkdir, writeFile, unlink } from 'node:fs/promises';
+import { mkdir, writeFile, unlink, chmod } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 
@@ -11,7 +11,9 @@ if (action === 'disable') {
   console.log('OMEGA remote terminal: disabled');
 } else if (action === 'enable' && duration === 'readonly') {
   await mkdir(config, { recursive: true, mode: 0o700 });
+  await chmod(config, 0o700);
   await writeFile(path, JSON.stringify({ mode: 'persistent-readonly', enabled: true }) + '\n', { mode: 0o600 });
+  await chmod(path, 0o600);
   console.log('OMEGA: persistent read-only diagnostics enabled; use disable to revoke');
 } else if (action === 'arm') {
   const minutes = Number(duration ?? 10);
@@ -22,6 +24,7 @@ if (action === 'disable') {
     await mkdir(config, { recursive: true, mode: 0o700 });
     const expiresAt = Date.now() + minutes * 60000;
     await writeFile(path, JSON.stringify({ expiresAt }) + '\n', { mode: 0o600 });
+    await chmod(path, 0o600);
     console.log(`OMEGA remote terminal: armed for ${minutes} minutes (expires ${new Date(expiresAt).toISOString()})`);
   }
 } else {
