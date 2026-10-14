@@ -78,3 +78,20 @@ test('unrecognized grant format cannot silently enable permanent access', async 
   await assert.rejects(terminalRun({argv:['pwd']}, {workspaceRoot:tmp}), TerminalPolicyError);
   await unlink(join(config, 'relay_terminal_grant.json'));
 });
+
+test('explicit persistent full grant authorizes local mutations without expiry', async () => {
+  const config = join(tmp, 'omega');
+  const consent = join(import.meta.dirname, 'phone-terminal-consent.mjs');
+  execFileSync(process.execPath, [consent, 'enable', 'full'], {env:{...process.env,XDG_CONFIG_HOME:tmp}});
+  const grant = JSON.parse(await readFile(join(config,'relay_terminal_grant.json'),'utf8'));
+  assert.deepEqual(grant,{mode:'persistent-full',enabled:true});
+  const status = await terminalStatus();
+  assert.equal(status.armed,true);
+  assert.equal(status.grantMode,'persistent-full');
+  assert.equal(status.expiresAt,null);
+  assert.equal(classifyCommand(['pkg','install','openssl-tool','-y']),'L');
+  assert.equal((await terminalRun({argv:['pwd'],sideEffect:'R'}, {workspaceRoot:tmp})).exitCode,0);
+  await assert.rejects(terminalRun({argv:['git','push'],sideEffect:'L'}, {workspaceRoot:tmp}),TerminalPolicyError);
+  execFileSync(process.execPath,[consent,'disable'],{env:{...process.env,XDG_CONFIG_HOME:tmp}});
+  await assert.rejects(terminalRun({argv:['pwd']},{workspaceRoot:tmp}),TerminalPolicyError);
+});
