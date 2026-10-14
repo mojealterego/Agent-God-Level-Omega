@@ -128,7 +128,7 @@ export function startRepoQueueBridge({run, log=console.log, intervalMs=12000}) {
             const o=JSON.parse(payload);
             if(o.encoding!=='base64' || typeof o.content!=='string')
               throw new Error('github_api_invalid_encoding');
-            const json=Buffer.from(o.content.replace(/\\s+/g,''),'base64').toString('utf8');
+            const json=Buffer.from(o.content.replace(/\s+/g,''),'base64').toString('utf8');
             if(json.length>2048) throw new Error('github_api_task_too_large');
             latestApiTask=JSON.parse(json);
           }
