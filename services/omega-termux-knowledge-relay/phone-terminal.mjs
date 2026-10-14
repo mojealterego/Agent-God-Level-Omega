@@ -70,14 +70,15 @@ async function grantStatus(now = Date.now()) {
   try {
     const file = await readFile(GRANT_PATH, 'utf8');
     const grant = JSON.parse(file);
+    if (grant.mode === 'persistent-readonly' && grant.enabled === true) return {armed:true,expiresAt:null,grantMode:'persistent-readonly'};
     const expiresAt = Number(grant.expiresAt);
-    return { armed: Number.isSafeInteger(expiresAt) && expiresAt > now && expiresAt <= now + 15 * 60 * 1000, expiresAt };
+    return { armed: Number.isSafeInteger(expiresAt) && expiresAt > now && expiresAt <= now + 15 * 60 * 1000, expiresAt, grantMode:'timed' };
   } catch { return { armed: false, expiresAt: null }; }
 }
 
 export async function terminalStatus() {
   const grant = await grantStatus();
-  return { available: true, executionRequiresDeviceConsent: true, armed: grant.armed, expiresAt: grant.armed ? new Date(grant.expiresAt).toISOString() : null, mode: 'allowlisted-argv-no-shell', maximumTimeoutMs: 120000 };
+  return { available: true, executionRequiresDeviceConsent: true, armed: grant.armed, expiresAt: grant.armed && grant.expiresAt ? new Date(grant.expiresAt).toISOString() : null, grantMode:grant.armed ? grant.grantMode : 'disabled', mode: 'allowlisted-argv-no-shell', maximumTimeoutMs: 120000 };
 }
 
 export async function terminalRun({ argv, cwd = '.', sideEffect = 'R', timeoutMs = 30000, maxOutputBytes = 16384 } = {}, options = {}) {
@@ -85,6 +86,7 @@ export async function terminalRun({ argv, cwd = '.', sideEffect = 'R', timeoutMs
   if (!['R', 'L'].includes(sideEffect) || (effect === 'L' && sideEffect !== 'L')) throw new TerminalPolicyError('Side-effect classification mismatch');
   const grant = await grantStatus();
   if (!grant.armed) throw new TerminalPolicyError('Remote terminal disabled: arm it locally in Termux before use');
+  if (grant.grantMode === 'persistent-readonly' && effect !== 'R') throw new TerminalPolicyError('Persistent read-only grant refuses local modifications');
   if (!Number.isInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 120000) throw new TerminalPolicyError('Invalid timeoutMs');
   if (!Number.isInteger(maxOutputBytes) || maxOutputBytes < 1 || maxOutputBytes > MAX_OUTPUT) throw new TerminalPolicyError('Invalid maxOutputBytes');
   const root = options.workspaceRoot || process.env.OMEGA_RELAY_WORKSPACE_ROOT || HOME;
