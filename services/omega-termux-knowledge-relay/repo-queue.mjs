@@ -4,8 +4,12 @@
 //
 // Only fixed read-only diagnostics are accepted here. Other operations must use
 // the authenticated MCP endpoint and existing on-device policy/consent gates.
+// Pin a specific GitHub commit when invoked through the Render connector.
+// GitHub raw's branch edge cache can remain stale after a new task commit.
+const configuredRef = process.env.OMEGA_REPO_QUEUE_REF || 'main';
+const sourceRef = /^[a-f0-9]{40}$/.test(configuredRef) ? configuredRef : 'main';
 const SOURCE_URL =
-  'https://raw.githubusercontent.com/mojealterego/Agent-God-Level-Omega/main/' +
+  'https://raw.githubusercontent.com/mojealterego/Agent-God-Level-Omega/' + sourceRef + '/' +
   'services/omega-termux-knowledge-relay/queue/command.json';
 
 const ALLOWED = new Set([
