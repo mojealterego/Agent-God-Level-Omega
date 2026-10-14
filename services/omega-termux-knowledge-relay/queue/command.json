@@ -1,12 +1,6 @@
 {
-  "id": "omega-phone-pwd-20261014-final",
-  "issuedAt": "2026-10-14T03:04:29.787Z",
-  "method": "terminal.run",
-  "params": {
-    "argv": [
-      "pwd"
-    ],
-    "sideEffect": "R",
-    "cwd": "."
-  }
+  "id": "omega-full-status-20261014v1",
+  "issuedAt": "2026-10-14T03:40:33.963Z",
+  "method": "terminal.status",
+  "params": {}
 }
