@@ -101,6 +101,21 @@ class UpgradeTests(unittest.TestCase):
         self.assertFalse((self.root / ".config/omega/relay_agent_token").exists())
         self.assertNotIn("invalid-code", result.stdout + result.stderr)
 
+    def test_existing_pair_persistent_readonly_is_revocable_without_expiry(self):
+        self.addCleanup(self.stop_client)
+        cfg = self.root / ".config/omega"
+        cfg.mkdir(parents=True)
+        (cfg / "relay_url").write_text(RELAY + "\\n")
+        (cfg / "relay_agent_token").write_text("existing-credential\\n")
+        result = self.run_upgrade("", args=("--permanent-readonly",))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        grant_path = cfg / "relay_terminal_grant.json"
+        grant = json.loads(grant_path.read_text())
+        self.assertEqual(grant.get("mode"), "persistent-readonly")
+        self.assertEqual(grant.get("enabled"), True)
+        self.assertNotIn("expiresAt", grant)
+        self.assertEqual(grant_path.stat().st_mode & 0o777, 0o600)
+
     def test_existing_pair_is_preserved(self):
         self.addCleanup(self.stop_client)
         cfg = self.root / ".config/omega"
