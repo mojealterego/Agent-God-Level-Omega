@@ -13,7 +13,7 @@ test('allows bounded read-only diagnostics', () => {
 test('rejects unsafe, expired, or stale operations', () => {
   for (const data of [
     {...good, method:'terminal.run',params:{argv:['sh','-c','pwd'],sideEffect:'R'}},
-    {...good, method:'terminal.run',params:{argv:['npm','install'],sideEffect:'L'}},
+    {...good, method:'terminal.run',params:{argv:['npm','install'],sideEffect:'R'}},
     {...good, method:'terminal.run',params:{argv:['pwd'],sideEffect:'L'}},
     {...good, method:'terminal.run',params:{argv:['pwd'],sideEffect:'R',cwd:'../'}},
     {...good, issuedAt:'2020-01-01T00:00:00Z'},
