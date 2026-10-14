@@ -54,6 +54,14 @@ async function dispatch(method, params = {}) {
     case 'knowledge.metadata': return knowledge.metadata(params);
     case 'knowledge.read': return knowledge.read(params);
     case 'knowledge.search': return knowledge.search(params);
+    case 'terminal.status': {
+      const terminal = await import('./phone-terminal.mjs');
+      return terminal.terminalStatus();
+    }
+    case 'terminal.run': {
+      const terminal = await import('./phone-terminal.mjs');
+      return terminal.terminalRun(params);
+    }
     default: throw new Error(`Unsupported relay method: ${method}`);
   }
 }
