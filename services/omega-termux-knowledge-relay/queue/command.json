@@ -1,6 +1,14 @@
 {
-  "id": "omega-android-pin-status-20261014a",
-  "issuedAt": "2026-10-14T03:50:28.355Z",
-  "method": "terminal.status",
-  "params": {}
+  "id": "omega-full-pwd-20261014last",
+  "issuedAt": "2026-10-14T03:53:39.930Z",
+  "method": "terminal.run",
+  "params": {
+    "argv": [
+      "pwd"
+    ],
+    "sideEffect": "R",
+    "cwd": ".",
+    "timeoutMs": 10000,
+    "maxOutputBytes": 2048
+  }
 }
