@@ -15,6 +15,12 @@ if (action === 'disable') {
   await writeFile(path, JSON.stringify({ mode: 'persistent-readonly', enabled: true }) + '\n', { mode: 0o600 });
   await chmod(path, 0o600);
   console.log('OMEGA: persistent read-only diagnostics enabled; use disable to revoke');
+} else if (action === 'enable' && duration === 'full') {
+  await mkdir(config, {recursive:true,mode:0o700});
+  await chmod(config,0o700);
+  await writeFile(path,JSON.stringify({mode:'persistent-full',enabled:true})+'\n',{mode:0o600});
+  await chmod(path,0o600);
+  console.log('OMEGA: persistent full allowlisted terminal enabled. Disable locally to revoke.');
 } else if (action === 'arm') {
   const minutes = Number(duration ?? 10);
   if (!Number.isInteger(minutes) || minutes < 1 || minutes > 15) {
@@ -28,6 +34,6 @@ if (action === 'disable') {
     console.log(`OMEGA remote terminal: armed for ${minutes} minutes (expires ${new Date(expiresAt).toISOString()})`);
   }
 } else {
-  console.log('Usage: node phone-terminal-consent.mjs enable readonly | arm [1..15] | disable');
+  console.log('Usage: node phone-terminal-consent.mjs enable readonly | enable full | arm [1..15] | disable');
   process.exitCode = 2;
 }
