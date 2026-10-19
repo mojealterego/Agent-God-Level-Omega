@@ -1,0 +1,66 @@
+{
+  "format": "omega.project.v1",
+  "spec": {
+    "kind": "web",
+    "slug": "omega-workbench",
+    "title": "OMEGA Engineering Workbench PWA",
+    "description": "Mobile-first offline engineering workbench with a local-first queue, dark visual system, server-side proxy architecture, and verified integration test suite.",
+    "accent": "#00e5ff"
+  },
+  "files": [
+    {
+      "name": "README.md",
+      "sha256": "e07c80b8aa647492ea2f23a1eea8c584c4ebd155624f743ccdadbe97db1ee2d8"
+    },
+    {
+      "name": "app.mjs",
+      "sha256": "b9747087d1f6e40fc710f64e21216855da7498c2f025f4dc90cead5f5e341a3e"
+    },
+    {
+      "name": "core.mjs",
+      "sha256": "dd8a645da9a51ee07f3efb9a6e51f8ee8829837e109da4b8bb3f8dddc726a7b7"
+    },
+    {
+      "name": "core.test.mjs",
+      "sha256": "947a8258767d81620b841253e920845de53f1a8c8475ad0c0c9a87c5b748ce34"
+    },
+    {
+      "name": "icon-192.png",
+      "sha256": "d1429820cb0d922eb33decd701a016e4cb1a754bd3dc2319a4e9b2e33676b7cd"
+    },
+    {
+      "name": "icon-512.png",
+      "sha256": "5283e796f37b2ccde2b1eba001cf69e5f499219adeeab1947d87a9f9088de08c"
+    },
+    {
+      "name": "index.html",
+      "sha256": "849b3dc040e7b5c45aaa2ec9680172625dfcba48fd2957be9d62bac63b1727f9"
+    },
+    {
+      "name": "manifest.webmanifest",
+      "sha256": "e5e3feb32cf640a3bd1fc1ea3f08fe1a8b1b58ec52d8dccc7d132dfc12aa21ca"
+    },
+    {
+      "name": "package.json",
+      "sha256": "588bdf979b68bb82c36102fde8c2831d4ba9da18ae5d4be9ff83def5a52cd7c8"
+    },
+    {
+      "name": "server.mjs",
+      "sha256": "c98bb5beed1284ef5ec0231d39f2b4c83bdb9864c65c86cb769686df57324d0e"
+    },
+    {
+      "name": "server.test.mjs",
+      "sha256": "df658ce454dcb31274d1e5fb55886b98438a4d4bac4b602607e1720386cbc857"
+    },
+    {
+      "name": "style.css",
+      "sha256": "6da3b90a045ab13aefac44fe56551c42db55ecb047408502082132e66c21c357"
+    },
+    {
+      "name": "sw.js",
+      "sha256": "b9b24e5d96dbddec181198b91845ab9c27fe1f852d1dbf5b06c85e5a17b36829"
+    }
+  ],
+  "verifiedBuild": false,
+  "verifiedAndroidApk": false
+}
