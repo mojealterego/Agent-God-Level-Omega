@@ -1,0 +1,18 @@
+{
+  "schema": "omega.engineering-evidence.v1",
+  "task": 32,
+  "language": "py",
+  "kind": "source-and-tests",
+  "sha256": {
+    "source": "87348ae443ba5a1adc8879476cd3a98dcfe710ba39aecc3e3af73537937dd453",
+    "tests": "2e8f80a1200ad946ae52a9303e0f7b4218305db110329d0ba5b70627d1a76e0e"
+  },
+  "state": "TESTED_QA_PASS",
+  "verified": true,
+  "runId": "37988733029",
+  "modelCalls": 3,
+  "sandbox": "Docker network-disabled read-only unprivileged",
+  "testsExitCode": 0,
+  "qaDecision": "PASS",
+  "qaFindings": "The implementation correctly leverages dict.fromkeys for O(N) order-preserving deduplication of hashable items in Python 3.12. All unit tests passed. Minor note: unhashable elements (e.g., lists/dicts within the iterable) will raise TypeError as expected per typing."
+}
