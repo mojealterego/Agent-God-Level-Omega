@@ -1,0 +1,21 @@
+{
+  "schema": "omega.project-run.v1",
+  "issue": 24,
+  "runId": "37984492403",
+  "kind": "android",
+  "slug": "omega-native-build",
+  "modelCalls": 3,
+  "sourceRoot": "experiments/omega-projects/issue-24-omega-native-build",
+  "files": 8,
+  "validation": {
+    "status": "ANDROID_SOURCE_READY_APK_UNVERIFIED",
+    "pass": true,
+    "command": "static manifest check",
+    "apkVerified": false,
+    "exitCode": 0,
+    "log": "Android native source and manifest generated. APK not built."
+  },
+  "qaSummary": "**QA Review: OMEGA Canvas Physics Engine**\n\n**Status:** INCOMPLETE / NOT FULLY VERIFIED (`ANDROID_SOURCE_READY_APK_UNVERIFIED`)\n\n**Evaluation:**\n* **Static Source & Manifest Check:** PASSED (`exitCode: 0`). Native Android source code and manifest are in place.\n* **APK & Build Verification:** FAILED / NOT EXECUTED (`apkVerified: false`).\n\n**Missing Checks & Identified Gaps:**\n1. **Compilation & Build Execution:** The full Android Gradle build using JDK 17, Gradle 8.9, AGP 8.7.3, and Android SDK API 35 has not been executed to completion.\n2. **Debug APK Artifact:** No debug APK was built or verified.\n3. **SHA-256 Checksum Verification:** Generation and logging of the real APK's SHA-256 hash are missing.\n4. **Artifact Upload:** Debug APK artifact upload to GitHub Actions is unverified.\n\n**Conclusion:**\nPer strict verification protocols, APK build validation and runtime performance cannot be claimed because `apkVerified` is `false`. The source files are ready, but the project requires a verified, zero-exit-code Gradle assembly to achieve full build certification.",
+  "requiresHumanReview": true,
+  "merged": false
+}
