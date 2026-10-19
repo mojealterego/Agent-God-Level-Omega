@@ -1,0 +1,66 @@
+{
+  "format": "omega.project.v1",
+  "spec": {
+    "kind": "game",
+    "slug": "omega-touch-runner",
+    "title": "Omega Leap: 2D Canvas Jumper",
+    "description": "A lightweight responsive 2D canvas jumper PWA with deterministic fixed-step physics, touch and keyboard controls, offline service worker, and local high score tracking.",
+    "accent": "#f97316"
+  },
+  "files": [
+    {
+      "name": "README.md",
+      "sha256": "9ba290bcb5816c7b15de6a69e2c372075ff7597e11b600ed1a3199dc0b4d236e"
+    },
+    {
+      "name": "game.mjs",
+      "sha256": "c0b70d8b1ceed0c162223d5b2f78a4120665feef1039d2b40247ce95a064d20d"
+    },
+    {
+      "name": "icon-192.png",
+      "sha256": "9a327fc6e3785c6545fe749d874b61ab8172e0560305bba79a959b0e0effd419"
+    },
+    {
+      "name": "icon-512.png",
+      "sha256": "e920721862d400d89ce56b4d53d1acbd02ef7ee2cfe3b41f2e9745959df7f011"
+    },
+    {
+      "name": "index.html",
+      "sha256": "a7aa4c958468459b1c4d001eb45d5a18f6b79d992801b6ad3d5b68b4f31d6b75"
+    },
+    {
+      "name": "manifest.webmanifest",
+      "sha256": "d4a17d409a975bef2b16792e14e4aa0701823e3258faf53a50a9029f6c35281a"
+    },
+    {
+      "name": "package.json",
+      "sha256": "d72164fb5ae04ac25dffaeda9c75d7e96def163e8641e51daccd1bacb70769c3"
+    },
+    {
+      "name": "physics.mjs",
+      "sha256": "2dd847f13ccebc608aa2fb850e4de4f34d9f05a92f5e97fea0856e4fa9f7b016"
+    },
+    {
+      "name": "physics.test.mjs",
+      "sha256": "740f07eef835d3d9f471d0f701c7ee2072ca87a56820505ea2beba1228f1eece"
+    },
+    {
+      "name": "server.mjs",
+      "sha256": "c98bb5beed1284ef5ec0231d39f2b4c83bdb9864c65c86cb769686df57324d0e"
+    },
+    {
+      "name": "server.test.mjs",
+      "sha256": "e2bcfb22266dc9c5b16d7eb60ca34b583e5bacd35c78ff7cf2deeb2aa711ee67"
+    },
+    {
+      "name": "style.css",
+      "sha256": "a4f788c714e909893e66d245b07b3675cfcfe4e97be4aa897a7a8bfc73b95d65"
+    },
+    {
+      "name": "sw.js",
+      "sha256": "efc0a93beebb7c14b43c8b80f1ce3e238b1c3a53580d1d310e479ed87a5cb628"
+    }
+  ],
+  "verifiedBuild": false,
+  "verifiedAndroidApk": false
+}

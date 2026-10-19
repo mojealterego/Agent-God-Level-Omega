@@ -1,0 +1,23 @@
+{
+  "name": "Omega Leap: 2D Canvas Jumper",
+  "short_name": "Omega Leap: 2D Canvas ",
+  "description": "A lightweight responsive 2D canvas jumper PWA with deterministic fixed-step physics, touch and keyboard controls, offline service worker, and local high score tracking.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080b18",
+  "theme_color": "#080b18",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
