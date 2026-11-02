@@ -1,17 +1,6 @@
 {
-  "id": "ocaf038-install-openssl-20261014040112",
-  "issuedAt": "2026-10-14T04:01:12.236Z",
-  "method": "terminal.run",
-  "params": {
-    "argv": [
-      "pkg",
-      "install",
-      "openssl-tool",
-      "-y"
-    ],
-    "cwd": ".",
-    "sideEffect": "L",
-    "timeoutMs": 30000,
-    "maxOutputBytes": 6000
-  }
+  "id": "ocg-mobile-status-20261102184752",
+  "issuedAt": "2026-11-02T18:47:52.564Z",
+  "method": "terminal.status",
+  "params": {}
 }
